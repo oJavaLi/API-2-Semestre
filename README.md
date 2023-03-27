@@ -84,7 +84,7 @@ Tecnologias Utilizadas<br id=c>
     <td>Ana Flávia</td>
     <td>Product Owner</td>
     <td><a href="https://github.com/anadamascenos">Github</a></td>
-    <td><a href="">Linked-In</a></td>
+    <td><a href="https://www.linkedin.com/in/anadamascenos/">Linked-In</a></td>
   </tr>
     <tr>
     <td>Cauana</td>
@@ -102,7 +102,7 @@ Tecnologias Utilizadas<br id=c>
     <td>Jhonny</td>
     <td>Desenvolvedor</td>
     <td><a href="https://github.com/dutrajy">Github</a></td>
-    <td><a href="">Linked-In</a></td>
+    <td><a href="https://www.linkedin.com/in/jnydutra/">Linked-In</a></td>
   </tr>
     <tr>
     <td>Marcelo</td>
@@ -114,7 +114,7 @@ Tecnologias Utilizadas<br id=c>
     <td>Ryan</td>
     <td>Desenvolvedor</td>
     <td><a href="https://github.com/ryanlanziloti">Github</a></td>
-    <td><a href="">Linked-In</a></td>
+    <td><a href="https://www.linkedin.com/in/ryan-lanziloti-de-faria-teixeira-67a38822b/">Linked-In</a></td>
   </tr>
   
  
