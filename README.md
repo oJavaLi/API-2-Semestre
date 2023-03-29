@@ -1,17 +1,17 @@
 
 
 ![WhatsApp_Image_2023-03-29_at_19 23 34-removebg-preview](https://user-images.githubusercontent.com/77700346/228681780-58e41d77-c02a-48f2-b03c-e537662b23c0.png)
-
 <br id="topo">
 <h1 align="center"> Full Mad Agilists</h1>
 <p align="center">
 • <a href ="#d"> Empresa Parceira </a>
 • <a href ="#f"> O Projeto </a>
 • <a href ="#a"> Backlog do Produto </a>
-• <a href ="#b"> Datas de Entregas </a> 
+• <a href ="#b"> Datas </a> 
 • <a href ="#c"> Tecnologias Utilizadas </a>
 • <a href ="#e"> Aplicação </a>
 • <a href ="#h"> Gráfico Burndown </a>
+• <a href ="#m"> MER </a>
 • <a href ="#g"> Equipe </a>
 </p>
 <h3 align="center"> Projeto Integrador FATEC 2023.1</h3>
@@ -64,17 +64,26 @@ Tecnologias Utilizadas<br id=c>
 </h2>
 
 ![Badge](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
+
 
 <h2>
 Aplicação<br id=e>
 </h2>
 
 
-<h2>
-Gráfico Burndown<br id=h>
-</h2>
+<details>
+<summary><h2> Gráfico Burndown </h2> <br id=h></summary>
+<br>
+</details>
+<details>
+<summary><h2> Modelo Entidade-Relacionamento (MER) </h2> <br id=m></summary>
+<br>
+<img src="https://imgur.com/a/4cmSK40">
 
-
+</details>
 
 <h2>Equipe<br id=g></h2>
 
@@ -107,7 +116,7 @@ Gráfico Burndown<br id=h>
     <td>Felipe</td>
     <td>Desenvolvedor</td>
     <td><a href="https://github.com/flpcsr">Github</a></td>
-    <td><a href=""></a></td>
+    <td><a href="https://www.linkedin.com/in/felipe-cesar-3b79938a">Linked-In</a></td>
   </tr>
   <tr>
     <td>Jhonny</td>
