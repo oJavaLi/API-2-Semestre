@@ -1,16 +1,17 @@
 
 
+![WhatsApp_Image_2023-03-29_at_19 23 34-removebg-preview](https://user-images.githubusercontent.com/77700346/228681780-58e41d77-c02a-48f2-b03c-e537662b23c0.png)
 
-![About (2)](https://user-images.githubusercontent.com/77700346/227822859-7c4bc58e-7258-4a12-a570-ca6832b9429d.png)
 <br id="topo">
 <h1 align="center"> Full Mad Agilists</h1>
 <p align="center">
+• <a href ="#d"> Empresa Parceira </a>
+• <a href ="#f"> O Projeto </a>
 • <a href ="#a"> Backlog do Produto </a>
 • <a href ="#b"> Datas de Entregas </a> 
 • <a href ="#c"> Tecnologias Utilizadas </a>
-• <a href ="#d"> Backlog das Sprints </a>
-• <a href ="#f"> Aplicação </a>
-• <a href ="#e"> Tutorial </a>
+• <a href ="#e"> Aplicação </a>
+• <a href ="#h"> Gráfico Burndown </a>
 • <a href ="#g"> Equipe </a>
 </p>
 <h3 align="center"> Projeto Integrador FATEC 2023.1</h3>
@@ -18,13 +19,13 @@
 
 <h2>
 Empresa parceira - 2RP Net
-</h2>
+<br id=d></h2>
 
 A 2RP Net disponibiliza soluções para análise de informações em tempo real para tomada de decisões de negócios que precisam atender requisitos de tempo extremamente rigorosos. Nossas soluções inovadoras e customizadas, assim como nossos serviços, permitem o crescimento do seu negócio e de seus resultados.
 
 <h2>
 Sobre o Projeto
-</h2>
+<br id=f></h2>
 
 ![About (7)](https://user-images.githubusercontent.com/77700346/227825218-9093bff6-c929-46df-9240-821861bd76da.png)
 
@@ -64,6 +65,16 @@ Tecnologias Utilizadas<br id=c>
 
 ![Badge](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
+<h2>
+Aplicação<br id=e>
+</h2>
+
+
+<h2>
+Gráfico Burndown<br id=h>
+</h2>
+
+
 
 <h2>Equipe<br id=g></h2>
 
@@ -78,7 +89,7 @@ Tecnologias Utilizadas<br id=c>
     <td>Alessandra</td>
     <td>Desenvolvedora</td>
     <td><a href="https://github.com/Alemoreira-00">Github</a></td>
-    <td><a href=""></a></td>
+    <td><a href="https://www.linkedin.com/in/alessandra-moreira-780b76183">Linked-In</a></td>
   </tr>
   <tr>
     <td>Ana Flávia</td>
@@ -108,7 +119,7 @@ Tecnologias Utilizadas<br id=c>
     <td>Marcelo</td>
     <td>Desenvolvedor</td>
     <td><a href="https://github.com/Marcelofbd">Github</a></td>
-    <td><a href="">Linked-In</a></td>
+    <td><a href="https://www.linkedin.com/in/marcelofbd">Linked-In</a></td>
   </tr>
   <tr>
     <td>Ryan</td>
