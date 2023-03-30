@@ -79,9 +79,13 @@ Aplicação<br id=e>
 <br>
 </details>
 <details>
+ 
 <summary><h2> Modelo Entidade-Relacionamento (MER) </h2> <br id=m></summary>
 <br>
-<img src="https://imgur.com/a/4cmSK40">
+<img src="">
+ 
+ ![Modelagem conceitual](https://user-images.githubusercontent.com/77700346/228700337-e729f943-f8e4-4cc4-bb01-8571be3f8728.jpg)
+
 
 </details>
 
