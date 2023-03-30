@@ -77,14 +77,18 @@ Aplicação<br id=e>
 <details>
 <summary><h2> Gráfico Burndown </h2> <br id=h></summary>
 <br>
+ <img >
+ 
+ ![burndown](https://user-images.githubusercontent.com/77700346/228703826-0ac94c3a-b5bb-42ce-86df-ca5973588fab.jpg)
+
 </details>
 <details>
  
 <summary><h2> Modelo Entidade-Relacionamento (MER) </h2> <br id=m></summary>
 <br>
-<img src="">
+<img>
  
- ![Modelagem conceitual](https://user-images.githubusercontent.com/77700346/228700337-e729f943-f8e4-4cc4-bb01-8571be3f8728.jpg)
+ ![Modelagem conceitual](https://user-images.githubusercontent.com/77700346/228703259-6c289327-48ff-44ba-8616-2081abdd5546.jpg)
 
 
 </details>
