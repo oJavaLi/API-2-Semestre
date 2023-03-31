@@ -11,7 +11,7 @@
 • <a href ="#c"> Tecnologias Utilizadas </a>
 • <a href ="#e"> Aplicação </a>
 • <a href ="#h"> Gráfico Burndown </a>
-• <a href ="#m"> MER </a>
+• <a href ="#m"> DER </a>
 • <a href ="#g"> Equipe </a>
 </p>
 <h3 align="center"> Projeto Integrador FATEC 2023.1</h3>
@@ -90,11 +90,11 @@ Aplicação<br id=e>
 </details>
 <details>
  
-<summary><h2> Modelo Entidade-Relacionamento (MER) </h2> <br id=m></summary>
+<summary><h2> Diagrama Entidade-Relacionamento (DER) </h2> <br id=m></summary>
 <br>
 <img>
  
- ![Modelagem conceitual](https://user-images.githubusercontent.com/77700346/228703259-6c289327-48ff-44ba-8616-2081abdd5546.jpg)
+![diagrama_API_BD](https://user-images.githubusercontent.com/77700346/229154660-7ee5f34b-75ef-4011-b9f9-f5aeb3e4b9ee.png)
 
 
 </details>
