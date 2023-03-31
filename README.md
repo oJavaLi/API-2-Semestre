@@ -11,7 +11,6 @@
 • <a href ="#c"> Tecnologias Utilizadas </a>
 • <a href ="#e"> Aplicação </a>
 • <a href ="#h"> Gráfico Burndown </a>
-• <a href ="#m"> DER </a>
 • <a href ="#g"> Equipe </a>
 </p>
 <h3 align="center"> Projeto Integrador FATEC 2023.1</h3>
