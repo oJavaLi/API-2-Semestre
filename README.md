@@ -35,17 +35,15 @@ Sobre o Projeto
 
 |           Task             | Importância|
 |:---------------------------------:|:----------:|
-|Como usuário administrador, eu gostaria de ter a permissão de criar e gerenciar contas de usuário com diferentes níveis de acesso, para que eu possa controlar quem tem acesso a quais recursos do sistema.|Alta|
-|Como usuário gestor, eu gostaria de ter a permissão de criar e gerenciar projetos e tarefas atribuídas a colaboradores, para que eu possa monitorar o progresso e o desempenho da equipe.|Alta|
-|Como usuário colaborador, eu gostaria de ter a permissão de visualizar e atualizar tarefas atribuídas a mim, para que eu possa cumprir minhas responsabilidades dentro do projeto.|Alta|
-|Como um usuário, eu quero ser capaz de inserir meu nome de usuário e senha para autenticar minha conta.|Alta|
-|Como um funcionário, eu quero ser capaz de lançar as hora excedentes trabalhadas, o cliente, o CR , projeto, solicitante e justificativa|Alta|
-|Como um gestor, eu quero ser capaz de visualizar as horas extras submetidas por cada funcionário, para que eu possa revisar essas horas extras e tomar uma decisão de aprovação ou rejeição.|Alta|
-|Como funcionário eu quero ser capaz de selecionar se as horas excedentes trabalhadas são horas extras ou horas de disponibilidade.|Alta|
-|Como RH, eu quero ser capaz de extrair um relatório csv de todos os colaboradores com as horas trabalhadas, para que eu possa monitorar o tempo trabalhado pelos funcionários e garantir que estejam em conformidade com as políticas de horas da empresa.|Alta|
-|Como um gerente de RH, eu quero ser capaz de visualizar todas as horas submetidas pelos funcionários para revisão, para que eu possa verificar as horas trabalhadas pelos funcionários.|Alta|
-|Como um gerente de RH, eu quero ser capaz de acessar um dashboard em tempo real que me permita monitorar as horas extras executadas pelos colaboradores, para que eu possa tomar decisões informadas sobre o gerenciamento de horas extras.|Alta|
-|Como um colaborador, eu quero ser capaz de visualizar informações sobre as minhas próprias horas extras executadas no dashboard, para que eu possa acompanhar o meu próprio tempo trabalhado e garantir que esteja em conformidade com as políticas de horas da empresa.|Alta|
+|Como RH, eu gostaria de ter a permissão de criar e gerenciar contas de um usuário com diferentes níveis de acesso, para poder cadastrar os funcionários em segurança no meu sistema.|7|
+|Como um colaborador gostaria de ter um sistema onde consiga ser capaz de lançar todas as informações sobre horas excedentes trabalhadas, para poder ser pago.|1|
+|Como um gestor, eu quero ser capaz de visualizar os apontamentos submetidos pelo meu CR, para que eu possa revisar a carga trabalhada para submeter a pagamento.|3|
+|Como gestor, eu quero ser capaz de aprovar ou rejeitar as horas trabalhadas garantir não ter qualquer erro ou inconsistência no lançamento e fazer pagamento correto aos colaboradores.|4|
+|Como colaborador eu quero ser capaz de diferenciar horas extra de sobreaviso para controlar melhor meu tempo de trabalho e ter pagamento adequado.|2|
+|Como um RH, eu quero ser capaz de visualizar os apontamentos submetidos por cada funcionário, para que eu possa revisar a carga trabalhada para submeter a pagamento.|5|
+|Como RH, eu quero ser capaz de aprovar ou rejeitar as horas trabalhadas garantir não ter qualquer erro ou inconsistência no lançamento e fazer pagamento correto aos colaboradores.|6|
+|Como RH, eu quero ser capaz de acessar um dashboard em tempo real que me permita monitorar as horas extras executadas pelos colaboradores, para acompanhar horas trabalhadas de acordo com as necessidades do CR|9|
+|Como um colaborador, eu quero ser capaz de visualizar informações sobre as minhas próprias horas extras executadas no dashboard, para ter maior controle das horas aprovadas/ reprovadas e pagamento adequado.|8|
 
 <h2>
 Datas de Entregas<br id=b>
@@ -76,13 +74,19 @@ Aplicação<br id=e>
 <details>
 <summary><h2> Sprint 1 </h2> <br id=h></summary>
 <br>
- 
-<summary><h2> Diagrama Entidade-Relacionamento (DER) </h2> <br id=m></summary>
-<br>
-<img>
- 
+<summary><h2> Fluxo de telas do colaborador </h2></summary>
+
+![FLUXO DO COLABORADOR (1)-1](https://user-images.githubusercontent.com/77700346/229236638-33b61b8c-1ae7-43ee-b646-799ead9e12f1.png)
+
+<summary><h2> Fluxo de telas do administrador </h2></summary>
+
+![FLUXO DO ADMIN (1)-1](https://user-images.githubusercontent.com/77700346/229239844-a6a4e5be-9a65-4c77-acff-3f86aff17a94.png)
+
+<summary><h2> Diagrama Entidade-Relacionamento (DER) </h2></summary>
+
 ![diagrama_API_BD](https://user-images.githubusercontent.com/77700346/229154660-7ee5f34b-75ef-4011-b9f9-f5aeb3e4b9ee.png)
 
+</details>
 </details>
 
 <h2> Gráfico Burndown </h2> <br id=h></summary>
