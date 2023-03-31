@@ -77,6 +77,12 @@ Aplicação<br id=e>
 <details>
 <summary><h2> Sprint 1 </h2> <br id=h></summary>
 <br>
+ 
+<summary><h2> Diagrama Entidade-Relacionamento (DER) </h2> <br id=m></summary>
+<br>
+<img>
+ 
+![diagrama_API_BD](https://user-images.githubusercontent.com/77700346/229154660-7ee5f34b-75ef-4011-b9f9-f5aeb3e4b9ee.png)
 
 </details>
 
@@ -88,16 +94,7 @@ Aplicação<br id=e>
  ![burndown](https://user-images.githubusercontent.com/77700346/228703826-0ac94c3a-b5bb-42ce-86df-ca5973588fab.jpg)
 
 </details>
-<details>
- 
-<summary><h2> Diagrama Entidade-Relacionamento (DER) </h2> <br id=m></summary>
-<br>
-<img>
- 
-![diagrama_API_BD](https://user-images.githubusercontent.com/77700346/229154660-7ee5f34b-75ef-4011-b9f9-f5aeb3e4b9ee.png)
 
-
-</details>
 
 <h2>Equipe<br id=g></h2>
 
