@@ -85,14 +85,12 @@ Aplicação<br id=e>
 
 </details>
 
-<details>
-<summary><h2> Gráfico Burndown </h2> <br id=h></summary>
+<h2> Gráfico Burndown </h2> <br id=h></summary>
 <br>
  <img >
  
  ![burndown](https://user-images.githubusercontent.com/77700346/228703826-0ac94c3a-b5bb-42ce-86df-ca5973588fab.jpg)
 
-</details>
 
 
 <h2>Equipe<br id=g></h2>
