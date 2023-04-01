@@ -9,6 +9,7 @@
 • <a href ="#a"> Backlog do Produto </a>
 • <a href ="#b"> Datas </a> 
 • <a href ="#c"> Tecnologias Utilizadas </a>
+• <a href ="#c"> Entregas por Sprint </a>
 • <a href ="#e"> Aplicação </a>
 • <a href ="#h"> Gráfico Burndown </a>
 • <a href ="#g"> Equipe </a>
@@ -65,7 +66,9 @@ Tecnologias Utilizadas<br id=c>
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
+<h2>Entregas por Sprint<br id=y></h2>
 
+![Site_de_Portfólio_Fotografia_Experimental_Claro_Preto_Cinza__1_-removebg](https://user-images.githubusercontent.com/77700346/229318559-3e59f1eb-3be5-49b8-b990-5ce58e74efc1.png)
 
 <h2>
 Aplicação<br id=e>
