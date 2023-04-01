@@ -68,12 +68,11 @@ Tecnologias Utilizadas<br id=c>
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
 <h2>Entregas por Sprint<br id=y></h2>
 
-![Site_de_Portfólio_Fotografia_Experimental_Claro_Preto_Cinza__1_-removebg](https://user-images.githubusercontent.com/77700346/229318559-3e59f1eb-3be5-49b8-b990-5ce58e74efc1.png)
+![Site_de_Portfólio_Fotografia_Experimental_Claro_Preto_Cinza__2_-removebg](https://user-images.githubusercontent.com/77700346/229319553-35bc15aa-7a80-45a5-bb67-342b8d6fd86b.png)
 
 <h2>
 Aplicação<br id=e>
 </h2>
-
 
 <details>
 <summary><h2> Sprint 1 </h2> <br id=h></summary>
