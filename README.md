@@ -68,7 +68,7 @@ Tecnologias Utilizadas<br id=c>
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
 <h2>Sprint Backlog<br id=y></h2>
 
-![Site_de_Portfólio_Fotografia_Experimental_Claro_Preto_Cinza__2_-removebg](https://user-images.githubusercontent.com/77700346/229319553-35bc15aa-7a80-45a5-bb67-342b8d6fd86b.png)
+![sprint_backlog](https://user-images.githubusercontent.com/77700346/229319787-28698a65-c94b-431c-a9ff-c31e43137310.png)
 
 <h2>
 Aplicação<br id=e>
