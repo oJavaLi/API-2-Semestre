@@ -51,7 +51,7 @@ Datas de Entregas<br id=b>
 </h2>
 
 - [x]  Kick-off - 08/03/2023
-- [ ]  Sprint 01 - 02/04/2023
+- [x]  Sprint 01 - 02/04/2023
 - [ ]  Sprint 02 - 23/04/2023
 - [ ]  Sprint 03 - 14/05/2023
 - [ ]  Sprint 04 - 04/06/2023
