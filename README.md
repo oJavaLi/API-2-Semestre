@@ -85,6 +85,10 @@ Aplicação<br id=e>
 
 ![FLUXO DO ADMIN (1)-1](https://user-images.githubusercontent.com/77700346/229239844-a6a4e5be-9a65-4c77-acff-3f86aff17a94.png)
 
+<summary><h2> Fluxo de telas do gestor </h2></summary>
+
+![FLUXO-DO-GESTOR](https://user-images.githubusercontent.com/107864553/229388061-d03b1876-3069-494f-91e7-824f26a459c4.png)
+
 <summary><h2> Diagrama Entidade-Relacionamento (DER) </h2></summary>
 
 ![diagrama_API_BD](https://user-images.githubusercontent.com/77700346/229154660-7ee5f34b-75ef-4011-b9f9-f5aeb3e4b9ee.png)
