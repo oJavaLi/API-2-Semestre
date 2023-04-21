@@ -121,14 +121,17 @@ public class Login extends javax.swing.JFrame {
         
         for(Usuario u: listaUsuarios){
             if (u.getMatricula() == matriculanumero && u.getSenha().equals(senha)){
+                new TelaApontamentos().setVisible(true);
                 JOptionPane.showMessageDialog(null, "Bem vindo " + u.getNome());
                 logado = true;
-                usuarioLogado = u;
+                usuarioLogado = u; 
+                this.dispose();
             }
         }
         
-        if(!logado){
+        if(!logado){ 
             JOptionPane.showMessageDialog(null, "Credenciais inválidas");
+            
         }
         
         

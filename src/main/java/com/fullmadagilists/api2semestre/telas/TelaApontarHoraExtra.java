@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import java.util.List;
 
@@ -229,10 +230,17 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
 
     private void botaoSubmeterHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterHoraExtraActionPerformed
         // TODO add your handling code here:
-        Apontamentos apontamentos = new Apontamentos(1, "Hora Extra",
-                this.justificativaHoraExtraTextField.getText(), 
-                this.entradaHoraExtraTextField.getText(),
-                this.saidaHoraExtraTextField.getText(), 1, 1);
+        
+        Apontamentos apontamento = new Apontamentos(9, "Hora Extra", 
+            this.entradaHoraExtraTextField.getText(),
+            this.saidaHoraExtraTextField.getText(),
+            this.justificativaHoraExtraTextField.getText(), 
+            this.clienteHoraExtraTextField.getText(),
+            this.projetoHoraExtraTextField.getText(),
+            this.solicitanteHoraExtraTextField.getText(),
+            this.crHoraExtraTextField.getText());
+        
+        cadastrarApontamentos(apontamento);
         
         
     }//GEN-LAST:event_botaoSubmeterHoraExtraActionPerformed

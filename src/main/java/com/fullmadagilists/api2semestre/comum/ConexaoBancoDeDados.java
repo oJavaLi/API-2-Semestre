@@ -91,8 +91,7 @@ public static List<Apontamentos> apontamentos(){
         return listaApontamentos;
     }
 
-public static void cadastrarApontamentos(){  
-    Apontamentos apontamento = new Apontamentos();
+public static void cadastrarApontamentos(Apontamentos apontamento){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String cadApontamentosquery = "insert into database_api.apontamentos(idapontamentos, categoria, data_hora_inicio, \n" +
