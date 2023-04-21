@@ -6,16 +6,11 @@ import java.util.List;
 
 
 public class TelaApontarHoraExtra extends javax.swing.JFrame {
-    List<Apontamentos> apontamentosList;
-    TelaApontamentos telaApontamentos;
-
     /**
      * Creates new form PlacesScreen
      */
 
-    public TelaApontarHoraExtra(List<Apontamentos> apontamentosList, TelaApontamentos telaApontamentos) {
-        this.apontamentosList = apontamentosList;
-        this.telaApontamentos = telaApontamentos;
+    public TelaApontarHoraExtra() {
         initComponents();
     }
 
@@ -239,8 +234,6 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 this.entradaHoraExtraTextField.getText(),
                 this.saidaHoraExtraTextField.getText(), 1, 1);
         
-        this.apontamentosList.add(apontamentos);
-        this.TelaApontamentos.refreshtabelaApontamentos();
         
     }//GEN-LAST:event_botaoSubmeterHoraExtraActionPerformed
 
