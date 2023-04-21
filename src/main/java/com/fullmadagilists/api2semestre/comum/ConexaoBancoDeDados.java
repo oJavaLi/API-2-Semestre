@@ -94,7 +94,7 @@ public static void cadastrarApontamentos(){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String cadApontamentosquery = "insert into database_api.apontamentos(idapontamentos, categoria, data_hora_inicio, \n" +
-                                            "data_hora_fim, justificativa, pk_id_usuario, pk_id_cr) values() ";
+                                            "data_hora_fim, justificativa, cliente, projeto, solicitante, cr) values() ";
             Statement stmt = conexao.createStatement();
             ResultSet resultado = stmt.executeQuery(cadApontamentosquery);
             
