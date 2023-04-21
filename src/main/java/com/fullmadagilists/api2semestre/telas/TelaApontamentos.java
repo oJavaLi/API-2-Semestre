@@ -24,7 +24,6 @@ public class TelaApontamentos extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(1, 32, 64));
@@ -34,10 +33,6 @@ public class TelaApontamentos extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("APONTAMENTOS");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\logo.png")); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\person.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -107,6 +102,11 @@ public class TelaApontamentos extends javax.swing.JFrame {
         botaoSair.setForeground(new java.awt.Color(242, 242, 242));
         botaoSair.setText("SAIR");
         botaoSair.setPreferredSize(new java.awt.Dimension(200, 40));
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSairActionPerformed(evt);
+            }
+        });
         getContentPane().add(botaoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 680, 216, -1));
 
         jButton4.setText("EXCLUIR");
@@ -125,6 +125,11 @@ public class TelaApontamentos extends javax.swing.JFrame {
         TelaApontarSobreAviso sobreAviso = new TelaApontarSobreAviso();
         sobreAviso.setVisible(true);
     }//GEN-LAST:event_botaoApontarSobreAvisoActionPerformed
+
+    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botaoSairActionPerformed
 
     public static void main(String args[]) {
 

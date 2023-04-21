@@ -13,11 +13,12 @@ public class ConexaoBancoDeDados {
     
     public static Connection conector(){
 
-        // Credenciais de acesso banco de dados
+         // Credenciais de acesso banco de dados
         String databaseName = "";
         String databaseUser = "";
         String databasepassword = "";
         String url = "";
+
 
         // caminho do driver
         String driver = "com.mysql.cj.jdbc.Driver";
@@ -72,7 +73,6 @@ public static List<Apontamentos> apontamentos(){
             
             while (resultado.next()){
                 Apontamentos apontamento = new Apontamentos();
-                apontamento.setIdapontamentos(resultado.getInt("idapontamentos"));
                 apontamento.setCategoria(resultado.getString("categoria"));
                 apontamento.setData_hora_inicio(resultado.getString("data_hora_inicio"));
                 apontamento.setData_hora_fim(resultado.getString("data_hora_fim"));
@@ -94,20 +94,18 @@ public static List<Apontamentos> apontamentos(){
 public static void cadastrarApontamentos(Apontamentos apontamento){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "insert into database_api.apontamentos(idapontamentos, categoria, data_hora_inicio, \n" +
-                                            "data_hora_fim, justificativa, cliente, projeto, solicitante, cr) values(?,?,?,?,?,?,?,?,?) ";
+            String cadApontamentosquery = "insert into database_api.apontamentos(categoria, data_hora_inicio, \n" +
+                                            "data_hora_fim, justificativa, cliente, projeto, solicitante, cr) values(?,?,?,?,?,?,?,?) ";
             PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
             
-            
-            stmt1.setInt(1,apontamento.getIdapontamentos());
-            stmt1.setString(2,apontamento.getCategoria());
-            stmt1.setString(3,apontamento.getData_hora_inicio());
-            stmt1.setString(4,apontamento.getData_hora_fim());
-            stmt1.setString(5,apontamento.getJustificativa());
-            stmt1.setString(6,apontamento.getCliente());
-            stmt1.setString(7,apontamento.getProjeto());
-            stmt1.setString(8,apontamento.getSolicitante());
-            stmt1.setString(9,apontamento.getCr());
+            stmt1.setString(1,apontamento.getCategoria());
+            stmt1.setString(2,apontamento.getData_hora_inicio());
+            stmt1.setString(3,apontamento.getData_hora_fim());
+            stmt1.setString(4,apontamento.getJustificativa());
+            stmt1.setString(5,apontamento.getCliente());
+            stmt1.setString(6,apontamento.getProjeto());
+            stmt1.setString(7,apontamento.getSolicitante());
+            stmt1.setString(8,apontamento.getCr());
             
             stmt1.execute();
             
@@ -116,8 +114,6 @@ public static void cadastrarApontamentos(Apontamentos apontamento){
         } 
 
     }
-
-
 }
        
         

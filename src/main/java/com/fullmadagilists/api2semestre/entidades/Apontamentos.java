@@ -4,7 +4,6 @@ package com.fullmadagilists.api2semestre.entidades;
 import java.util.Date;
 
 public class Apontamentos {
-    private int idapontamentos;
     private String categoria;
     private String data_hora_inicio;
     private String data_hora_fim;
@@ -17,8 +16,7 @@ public class Apontamentos {
     public Apontamentos(){
     }
 
-    public Apontamentos(int idapontamentos, String categoria, String data_hora_inicio, String data_hora_fim, String justificativa, String cliente, String projeto, String solicitante, String cr) {
-        this.idapontamentos = idapontamentos;
+    public Apontamentos( String categoria, String data_hora_inicio, String data_hora_fim, String justificativa, String cliente, String projeto, String solicitante, String cr) {
         this.categoria = categoria;
         this.data_hora_inicio = data_hora_inicio;
         this.data_hora_fim = data_hora_fim;
@@ -27,14 +25,6 @@ public class Apontamentos {
         this.projeto = projeto;
         this.solicitante = solicitante;
         this.cr = cr;
-    }
-
-    public int getIdapontamentos() {
-        return idapontamentos;
-    }
-
-    public void setIdapontamentos(int idapontamentos) {
-        this.idapontamentos = idapontamentos;
     }
 
     public String getCategoria() {
