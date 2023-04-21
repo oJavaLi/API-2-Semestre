@@ -4,12 +4,8 @@
  */
 package com.fullmadagilists.api2semestre.telas;
 
-import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
-import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.sql.SQLException;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 /**
  *
@@ -37,9 +33,9 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtNomeUsuario = new javax.swing.JTextField();
         txtSenhaUsuario = new javax.swing.JPasswordField();
+        btnEntrar = new javax.swing.JButton();
         SimboloLogin = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -76,6 +72,18 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtSenhaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, -1, -1));
+
+        btnEntrar.setBackground(new java.awt.Color(152, 204, 255));
+        btnEntrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\pitag\\Documents\\NetBeansProjects\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\Botao Acessar (1).png")); // NOI18N
+        btnEntrar.setBorderPainted(false);
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 482, -1, -1));
+
+        SimboloLogin.setIcon(new javax.swing.ImageIcon("C:\\Users\\pitag\\Documents\\NetBeansProjects\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\Group 6.png")); // NOI18N
         jPanel1.add(SimboloLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 32, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
@@ -83,14 +91,6 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Usuário:");
         jLabel4.setMinimumSize(new java.awt.Dimension(69, 20));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 258, -1, -1));
-
-        jButton1.setText("Logar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, 140, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 850, 820));
 
@@ -101,40 +101,32 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeUsuarioActionPerformed
 
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+       /* try {
+            String nome_usuario, senha_usuario;
+            nome_usuario = txtNomeUsuario.getText();
+            senha_usuario = txtSenhaUsuario.getText();
+            Usuario usuario = new Usuario();
+            usuario.setNome_usuario(nome_usuario);
+            usuario.setSenha_usuario(senha_usuario);
+            
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            ResultSet rsUsuarioDAO = usuarioDAO.autenticacaoUsuario(usuario);
+            
+            if(rsUsuarioDAO.next()){
+                JOptionPane.showMessageDialog(null, "DEU CERTO");
+            }else{
+                JOptionPane.showMessageDialog(null, "DEU ERRO");
+            }
+                
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }*/
+    }//GEN-LAST:event_btnEntrarActionPerformed
+
     private void txtSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaUsuarioActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        List<Usuario> listaUsuarios = ConexaoBancoDeDados.usuarios();
-        String matricula = txtNomeUsuario.getText();
-        int matriculanumero;
-        try{ matriculanumero = Integer.parseInt(matricula);} 
-        catch(NumberFormatException e){matriculanumero = 0;}
-        
-        
-        String senha = txtSenhaUsuario.getText();
-        
-        boolean logado = false;
-        Usuario usuarioLogado = null;
-        
-        for(Usuario u: listaUsuarios){
-            if (u.getMatricula() == matriculanumero && u.getSenha().equals(senha)){
-                JOptionPane.showMessageDialog(null, "Bem vindo " + u.getNome());
-                logado = true;
-                usuarioLogado = u;
-            }
-        }
-        
-        if(!logado){
-            JOptionPane.showMessageDialog(null, "Credenciais inválidas");
-        }
-        
-        
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,7 +135,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SimboloLogin;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnEntrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

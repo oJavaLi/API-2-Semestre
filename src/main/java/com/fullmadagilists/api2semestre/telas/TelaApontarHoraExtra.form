@@ -151,7 +151,7 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="11" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -169,8 +169,18 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\aless\Documents\API-2-Semestre\src\main\java\com\fullmadagilists\api2semestre\telas\imagens\logo.png"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\aless\Documents\API-2-Semestre\src\main\java\com\fullmadagilists\api2semestre\telas\imagens\person.png"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -178,6 +188,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\aless\Documents\API-2-Semestre\src\main\java\com\fullmadagilists\api2semestre\telas\imagens\horario.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Saida:"/>
       </Properties>
@@ -187,6 +200,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\aless\Documents\API-2-Semestre\src\main\java\com\fullmadagilists\api2semestre\telas\imagens\horario.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Entrada:"/>
       </Properties>
     </Component>
@@ -194,6 +210,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\aless\Documents\API-2-Semestre\src\main\java\com\fullmadagilists\api2semestre\telas\imagens\cliente.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cliente:"/>
       </Properties>
@@ -203,6 +222,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\aless\Documents\API-2-Semestre\src\main\java\com\fullmadagilists\api2semestre\telas\imagens\projeto.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Projeto:"/>
       </Properties>
     </Component>
@@ -210,6 +232,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\aless\Documents\API-2-Semestre\src\main\java\com\fullmadagilists\api2semestre\telas\imagens\solicitante.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Solicitante:"/>
       </Properties>
@@ -219,6 +244,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\aless\Documents\API-2-Semestre\src\main\java\com\fullmadagilists\api2semestre\telas\imagens\mensagem.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Justificativa:"/>
       </Properties>
     </Component>
@@ -226,6 +254,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="16" style="0"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\aless\Documents\API-2-Semestre\src\main\java\com\fullmadagilists\api2semestre\telas\imagens\cr.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="CR:"/>
       </Properties>

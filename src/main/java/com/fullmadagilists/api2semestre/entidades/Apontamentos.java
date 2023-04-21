@@ -7,12 +7,12 @@ public class Apontamentos {
     private int idapontamentos;
     private String categoria;
     private String justificativa;
-    private String data_hora_inicio;
-    private String data_hora_fim;
+    private Date data_hora_inicio;
+    private Date data_hora_fim;
     private int id_usuario;
     private int id_cr;
 
-    public Apontamentos(int idapontamentos, String categoria, String justificativa, String data_hora_inicio, String data_hora_fim, int id_usuario, int id_cr) {
+    public Apontamentos(int idapontamentos, String categoria, String justificativa, Date data_hora_inicio, Date data_hora_fim, int id_usuario, int id_cr) {
         this.idapontamentos = idapontamentos;
         this.categoria = categoria;
         this.justificativa = justificativa;
@@ -46,19 +46,19 @@ public class Apontamentos {
         this.justificativa = justificativa;
     }
 
-    public String getData_hora_inicio() {
+    public Date getData_hora_inicio() {
         return data_hora_inicio;
     }
 
-    public void setData_hora_inicio(String data_hora_inicio) {
+    public void setData_hora_inicio(Date data_hora_inicio) {
         this.data_hora_inicio = data_hora_inicio;
     }
 
-    public String getData_hora_fim() {
+    public Date getData_hora_fim() {
         return data_hora_fim;
     }
 
-    public void setData_hora_fim(String data_hora_fim) {
+    public void setData_hora_fim(Date data_hora_fim) {
         this.data_hora_fim = data_hora_fim;
     }
 

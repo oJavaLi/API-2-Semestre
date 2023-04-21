@@ -1,21 +1,11 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
-import com.fullmadagilists.api2semestre.entidades.Apontamentos;
-import java.util.List;
-
 
 public class TelaApontarHoraExtra extends javax.swing.JFrame {
-    List<Apontamentos> apontamentosList;
-    TelaApontamentos telaApontamentos;
 
-    /**
-     * Creates new form PlacesScreen
-     */
 
-    public TelaApontarHoraExtra(List<Apontamentos> apontamentosList, TelaApontamentos telaApontamentos) {
-        this.apontamentosList = apontamentosList;
-        this.telaApontamentos = telaApontamentos;
+    public TelaApontarHoraExtra() {
         initComponents();
     }
 
@@ -234,21 +224,21 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
 
     private void botaoSubmeterHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterHoraExtraActionPerformed
         // TODO add your handling code here:
-        Apontamentos apontamentos = new Apontamentos(1, "Hora Extra",
-                this.justificativaHoraExtraTextField.getText(), 
-                this.entradaHoraExtraTextField.getText(),
-                this.saidaHoraExtraTextField.getText(), 1, 1);
-        
-        this.apontamentosList.add(apontamentos);
-        this.TelaApontamentos.refreshtabelaApontamentos();
-        
     }//GEN-LAST:event_botaoSubmeterHoraExtraActionPerformed
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
-   
+    
+    public static void main(String args[]) {
+      
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaApontarHoraExtra().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelarHoraExtra;
