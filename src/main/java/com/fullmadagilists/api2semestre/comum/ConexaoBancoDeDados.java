@@ -1,4 +1,5 @@
 package com.fullmadagilists.api2semestre.comum;
+import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,10 +13,10 @@ public class ConexaoBancoDeDados {
     public static Connection conector(){
 
        // Credenciais de acesso banco de dados
-        String databaseName = "database_api";
-        String databaseUser = "admin";
-        String databasepassword = "fullmad01";
-        String url = "jdbc:mysql://database-api2.cx8qvm3ytmi7.us-east-2.rds.amazonaws.com:3306/database_api";
+        String databaseName = "";
+        String databaseUser = "";
+        String databasepassword = "";
+        String url = "";
 
         // caminho do driver
         String driver = "com.mysql.cj.jdbc.Driver";
@@ -59,7 +60,65 @@ public class ConexaoBancoDeDados {
         
         return listaUsuarios;
     }
-}
+public static List<Apontamentos> apontamentos(){
+        List<Apontamentos> listaApontamentos = new ArrayList<Apontamentos>();
         
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String apontamentosquery = "select * from apontamentos";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(apontamentosquery);
+            
+            while (resultado.next()){
+                Apontamentos apontamento = new Apontamentos();
+                apontamento.setIdapontamentos(resultado.getInt("idapontamentos"));
+                apontamento.setCategoria(resultado.getString("categoria"));
+                apontamento.setData_hora_inicio(resultado.getString("data_hora_inicio"));
+                apontamento.setData_hora_fim(resultado.getString("data_hora_fim"));
+                apontamento.setJustificativa(resultado.getString("justificativa"));
+                apontamento.setCliente(resultado.getString("cliente"));
+                apontamento.setProjeto(resultado.getString("projeto"));
+                apontamento.setSolicitante(resultado.getString("solicitante"));
+                apontamento.setCr(resultado.getString("cr"));
+                
+                listaApontamentos.add(apontamento);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        } 
+        
+        return listaApontamentos;
+    }
+
+public static void cadastrarApontamentos(){        
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadApontamentosquery = "insert into database_api.apontamentos(idapontamentos, categoria, data_hora_inicio, \n" +
+                                            "data_hora_fim, justificativa, pk_id_usuario, pk_id_cr) values() ";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(cadApontamentosquery);
+            
+            while (resultado.next()){
+                Apontamentos apontamento = new Apontamentos();
+                apontamento.setIdapontamentos(resultado.getInt("idapontamentos"));
+                apontamento.setCategoria(resultado.getString("categoria"));
+                apontamento.setData_hora_inicio(resultado.getString("data_hora_inicio"));
+                apontamento.setData_hora_fim(resultado.getString("data_hora_fim"));
+                apontamento.setJustificativa(resultado.getString("justificativa"));
+                apontamento.setCliente(resultado.getString("cliente"));
+                apontamento.setProjeto(resultado.getString("projeto"));
+                apontamento.setSolicitante(resultado.getString("solicitante"));
+                apontamento.setCr(resultado.getString("cr"));
+                
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        } 
+
+    }
+
+
+}
+       
         
        

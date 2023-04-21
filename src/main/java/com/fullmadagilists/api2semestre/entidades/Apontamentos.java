@@ -6,20 +6,27 @@ import java.util.Date;
 public class Apontamentos {
     private int idapontamentos;
     private String categoria;
-    private String justificativa;
     private String data_hora_inicio;
     private String data_hora_fim;
-    private int id_usuario;
-    private int id_cr;
+    private String justificativa;
+    private String cliente;
+    private String projeto;
+    private String solicitante;
+    private String cr;
 
-    public Apontamentos(int idapontamentos, String categoria, String justificativa, String data_hora_inicio, String data_hora_fim, int id_usuario, int id_cr) {
+    public Apontamentos(){
+    }
+
+    public Apontamentos(int idapontamentos, String categoria, String data_hora_inicio, String data_hora_fim, String justificativa, String cliente, String projeto, String solicitante, String cr) {
         this.idapontamentos = idapontamentos;
         this.categoria = categoria;
-        this.justificativa = justificativa;
         this.data_hora_inicio = data_hora_inicio;
         this.data_hora_fim = data_hora_fim;
-        this.id_usuario = id_usuario;
-        this.id_cr = id_cr;
+        this.justificativa = justificativa;
+        this.cliente = cliente;
+        this.projeto = projeto;
+        this.solicitante = solicitante;
+        this.cr = cr;
     }
 
     public int getIdapontamentos() {
@@ -38,14 +45,6 @@ public class Apontamentos {
         this.categoria = categoria;
     }
 
-    public String getJustificativa() {
-        return justificativa;
-    }
-
-    public void setJustificativa(String justificativa) {
-        this.justificativa = justificativa;
-    }
-
     public String getData_hora_inicio() {
         return data_hora_inicio;
     }
@@ -62,21 +61,44 @@ public class Apontamentos {
         this.data_hora_fim = data_hora_fim;
     }
 
-    public int getId_usuario() {
-        return id_usuario;
+    public String getJustificativa() {
+        return justificativa;
     }
 
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setJustificativa(String justificativa) {
+        this.justificativa = justificativa;
     }
 
-    public int getId_cr() {
-        return id_cr;
+    public String getCliente() {
+        return cliente;
     }
 
-    public void setId_cr(int id_cr) {
-        this.id_cr = id_cr;
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
-    
+
+    public String getProjeto() {
+        return projeto;
+    }
+
+    public void setProjeto(String projeto) {
+        this.projeto = projeto;
+    }
+
+    public String getSolicitante() {
+        return solicitante;
+    }
+
+    public void setSolicitante(String solicitante) {
+        this.solicitante = solicitante;
+    }
+
+    public String getCr() {
+        return cr;
+    }
+
+    public void setCr(String cr) {
+        this.cr = cr;
+    }
     
 }
