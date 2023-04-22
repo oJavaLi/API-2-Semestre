@@ -1,12 +1,52 @@
 package com.fullmadagilists.api2semestre.telas;
 
+import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.apontamentos;
+import com.fullmadagilists.api2semestre.entidades.Apontamentos;
+import java.util.List;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+
+
 
 public class TelaApontamentos extends javax.swing.JFrame {
 
 
     public TelaApontamentos() {
         initComponents();
+        carregarApontamentos();
+
     }
+    
+    public void carregarApontamentos(){
+    DefaultTableModel tabelaModel = (DefaultTableModel) tabelaApontamentos.getModel();
+    tabelaModel.setRowCount(0); // clear existing rows
+    
+    List<Apontamentos> listaApontamentos = apontamentos();
+
+    for (Apontamentos u : listaApontamentos){
+        String categoria = u.getCategoria();
+        String dataHoraInicio = u.getData_hora_inicio();
+        String dataHoraFim = u.getData_hora_fim();
+        String justificativa = u.getJustificativa();
+        String cliente = u.getCliente();
+        String projeto = u.getProjeto();
+        String solicitante = u.getSolicitante();
+        String cr = u.getCr();
+
+        Object[] novoApontamento = new Object[]{
+            u.getCategoria(),
+            u.getData_hora_fim(),
+            u.getData_hora_inicio(),
+            u.getJustificativa(),
+            u.getCliente(),
+            u.getProjeto(),
+            u.getSolicitante(),
+            u.getCr()
+        };
+         tabelaModel.addRow(novoApontamento);
+    }
+}
 
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
