@@ -93,14 +93,17 @@ Aplicação<br id=e>
 
 ![diagrama_API_BD](https://user-images.githubusercontent.com/77700346/229154660-7ee5f34b-75ef-4011-b9f9-f5aeb3e4b9ee.png)
 
+<summary><h2> Gráfico Burndown </h2></summary>
+ 
+![burndown](https://user-images.githubusercontent.com/77700346/228703826-0ac94c3a-b5bb-42ce-86df-ca5973588fab.jpg)
+
 </details>
 </details>
 
 <h2> Gráfico Burndown </h2> <br id=h></summary>
 <br>
- <img >
- 
- ![burndown](https://user-images.githubusercontent.com/77700346/228703826-0ac94c3a-b5bb-42ce-86df-ca5973588fab.jpg)
+
+<img src="https://user-images.githubusercontent.com/77700346/233811650-34536350-a363-46ee-b151-af87a74ec6e0.jpeg" alt="Texto alternativo da imagem" style="width: 650px;"/>
 
 
 
