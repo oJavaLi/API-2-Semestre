@@ -80,7 +80,6 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         jLabel3.setText("Saida:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fullmadagilists/api2semestre/telas/horario.png"))); // NOI18N
         jLabel4.setText("Entrada:");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
