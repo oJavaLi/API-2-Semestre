@@ -155,7 +155,8 @@ Aplicação<br id=e>
     <td><a href="https://github.com/ryanlanziloti">Github</a></td>
     <td><a href="https://www.linkedin.com/in/ryan-lanziloti-de-faria-teixeira-67a38822b/">Linked-In</a></td>
   </tr>
-  
+
+<img src="https://user-images.githubusercontent.com/77700346/233794780-18e3c6f9-d65d-4795-a324-6afb911c5bbf.jpeg" alt="Texto alternativo da imagem" style="width: 500px;"/>
  
 </table>
 <br/>
