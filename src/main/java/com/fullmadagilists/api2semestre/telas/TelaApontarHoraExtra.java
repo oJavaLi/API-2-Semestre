@@ -1,9 +1,16 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
+import com.fullmadagilists.api2semestre.entidades.Apontamentos;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 
 public class TelaApontarHoraExtra extends javax.swing.JFrame {
-
+    /**
+     * Creates new form PlacesScreen
+     */
 
     public TelaApontarHoraExtra() {
         initComponents();
@@ -224,21 +231,30 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
 
     private void botaoSubmeterHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterHoraExtraActionPerformed
         // TODO add your handling code here:
+        try{
+        Apontamentos apontamento = new Apontamentos("Hora Extra", 
+            this.entradaHoraExtraTextField.getText(),
+            this.saidaHoraExtraTextField.getText(),
+            this.justificativaHoraExtraTextField.getText(), 
+            this.clienteHoraExtraTextField.getText(),
+            this.projetoHoraExtraTextField.getText(),
+            this.solicitanteHoraExtraTextField.getText(),
+            this.crHoraExtraTextField.getText());
+        
+        cadastrarApontamentos(apontamento);
+        JOptionPane.showMessageDialog(null, "Hora Extra cadastrada com Sucesso! ");
+        this.dispose();
+        
+        }catch(Exception e){
+        System.out.print(e);}
+        
     }//GEN-LAST:event_botaoSubmeterHoraExtraActionPerformed
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
-    
-    public static void main(String args[]) {
-      
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaApontarHoraExtra().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelarHoraExtra;
