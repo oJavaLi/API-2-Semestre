@@ -6,9 +6,6 @@ package com.fullmadagilists.api2semestre.telas;
 
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 /**
