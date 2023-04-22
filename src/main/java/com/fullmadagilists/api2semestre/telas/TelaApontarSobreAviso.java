@@ -286,7 +286,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSubmeterSobreAvisoActionPerformed
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
     private void jRadioButtonSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimActionPerformed

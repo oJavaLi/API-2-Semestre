@@ -3,14 +3,11 @@ package com.fullmadagilists.api2semestre.telas;
 
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 
 public class TelaApontarHoraExtra extends javax.swing.JFrame {
-    /**
-     * Creates new form PlacesScreen
-     */
+
 
     public TelaApontarHoraExtra() {
         initComponents();
@@ -251,7 +248,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSubmeterHoraExtraActionPerformed
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
    
