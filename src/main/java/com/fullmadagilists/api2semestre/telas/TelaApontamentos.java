@@ -57,9 +57,8 @@ public class TelaApontamentos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaApontamentos = new javax.swing.JTable();
         botaoApontarHoraExtra = new javax.swing.JButton();
-        botaoApontarSobreAviso = new javax.swing.JButton();
+        botaoApontarSobreaviso = new javax.swing.JButton();
         botaoSair = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,7 +76,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(308, 308, 308)
+                .addContainerGap(308, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap(336, Short.MAX_VALUE))
         );
@@ -123,19 +122,19 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 botaoApontarHoraExtraActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoApontarHoraExtra, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 680, 216, -1));
+        getContentPane().add(botaoApontarHoraExtra, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 216, -1));
 
-        botaoApontarSobreAviso.setBackground(new java.awt.Color(49, 117, 185));
-        botaoApontarSobreAviso.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        botaoApontarSobreAviso.setForeground(new java.awt.Color(242, 242, 242));
-        botaoApontarSobreAviso.setText("+ APONTAR SOBRE AVISO");
-        botaoApontarSobreAviso.setPreferredSize(new java.awt.Dimension(200, 40));
-        botaoApontarSobreAviso.addActionListener(new java.awt.event.ActionListener() {
+        botaoApontarSobreaviso.setBackground(new java.awt.Color(49, 117, 185));
+        botaoApontarSobreaviso.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        botaoApontarSobreaviso.setForeground(new java.awt.Color(242, 242, 242));
+        botaoApontarSobreaviso.setText("+ APONTAR SOBREAVISO");
+        botaoApontarSobreaviso.setPreferredSize(new java.awt.Dimension(200, 40));
+        botaoApontarSobreaviso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoApontarSobreAvisoActionPerformed(evt);
+                botaoApontarSobreavisoActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoApontarSobreAviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 680, 216, -1));
+        getContentPane().add(botaoApontarSobreaviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 650, 216, -1));
 
         botaoSair.setBackground(new java.awt.Color(46, 44, 45));
         botaoSair.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -147,10 +146,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 botaoSairActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 680, 216, -1));
-
-        jButton4.setText("EXCLUIR");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, -1, -1));
+        getContentPane().add(botaoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 650, 216, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -162,31 +158,23 @@ public class TelaApontamentos extends javax.swing.JFrame {
         horaExtra.setVisible(true);
     }//GEN-LAST:event_botaoApontarHoraExtraActionPerformed
 
-    private void botaoApontarSobreAvisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarSobreAvisoActionPerformed
-        TelaApontarSobreAviso sobreAviso = new TelaApontarSobreAviso(this);
+    private void botaoApontarSobreavisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarSobreavisoActionPerformed
+        TelaApontarSobreaviso sobreAviso = new TelaApontarSobreaviso(this);
         this.setVisible(false);
         sobreAviso.setVisible(true);
-    }//GEN-LAST:event_botaoApontarSobreAvisoActionPerformed
+    }//GEN-LAST:event_botaoApontarSobreavisoActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 
-    public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaApontamentos().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoApontarHoraExtra;
-    private javax.swing.JButton botaoApontarSobreAviso;
+    private javax.swing.JButton botaoApontarSobreaviso;
     private javax.swing.JButton botaoSair;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

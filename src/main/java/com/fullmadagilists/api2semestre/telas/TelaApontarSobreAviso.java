@@ -8,10 +8,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class TelaApontarSobreAviso extends javax.swing.JFrame {
+public class TelaApontarSobreaviso extends javax.swing.JFrame {
     TelaApontamentos apontamentos;
 
-    public TelaApontarSobreAviso(TelaApontamentos apontamentos) {
+    public TelaApontarSobreaviso(TelaApontamentos apontamentos) {
         this.apontamentos = apontamentos;
         initComponents();
         tabelaHoraExtra.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
@@ -36,14 +36,14 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        entradaSobreAvisoTextField = new javax.swing.JTextField();
-        saidaSobreAvisoTextField = new javax.swing.JTextField();
-        clienteSobreAvisoTextField = new javax.swing.JTextField();
-        projetoSobreAvisoTextField = new javax.swing.JTextField();
-        solicitanteSobreAvisoTextField = new javax.swing.JTextField();
-        crSobreAvisoTextField = new javax.swing.JTextField();
-        justificativaSobreAvisoTextField = new javax.swing.JTextField();
-        botaoSubmeterSobreAviso = new javax.swing.JButton();
+        entradaSobreavisoTextField = new javax.swing.JTextField();
+        saidaSobreavisoTextField = new javax.swing.JTextField();
+        clienteSobreavisoTextField = new javax.swing.JTextField();
+        projetoSobreavisoTextField = new javax.swing.JTextField();
+        solicitanteSobreavisoTextField = new javax.swing.JTextField();
+        crSobreavisoTextField = new javax.swing.JTextField();
+        justificativaSobreavisoTextField = new javax.swing.JTextField();
+        botaoSubmeterSobreaviso = new javax.swing.JButton();
         botaoCancelarHoraExtra = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jRadioButtonSim = new javax.swing.JRadioButton();
@@ -59,7 +59,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("APONTAMENTO SOBRE AVISO");
+        jLabel1.setText("APONTAMENTO SOBREAVISO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -69,20 +69,25 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addGap(126, 126, 126))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(126, 126, 126))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel10)
-                        .addComponent(jLabel1)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(27, 27, 27)
+                            .addComponent(jLabel10))))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
@@ -107,25 +112,25 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel9.setText("CR:");
 
-        projetoSobreAvisoTextField.addActionListener(new java.awt.event.ActionListener() {
+        projetoSobreavisoTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                projetoSobreAvisoTextFieldActionPerformed(evt);
+                projetoSobreavisoTextFieldActionPerformed(evt);
             }
         });
 
-        solicitanteSobreAvisoTextField.addActionListener(new java.awt.event.ActionListener() {
+        solicitanteSobreavisoTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                solicitanteSobreAvisoTextFieldActionPerformed(evt);
+                solicitanteSobreavisoTextFieldActionPerformed(evt);
             }
         });
 
-        botaoSubmeterSobreAviso.setBackground(new java.awt.Color(49, 117, 185));
-        botaoSubmeterSobreAviso.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        botaoSubmeterSobreAviso.setForeground(new java.awt.Color(255, 255, 255));
-        botaoSubmeterSobreAviso.setText("Submeter Sobre Aviso");
-        botaoSubmeterSobreAviso.addActionListener(new java.awt.event.ActionListener() {
+        botaoSubmeterSobreaviso.setBackground(new java.awt.Color(49, 117, 185));
+        botaoSubmeterSobreaviso.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoSubmeterSobreaviso.setForeground(new java.awt.Color(255, 255, 255));
+        botaoSubmeterSobreaviso.setText("Submeter Sobreaviso");
+        botaoSubmeterSobreaviso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoSubmeterSobreAvisoActionPerformed(evt);
+                botaoSubmeterSobreavisoActionPerformed(evt);
             }
         });
 
@@ -140,7 +145,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel11.setText("Você fez hora extra durante o período de sobre aviso?");
+        jLabel11.setText("Você fez hora extra durante o período de sobreaviso?");
 
         jRadioButtonSim.setText("Sim");
         jRadioButtonSim.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -195,9 +200,9 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(entradaSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entradaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(saidaSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(saidaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jLabel5)
@@ -207,17 +212,17 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                         .addComponent(jLabel7))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(clienteSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(clienteSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(projetoSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(projetoSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(solicitanteSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(solicitanteSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jLabel9))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(300, 300, 300)
-                        .addComponent(botaoSubmeterSobreAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(botaoSubmeterSobreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(300, 300, 300)
                         .addComponent(botaoCancelarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -225,8 +230,8 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(justificativaSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(crSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(justificativaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(crSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(209, 209, 209)
                                 .addComponent(jLabel11))
@@ -248,8 +253,8 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(entradaSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saidaSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(entradaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saidaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -257,17 +262,17 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(clienteSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(projetoSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(solicitanteSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clienteSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projetoSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(solicitanteSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel9)
                 .addGap(6, 6, 6)
-                .addComponent(crSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(crSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel8)
                 .addGap(6, 6, 6)
-                .addComponent(justificativaSobreAvisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(justificativaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel11)
                 .addGap(6, 6, 6)
@@ -277,7 +282,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(botaoSubmeterSobreAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoSubmeterSobreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(botaoCancelarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -287,24 +292,24 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void projetoSobreAvisoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projetoSobreAvisoTextFieldActionPerformed
+    private void projetoSobreavisoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projetoSobreavisoTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_projetoSobreAvisoTextFieldActionPerformed
+    }//GEN-LAST:event_projetoSobreavisoTextFieldActionPerformed
 
-    private void solicitanteSobreAvisoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solicitanteSobreAvisoTextFieldActionPerformed
+    private void solicitanteSobreavisoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solicitanteSobreavisoTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_solicitanteSobreAvisoTextFieldActionPerformed
+    }//GEN-LAST:event_solicitanteSobreavisoTextFieldActionPerformed
 
-    private void botaoSubmeterSobreAvisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterSobreAvisoActionPerformed
+    private void botaoSubmeterSobreavisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterSobreavisoActionPerformed
         try{
             Apontamentos apontamento = new Apontamentos("Sobreaviso", 
-                this.entradaSobreAvisoTextField.getText(),
-                this.saidaSobreAvisoTextField.getText(),
-                this.justificativaSobreAvisoTextField.getText(), 
-                this.clienteSobreAvisoTextField.getText(),
-                this.projetoSobreAvisoTextField.getText(),
-                this.solicitanteSobreAvisoTextField.getText(),
-                this.clienteSobreAvisoTextField.getText());
+                this.entradaSobreavisoTextField.getText(),
+                this.saidaSobreavisoTextField.getText(),
+                this.justificativaSobreavisoTextField.getText(), 
+                this.clienteSobreavisoTextField.getText(),
+                this.projetoSobreavisoTextField.getText(),
+                this.solicitanteSobreavisoTextField.getText(),
+                this.clienteSobreavisoTextField.getText());
             cadastrarApontamentos(apontamento);
             
             if (jRadioButtonSim.isSelected()) {
@@ -326,10 +331,10 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                     dataHoraInicio,
                     dataHoraFim,
                     justificativa, 
-                    this.clienteSobreAvisoTextField.getText(),
-                    this.projetoSobreAvisoTextField.getText(),
-                    this.solicitanteSobreAvisoTextField.getText(),
-                    this.clienteSobreAvisoTextField.getText());
+                    this.clienteSobreavisoTextField.getText(),
+                    this.projetoSobreavisoTextField.getText(),
+                    this.solicitanteSobreavisoTextField.getText(),
+                    this.clienteSobreavisoTextField.getText());
                     cadastrarApontamentos(apontamentoHoraExtra);
                 }
             }
@@ -342,7 +347,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
 
         }catch(Exception e){
         System.out.print(e);}
-    }//GEN-LAST:event_botaoSubmeterSobreAvisoActionPerformed
+    }//GEN-LAST:event_botaoSubmeterSobreavisoActionPerformed
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
         this.setVisible(false);
@@ -368,11 +373,11 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelarHoraExtra;
-    private javax.swing.JButton botaoSubmeterSobreAviso;
+    private javax.swing.JButton botaoSubmeterSobreaviso;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField clienteSobreAvisoTextField;
-    private javax.swing.JTextField crSobreAvisoTextField;
-    private javax.swing.JTextField entradaSobreAvisoTextField;
+    private javax.swing.JTextField clienteSobreavisoTextField;
+    private javax.swing.JTextField crSobreavisoTextField;
+    private javax.swing.JTextField entradaSobreavisoTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -388,10 +393,10 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonNao;
     private javax.swing.JRadioButton jRadioButtonSim;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField justificativaSobreAvisoTextField;
-    private javax.swing.JTextField projetoSobreAvisoTextField;
-    private javax.swing.JTextField saidaSobreAvisoTextField;
-    private javax.swing.JTextField solicitanteSobreAvisoTextField;
+    private javax.swing.JTextField justificativaSobreavisoTextField;
+    private javax.swing.JTextField projetoSobreavisoTextField;
+    private javax.swing.JTextField saidaSobreavisoTextField;
+    private javax.swing.JTextField solicitanteSobreavisoTextField;
     private javax.swing.JTable tabelaHoraExtra;
     // End of variables declaration//GEN-END:variables
 }
