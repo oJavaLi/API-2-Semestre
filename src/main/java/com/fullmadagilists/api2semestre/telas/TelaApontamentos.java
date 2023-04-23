@@ -4,6 +4,7 @@ import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import java.util.List;
 import javax.swing.JTable;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -20,11 +21,11 @@ public class TelaApontamentos extends javax.swing.JFrame {
     
     public void carregarApontamentos(){
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaApontamentos.getModel();
+        tabelaModel.setRowCount(0);
 
         List<Apontamentos> listaApontamentos = ConexaoBancoDeDados.apontamentos();
 
         for (Apontamentos u: listaApontamentos){
-            System.out.println(u.getId());
             String categoria = u.getCategoria();
             String dataHoraInicio = u.getData_hora_inicio();
             String dataHoraFim = u.getData_hora_fim();

@@ -1,20 +1,30 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
+import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class TelaApontarSobreAviso extends javax.swing.JFrame {
     TelaApontamentos apontamentos;
 
     public TelaApontarSobreAviso(TelaApontamentos apontamentos) {
+        this.apontamentos = apontamentos;
         initComponents();
+        tabelaHoraExtra.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
+        buttonGroup1.add(jRadioButtonNao);
+        buttonGroup1.add(jRadioButtonSim);
+        jScrollPane1.setVisible(false);
     }
 
  
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -51,10 +61,6 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("APONTAMENTO SOBRE AVISO");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\logo.png")); // NOI18N
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\person.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -77,35 +83,28 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel10)
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\horario.png")); // NOI18N
         jLabel3.setText("Saida:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\horario.png")); // NOI18N
         jLabel4.setText("Entrada:");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\cliente.png")); // NOI18N
         jLabel5.setText("Cliente:");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\projeto.png")); // NOI18N
         jLabel6.setText("Projeto:");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\solicitante.png")); // NOI18N
         jLabel7.setText("Solicitante:");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\mensagem.png")); // NOI18N
         jLabel8.setText("Justificativa:");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\cr.png")); // NOI18N
         jLabel9.setText("CR:");
 
         projetoSobreAvisoTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -144,12 +143,18 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         jLabel11.setText("Você fez hora extra durante o período de sobre aviso?");
 
         jRadioButtonSim.setText("Sim");
+        jRadioButtonSim.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButtonSimStateChanged(evt);
+            }
+        });
         jRadioButtonSim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonSimActionPerformed(evt);
             }
         });
 
+        jRadioButtonNao.setSelected(true);
         jRadioButtonNao.setText("Não");
         jRadioButtonNao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +164,16 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
 
         tabelaHoraExtra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
                 "Início", "Fim", "Descrição da Atividade"
@@ -282,38 +296,80 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
     }//GEN-LAST:event_solicitanteSobreAvisoTextFieldActionPerformed
 
     private void botaoSubmeterSobreAvisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterSobreAvisoActionPerformed
-        // TODO add your handling code here:
+        try{
+            Apontamentos apontamento = new Apontamentos("Sobreaviso", 
+                this.entradaSobreAvisoTextField.getText(),
+                this.saidaSobreAvisoTextField.getText(),
+                this.justificativaSobreAvisoTextField.getText(), 
+                this.clienteSobreAvisoTextField.getText(),
+                this.projetoSobreAvisoTextField.getText(),
+                this.solicitanteSobreAvisoTextField.getText(),
+                this.clienteSobreAvisoTextField.getText());
+            cadastrarApontamentos(apontamento);
+            
+            if (jRadioButtonSim.isSelected()) {
+                // Cadastra horas extras dentro do sobreaviso
+                DefaultTableModel tabelaModel = (DefaultTableModel) tabelaHoraExtra.getModel();
+                for (int row = 0; row < tabelaModel.getRowCount(); row++) {
+                    String dataHoraInicio = (String) tabelaModel.getValueAt(row, 0);
+                    String dataHoraFim = (String) tabelaModel.getValueAt(row, 1);
+                    String justificativa = (String) tabelaModel.getValueAt(row, 2);
+
+                    System.out.println(dataHoraInicio);
+                    System.out.println(dataHoraFim);
+                    System.out.println(justificativa);
+
+                    if (dataHoraInicio == null || dataHoraFim == null || justificativa == null) continue;
+                    if (dataHoraInicio.isBlank() || dataHoraFim.isBlank() || justificativa.isBlank()) continue; // Se não preencher tudo passa pro próximo
+
+                    Apontamentos apontamentoHoraExtra = new Apontamentos("Hora Extra", 
+                    dataHoraInicio,
+                    dataHoraFim,
+                    justificativa, 
+                    this.clienteSobreAvisoTextField.getText(),
+                    this.projetoSobreAvisoTextField.getText(),
+                    this.solicitanteSobreAvisoTextField.getText(),
+                    this.clienteSobreAvisoTextField.getText());
+                    cadastrarApontamentos(apontamentoHoraExtra);
+                }
+            }
+            
+            JOptionPane.showMessageDialog(null, "Sobre aviso e horas extras cadastradas com Sucesso! ");
+            apontamentos.carregarApontamentos();
+            apontamentos.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
+
+        }catch(Exception e){
+        System.out.print(e);}
     }//GEN-LAST:event_botaoSubmeterSobreAvisoActionPerformed
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
+        this.setVisible(false);
+        apontamentos.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
     private void jRadioButtonSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimActionPerformed
-        if (jRadioButtonSim.isSelected()) {
-            JButton botaoHoraExtra = new JButton("Adicionar hora extra");
-            jPanel1.add(botaoHoraExtra);
-        }
-
+        jScrollPane1.setVisible(true);
+        tabelaHoraExtra.setVisible(true);
+        this.pack(); // acorda o swing falando que ele tem que atualizar a tela de novo
     }//GEN-LAST:event_jRadioButtonSimActionPerformed
 
     private void jRadioButtonNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoActionPerformed
-        // TODO add your handling code here:
+        jScrollPane1.setVisible(false);
+        tabelaHoraExtra.setVisible(true);
+        this.pack(); // acorda o swing falando que ele tem que atualizar a tela de novo
     }//GEN-LAST:event_jRadioButtonNaoActionPerformed
 
-    
-    public static void main(String args[]) {
-      
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaApontarSobreAviso().setVisible(true);
-            }
-        });
-    }
+    private void jRadioButtonSimStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButtonSimStateChanged
 
+    }//GEN-LAST:event_jRadioButtonSimStateChanged
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelarHoraExtra;
     private javax.swing.JButton botaoSubmeterSobreAviso;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField clienteSobreAvisoTextField;
     private javax.swing.JTextField crSobreAvisoTextField;
     private javax.swing.JTextField entradaSobreAvisoTextField;
