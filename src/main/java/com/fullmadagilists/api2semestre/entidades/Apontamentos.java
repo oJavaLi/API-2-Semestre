@@ -4,6 +4,7 @@ package com.fullmadagilists.api2semestre.entidades;
 import java.util.Date;
 
 public class Apontamentos {
+    private int id;
     private String categoria;
     private String data_hora_inicio;
     private String data_hora_fim;
@@ -25,6 +26,14 @@ public class Apontamentos {
         this.projeto = projeto;
         this.solicitante = solicitante;
         this.cr = cr;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCategoria() {

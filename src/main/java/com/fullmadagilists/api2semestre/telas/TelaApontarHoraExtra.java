@@ -7,9 +7,10 @@ import javax.swing.JOptionPane;
 
 
 public class TelaApontarHoraExtra extends javax.swing.JFrame {
+    private TelaApontamentos apontamentos;
 
-
-    public TelaApontarHoraExtra() {
+    public TelaApontarHoraExtra(TelaApontamentos apontamentos) {
+        this.apontamentos = apontamentos;
         initComponents();
     }
 
@@ -19,8 +20,6 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -48,32 +47,21 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("APONTAMENTO HORA EXTRA");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fullmadagilists/api2semestre/telas/logo.png"))); // NOI18N
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fullmadagilists/api2semestre/telas/person.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(251, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(125, 125, 125)
-                .addComponent(jLabel2)
-                .addGap(126, 126, 126))
+                .addGap(283, 283, 283))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -221,27 +209,29 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
     private void botaoSubmeterHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterHoraExtraActionPerformed
         // TODO add your handling code here:
         try{
-        Apontamentos apontamento = new Apontamentos("Hora Extra", 
-            this.entradaHoraExtraTextField.getText(),
-            this.saidaHoraExtraTextField.getText(),
-            this.justificativaHoraExtraTextField.getText(), 
-            this.clienteHoraExtraTextField.getText(),
-            this.projetoHoraExtraTextField.getText(),
-            this.solicitanteHoraExtraTextField.getText(),
-            this.crHoraExtraTextField.getText());
-        
-        cadastrarApontamentos(apontamento);
-        JOptionPane.showMessageDialog(null, "Hora Extra cadastrada com Sucesso! ");
-        this.dispose();
-        TelaApontamentos apontamento1 = new TelaApontamentos();
-        apontamento1.carregarApontamentos();
-        
+            Apontamentos apontamento = new Apontamentos("Hora Extra", 
+                this.entradaHoraExtraTextField.getText(),
+                this.saidaHoraExtraTextField.getText(),
+                this.justificativaHoraExtraTextField.getText(), 
+                this.clienteHoraExtraTextField.getText(),
+                this.projetoHoraExtraTextField.getText(),
+                this.solicitanteHoraExtraTextField.getText(),
+                this.crHoraExtraTextField.getText());
+
+            cadastrarApontamentos(apontamento);
+            JOptionPane.showMessageDialog(null, "Hora Extra cadastrada com Sucesso! ");
+            apontamentos.carregarApontamentos();
+            apontamentos.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
+
         }catch(Exception e){
         System.out.print(e);}
         
     }//GEN-LAST:event_botaoSubmeterHoraExtraActionPerformed
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
+        this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
@@ -254,8 +244,6 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
     private javax.swing.JTextField crHoraExtraTextField;
     private javax.swing.JTextField entradaHoraExtraTextField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -1,6 +1,6 @@
 package com.fullmadagilists.api2semestre.telas;
 
-import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.apontamentos;
+import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import java.util.List;
 import javax.swing.JTable;
@@ -14,36 +14,38 @@ public class TelaApontamentos extends javax.swing.JFrame {
 
     public TelaApontamentos() {
         initComponents();
+        tabelaApontamentos.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         carregarApontamentos();
-
     }
     
     public void carregarApontamentos(){
-    DefaultTableModel tabelaModel = (DefaultTableModel) tabelaApontamentos.getModel();
-    tabelaModel.setRowCount(0); // clear existing rows
-    
-    List<Apontamentos> listaApontamentos = apontamentos();
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaApontamentos.getModel();
 
-    for (Apontamentos u : listaApontamentos){
-        String categoria = u.getCategoria();
-        String dataHoraInicio = u.getData_hora_inicio();
-        String dataHoraFim = u.getData_hora_fim();
-        String justificativa = u.getJustificativa();
-        String cliente = u.getCliente();
-        String projeto = u.getProjeto();
-        String solicitante = u.getSolicitante();
-        String cr = u.getCr();
+        List<Apontamentos> listaApontamentos = ConexaoBancoDeDados.apontamentos();
 
-        Object[] novoApontamento = new Object[]{
-            u.getData_hora_inicio(),
-            u.getCategoria(),
-            u.getProjeto(),
-            u.getData_hora_fim(),
-            
-        };
-         tabelaModel.addRow(novoApontamento);
+        for (Apontamentos u: listaApontamentos){
+            System.out.println(u.getId());
+            String categoria = u.getCategoria();
+            String dataHoraInicio = u.getData_hora_inicio();
+            String dataHoraFim = u.getData_hora_fim();
+            String justificativa = u.getJustificativa();
+            String cliente = u.getCliente();
+            String projeto = u.getProjeto();
+            String solicitante = u.getSolicitante();
+            String cr = u.getCr();
+
+            Object[] novoApontamento = new Object[]{
+                u.getData_hora_inicio(),
+                u.getCategoria(),
+                u.getProjeto(),
+                u.getData_hora_fim(),
+                ""
+            };
+            tabelaModel.addRow(novoApontamento);
+        }
+        
+        tabelaApontamentos.setModel(tabelaModel);
     }
-}
 
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -95,8 +97,17 @@ public class TelaApontamentos extends javax.swing.JFrame {
             new String [] {
                 "DATA", "TIPO", "PROJETO", "HORAS APONTADAS", "AÇÕES"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         tabelaApontamentos.setPreferredSize(new java.awt.Dimension(500, 80));
+        tabelaApontamentos.setShowGrid(true);
         jScrollPane1.setViewportView(tabelaApontamentos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 81, 756, 550));
@@ -145,17 +156,19 @@ public class TelaApontamentos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoApontarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarHoraExtraActionPerformed
-        TelaApontarHoraExtra horaExtra = new TelaApontarHoraExtra();
+        TelaApontarHoraExtra horaExtra = new TelaApontarHoraExtra(this);
+        this.setVisible(false);
         horaExtra.setVisible(true);
     }//GEN-LAST:event_botaoApontarHoraExtraActionPerformed
 
     private void botaoApontarSobreAvisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarSobreAvisoActionPerformed
-        TelaApontarSobreAviso sobreAviso = new TelaApontarSobreAviso();
+        TelaApontarSobreAviso sobreAviso = new TelaApontarSobreAviso(this);
+        this.setVisible(false);
         sobreAviso.setVisible(true);
     }//GEN-LAST:event_botaoApontarSobreAvisoActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-
+        this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 

@@ -10,32 +10,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConexaoBancoDeDados {
+    private static Connection conexao = null;
     
     public static Connection conector(){
-
-         // Credenciais de acesso banco de dados
+        // Credenciais de acesso banco de dados
         String databaseName = "";
         String databaseUser = "";
         String databasepassword = "";
         String url = "";
 
-
         // caminho do driver
         String driver = "com.mysql.cj.jdbc.Driver";
 
         // estabelecendo a conexão com o BD
-
-        java.sql.Connection conexao = null;
-
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url, databaseUser, databasepassword);
-            return conexao;
         } catch (Exception e) {
             System.out.println(e);
-            return null;
-
-        }        
+        }
+        
+        return conexao;
     }
     
     public static List<Usuario> usuarios(){
@@ -62,7 +57,8 @@ public class ConexaoBancoDeDados {
         
         return listaUsuarios;
     }
-public static List<Apontamentos> apontamentos(){
+    
+    public static List<Apontamentos> apontamentos(){
         List<Apontamentos> listaApontamentos = new ArrayList<Apontamentos>();
         
         try{
@@ -73,6 +69,7 @@ public static List<Apontamentos> apontamentos(){
             
             while (resultado.next()){
                 Apontamentos apontamento = new Apontamentos();
+                apontamento.setId(resultado.getInt("idapontamentos"));
                 apontamento.setCategoria(resultado.getString("categoria"));
                 apontamento.setData_hora_inicio(resultado.getString("data_hora_inicio"));
                 apontamento.setData_hora_fim(resultado.getString("data_hora_fim"));
@@ -91,7 +88,7 @@ public static List<Apontamentos> apontamentos(){
         return listaApontamentos;
     }
 
-public static void cadastrarApontamentos(Apontamentos apontamento){  
+    public static void cadastrarApontamentos(Apontamentos apontamento){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String cadApontamentosquery = "insert into database_api.apontamentos(categoria, data_hora_inicio, \n" +
@@ -111,8 +108,7 @@ public static void cadastrarApontamentos(Apontamentos apontamento){
             
         } catch(Exception e){
             e.printStackTrace();
-        } 
-
+        }
     }
 }
        

@@ -5,9 +5,9 @@ import javax.swing.JButton;
 
 
 public class TelaApontarSobreAviso extends javax.swing.JFrame {
+    TelaApontamentos apontamentos;
 
-
-    public TelaApontarSobreAviso() {
+    public TelaApontarSobreAviso(TelaApontamentos apontamentos) {
         initComponents();
     }
 
