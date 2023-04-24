@@ -53,7 +53,7 @@ Datas de Entregas<br id=b>
 
 - [x]  Kick-off - 08/03/2023
 - [x]  Sprint 01 - 02/04/2023
-- [ ]  Sprint 02 - 23/04/2023
+- [X]  Sprint 02 - 23/04/2023
 - [ ]  Sprint 03 - 14/05/2023
 - [ ]  Sprint 04 - 04/06/2023
 - [ ]  Feira de Soluções  - 13/06
@@ -66,6 +66,8 @@ Tecnologias Utilizadas<br id=c>
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
+
+
 <h2>Sprint Backlog<br id=y></h2>
 
 ![sprint_backlog](https://user-images.githubusercontent.com/77700346/229319787-28698a65-c94b-431c-a9ff-c31e43137310.png)
@@ -98,14 +100,21 @@ Aplicação<br id=e>
 ![burndown](https://user-images.githubusercontent.com/77700346/228703826-0ac94c3a-b5bb-42ce-86df-ca5973588fab.jpg)
 
 </details>
-</details>
-
-<h2> Gráfico Burndown </h2> <br id=h></summary>
+<details>
+<summary><h2> Sprint 2 </h2> <br id=h></summary>
 <br>
 
+<summary><h2>Demonstração da Aplicação</h2></summary>
+
+https://user-images.githubusercontent.com/111532905/233873378-fd9781db-63b0-48b3-94e4-734bc344a183.mp4
+
+<summary><h2> Gráfico Burndown </h2> <br id=h></summary>
+
 <img src="https://user-images.githubusercontent.com/77700346/233811650-34536350-a363-46ee-b151-af87a74ec6e0.jpeg" alt="Texto alternativo da imagem" style="width: 650px;"/>
+</details>
 
 
+<br>
 
 <h2>Equipe<br id=g></h2>
 
@@ -164,7 +173,5 @@ Aplicação<br id=e>
 </table>
 <br/>
  
-<h2>Demonstração da Aplicação</h2>
 
-https://user-images.githubusercontent.com/111532905/233873378-fd9781db-63b0-48b3-94e4-734bc344a183.mp4
 
