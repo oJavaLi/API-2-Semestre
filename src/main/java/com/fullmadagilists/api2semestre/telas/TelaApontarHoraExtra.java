@@ -1,11 +1,16 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
+import com.fullmadagilists.api2semestre.entidades.Apontamentos;
+import javax.swing.JOptionPane;
+
 
 public class TelaApontarHoraExtra extends javax.swing.JFrame {
+    private TelaApontamentos apontamentos;
 
-
-    public TelaApontarHoraExtra() {
+    public TelaApontarHoraExtra(TelaApontamentos apontamentos) {
+        this.apontamentos = apontamentos;
         initComponents();
     }
 
@@ -15,8 +20,6 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -44,61 +47,42 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("APONTAMENTO HORA EXTRA");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\logo.png")); // NOI18N
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\person.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addContainerGap(251, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(134, 134, 134)
-                .addComponent(jLabel10)
-                .addGap(126, 126, 126))
+                .addGap(283, 283, 283))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel10)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\horario.png")); // NOI18N
         jLabel3.setText("Saida:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\horario.png")); // NOI18N
         jLabel4.setText("Entrada:");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\cliente.png")); // NOI18N
         jLabel5.setText("Cliente:");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\projeto.png")); // NOI18N
         jLabel6.setText("Projeto:");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\solicitante.png")); // NOI18N
         jLabel7.setText("Solicitante:");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\mensagem.png")); // NOI18N
         jLabel8.setText("Justificativa:");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\java\\com\\fullmadagilists\\api2semestre\\telas\\imagens\\cr.png")); // NOI18N
         jLabel9.setText("CR:");
 
         projetoHoraExtraTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -224,21 +208,34 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
 
     private void botaoSubmeterHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterHoraExtraActionPerformed
         // TODO add your handling code here:
+        try{
+            Apontamentos apontamento = new Apontamentos("Hora Extra", 
+                this.entradaHoraExtraTextField.getText(),
+                this.saidaHoraExtraTextField.getText(),
+                this.justificativaHoraExtraTextField.getText(), 
+                this.clienteHoraExtraTextField.getText(),
+                this.projetoHoraExtraTextField.getText(),
+                this.solicitanteHoraExtraTextField.getText(),
+                this.crHoraExtraTextField.getText());
+
+            cadastrarApontamentos(apontamento);
+            JOptionPane.showMessageDialog(null, "Hora Extra cadastrada com Sucesso! ");
+            apontamentos.carregarApontamentos();
+            apontamentos.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
+
+        }catch(Exception e){
+        System.out.print(e);}
+        
     }//GEN-LAST:event_botaoSubmeterHoraExtraActionPerformed
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
-    
-    public static void main(String args[]) {
-      
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaApontarHoraExtra().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelarHoraExtra;
@@ -247,8 +244,6 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
     private javax.swing.JTextField crHoraExtraTextField;
     private javax.swing.JTextField entradaHoraExtraTextField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
