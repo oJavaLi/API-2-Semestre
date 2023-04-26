@@ -53,7 +53,7 @@ Datas de Entregas<br id=b>
 
 - [x]  Kick-off - 08/03/2023
 - [x]  Sprint 01 - 02/04/2023
-- [ ]  Sprint 02 - 23/04/2023
+- [X]  Sprint 02 - 23/04/2023
 - [ ]  Sprint 03 - 14/05/2023
 - [ ]  Sprint 04 - 04/06/2023
 - [ ]  Feira de Soluções  - 13/06
@@ -66,6 +66,9 @@ Tecnologias Utilizadas<br id=c>
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
+![NetBeans IDE](https://img.shields.io/badge/NetBeansIDE-1B6AC6.svg?style=for-the-badge&logo=apache-netbeans-ide&logoColor=white)
+
+
 <h2>Sprint Backlog<br id=y></h2>
 
 ![sprint_backlog](https://user-images.githubusercontent.com/77700346/229319787-28698a65-c94b-431c-a9ff-c31e43137310.png)
@@ -93,16 +96,29 @@ Aplicação<br id=e>
 
 ![diagrama_API_BD](https://user-images.githubusercontent.com/77700346/229154660-7ee5f34b-75ef-4011-b9f9-f5aeb3e4b9ee.png)
 
-</details>
-</details>
-
-<h2> Gráfico Burndown </h2> <br id=h></summary>
-<br>
- <img >
+<summary><h2> Gráfico Burndown </h2></summary>
  
- ![burndown](https://user-images.githubusercontent.com/77700346/228703826-0ac94c3a-b5bb-42ce-86df-ca5973588fab.jpg)
+![burndown](https://user-images.githubusercontent.com/77700346/228703826-0ac94c3a-b5bb-42ce-86df-ca5973588fab.jpg)
+
+</details>
+<details>
+<summary><h2> Sprint 2 </h2> <br id=h></summary>
+<br>
+
+<summary><h2>Demonstração da Aplicação</h2></summary>
+ 
 
 
+https://user-images.githubusercontent.com/77700346/234703451-75bfc86f-ebc0-4039-a6bd-bd54473aeaa8.mp4
+
+
+<summary><h2> Gráfico Burndown </h2> <br id=h></summary>
+
+<img src="https://user-images.githubusercontent.com/77700346/233811650-34536350-a363-46ee-b151-af87a74ec6e0.jpeg" alt="Texto alternativo da imagem" style="width: 650px;"/>
+</details>
+
+
+<br>
 
 <h2>Equipe<br id=g></h2>
 
@@ -155,9 +171,11 @@ Aplicação<br id=e>
     <td><a href="https://github.com/ryanlanziloti">Github</a></td>
     <td><a href="https://www.linkedin.com/in/ryan-lanziloti-de-faria-teixeira-67a38822b/">Linked-In</a></td>
   </tr>
-  
+
+<img src="https://user-images.githubusercontent.com/77700346/233794780-18e3c6f9-d65d-4795-a324-6afb911c5bbf.jpeg" alt="Texto alternativo da imagem" style="width: 500px;"/>
  
 </table>
 <br/>
  
+
 
