@@ -38,11 +38,11 @@ Sobre o Projeto
 |:---------------------------------:|:----------:|
 |Como um colaborador gostaria de ter um sistema onde consiga ser capaz de lançar todas as informações sobre horas excedentes trabalhadas, para poder ser pago.|1|
 |Como colaborador eu quero ser capaz de diferenciar horas extra de sobreaviso para controlar melhor meu tempo de trabalho e ter pagamento adequado.|2|
-|Como um gestor, eu quero ser capaz de visualizar os apontamentos submetidos pelo meu CR, para que eu possa revisar a carga trabalhada para submeter a pagamento.|3|
-|Como gestor, eu quero ser capaz de aprovar ou rejeitar as horas trabalhadas garantir não ter qualquer erro ou inconsistência no lançamento e fazer pagamento correto aos colaboradores.|4|
-|Como um RH, eu quero ser capaz de visualizar os apontamentos submetidos por cada funcionário, para que eu possa revisar a carga trabalhada para submeter a pagamento.|5|
-|Como RH, eu quero ser capaz de aprovar ou rejeitar as horas trabalhadas garantir não ter qualquer erro ou inconsistência no lançamento e fazer pagamento correto aos colaboradores.|6|
-|Como RH, eu gostaria de ter a permissão de criar e gerenciar contas de um usuário com diferentes níveis de acesso, para poder cadastrar os funcionários em segurança no meu sistema.|7|
+|Como um RH, eu quero ser capaz de visualizar os apontamentos submetidos por cada funcionário, para que eu possa revisar a carga trabalhada para submeter a pagamento.|3|
+|Como RH, eu quero ser capaz de aprovar ou rejeitar as horas trabalhadas garantir não ter qualquer erro ou inconsistência no lançamento e fazer pagamento correto aos colaboradores.|4|
+|Como RH, eu gostaria de ter a permissão de criar e gerenciar contas de um usuário com diferentes níveis de acesso, para poder cadastrar os funcionários em segurança no meu sistema.|5|
+|Como um gestor, eu quero ser capaz de visualizar os apontamentos submetidos pelo meu CR, para que eu possa revisar a carga trabalhada para submeter a pagamento.|6|
+|Como gestor, eu quero ser capaz de aprovar ou rejeitar as horas trabalhadas garantir não ter qualquer erro ou inconsistência no lançamento e fazer pagamento correto aos colaboradores.|7|
 |Como um colaborador, eu quero ser capaz de visualizar informações sobre as minhas próprias horas extras executadas no dashboard, para ter maior controle das horas aprovadas/ reprovadas e pagamento adequado.|8|
 |Como RH, eu quero ser capaz de acessar um dashboard em tempo real que me permita monitorar as horas extras executadas pelos colaboradores, para acompanhar horas trabalhadas de acordo com as necessidades do CR|9|
 
@@ -73,7 +73,7 @@ Tecnologias Utilizadas<br id=c>
 
 <h2>Sprint Backlog<br id=y></h2>
 
-![sprint_backlog](https://user-images.githubusercontent.com/77700346/229319787-28698a65-c94b-431c-a9ff-c31e43137310.png)
+![Site de Portfólio Fotografia Experimental Claro Preto Cinza](https://user-images.githubusercontent.com/107864553/234710466-b3bcbcff-bf55-40b8-a76f-85f3c5ac5a95.png)
 
 <h2>
 Aplicação<br id=e>
