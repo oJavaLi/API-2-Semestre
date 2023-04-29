@@ -4,6 +4,11 @@
  */
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
+import com.fullmadagilists.api2semestre.entidades.Usuario;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author pitag
@@ -15,8 +20,28 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
      */
     public TelaCadastroFuncionario() {
         initComponents();
+        tabelaUsuario.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
+        carregarUsuarios();
     }
+    public void carregarUsuarios(){
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
+        tabelaModel.setRowCount(0);
 
+        List<Usuario> listaUsuarios = ConexaoBancoDeDados.usuarios();
+
+        for (Usuario u: listaUsuarios){
+            String nome = u.getNome();
+            String categoria = u.getCategoria();
+
+            Object[] novoApontamento = new Object[]{
+                u.getNome(),
+                u.getCategoria()
+            };
+            tabelaModel.addRow(novoApontamento);
+        }
+        
+        tabelaUsuario.setModel(tabelaModel);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,14 +64,13 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaUsuario = new javax.swing.JTable();
         botaoSair = new javax.swing.JButton();
         botaoAddFuncionario = new javax.swing.JButton();
         botaoVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 800));
-        setPreferredSize(new java.awt.Dimension(800, 800));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -164,7 +188,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 131, 800, 48));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -183,11 +207,11 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
+        tabelaUsuario.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaUsuario);
+        if (tabelaUsuario.getColumnModel().getColumnCount() > 0) {
+            tabelaUsuario.getColumnModel().getColumn(0).setResizable(false);
+            tabelaUsuario.getColumnModel().getColumn(1).setResizable(false);
         }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 190, 630, 510));
@@ -200,6 +224,11 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         botaoAddFuncionario.setBackground(new java.awt.Color(49, 118, 187));
         botaoAddFuncionario.setForeground(new java.awt.Color(255, 255, 255));
         botaoAddFuncionario.setText("+ Adicionar Funcionário");
+        botaoAddFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAddFuncionarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(botaoAddFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 730, 200, 40));
 
         botaoVoltar.setBackground(new java.awt.Color(47, 45, 46));
@@ -221,7 +250,17 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
         // TODO add your handling code here:
+        TelaAdmin telaAdmin = new TelaAdmin();
+        this.setVisible(false);
+        telaAdmin.setVisible(true);
     }//GEN-LAST:event_botaoVoltarActionPerformed
+
+    private void botaoAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFuncionarioActionPerformed
+        // TODO add your handling code here:
+        TelaAddFuncionario funcionario = new TelaAddFuncionario(this);
+        this.setVisible(false);
+        funcionario.setVisible(true);
+    }//GEN-LAST:event_botaoAddFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,7 +316,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelaUsuario;
     private javax.swing.JTextField textoPesquisar;
     // End of variables declaration//GEN-END:variables
 }

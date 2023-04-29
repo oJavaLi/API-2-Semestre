@@ -256,7 +256,7 @@
                   <Component id="logo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="156" max="32767" attributes="0"/>
+                  <EmptySpace pref="153" max="32767" attributes="0"/>
                   <Component id="icon" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
               </Group>

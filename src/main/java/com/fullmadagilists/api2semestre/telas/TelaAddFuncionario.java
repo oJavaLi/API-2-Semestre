@@ -4,16 +4,21 @@
  */
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
+import com.fullmadagilists.api2semestre.entidades.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author pitag
  */
 public class TelaAddFuncionario extends javax.swing.JFrame {
-
+    private TelaCadastroFuncionario usuarios;
     /**
      * Creates new form TelaCadastroFuncionario
      */
-    public TelaAddFuncionario() {
+    public TelaAddFuncionario(TelaCadastroFuncionario usuarios) {
+        this.usuarios = usuarios;
         initComponents();
     }
 
@@ -38,9 +43,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         comboBoxCategoria = new javax.swing.JComboBox<>();
         textMatricula = new javax.swing.JTextField();
         textSenha = new javax.swing.JTextField();
-        textEmail = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -106,30 +109,42 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         buttonSalvar.setBackground(new java.awt.Color(49, 118, 187));
         buttonSalvar.setForeground(new java.awt.Color(255, 255, 255));
         buttonSalvar.setText("Salvar");
+        buttonSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSalvarActionPerformed(evt);
+            }
+        });
 
         buttonCancelar.setBackground(new java.awt.Color(0, 51, 51));
         buttonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         buttonCancelar.setText("Cancelar");
+        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelarActionPerformed(evt);
+            }
+        });
 
-        comboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        textNome.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
 
+        comboBoxCategoria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        comboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "admin", "gestor" }));
+        comboBoxCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxCategoriaActionPerformed(evt);
+            }
+        });
+
+        textMatricula.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         textMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textMatriculaActionPerformed(evt);
             }
         });
 
-        textEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textEmailActionPerformed(evt);
-            }
-        });
+        textSenha.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel6.setText("Categoria:");
-
-        jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel7.setText("E-mail:");
 
         jLabel8.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel8.setText("Nome Completo:");
@@ -144,7 +159,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 807, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -161,18 +176,13 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(textMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +191,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textNome, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                .addComponent(textNome, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -191,13 +201,9 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
                     .addComponent(comboBoxCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(textMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel10))
+                .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(textEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+                .addComponent(textSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                 .addGap(348, 348, 348)
                 .addComponent(buttonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
@@ -212,9 +218,37 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textMatriculaActionPerformed
 
-    private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
+    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textEmailActionPerformed
+        TelaAdmin telaAdmin = new TelaAdmin();
+        this.setVisible(false);
+        telaAdmin.setVisible(true);
+    }//GEN-LAST:event_buttonCancelarActionPerformed
+
+    private void comboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxCategoriaActionPerformed
+
+    private void buttonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvarActionPerformed
+        // TODO add your handling code here:
+        String matricula = textMatricula.getText();
+        int matriculanumero;
+        try{ matriculanumero = Integer.parseInt(matricula);}
+        catch(NumberFormatException e){matriculanumero = 0;}
+        try{
+            Usuario usuario = new Usuario(matriculanumero,this.textNome.getText(),
+                    this.textSenha.getText(),this.comboBoxCategoria.getSelectedItem().toString());
+
+            ConexaoBancoDeDados.cadastrarUsuario(usuario);
+            JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
+            usuarios.carregarUsuarios();
+            usuarios.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
+
+        }catch(Exception e){
+        System.out.print(e);}
+    }//GEN-LAST:event_buttonSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,11 +293,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaAddFuncionario().setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -277,11 +307,9 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField textEmail;
     private javax.swing.JTextField textMatricula;
     private javax.swing.JTextField textNome;
     private javax.swing.JTextField textSenha;

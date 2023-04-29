@@ -26,10 +26,12 @@ public class ConexaoBancoDeDados {
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url, databaseUser, databasepassword);
+            System.out.println(conexao);
         } catch (Exception e) {
             System.out.println(e);
+            
         }
-        
+       
         return conexao;
     }
     
@@ -57,7 +59,25 @@ public class ConexaoBancoDeDados {
         
         return listaUsuarios;
     }
-    
+    public static void cadastrarUsuario(Usuario usuario){  
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadApontamentosquery = "insert into database_api.apontamentos(matricula, nome, \n" +
+                                            "senha, categoria) values(?,?,?,?) ";
+            PreparedStatement stmt2 = conexao.prepareStatement(cadApontamentosquery);
+            
+            stmt2.setInt(1,usuario.getMatricula());
+            stmt2.setString(2,usuario.getNome());
+            stmt2.setString(3,usuario.getSenha());
+            stmt2.setString(4,usuario.getCategoria());
+            
+            
+            stmt2.execute();
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     public static List<Apontamentos> apontamentos(){
         List<Apontamentos> listaApontamentos = new ArrayList<Apontamentos>();
         

@@ -121,7 +121,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(160, 160, 160)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addGap(126, 126, 126))
         );
