@@ -137,11 +137,11 @@ public class Login extends javax.swing.JFrame {
                 logado = true;
                 usuarioLogado = u;
             }else if(u.getCategoria().equals("admin")){
-                new TelaCadastroFuncionario().setVisible(true);
                 this.dispose();
                 JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
                 logado = true;
                 usuarioLogado = u;
+                new TelaAdmin().setVisible(true);
                 }
             }
         }

@@ -62,7 +62,7 @@ public class ConexaoBancoDeDados {
     public static void cadastrarUsuario(Usuario usuario){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "insert into database_api.apontamentos(matricula, nome, \n" +
+            String cadApontamentosquery = "insert into database_api.login_usuarios(matricula, nome, \n" +
                                             "senha, categoria) values(?,?,?,?) ";
             PreparedStatement stmt2 = conexao.prepareStatement(cadApontamentosquery);
             

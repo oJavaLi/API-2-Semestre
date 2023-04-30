@@ -198,15 +198,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             new String [] {
                 "Nome", "Matrícula"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         tabelaUsuario.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaUsuario);
         if (tabelaUsuario.getColumnModel().getColumnCount() > 0) {
@@ -219,6 +211,11 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         botaoSair.setBackground(new java.awt.Color(47, 45, 46));
         botaoSair.setForeground(new java.awt.Color(255, 255, 255));
         botaoSair.setText("SAIR");
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSairActionPerformed(evt);
+            }
+        });
         getContentPane().add(botaoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 730, 200, 40));
 
         botaoAddFuncionario.setBackground(new java.awt.Color(49, 118, 187));
@@ -261,6 +258,12 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         this.setVisible(false);
         funcionario.setVisible(true);
     }//GEN-LAST:event_botaoAddFuncionarioActionPerformed
+
+    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+        // TODO add your handling code here:
+                this.setVisible(false);
+
+    }//GEN-LAST:event_botaoSairActionPerformed
 
     /**
      * @param args the command line arguments
