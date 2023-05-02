@@ -176,7 +176,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoApontarHoraExtraActionPerformed
 
     private void botaoApontarSobreavisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarSobreavisoActionPerformed
-        TelaApontarSobreaviso sobreAviso = new TelaApontarSobreaviso(this);
+        TelaApontarSobreAviso sobreAviso = new TelaApontarSobreAviso(this);
         this.setVisible(false);
         sobreAviso.setVisible(true);
     }//GEN-LAST:event_botaoApontarSobreavisoActionPerformed

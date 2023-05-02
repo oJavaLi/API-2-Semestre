@@ -8,10 +8,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class TelaApontarSobreaviso extends javax.swing.JFrame {
+public class TelaApontarSobreAviso extends javax.swing.JFrame {
     TelaApontamentos apontamentos;
 
-    public TelaApontarSobreaviso(TelaApontamentos apontamentos) {
+    public TelaApontarSobreAviso(TelaApontamentos apontamentos) {
         this.apontamentos = apontamentos;
         initComponents();
         tabelaHoraExtra.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
