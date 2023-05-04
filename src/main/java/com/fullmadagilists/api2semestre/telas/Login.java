@@ -148,7 +148,6 @@ public class Login extends javax.swing.JFrame {
 
         if(!logado){
             JOptionPane.showMessageDialog(null, "Credenciais inválidas");
-
         }
 
     }//GEN-LAST:event_botaoAcessarActionPerformed

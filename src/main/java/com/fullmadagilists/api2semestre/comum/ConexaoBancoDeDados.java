@@ -78,6 +78,7 @@ public class ConexaoBancoDeDados {
             e.printStackTrace();
         }
     }
+    
     public static List<Apontamentos> apontamentos(){
         List<Apontamentos> listaApontamentos = new ArrayList<Apontamentos>();
         

@@ -1,13 +1,50 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
+import com.fullmadagilists.api2semestre.entidades.Usuario;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 public class TelaAprovarHoras extends javax.swing.JFrame {
     private TelaAdmin telaAdmin;
-
+    List<Usuario> listaUsuarios;
+    Usuario usuarioSelecionado;
 
     public TelaAprovarHoras(TelaAdmin admin) {
         initComponents();
         this.telaAdmin = admin;
+        carregarUsuarios();
+        
+        botaoListarApontamentos.setEnabled(false);
+        tabelaUsuario.getSelectionModel().addListSelectionListener((e) -> {
+            if(tabelaUsuario.getSelectedRowCount() == 1) {
+                botaoListarApontamentos.setEnabled(true);
+                usuarioSelecionado = listaUsuarios.get(tabelaUsuario.getSelectedRow());
+            } else {
+                botaoListarApontamentos.setEnabled(false);
+            }
+        });
+    }
+    
+    public void carregarUsuarios(){
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
+        tabelaModel.setRowCount(0);
+        
+        listaUsuarios = ConexaoBancoDeDados.usuarios();
+
+        for (Usuario u: listaUsuarios){
+            String nome = u.getNome();
+            String categoria = u.getCategoria();
+
+            Object[] novoApontamento = new Object[]{
+                u.getNome(),
+                u.getCategoria()
+            };
+            tabelaModel.addRow(novoApontamento);
+        }
+        
+        tabelaUsuario.setModel(tabelaModel);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -17,10 +54,12 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
-        botaoVisualizar = new javax.swing.JButton();
         botaoPesquisar = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         botaoVoltar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaUsuario = new javax.swing.JTable();
+        botaoListarApontamentos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -60,13 +99,6 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        botaoVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visualizar.png"))); // NOI18N
-        botaoVisualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoVisualizarActionPerformed(evt);
-            }
-        });
-
         botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pesquisar.png"))); // NOI18N
 
         botaoVoltar.setBackground(new java.awt.Color(46, 44, 45));
@@ -79,26 +111,52 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
             }
         });
 
+        tabelaUsuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nome", "Matrícula"
+            }
+        ));
+        tabelaUsuario.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaUsuario);
+
+        botaoListarApontamentos.setBackground(new java.awt.Color(102, 102, 255));
+        botaoListarApontamentos.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoListarApontamentos.setForeground(new java.awt.Color(255, 255, 255));
+        botaoListarApontamentos.setText("Listar Apontamentos");
+        botaoListarApontamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoListarApontamentosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoVisualizar)
-                .addGap(91, 91, 91))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaoPesquisar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botaoPesquisar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoListarApontamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,26 +167,28 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisar))
-                .addGap(62, 62, 62)
-                .addComponent(botaoVisualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 406, Short.MAX_VALUE)
-                .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoListarApontamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVisualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoVisualizarActionPerformed
-
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
         this.setVisible(false);
         telaAdmin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoVoltarActionPerformed
+
+    private void botaoListarApontamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarApontamentosActionPerformed
+        System.out.println(usuarioSelecionado.getNome());
+    }//GEN-LAST:event_botaoListarApontamentosActionPerformed
 
 
     public static void main(String args[]) {
@@ -140,13 +200,15 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoListarApontamentos;
     private javax.swing.JButton botaoPesquisar;
-    private javax.swing.JButton botaoVisualizar;
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel logo;
+    private javax.swing.JTable tabelaUsuario;
     // End of variables declaration//GEN-END:variables
 }
