@@ -52,43 +52,23 @@ public class TelaApontamentos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        botaoDeletar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaApontamentos = new javax.swing.JTable();
         botaoApontarHoraExtra = new javax.swing.JButton();
         botaoApontarSobreaviso = new javax.swing.JButton();
         botaoSair = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
+        icon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(1, 32, 64));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 40));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("APONTAMENTOS");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(308, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(336, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
+        botaoDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deletar.png"))); // NOI18N
+        getContentPane().add(botaoDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, -1, -1));
 
         tabelaApontamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,10 +87,9 @@ public class TelaApontamentos extends javax.swing.JFrame {
             }
         });
         tabelaApontamentos.setPreferredSize(new java.awt.Dimension(500, 80));
-        tabelaApontamentos.setShowGrid(true);
         jScrollPane1.setViewportView(tabelaApontamentos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 81, 756, 550));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 81, 756, 510));
 
         botaoApontarHoraExtra.setBackground(new java.awt.Color(49, 117, 185));
         botaoApontarHoraExtra.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -122,7 +101,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 botaoApontarHoraExtraActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoApontarHoraExtra, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 216, -1));
+        getContentPane().add(botaoApontarHoraExtra, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 216, -1));
 
         botaoApontarSobreaviso.setBackground(new java.awt.Color(49, 117, 185));
         botaoApontarSobreaviso.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -134,7 +113,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 botaoApontarSobreavisoActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoApontarSobreaviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 650, 216, -1));
+        getContentPane().add(botaoApontarSobreaviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, 216, -1));
 
         botaoSair.setBackground(new java.awt.Color(46, 44, 45));
         botaoSair.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -146,7 +125,46 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 botaoSairActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 650, 216, -1));
+        getContentPane().add(botaoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 620, 216, -1));
+
+        jPanel1.setBackground(new java.awt.Color(1, 30, 59));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 40));
+        jPanel1.setRequestFocusEnabled(false);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("APONTAMENTOS");
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
+
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/person.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(logo)
+                .addGap(185, 185, 185)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                .addComponent(icon)
+                .addGap(126, 126, 126))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logo)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(icon)
+                        .addComponent(jLabel1)))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 45));
 
         pack();
         setLocationRelativeTo(null);
@@ -174,10 +192,13 @@ public class TelaApontamentos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoApontarHoraExtra;
     private javax.swing.JButton botaoApontarSobreaviso;
+    private javax.swing.JButton botaoDeletar;
     private javax.swing.JButton botaoSair;
+    private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel logo;
     private javax.swing.JTable tabelaApontamentos;
     // End of variables declaration//GEN-END:variables
 }
