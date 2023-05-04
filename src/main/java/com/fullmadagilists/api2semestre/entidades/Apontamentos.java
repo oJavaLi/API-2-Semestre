@@ -68,6 +68,7 @@ public class Apontamentos {
         this.justificativa = justificativa;
     }
 
+<<<<<<< Updated upstream
     public String getCliente() {
         return cliente;
     }
@@ -106,6 +107,8 @@ public class Apontamentos {
 }
 
 
+=======
+>>>>>>> Stashed changes
     public String getProjeto() {
         return projeto;
     }
@@ -130,4 +133,13 @@ public class Apontamentos {
         this.cr = cr;
     }
     
+    
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+     
 }
