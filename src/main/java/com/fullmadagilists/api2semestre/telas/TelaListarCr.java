@@ -1,5 +1,9 @@
-
 package com.fullmadagilists.api2semestre.telas;
+
+import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
+import com.fullmadagilists.api2semestre.entidades.CentroResultado;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 
 public class TelaListarCr extends javax.swing.JFrame {
@@ -7,7 +11,29 @@ public class TelaListarCr extends javax.swing.JFrame {
 
     public TelaListarCr() {
         initComponents();
+        tabelaCR.setFillsViewportHeight(true);
+        carregarCentroResultado();
+    
     }
+    
+    public void carregarCentroResultado(){
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaCR.getModel();
+        tabelaModel.setRowCount(0);
+   
+        List<CentroResultado> listaCentroResultado = ConexaoBancoDeDados.centroresultado();
+        
+        for (CentroResultado u: listaCentroResultado){
+            String codigoCR = u.getCodigocr();
+            String nomeCR = u.getNomecr();
+            String siglaCR = u.getSiglacr();
+           
+        }
+        
+        tabelaCR.setModel(tabelaModel);
+
+    
+    }
+    
 
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

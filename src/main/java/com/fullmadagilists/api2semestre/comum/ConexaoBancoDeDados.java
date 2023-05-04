@@ -1,4 +1,5 @@
 package com.fullmadagilists.api2semestre.comum;
+import com.fullmadagilists.api2semestre.entidades.CentroResultado;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.sql.Connection;
@@ -87,6 +88,31 @@ public class ConexaoBancoDeDados {
         
         return listaApontamentos;
     }
+    
+    public static List<CentroResultado> centroresultado(){
+        List<CentroResultado> listaCentroResultado = new ArrayList<CentroResultado>();
+        
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String centroresultadoquery = "select * from centroresultado";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(centroresultadoquery);
+            
+            while (resultado.next()){
+                CentroResultado centroresultado = new CentroResultado();
+                centroresultado.setCodigocr(resultado.getString("codigoCR"));
+                centroresultado.setNomecr(resultado.getString("nomeCR"));
+                centroresultado.setSiglacr(resultado.getString("siglaCR"));
+                                
+                listaCentroResultado.add(centroresultado);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        } 
+        
+        return listaCentroResultado;
+    }
+    
 
     public static void cadastrarApontamentos(Apontamentos apontamento){  
         try{
@@ -111,6 +137,23 @@ public class ConexaoBancoDeDados {
         }
     }
     
+        public static void cadastrarCentroResultado(CentroResultado centroresultado){  
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadCentroResultadoquery = "insert into database_api.centroresultado(codigoCR, nomeCR, siglaCR) values(?,?,?) ";
+            PreparedStatement stmt1 = conexao.prepareStatement(cadCentroResultadoquery);
+            
+            stmt1.setString(1,centroresultado.getCodigocr());
+            stmt1.setString(2,centroresultado.getNomecr());
+            stmt1.setString(3,centroresultado.getSiglacr());
+           
+            
+            stmt1.execute();
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     
 }
        

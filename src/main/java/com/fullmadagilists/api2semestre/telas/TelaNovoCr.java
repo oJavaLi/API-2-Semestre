@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarCentroResultado;
 import com.fullmadagilists.api2semestre.entidades.CentroResultado;
 import javax.swing.JOptionPane;
 
@@ -96,7 +97,7 @@ public class TelaNovoCr extends javax.swing.JFrame {
         botaoSubmeterCR.setBackground(new java.awt.Color(49, 117, 185));
         botaoSubmeterCR.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         botaoSubmeterCR.setForeground(new java.awt.Color(255, 255, 255));
-        botaoSubmeterCR.setText("Submeter Hora Extra");
+        botaoSubmeterCR.setText("Submeter CR");
         botaoSubmeterCR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSubmeterCRActionPerformed(evt);
@@ -179,15 +180,14 @@ public class TelaNovoCr extends javax.swing.JFrame {
     private void botaoSubmeterCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterCRActionPerformed
         // TODO add your handling code here:
         try{
-            CentroResultado centroderesultado = new CentroResultado("Centro de Resultado",
-                
+            CentroResultado centroderesultado = new CentroResultado(
                 this.codigoCRTextField.getText(),
                 this.nomeCRTextField.getText(),
                 this.siglaCRTextField.getText());
 
-            carregarCentroresultado(centroderesultado);
+            cadastrarCentroResultado(centroderesultado);
             JOptionPane.showMessageDialog(null, "CR cadastrado com Sucesso! ");
-            centroresultado.carregarCentroresultado();
+            centroresultado.carregarCentroResultado();
             centroresultado.setVisible(true);
             this.setVisible(false);
             this.dispose();
