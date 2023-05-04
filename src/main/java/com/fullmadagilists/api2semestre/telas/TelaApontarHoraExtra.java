@@ -40,7 +40,6 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 800));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cliente.png"))); // NOI18N
@@ -121,7 +120,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(160, 160, 160)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addGap(126, 126, 126))
         );
@@ -238,13 +237,23 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_solicitanteHoraExtraTextFieldActionPerformed
 
+    private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
+        this.setVisible(false);
+        apontamentos.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
+
+    private void crHoraExtraTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crHoraExtraTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crHoraExtraTextFieldActionPerformed
+
     private void botaoSubmeterHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterHoraExtraActionPerformed
         // TODO add your handling code here:
         try{
-            Apontamentos apontamento = new Apontamentos("Hora Extra", 
+            Apontamentos apontamento = new Apontamentos("Hora Extra",
                 this.entradaHoraExtraTextField.getText(),
                 this.saidaHoraExtraTextField.getText(),
-                this.justificativaHoraExtraTextField.getText(), 
+                this.justificativaHoraExtraTextField.getText(),
                 this.clienteHoraExtraTextField.getText(),
                 this.projetoHoraExtraTextField.getText(),
                 this.solicitanteHoraExtraTextField.getText(),
@@ -258,19 +267,9 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
             this.dispose();
 
         }catch(Exception e){
-        System.out.print(e);}
-        
+            System.out.print(e);}
+
     }//GEN-LAST:event_botaoSubmeterHoraExtraActionPerformed
-
-    private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
-        this.setVisible(false);
-        apontamentos.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
-
-    private void crHoraExtraTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crHoraExtraTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_crHoraExtraTextFieldActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
