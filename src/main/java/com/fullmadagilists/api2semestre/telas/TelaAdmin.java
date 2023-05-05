@@ -56,17 +56,17 @@ public class TelaAdmin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(301, 301, 301)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(326, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(7, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
@@ -220,15 +220,15 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoListarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarFuncionariosActionPerformed
-        TelaCadastroFuncionario listarFuncionarios = new TelaCadastroFuncionario();
+        TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios();
         this.setVisible(false);
         listarFuncionarios.setVisible(true);
     }//GEN-LAST:event_botaoListarFuncionariosActionPerformed
 
     private void botaoNovoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoFuncionarioActionPerformed
-       /* TelaAddFuncionario novoFuncionario = new TelaAddFuncionario();
+        TelaAddFuncionario funcionario = new TelaAddFuncionario();
         this.setVisible(false);
-        novoFuncionario.setVisible(true);*/
+        funcionario.setVisible(true);
     }//GEN-LAST:event_botaoNovoFuncionarioActionPerformed
 
     private void botaoListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarClientesActionPerformed

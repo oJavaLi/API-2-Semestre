@@ -14,10 +14,10 @@ public class ConexaoBancoDeDados {
     
     public static Connection conector(){
         // Credenciais de acesso banco de dados
-        String databaseName = "";
-        String databaseUser = "";
-        String databasepassword = "";
-        String url = "";
+        String databaseName = "database_api";
+        String databaseUser = "admin";
+        String databasepassword = "fullmada123456";
+        String url = "jdbc:mysql://fma.cx8qvm3ytmi7.us-east-2.rds.amazonaws.com:3306/database_api";
 
         // caminho do driver
         String driver = "com.mysql.cj.jdbc.Driver";

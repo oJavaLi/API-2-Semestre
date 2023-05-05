@@ -1,24 +1,118 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
+import com.fullmadagilists.api2semestre.entidades.Usuario;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 
 public class TelaListarFuncionarios extends javax.swing.JFrame {
 
 
     public TelaListarFuncionarios() {
         initComponents();
+        tabelaUsuario.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
+        carregarUsuarios();
     }
+    public void carregarUsuarios(){
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
+        tabelaModel.setRowCount(0);
 
+        List<Usuario> listaUsuarios = ConexaoBancoDeDados.usuarios();
+
+        for (Usuario u: listaUsuarios){
+            String nome = u.getNome();
+            String categoria = u.getCategoria();
+
+            Object[] novoApontamento = new Object[]{
+                u.getNome(),
+                u.getCategoria()
+            };
+            tabelaModel.addRow(novoApontamento);
+        }
+        
+        tabelaUsuario.setModel(tabelaModel);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        textoPesquisar = new javax.swing.JTextField();
+        botaoPesquisar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaUsuario = new javax.swing.JTable();
+        botaoSair = new javax.swing.JButton();
+        botaoAddFuncionario = new javax.swing.JButton();
+        botaoVoltar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1, 1));
+        setPreferredSize(new java.awt.Dimension(800, 700));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 700));
+
+        textoPesquisar.setMinimumSize(new java.awt.Dimension(636, 40));
+        textoPesquisar.setPreferredSize(new java.awt.Dimension(636, 40));
+        textoPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoPesquisarActionPerformed(evt);
+            }
+        });
+
+        botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pesquisar.png"))); // NOI18N
+
+        tabelaUsuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nome", "Matrícula"
+            }
+        ));
+        tabelaUsuario.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaUsuario);
+        if (tabelaUsuario.getColumnModel().getColumnCount() > 0) {
+            tabelaUsuario.getColumnModel().getColumn(0).setResizable(false);
+            tabelaUsuario.getColumnModel().getColumn(1).setResizable(false);
+        }
+
+        botaoSair.setBackground(new java.awt.Color(47, 45, 46));
+        botaoSair.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoSair.setForeground(new java.awt.Color(255, 255, 255));
+        botaoSair.setText("SAIR");
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSairActionPerformed(evt);
+            }
+        });
+
+        botaoAddFuncionario.setBackground(new java.awt.Color(49, 118, 187));
+        botaoAddFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoAddFuncionario.setForeground(new java.awt.Color(255, 255, 255));
+        botaoAddFuncionario.setText("+ Adicionar Funcionário");
+        botaoAddFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAddFuncionarioActionPerformed(evt);
+            }
+        });
+
+        botaoVoltar.setBackground(new java.awt.Color(47, 45, 46));
+        botaoVoltar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        botaoVoltar.setText("Voltar");
+        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVoltarActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(1, 30, 59));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 40));
@@ -39,9 +133,9 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(logo)
-                .addGap(185, 185, 185)
+                .addGap(192, 192, 192)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addGap(126, 126, 126))
         );
@@ -53,27 +147,81 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
                     .addComponent(logo)
                     .addComponent(icon)
                     .addComponent(jLabel1))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(botaoAddFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(botaoPesquisar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 755, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoAddFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
-        pack();
+        setSize(new java.awt.Dimension(816, 708));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+
+        TelaAdmin telaAdmin = new TelaAdmin();
+        this.setVisible(false);
+        telaAdmin.setVisible(true);
+    }//GEN-LAST:event_botaoVoltarActionPerformed
+
+    private void botaoAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFuncionarioActionPerformed
+
+        TelaAddFuncionario funcionario = new TelaAddFuncionario();
+        this.setVisible(false);
+        funcionario.setVisible(true);
+    }//GEN-LAST:event_botaoAddFuncionarioActionPerformed
+
+    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+
+        this.setVisible(false);
+
+    }//GEN-LAST:event_botaoSairActionPerformed
+
+    private void textoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoPesquisarActionPerformed
+
 
     public static void main(String args[]) {
 
@@ -85,9 +233,16 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoAddFuncionario;
+    private javax.swing.JButton botaoPesquisar;
+    private javax.swing.JButton botaoSair;
+    private javax.swing.JButton botaoVoltar;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
+    private javax.swing.JTable tabelaUsuario;
+    private javax.swing.JTextField textoPesquisar;
     // End of variables declaration//GEN-END:variables
 }
