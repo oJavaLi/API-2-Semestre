@@ -34,8 +34,27 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             String categoria = u.getCategoria();
 
             Object[] novoApontamento = new Object[]{
-                u.getNome(),
-                u.getCategoria()
+                nome,
+                categoria
+            };
+            tabelaModel.addRow(novoApontamento);
+        }
+        
+        tabelaUsuario.setModel(tabelaModel);
+    }
+    public void buscarUsuario(String busca){
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
+        tabelaModel.setRowCount(0);
+
+        List<Usuario> buscarUsuario = ConexaoBancoDeDados.buscarUsuarioLista(busca);
+        
+        for (Usuario u: buscarUsuario){
+            String nome = u.getNome();
+            String categoria = u.getCategoria();
+
+            Object[] novoApontamento = new Object[]{
+                nome,
+                categoria
             };
             tabelaModel.addRow(novoApontamento);
         }
@@ -68,6 +87,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         botaoSair = new javax.swing.JButton();
         botaoAddFuncionario = new javax.swing.JButton();
         botaoVoltar = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 800));
@@ -143,6 +163,11 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         getContentPane().add(textoPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 80, -1, -1));
 
         botaoPesquisar.setText("jButton1");
+        botaoPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPesquisarActionPerformed(evt);
+            }
+        });
         getContentPane().add(botaoPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(46, 82, 118));
@@ -238,6 +263,10 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         });
         getContentPane().add(botaoVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 730, 200, 40));
 
+        jLabel9.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        jLabel9.setText("Buscar nome:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 140, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -264,6 +293,11 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 this.setVisible(false);
 
     }//GEN-LAST:event_botaoSairActionPerformed
+
+    private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
+        // TODO add your handling code here:
+        buscarUsuario(textoPesquisar.getText());
+    }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,6 +350,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
