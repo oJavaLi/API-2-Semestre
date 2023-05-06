@@ -131,7 +131,7 @@ public class Login extends javax.swing.JFrame {
         for(Usuario u: listaUsuarios){
             if (u.getMatricula() == matriculanumero && u.getSenha().equals(senha)){
                 if(u.getCategoria().equals("gestor")){
-                new TelaApontamentos().setVisible(true);
+                new TelaApontamentos(u).setVisible(true);
                 this.dispose();
                 JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
                 logado = true;
