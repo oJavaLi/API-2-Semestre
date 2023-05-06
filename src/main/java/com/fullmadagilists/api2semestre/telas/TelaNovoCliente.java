@@ -8,26 +8,30 @@ import com.fullmadagilists.api2semestre.entidades.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
-
-
-
 public class TelaNovoCliente extends javax.swing.JFrame {
     
-    MaskFormatter campoCnpj;
+    
     
     public TelaNovoCliente(){
         
-        try {
-            campoCnpj = new MaskFormatter("##.###.###/####-##");
-        } catch (ParseException ex) {
-            System.out.println("Erro na mascara");
-        }
-        initComponents();
+                 
+    initComponents();
+    formatarCampo();
     }
-     
+    private void formatarCampo(){
+    try {
+            MaskFormatter mask = new MaskFormatter("##.###.###/####-##");
+            mask.install(campoCnpj);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "CNPJ inválido! O CNPJ deve ter 14 dígito", "Erro", JOptionPane.ERROR_MESSAGE);
+                    
+        }
+    
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -37,7 +41,7 @@ public class TelaNovoCliente extends javax.swing.JFrame {
         icon = new javax.swing.JLabel();
         submeter = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        cnpj = new javax.swing.JFormattedTextField(campoCnpj);
+        campoCnpj = new javax.swing.JFormattedTextField();
         campoRazaoSocial = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -100,9 +104,9 @@ public class TelaNovoCliente extends javax.swing.JFrame {
             }
         });
 
-        cnpj.addActionListener(new java.awt.event.ActionListener() {
+        campoCnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cnpjActionPerformed(evt);
+                campoCnpjActionPerformed(evt);
             }
         });
 
@@ -130,18 +134,17 @@ public class TelaNovoCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
+                .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(submeter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campoRazaoSocial, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(cnpj))))
-                .addGap(137, 137, 137))
+                    .addComponent(campoCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(191, 191, 191))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(283, 283, 283)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submeter, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,22 +156,22 @@ public class TelaNovoCliente extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(70, 70, 70)
+                .addGap(79, 79, 79)
                 .addComponent(submeter, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(55, 55, 55)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 320, Short.MAX_VALUE))
+                .addGap(0, 295, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cnpjActionPerformed
+    private void campoCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCnpjActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cnpjActionPerformed
+    }//GEN-LAST:event_campoCnpjActionPerformed
 
     private void campoRazaoSocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRazaoSocialActionPerformed
         // TODO add your handling code here:
@@ -179,9 +182,12 @@ public class TelaNovoCliente extends javax.swing.JFrame {
 
             Cliente cliente = new Cliente (
                     this.campoRazaoSocial.getText(),
-                    this.campoCnpj.getValidCharacters());
+                    this.campoCnpj.getText()
+                    
+             );              
 
             cadastrarClientes(cliente);
+            
             JOptionPane.showMessageDialog(null, "Cliente Cadastrado com Sucesso! ");
             
             this.setVisible(false);
@@ -190,10 +196,17 @@ public class TelaNovoCliente extends javax.swing.JFrame {
         } catch(Exception e){
             System.out.print(e);
         }
+        
+        
+        
+        //JOptionPane.showMessageDialog(null, "o CNPJ é: "+campoCnpj.getText(), "aviso", JOptionPane.INFORMATION_MESSAGE);
+        
     }//GEN-LAST:event_submeterActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -207,8 +220,8 @@ public class TelaNovoCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFormattedTextField campoCnpj;
     private javax.swing.JTextField campoRazaoSocial;
-    private javax.swing.JFormattedTextField cnpj;
     private javax.swing.JLabel icon;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
