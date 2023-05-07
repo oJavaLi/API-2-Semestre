@@ -3,6 +3,7 @@ package com.fullmadagilists.api2semestre.telas;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,6 +19,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
         initComponents();
         String user = usuario.getNome();
         labelnomeuser.setText(user);
+        labelnomeuser.setForeground(Color.WHITE);
         
         tabelaApontamentos.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         carregarApontamentos();

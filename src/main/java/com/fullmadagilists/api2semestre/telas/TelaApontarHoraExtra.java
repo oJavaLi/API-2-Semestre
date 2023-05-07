@@ -4,6 +4,7 @@ package com.fullmadagilists.api2semestre.telas;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 
@@ -17,6 +18,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
+        jLabel2.setForeground(Color.WHITE);
        
     }
 
