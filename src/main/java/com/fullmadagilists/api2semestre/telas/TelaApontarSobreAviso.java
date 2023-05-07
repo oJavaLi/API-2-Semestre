@@ -3,6 +3,7 @@ package com.fullmadagilists.api2semestre.telas;
 
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
+import com.fullmadagilists.api2semestre.entidades.Usuario;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -10,14 +11,18 @@ import javax.swing.table.DefaultTableModel;
 
 public class TelaApontarSobreAviso extends javax.swing.JFrame {
     TelaApontamentos apontamentos;
+    Usuario usuario;
 
-    public TelaApontarSobreAviso(TelaApontamentos apontamentos) {
+    public TelaApontarSobreAviso(TelaApontamentos apontamentos, Usuario usuario) {
         this.apontamentos = apontamentos;
+        this.usuario = usuario;
         initComponents();
         tabelaHoraExtra.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         buttonGroup1.add(jRadioButtonNao);
         buttonGroup1.add(jRadioButtonSim);
         jScrollPane1.setVisible(false);
+        String user = usuario.getNome();
+        //jLabel2.setText(user);
     }
 
  
@@ -314,7 +319,8 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                 this.projetoSobreavisoTextField.getText(),
                 this.solicitanteSobreavisoTextField.getText(),
                 this.clienteSobreavisoTextField.getText());
-            cadastrarApontamentos(apontamento);
+
+            cadastrarApontamentos(apontamento, this.usuario);
             
             if (jRadioButtonSim.isSelected()) {
                 // Cadastra horas extras dentro do sobreaviso
@@ -339,7 +345,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                     this.projetoSobreavisoTextField.getText(),
                     this.solicitanteSobreavisoTextField.getText(),
                     this.clienteSobreavisoTextField.getText());
-                    cadastrarApontamentos(apontamentoHoraExtra);
+                    cadastrarApontamentos(apontamentoHoraExtra, usuario);
                 }
             }
             

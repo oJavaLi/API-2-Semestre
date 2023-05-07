@@ -79,14 +79,18 @@ public class ConexaoBancoDeDados {
         }
     }
     
-    public static List<Apontamentos> apontamentos(){
+    public static List<Apontamentos> apontamentos(Usuario usuario){
         List<Apontamentos> listaApontamentos = new ArrayList<Apontamentos>();
         
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String apontamentosquery = "select * from apontamentos";
-            Statement stmt = conexao.createStatement();
-            ResultSet resultado = stmt.executeQuery(apontamentosquery);
+            String apontamentosquery = "select * from apontamentos where id_usuario = ?";
+            PreparedStatement stmt = conexao.prepareStatement(apontamentosquery); 
+
+            String matr = String.valueOf(usuario.getMatricula());
+            stmt.setString(1,matr);
+            ResultSet resultado = stmt.executeQuery();
+            
             
             while (resultado.next()){
                 Apontamentos apontamento = new Apontamentos();
@@ -109,11 +113,11 @@ public class ConexaoBancoDeDados {
         return listaApontamentos;
     }
 
-    public static void cadastrarApontamentos(Apontamentos apontamento){  
+    public static void cadastrarApontamentos(Apontamentos apontamento, Usuario usuario){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String cadApontamentosquery = "insert into database_api.apontamentos(categoria, data_hora_inicio, \n" +
-                                            "data_hora_fim, justificativa, cliente, projeto, solicitante, cr) values(?,?,?,?,?,?,?,?) ";
+                                            "data_hora_fim, justificativa, cliente, projeto, solicitante, cr, id_usuario) values(?,?,?,?,?,?,?,?,?) ";
             PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
             
             stmt1.setString(1,apontamento.getCategoria());
@@ -124,6 +128,8 @@ public class ConexaoBancoDeDados {
             stmt1.setString(6,apontamento.getProjeto());
             stmt1.setString(7,apontamento.getSolicitante());
             stmt1.setString(8,apontamento.getCr());
+            String matr = String.valueOf(usuario.getMatricula());
+            stmt1.setString(9, matr );
             
             stmt1.execute();
             

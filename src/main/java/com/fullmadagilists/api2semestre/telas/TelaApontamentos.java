@@ -10,11 +10,13 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class TelaApontamentos extends javax.swing.JFrame {
+    Usuario usuario;
 
 
-    public TelaApontamentos(Usuario usuarioLogado) {
+    public TelaApontamentos(Usuario usuario) {
+        this.usuario = usuario;
         initComponents();
-        String user = usuarioLogado.getNome();
+        String user = usuario.getNome();
         labelnomeuser.setText(user);
         
         tabelaApontamentos.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
@@ -22,10 +24,11 @@ public class TelaApontamentos extends javax.swing.JFrame {
     }
     
     public void carregarApontamentos(){
+        this.usuario = usuario;
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaApontamentos.getModel();
         tabelaModel.setRowCount(0);
 
-        List<Apontamentos> listaApontamentos = ConexaoBancoDeDados.apontamentos();
+        List<Apontamentos> listaApontamentos = ConexaoBancoDeDados.apontamentos(this.usuario);
 
         for (Apontamentos u: listaApontamentos){
             String categoria = u.getCategoria();
@@ -171,13 +174,13 @@ public class TelaApontamentos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoApontarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarHoraExtraActionPerformed
-        TelaApontarHoraExtra horaExtra = new TelaApontarHoraExtra(this);
+        TelaApontarHoraExtra horaExtra = new TelaApontarHoraExtra(this, usuario);
         this.setVisible(false);
         horaExtra.setVisible(true);
     }//GEN-LAST:event_botaoApontarHoraExtraActionPerformed
 
     private void botaoApontarSobreavisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarSobreavisoActionPerformed
-        TelaApontarSobreAviso sobreAviso = new TelaApontarSobreAviso(this);
+        TelaApontarSobreAviso sobreAviso = new TelaApontarSobreAviso(this, usuario);
         this.setVisible(false);
         sobreAviso.setVisible(true);
     }//GEN-LAST:event_botaoApontarSobreavisoActionPerformed
