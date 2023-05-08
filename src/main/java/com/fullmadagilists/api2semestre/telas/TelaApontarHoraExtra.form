@@ -63,10 +63,10 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="clienteHoraExtraTextField" alignment="0" min="-2" pref="240" max="-2" attributes="0"/>
-                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="clienteHoraExtraTextField" min="-2" pref="240" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="projetoHoraExtraTextField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -101,8 +101,10 @@
               </Group>
               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="clienteHoraExtraTextField" min="-2" max="-2" attributes="0"/>
-                  <Component id="projetoHoraExtraTextField" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="projetoHoraExtraTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="clienteHoraExtraTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="solicitanteHoraExtraTextField" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -180,8 +182,6 @@
     <Component class="javax.swing.JTextField" name="entradaHoraExtraTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="saidaHoraExtraTextField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="clienteHoraExtraTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="projetoHoraExtraTextField">
       <Events>
@@ -330,6 +330,19 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Entrada:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="clienteHoraExtraTextField">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clienteHoraExtraTextFieldActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

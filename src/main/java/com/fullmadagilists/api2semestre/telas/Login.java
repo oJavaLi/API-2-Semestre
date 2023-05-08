@@ -130,13 +130,13 @@ public class Login extends javax.swing.JFrame {
 
         for(Usuario u: listaUsuarios){
             if (u.getMatricula() == matriculanumero && u.getSenha().equals(senha)){
-                if(u.getCategoria().equals("gestor")){
+                if(u.getCategoria().equals("gestor") || u.getCategoria().equals("colaborador")){
                 new TelaApontamentos(u).setVisible(true);
                 this.dispose();
                 JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
                 logado = true;
                 usuarioLogado = u;
-            }else if(u.getCategoria().equals("admin")){
+            }else if(u.getCategoria().equals("administrador")){
                 this.dispose();
                 JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
                 logado = true;

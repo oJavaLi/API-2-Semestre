@@ -60,7 +60,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         textNome.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
 
         comboBoxCategoria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        comboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "admin", "gestor" }));
+        comboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "gestor", "colaborador" }));
         comboBoxCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxCategoriaActionPerformed(evt);
@@ -109,7 +109,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(185, 185, 185)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addGap(126, 126, 126))
         );
