@@ -207,7 +207,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
             usuarios.carregarUsuarios();
             this.setVisible(false);
-            new TelaListarFuncionarios().setVisible(true);
+            new TelaListarFuncionarios(usuario).setVisible(true);
             this.dispose();
 
         }catch(Exception e){
@@ -217,7 +217,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new TelaAdmin().setVisible(true);
+        new TelaAdmin(null).setVisible(true);
     }//GEN-LAST:event_buttonCancelarActionPerformed
 
 

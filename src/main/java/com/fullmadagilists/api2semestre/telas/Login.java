@@ -7,7 +7,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-
     public Login() {
         initComponents();
     }
@@ -141,7 +140,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
                 logado = true;
                 usuarioLogado = u;
-                new TelaAdmin().setVisible(true);
+                new TelaAdmin(u).setVisible(true);
                 }
             }
         }
