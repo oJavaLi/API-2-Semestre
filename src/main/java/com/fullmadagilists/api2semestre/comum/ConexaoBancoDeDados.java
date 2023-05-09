@@ -40,7 +40,31 @@ public class ConexaoBancoDeDados {
         
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String usuariosquery = "select * from login_usuarios";
+            String usuariosquery = "select * from database_api.login_usuarios";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(usuariosquery);
+            
+            while (resultado.next()){
+                Usuario usuario = new Usuario();
+                usuario.setMatricula(resultado.getInt("matricula"));
+                usuario.setNome(resultado.getString("nome"));
+                usuario.setSenha(resultado.getString("senha"));
+                usuario.setCategoria(resultado.getString("categoria"));
+                
+                listaUsuarios.add(usuario);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        } 
+        
+        return listaUsuarios;
+    }
+    public static List<Usuario> buscarUsuarioLista(String busca){
+        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String usuariosquery = "select * from login_usuarios where nome like "+"'"+busca+"%'";
             Statement stmt = conexao.createStatement();
             ResultSet resultado = stmt.executeQuery(usuariosquery);
             
