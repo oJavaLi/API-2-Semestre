@@ -77,35 +77,6 @@ public class Apontamentos {
         this.cliente = cliente;
     }
     
-    public class Cliente{
-    private String razaoSocial;
-    private int cnpj;
-    
-    public Cliente() {
-    }
-    
-    public Cliente(String razaoSocial, int cnpj) {
-        this.razaoSocial = razaoSocial;
-        this.cnpj = cnpj;
-    }
-    
-    public String getRazaoSocial() {
-        return razaoSocial;
-    }
-    
-    public void setRazaoSocial(String razaoSocial) {
-        this.razaoSocial = razaoSocial;
-    }
-    
-    public int getCnpj() {
-        return cnpj;
-    }
-    
-    public void setCnpj(int cnpj) {
-        this.cnpj = cnpj;
-    }
-}
-
     public String getProjeto() {
         return projeto;
     }
@@ -128,14 +99,5 @@ public class Apontamentos {
 
     public void setCr(String cr) {
         this.cr = cr;
-    }
-       
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
-     
+    }    
 }
