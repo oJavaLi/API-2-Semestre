@@ -1,8 +1,6 @@
 
 package com.fullmadagilists.api2semestre.entidades;
 
-import java.util.Date;
-
 public class Apontamentos {
     private int id;
     private String categoria;
