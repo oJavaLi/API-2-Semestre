@@ -218,7 +218,7 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
 
     private void botaoAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFuncionarioActionPerformed
 
-        TelaAddFuncionario funcionario = new TelaAddFuncionario();
+        TelaAddFuncionario funcionario = new TelaAddFuncionario(this.usuario);
         this.setVisible(false);
         funcionario.setVisible(true);
     }//GEN-LAST:event_botaoAddFuncionarioActionPerformed
