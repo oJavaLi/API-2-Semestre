@@ -254,7 +254,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         TelaListarClientes listarClientes = new TelaListarClientes();
         this.setVisible(false);
         listarClientes.setVisible(true);
-                
+
     }//GEN-LAST:event_botaoListarClientesActionPerformed
 
     private void botaoNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoClienteActionPerformed

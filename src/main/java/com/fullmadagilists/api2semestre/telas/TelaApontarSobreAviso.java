@@ -4,7 +4,6 @@ package com.fullmadagilists.api2semestre.telas;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
-import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,16 +17,15 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         this.apontamentos = apontamentos;
         this.usuario = usuario;
         initComponents();
-        String user = usuario.getNome();
-        jLabel2.setText(user);
-        jLabel2.setForeground(Color.WHITE);
         tabelaHoraExtra.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         buttonGroup1.add(jRadioButtonNao);
         buttonGroup1.add(jRadioButtonSim);
         jScrollPane1.setVisible(false);
+        String user = usuario.getNome();
+        //jLabel2.setText(user);
     }
 
- 
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -50,7 +48,6 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -147,8 +144,6 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
 
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/person.png"))); // NOI18N
 
-        jLabel2.setText("jLabel2");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -158,21 +153,18 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(160, 160, 160)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addComponent(icon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(126, 126, 126))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logo)
+                    .addComponent(icon)
+                    .addComponent(jLabel1))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
@@ -319,17 +311,17 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
 
     private void botaoSubmeterSobreavisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterSobreavisoActionPerformed
         try{
-            Apontamentos apontamento = new Apontamentos("Sobreaviso", 
+            Apontamentos apontamento = new Apontamentos("Sobreaviso",
                 this.entradaSobreavisoTextField.getText(),
                 this.saidaSobreavisoTextField.getText(),
-                this.justificativaSobreavisoTextField.getText(), 
+                this.justificativaSobreavisoTextField.getText(),
                 this.clienteSobreavisoTextField.getText(),
                 this.projetoSobreavisoTextField.getText(),
                 this.solicitanteSobreavisoTextField.getText(),
                 this.clienteSobreavisoTextField.getText());
 
             cadastrarApontamentos(apontamento, this.usuario);
-            
+
             if (jRadioButtonSim.isSelected()) {
                 // Cadastra horas extras dentro do sobreaviso
                 DefaultTableModel tabelaModel = (DefaultTableModel) tabelaHoraExtra.getModel();
@@ -345,18 +337,18 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                     if (dataHoraInicio == null || dataHoraFim == null || justificativa == null) continue;
                     if (dataHoraInicio.isBlank() || dataHoraFim.isBlank() || justificativa.isBlank()) continue; // Se não preencher tudo passa pro próximo
 
-                    Apontamentos apontamentoHoraExtra = new Apontamentos("Hora Extra", 
+                    Apontamentos apontamentoHoraExtra = new Apontamentos("Hora Extra",
                     dataHoraInicio,
                     dataHoraFim,
-                    justificativa, 
+                    justificativa,
                     this.clienteSobreavisoTextField.getText(),
                     this.projetoSobreavisoTextField.getText(),
                     this.solicitanteSobreavisoTextField.getText(),
                     this.clienteSobreavisoTextField.getText());
-                    cadastrarApontamentos(apontamentoHoraExtra, this.usuario);
+                    cadastrarApontamentos(apontamentoHoraExtra, usuario);
                 }
             }
-            
+
             JOptionPane.showMessageDialog(null, "Sobre aviso e horas extras cadastradas com Sucesso! ");
             apontamentos.carregarApontamentos();
             apontamentos.setVisible(true);
@@ -388,7 +380,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
     private void jRadioButtonSimStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButtonSimStateChanged
 
     }//GEN-LAST:event_jRadioButtonSimStateChanged
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelarHoraExtra;
     private javax.swing.JButton botaoSubmeterSobreaviso;
@@ -399,7 +391,6 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
     private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

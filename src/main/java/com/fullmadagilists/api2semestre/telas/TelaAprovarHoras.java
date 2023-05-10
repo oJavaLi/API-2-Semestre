@@ -22,7 +22,7 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
         jLabel2.setForeground(Color.WHITE);
 
         carregarUsuarios();
-        
+
         botaoListarApontamentos.setEnabled(false);
         tabelaUsuario.getSelectionModel().addListSelectionListener((e) -> {
             if(tabelaUsuario.getSelectedRowCount() == 1) {
@@ -33,11 +33,11 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public void carregarUsuarios(){
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
         tabelaModel.setRowCount(0);
-        
+
         listaUsuarios = ConexaoBancoDeDados.usuarios();
 
         for (Usuario u: listaUsuarios){
@@ -50,16 +50,16 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
             };
             tabelaModel.addRow(novoApontamento);
         }
-        
+
         tabelaUsuario.setModel(tabelaModel);
     }
-    
+
     public void buscarUsuario(String busca){
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
         tabelaModel.setRowCount(0);
 
         List<Usuario> buscarUsuario = ConexaoBancoDeDados.buscarUsuarioLista(busca);
-        
+
         for (Usuario u: buscarUsuario){
             String nome = u.getNome();
             String categoria = u.getCategoria();
@@ -70,7 +70,7 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
             };
             tabelaModel.addRow(novoApontamento);
         }
-        
+
         tabelaUsuario.setModel(tabelaModel);
     }
 
@@ -246,7 +246,7 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
 
 
     public static void main(String args[]) {
-       
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
             }

@@ -20,11 +20,11 @@ public class TelaApontamentos extends javax.swing.JFrame {
         String user = usuario.getNome();
         labelnomeuser.setText(user);
         labelnomeuser.setForeground(Color.WHITE);
-        
+
         tabelaApontamentos.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         carregarApontamentos();
     }
-    
+
     public void carregarApontamentos(){
         this.usuario = usuario;
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaApontamentos.getModel();
@@ -51,7 +51,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
             };
             tabelaModel.addRow(novoApontamento);
         }
-        
+
         tabelaApontamentos.setModel(tabelaModel);
     }
 
@@ -198,7 +198,9 @@ public class TelaApontamentos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoApontarHoraExtra;
     private javax.swing.JButton botaoApontarSobreaviso;
+    private javax.swing.JButton botaoDeletar;
     private javax.swing.JButton botaoSair;
+    private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

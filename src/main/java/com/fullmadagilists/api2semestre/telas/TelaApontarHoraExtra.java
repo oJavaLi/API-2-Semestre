@@ -27,7 +27,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
-        
+
         // Arredonda Hora
         Calendar hora = Calendar.getInstance();
         dataEntrada.setDate(hora.getTime());
@@ -48,7 +48,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         e.printStackTrace();
     }
 }
- 
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -305,11 +305,11 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         // TODO add your handling code here:
         Object ok = clienteHoraExtraTextField.getSelectedItem();
         String legal = ok.toString();
-        
+
         //Pega a data escolhida pelo usuario no formulário
         Date dataE = dataEntrada.getDate();
         Date dataS = dataSaida.getDate();
-        
+
         //Formata a Data
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         String dataFormatadaE = formatador.format(dataE);
@@ -340,10 +340,10 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
 
     private void clienteHoraExtraTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteHoraExtraTextFieldActionPerformed
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_clienteHoraExtraTextFieldActionPerformed
 
-   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelarHoraExtra;
     private javax.swing.JButton botaoSubmeterHoraExtra;
