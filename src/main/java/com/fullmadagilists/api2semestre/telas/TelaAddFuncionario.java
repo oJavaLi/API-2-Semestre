@@ -65,6 +65,11 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         });
 
         textNome.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        textNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNomeActionPerformed(evt);
+            }
+        });
 
         comboBoxCategoria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         comboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "gestor", "colaborador" }));
@@ -228,8 +233,12 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new TelaAdmin(null).setVisible(true);
+        new TelaAdmin(usuario).setVisible(true);
     }//GEN-LAST:event_buttonCancelarActionPerformed
+
+    private void textNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNomeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
