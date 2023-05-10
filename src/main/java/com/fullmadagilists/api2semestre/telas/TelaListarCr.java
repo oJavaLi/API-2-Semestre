@@ -26,6 +26,16 @@ public class TelaListarCr extends javax.swing.JFrame {
             String codigoCR = u.getCodigocr();
             String nomeCR = u.getNomecr();
             String siglaCR = u.getSiglacr();
+            
+            
+            
+            
+            Object[] novoCentroResultado = new Object[]{
+                u.getCodigocr(),
+                u.getNomecr(),
+                u.getSiglacr()
+            };
+            tabelaModel.addRow(novoCentroResultado);
            
         }
         
@@ -165,7 +175,7 @@ public class TelaListarCr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoApontarCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarCRActionPerformed
-        TelaNovoCr novoCR = new TelaNovoCr(this);
+        TelaNovoCr novoCR = new TelaNovoCr();
         this.setVisible(false);
         novoCR.setVisible(true);
     }//GEN-LAST:event_botaoApontarCRActionPerformed

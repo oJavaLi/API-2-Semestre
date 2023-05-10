@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class TelaNovoCr extends javax.swing.JFrame {
     private TelaListarCr centroresultado;
 
-    public TelaNovoCr(TelaListarCr centroresultado) {
+    public TelaNovoCr() {
         this.centroresultado = centroresultado;
         initComponents();
     }
