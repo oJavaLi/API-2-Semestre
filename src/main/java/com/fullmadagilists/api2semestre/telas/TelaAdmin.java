@@ -233,7 +233,8 @@ public class TelaAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        this.setVisible(false);
+        Login login = new Login();
+        login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 
@@ -276,7 +277,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoNovoCrActionPerformed
 
     private void botaoVerFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVerFuncionariosActionPerformed
-        TelaAprovarHoras aprovarHoras = new TelaAprovarHoras(this);
+        TelaAprovarHoras aprovarHoras = new TelaAprovarHoras(this, this.usuario);
         this.setVisible(false);
         aprovarHoras.setVisible(true);
     }//GEN-LAST:event_botaoVerFuncionariosActionPerformed

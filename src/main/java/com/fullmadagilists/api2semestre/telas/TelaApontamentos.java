@@ -188,7 +188,8 @@ public class TelaApontamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoApontarSobreavisoActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        this.setVisible(false);
+        Login login = new Login();
+        login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 
