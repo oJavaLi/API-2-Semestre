@@ -66,6 +66,7 @@ public class Apontamentos {
         this.justificativa = justificativa;
     }
 
+
     public String getCliente() {
         return cliente;
     }
@@ -73,7 +74,7 @@ public class Apontamentos {
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }
-
+    
     public String getProjeto() {
         return projeto;
     }
@@ -96,6 +97,5 @@ public class Apontamentos {
 
     public void setCr(String cr) {
         this.cr = cr;
-    }
-    
+    }    
 }

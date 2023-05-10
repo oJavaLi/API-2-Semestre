@@ -1,5 +1,6 @@
 package com.fullmadagilists.api2semestre.comum;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
+import com.fullmadagilists.api2semestre.entidades.Cliente;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -154,6 +155,46 @@ public class ConexaoBancoDeDados {
             stmt1.setString(8,apontamento.getCr());
             String matr = String.valueOf(usuario.getMatricula());
             stmt1.setString(9, matr );
+
+            stmt1.execute();
+
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+       public static List<Cliente> clientes(){
+        List<Cliente> listaClientes = new ArrayList<Cliente>();
+
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String clientesquery = "select * from cliente";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(clientesquery);
+
+            while (resultado.next()){
+                Cliente cliente = new Cliente();
+                cliente.setRazaoSocial(resultado.getString("razao_social"));
+                cliente.setCnpj(resultado.getString("cnpj"));
+
+                listaClientes.add(cliente);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return listaClientes;
+    }
+
+    public static void cadastrarClientes(Cliente cliente){
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadApontamentosquery = "insert into database_api.cliente(razao_social, cnpj)" +
+                                            "values(?,?) ";
+            PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
+
+            stmt1.setString(1,cliente.getRazaoSocial());
+            stmt1.setString(2,cliente.getCnpj());
 
             stmt1.execute();
 
