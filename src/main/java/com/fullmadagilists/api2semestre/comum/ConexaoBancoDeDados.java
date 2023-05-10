@@ -11,13 +11,13 @@ import java.util.List;
 
 public class ConexaoBancoDeDados {
     private static Connection conexao = null;
-    
+
     public static Connection conector(){
         // Credenciais de acesso banco de dados
-        String databaseName = "fmanaocommitaa";
-        String databaseUser = "admin";
-        String databasepassword = "adegadoneguinfds";
-        String url = "jdbc:mysql://fmanaocommitaa.cx8qvm3ytmi7.us-east-2.rds.amazonaws.com:3306/database_api";
+        String databaseName = "";
+        String databaseUser = "";
+        String databasepassword = "";
+        String url = "";
 
         // caminho do driver
         String driver = "com.mysql.cj.jdbc.Driver";
@@ -29,93 +29,93 @@ public class ConexaoBancoDeDados {
             System.out.println(conexao);
         } catch (Exception e) {
             System.out.println(e);
-            
+
         }
-       
+
         return conexao;
     }
-    
+
     public static List<Usuario> usuarios(){
         List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-        
+
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String usuariosquery = "select * from database_api.login_usuarios";
             Statement stmt = conexao.createStatement();
             ResultSet resultado = stmt.executeQuery(usuariosquery);
-            
+
             while (resultado.next()){
                 Usuario usuario = new Usuario();
                 usuario.setMatricula(resultado.getInt("matricula"));
                 usuario.setNome(resultado.getString("nome"));
                 usuario.setSenha(resultado.getString("senha"));
                 usuario.setCategoria(resultado.getString("categoria"));
-                
+
                 listaUsuarios.add(usuario);
             }
         } catch(Exception e){
             e.printStackTrace();
-        } 
-        
+        }
+
         return listaUsuarios;
     }
     public static List<Usuario> buscarUsuarioLista(String busca){
         List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-        
+
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String usuariosquery = "select * from login_usuarios where nome like "+"'"+busca+"%'";
             Statement stmt = conexao.createStatement();
             ResultSet resultado = stmt.executeQuery(usuariosquery);
-            
+
             while (resultado.next()){
                 Usuario usuario = new Usuario();
                 usuario.setMatricula(resultado.getInt("matricula"));
                 usuario.setNome(resultado.getString("nome"));
                 usuario.setSenha(resultado.getString("senha"));
                 usuario.setCategoria(resultado.getString("categoria"));
-                
+
                 listaUsuarios.add(usuario);
             }
         } catch(Exception e){
             e.printStackTrace();
-        } 
-        
+        }
+
         return listaUsuarios;
     }
-    public static void cadastrarUsuario(Usuario usuario){  
+    public static void cadastrarUsuario(Usuario usuario){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String cadApontamentosquery = "insert into database_api.login_usuarios(matricula, nome, \n" +
                                             "senha, categoria) values(?,?,?,?) ";
             PreparedStatement stmt2 = conexao.prepareStatement(cadApontamentosquery);
-            
+
             stmt2.setInt(1,usuario.getMatricula());
             stmt2.setString(2,usuario.getNome());
             stmt2.setString(3,usuario.getSenha());
             stmt2.setString(4,usuario.getCategoria());
-            
-            
+
+
             stmt2.execute();
-            
+
         } catch(Exception e){
             e.printStackTrace();
         }
     }
-    
+
     public static List<Apontamentos> apontamentos(Usuario usuario){
         List<Apontamentos> listaApontamentos = new ArrayList<Apontamentos>();
-        
+
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String apontamentosquery = "select * from apontamentos where id_usuario = ?";
-            PreparedStatement stmt = conexao.prepareStatement(apontamentosquery); 
+            PreparedStatement stmt = conexao.prepareStatement(apontamentosquery);
 
             String matr = String.valueOf(usuario.getMatricula());
             stmt.setString(1,matr);
             ResultSet resultado = stmt.executeQuery();
-            
-            
+
+
             while (resultado.next()){
                 Apontamentos apontamento = new Apontamentos();
                 apontamento.setId(resultado.getInt("idapontamentos"));
@@ -127,23 +127,23 @@ public class ConexaoBancoDeDados {
                 apontamento.setProjeto(resultado.getString("projeto"));
                 apontamento.setSolicitante(resultado.getString("solicitante"));
                 apontamento.setCr(resultado.getString("cr"));
-                
+
                 listaApontamentos.add(apontamento);
             }
         } catch(Exception e){
             e.printStackTrace();
-        } 
-        
+        }
+
         return listaApontamentos;
     }
 
-    public static void cadastrarApontamentos(Apontamentos apontamento, Usuario usuario){  
+    public static void cadastrarApontamentos(Apontamentos apontamento, Usuario usuario){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String cadApontamentosquery = "insert into database_api.apontamentos(categoria, data_hora_inicio, \n" +
                                             "data_hora_fim, justificativa, cliente, projeto, solicitante, cr, id_usuario) values(?,?,?,?,?,?,?,?,?) ";
             PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
-            
+
             stmt1.setString(1,apontamento.getCategoria());
             stmt1.setString(2,apontamento.getData_hora_inicio());
             stmt1.setString(3,apontamento.getData_hora_fim());
@@ -154,14 +154,11 @@ public class ConexaoBancoDeDados {
             stmt1.setString(8,apontamento.getCr());
             String matr = String.valueOf(usuario.getMatricula());
             stmt1.setString(9, matr );
-            
+
             stmt1.execute();
-            
+
         } catch(Exception e){
             e.printStackTrace();
         }
     }
 }
-       
-        
-       

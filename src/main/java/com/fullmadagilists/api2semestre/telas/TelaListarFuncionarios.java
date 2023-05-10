@@ -3,14 +3,20 @@ package com.fullmadagilists.api2semestre.telas;
 
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 
 public class TelaListarFuncionarios extends javax.swing.JFrame {
+    Usuario usuario;
 
-    public TelaListarFuncionarios() {
+    public TelaListarFuncionarios(Usuario usuario) {
+        this.usuario = usuario;
         initComponents();
+        String user = usuario.getNome();
+        jLabel2.setText(user);
+        jLabel2.setForeground(Color.WHITE);
         tabelaUsuario.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         carregarUsuarios();
     }
@@ -30,7 +36,7 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
             };
             tabelaModel.addRow(novoApontamento);
         }
-        
+
         tabelaUsuario.setModel(tabelaModel);
     }
     public void buscarUsuario(String busca){
@@ -38,7 +44,7 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
         tabelaModel.setRowCount(0);
 
         List<Usuario> buscarUsuario = ConexaoBancoDeDados.buscarUsuarioLista(busca);
-        
+
         for (Usuario u: buscarUsuario){
             String nome = u.getNome();
             String categoria = u.getCategoria();
@@ -49,7 +55,7 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
             };
             tabelaModel.addRow(novoApontamento);
         }
-        
+
         tabelaUsuario.setModel(tabelaModel);
     }
 
@@ -67,6 +73,7 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
         botaoSair = new javax.swing.JButton();
         botaoAddFuncionario = new javax.swing.JButton();
         botaoVoltar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 800));
@@ -103,6 +110,8 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
 
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/person.png"))); // NOI18N
 
+        jLabel2.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -114,15 +123,18 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
                 .addComponent(icon)
-                .addGap(126, 126, 126))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logo)
-                    .addComponent(icon)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -225,20 +237,20 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-
+        TelaAdmin telaAdmin = new TelaAdmin(null);
         this.setVisible(false);
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFuncionarioActionPerformed
 
-        TelaAddFuncionario funcionario = new TelaAddFuncionario();
+        TelaAddFuncionario funcionario = new TelaAddFuncionario(this.usuario);
         this.setVisible(false);
         funcionario.setVisible(true);
     }//GEN-LAST:event_botaoAddFuncionarioActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
 
-        TelaAdmin telaAdmin = new TelaAdmin();
+        TelaAdmin telaAdmin = new TelaAdmin(usuario);
         this.setVisible(false);
         telaAdmin.setVisible(true);
     }//GEN-LAST:event_botaoVoltarActionPerformed
@@ -250,7 +262,7 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -280,7 +292,7 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaListarFuncionarios().setVisible(true);
+                new TelaListarFuncionarios(null).setVisible(true);
             }
         });
     }
@@ -292,6 +304,7 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;

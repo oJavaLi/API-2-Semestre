@@ -3,6 +3,7 @@ package com.fullmadagilists.api2semestre.telas;
 
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -10,10 +11,16 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
     private TelaAdmin telaAdmin;
     List<Usuario> listaUsuarios;
     Usuario usuarioSelecionado;
+    Usuario usuario;
 
-    public TelaAprovarHoras(TelaAdmin admin) {
-        initComponents();
+    public TelaAprovarHoras(TelaAdmin admin, Usuario usuario) {
+        this.usuario = usuario;
         this.telaAdmin = admin;
+        initComponents();
+        String user = usuario.getNome();
+        jLabel2.setText(user);
+        jLabel2.setForeground(Color.WHITE);
+
         carregarUsuarios();
         
         botaoListarApontamentos.setEnabled(false);
@@ -74,6 +81,7 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         botaoPesquisar = new javax.swing.JButton();
         botaoVoltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -95,6 +103,8 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
 
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/person.png"))); // NOI18N
 
+        jLabel2.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,13 +116,16 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(167, 167, 167)
                 .addComponent(icon)
-                .addGap(129, 129, 129))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(logo)
                     .addComponent(icon)
                     .addComponent(jLabel1))
@@ -246,6 +259,7 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
