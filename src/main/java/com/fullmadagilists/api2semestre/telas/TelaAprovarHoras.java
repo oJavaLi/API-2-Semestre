@@ -46,6 +46,26 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
         
         tabelaUsuario.setModel(tabelaModel);
     }
+    
+    public void buscarUsuario(String busca){
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
+        tabelaModel.setRowCount(0);
+
+        List<Usuario> buscarUsuario = ConexaoBancoDeDados.buscarUsuarioLista(busca);
+        
+        for (Usuario u: buscarUsuario){
+            String nome = u.getNome();
+            String categoria = u.getCategoria();
+
+            Object[] novoApontamento = new Object[]{
+                nome,
+                categoria
+            };
+            tabelaModel.addRow(novoApontamento);
+        }
+        
+        tabelaUsuario.setModel(tabelaModel);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -100,6 +120,11 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
         );
 
         botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pesquisar.png"))); // NOI18N
+        botaoPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPesquisarActionPerformed(evt);
+            }
+        });
 
         botaoVoltar.setBackground(new java.awt.Color(46, 44, 45));
         botaoVoltar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -176,12 +201,12 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
                     .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisar))
                 .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoListarApontamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(84, 84, 84))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,6 +226,10 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
     private void textoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPesquisarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoPesquisarActionPerformed
+
+    private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
+        buscarUsuario(textoPesquisar.getText());
+    }//GEN-LAST:event_botaoPesquisarActionPerformed
 
 
     public static void main(String args[]) {

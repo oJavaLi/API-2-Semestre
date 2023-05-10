@@ -32,7 +32,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 800));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 800));
@@ -109,7 +109,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(185, 185, 185)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addGap(126, 126, 126))
         );
