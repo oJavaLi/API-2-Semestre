@@ -11,6 +11,9 @@ public class Apontamentos {
     private String projeto;
     private String solicitante;
     private String cr;
+    private int avaliadorMatricula;
+    private String avaliacaoStatus;
+    private String avaliacaoJustificativa;
 
     public Apontamentos(){
     }
@@ -97,5 +100,29 @@ public class Apontamentos {
 
     public void setCr(String cr) {
         this.cr = cr;
-    }    
+    }
+
+    public int getAvaliadorMatricula() {
+        return avaliadorMatricula;
+    }
+
+    public void setAvaliadorMatricula(int avaliadorMatricula) {
+        this.avaliadorMatricula = avaliadorMatricula;
+    }
+
+    public String getAvaliacaoStatus() {
+        return avaliacaoStatus;
+    }
+
+    public void setAvaliacaoStatus(String avaliacaoStatus) {
+        this.avaliacaoStatus = avaliacaoStatus;
+    }
+
+    public String getAvaliacaoJustificativa() {
+        return avaliacaoJustificativa;
+    }
+
+    public void setAvaliacaoJustificativa(String avaliacaoJustificativa) {
+        this.avaliacaoJustificativa = avaliacaoJustificativa;
+    }
 }

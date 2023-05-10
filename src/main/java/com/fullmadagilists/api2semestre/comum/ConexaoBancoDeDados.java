@@ -129,6 +129,9 @@ public class ConexaoBancoDeDados {
                 apontamento.setProjeto(resultado.getString("projeto"));
                 apontamento.setSolicitante(resultado.getString("solicitante"));
                 apontamento.setCr(resultado.getString("cr"));
+                apontamento.setAvaliadorMatricula(resultado.getInt("avaliador_matricula"));
+                apontamento.setAvaliacaoStatus(resultado.getString("avaliacao_status"));
+                apontamento.setAvaliacaoJustificativa(resultado.getString("avaliacao_justificativa"));
 
                 listaApontamentos.add(apontamento);
             }
@@ -242,6 +245,23 @@ public class ConexaoBancoDeDados {
             
             stmt1.execute();
             
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public static void atualizarAvaliacaoApontamento(Apontamentos apontamento) {
+        try {
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String query = "UPDATE database_api.apontamentos SET avaliador_matricula = ?, avaliacao_status = ?, avaliacao_justificativa = ? where idapontamentos = ?";
+            PreparedStatement stmt = conexao.prepareStatement(query);
+            
+            stmt.setInt(1, apontamento.getAvaliadorMatricula());
+            stmt.setString(2, apontamento.getAvaliacaoStatus());
+            stmt.setString(3, apontamento.getAvaliacaoJustificativa());
+            stmt.setInt(4, apontamento.getId());
+            
+            stmt.execute();
         } catch(Exception e){
             e.printStackTrace();
         }
