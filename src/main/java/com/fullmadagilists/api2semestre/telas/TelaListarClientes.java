@@ -2,7 +2,9 @@
 package com.fullmadagilists.api2semestre.telas;
 
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
+import com.fullmadagilists.api2semestre.entidades.Cliente;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
+
 import java.awt.Color;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -10,42 +12,49 @@ import javax.swing.table.DefaultTableModel;
 public class TelaListarClientes extends javax.swing.JFrame {
     Usuario usuario;
 
+
     public TelaListarClientes(Usuario usuario) {
         this.usuario = usuario;
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
-        tabelaUsuario.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
-        carregarUsuarios();
+        tabelaCliente.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
+        carregarClientes();
+    
     }
     
-        public void carregarUsuarios(){
-        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
+        public void carregarClientes(){
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaCliente.getModel();
         tabelaModel.setRowCount(0);
+        
+         List<Cliente> listaClientes = ConexaoBancoDeDados.clientes();
 
-        List<Usuario> listaUsuarios = ConexaoBancoDeDados.usuarios();
+        for (Cliente u: listaClientes){
+            String razaoSocial = u.getRazaoSocial();
+            String cnpj = u.getCnpj();
 
-        for (Usuario u: listaUsuarios){
-            String nome = u.getNome();
-            String categoria = u.getCategoria();
-
-            Object[] novoApontamento = new Object[]{
-                nome,
-                categoria
+             Object[] novoCliente = new Object[]{
+                u.getRazaoSocial(),
+                u.getCnpj()
+            
             };
-            tabelaModel.addRow(novoApontamento);
+            tabelaModel.addRow(novoCliente);
+        
+
         }
 
-        tabelaUsuario.setModel(tabelaModel);
+        tabelaCliente.setModel(tabelaModel);
     }
-    public void buscarUsuario(String busca){
-        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
+        
+     public void buscarCliente(String busca){
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaCliente.getModel();
         tabelaModel.setRowCount(0);
-
-        List<Usuario> buscarUsuario = ConexaoBancoDeDados.buscarUsuarioLista(busca);
-
-        for (Usuario u: buscarUsuario){
+        
+        
+        List<Usuario> buscarCliente = ConexaoBancoDeDados.buscarUsuarioLista(busca);
+   
+        for (Usuario u: buscarCliente){
             String nome = u.getNome();
             String categoria = u.getCategoria();
 
@@ -56,7 +65,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
             tabelaModel.addRow(novoApontamento);
         }
 
-        tabelaUsuario.setModel(tabelaModel);
+        tabelaCliente.setModel(tabelaModel);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -72,7 +81,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
         botaoSair = new javax.swing.JButton();
         botaoAddCliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaUsuario = new javax.swing.JTable();
+        tabelaCliente = new javax.swing.JTable();
         botaoVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -153,7 +162,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
             }
         });
 
-        tabelaUsuario.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -161,8 +170,8 @@ public class TelaListarClientes extends javax.swing.JFrame {
                 "Razão", "CNPJ"
             }
         ));
-        tabelaUsuario.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tabelaUsuario);
+        tabelaCliente.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaCliente);
 
         botaoVoltar.setBackground(new java.awt.Color(47, 45, 46));
         botaoVoltar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -227,7 +236,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_textoPesquisarActionPerformed
 
     private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
-        buscarUsuario(textoPesquisar.getText());
+          buscarCliente(textoPesquisar.getText());
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
@@ -262,7 +271,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
-    private javax.swing.JTable tabelaUsuario;
+    private javax.swing.JTable tabelaCliente;
     private javax.swing.JTextField textoPesquisar;
     // End of variables declaration//GEN-END:variables
 }

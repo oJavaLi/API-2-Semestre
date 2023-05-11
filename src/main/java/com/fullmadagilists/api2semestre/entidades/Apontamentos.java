@@ -1,5 +1,9 @@
-
 package com.fullmadagilists.api2semestre.entidades;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class Apontamentos {
     private int id;
@@ -124,5 +128,23 @@ public class Apontamentos {
 
     public void setAvaliacaoJustificativa(String avaliacaoJustificativa) {
         this.avaliacaoJustificativa = avaliacaoJustificativa;
+    }
+    
+    public String getTotalHoras() {
+        try {
+            DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+            LocalDateTime inicio = LocalDateTime.parse(this.getData_hora_inicio(), formatador);
+            LocalDateTime fim = LocalDateTime.parse(this.getData_hora_fim(), formatador);
+
+            Duration duracao = Duration.between(inicio, fim);
+
+            long horas = duracao.toHours();
+            long minutos = duracao.toMinutes() - (horas * 60);
+
+            return String.format("%d:%02d", horas, minutos);
+        } catch(DateTimeParseException e) {
+            return "ERRO";
+        }
     }
 }

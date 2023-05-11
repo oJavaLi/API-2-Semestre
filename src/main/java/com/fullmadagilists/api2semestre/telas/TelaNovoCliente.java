@@ -4,6 +4,7 @@ package com.fullmadagilists.api2semestre.telas;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarClientes;
 import com.fullmadagilists.api2semestre.entidades.Cliente;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
+import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.clientes;
 import java.awt.Color;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
@@ -11,10 +12,11 @@ import javax.swing.text.MaskFormatter;
 
 public class TelaNovoCliente extends javax.swing.JFrame {
     Usuario usuario;
-
+    private TelaListarClientes cliente;
 
 
     public TelaNovoCliente(Usuario usuario){
+        this.cliente = cliente;
         this.usuario = usuario;
         initComponents();
         String user = usuario.getNome();
