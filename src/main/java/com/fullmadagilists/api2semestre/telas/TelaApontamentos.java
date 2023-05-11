@@ -44,9 +44,11 @@ public class TelaApontamentos extends javax.swing.JFrame {
 
             Object[] novoApontamento = new Object[]{
                 u.getData_hora_inicio(),
+                u.getData_hora_fim(),
                 u.getCategoria(),
                 u.getProjeto(),
-                u.getData_hora_fim(),
+                u.getTotalHoras(),
+                u.getAvaliacaoStatus(),
                 ""
             };
             tabelaModel.addRow(novoApontamento);
@@ -67,6 +69,8 @@ public class TelaApontamentos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         labelnomeuser = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
+        icon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 750));
@@ -77,11 +81,11 @@ public class TelaApontamentos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "DATA", "TIPO", "PROJETO", "HORAS APONTADAS", "AÇÕES"
+                "ENTRADA", "SAÍDA", "TIPO", "PROJETO", "HORAS APONTADAS", "STATUS "
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -148,25 +152,36 @@ public class TelaApontamentos extends javax.swing.JFrame {
 
         labelnomeuser.setText("localiza");
 
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
+
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/person.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(301, 301, 301)
+                .addContainerGap()
+                .addComponent(logo)
+                .addGap(202, 202, 202)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addComponent(icon)
+                .addGap(18, 18, 18)
                 .addComponent(labelnomeuser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelnomeuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(icon)
+                    .addComponent(logo)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelnomeuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 45));
@@ -199,10 +214,12 @@ public class TelaApontamentos extends javax.swing.JFrame {
     private javax.swing.JButton botaoApontarHoraExtra;
     private javax.swing.JButton botaoApontarSobreaviso;
     private javax.swing.JButton botaoSair;
+    private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelnomeuser;
+    private javax.swing.JLabel logo;
     private javax.swing.JTable tabelaApontamentos;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,6 +24,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         this.usuario = usuario;
         initComponents();
         carregarClientes();
+        carregarCR();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
