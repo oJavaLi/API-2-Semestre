@@ -52,7 +52,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
     } catch(Exception e) {
         e.printStackTrace();
     }
-
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

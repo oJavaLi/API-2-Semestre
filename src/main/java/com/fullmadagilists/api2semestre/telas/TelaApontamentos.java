@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class TelaApontamentos extends javax.swing.JFrame {
     Usuario usuario;
-
+    List<Apontamentos> listaApontamentos;
 
     public TelaApontamentos(Usuario usuario) {
         this.usuario = usuario;
@@ -30,7 +30,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaApontamentos.getModel();
         tabelaModel.setRowCount(0);
 
-        List<Apontamentos> listaApontamentos = ConexaoBancoDeDados.apontamentos(this.usuario);
+        listaApontamentos = ConexaoBancoDeDados.apontamentos(this.usuario);
 
         for (Apontamentos u: listaApontamentos){
             String categoria = u.getCategoria();
@@ -67,6 +67,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         labelnomeuser = new javax.swing.JLabel();
+        botaoDeletar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 750));
@@ -171,6 +172,14 @@ public class TelaApontamentos extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 45));
 
+        botaoDeletar.setText("Deletar");
+        botaoDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDeletarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botaoDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -193,11 +202,19 @@ public class TelaApontamentos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 
+    private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
+        // TODO add your handling code here:
+        Apontamentos apontamentoSelecionado = listaApontamentos.get(tabelaApontamentos.getSelectedRow());
+        ConexaoBancoDeDados.deletarApontamentos(apontamentoSelecionado.getId());
+        carregarApontamentos();
+    }//GEN-LAST:event_botaoDeletarActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoApontarHoraExtra;
     private javax.swing.JButton botaoApontarSobreaviso;
+    private javax.swing.JButton botaoDeletar;
     private javax.swing.JButton botaoSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -21,6 +21,8 @@ public class ConexaoBancoDeDados {
         String databasepassword = "";
         String url = "";
 
+
+
         // caminho do driver
         String driver = "com.mysql.cj.jdbc.Driver";
 
@@ -104,7 +106,20 @@ public class ConexaoBancoDeDados {
             e.printStackTrace();
         }
     }
-
+    
+    public static void deletarUsuario(int matricula){  
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadApontamentosquery = "delete from database_api.login_usuarios where matricula="+matricula;
+            PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
+            
+            stmt1.execute();
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
     public static List<Apontamentos> apontamentos(Usuario usuario){
         List<Apontamentos> listaApontamentos = new ArrayList<Apontamentos>();
 
@@ -187,6 +202,19 @@ public class ConexaoBancoDeDados {
 
             stmt1.execute();
 
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public static void deletarApontamentos(int id){  
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadApontamentosquery = "delete from database_api.apontamentos where idapontamentos="+id;
+            PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
+            
+            stmt1.execute();
+            
         } catch(Exception e){
             e.printStackTrace();
         }
