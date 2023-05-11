@@ -52,7 +52,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
     } catch(Exception e) {
         e.printStackTrace();
     }
-
+}
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -375,7 +375,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                 dataFormatadaE,
                 dataFormatadaS,
                 this.justificativaSobreavisoTextField.getText(),
-                this.clienteTextField.getSelectedItem().toString(),
+                this.clienteTextField.getSelectedItem().toString(), 
                 this.projetoTextField.getText(),
                 this.solicitanteTextField.getText(),
                 this.crTextField.getText());

@@ -18,8 +18,8 @@ public class TelaNovoCliente extends javax.swing.JFrame {
         this.usuario = usuario;
         initComponents();
         String user = usuario.getNome();
-        razao.setText(user);
-        razao.setForeground(Color.WHITE);
+        jLabel2.setText(user);
+        jLabel2.setForeground(Color.WHITE);
         formatarCampo();
     }
 

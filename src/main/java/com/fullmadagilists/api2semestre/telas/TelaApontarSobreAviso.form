@@ -54,17 +54,11 @@
                   <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="dataEntrada" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="crTextField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dataSaida" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="dataEntrada" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="crTextField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataSaida" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">

@@ -24,9 +24,10 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
         this.usuario = usuario;
         this.telaAprovarHoras = telaAprovarHoras;
         initComponents();
+        
         String user = usuario.getNome();
         labelnomeuser.setText(user);
-        labelnomeuser.setForeground(Color.WHITE);
+        labelnomeuser.setForeground(Color.BLACK);
 
         tabelaApontamentos.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         carregarApontamentos();
@@ -73,12 +74,14 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
         botaoVoltar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        labelnomeuser = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
+        icon = new javax.swing.JLabel();
         botaoReprovarHora = new javax.swing.JButton();
         botaoAprovarHora = new javax.swing.JButton();
+        labelnomeuser = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabelaApontamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,8 +111,6 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
             tabelaApontamentos.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 81, 756, 510));
-
         botaoVoltar.setBackground(new java.awt.Color(46, 44, 45));
         botaoVoltar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         botaoVoltar.setForeground(new java.awt.Color(242, 242, 242));
@@ -120,7 +121,6 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
                 botaoVoltarActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 620, 216, -1));
 
         jPanel1.setBackground(new java.awt.Color(1, 30, 59));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 40));
@@ -130,32 +130,36 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("APONTAMENTOS");
 
-        labelnomeuser.setText("localiza");
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
+
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/person.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(301, 301, 301)
+                .addContainerGap()
+                .addComponent(logo)
+                .addGap(202, 202, 202)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
-                .addComponent(labelnomeuser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addComponent(icon)
+                .addGap(122, 122, 122))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelnomeuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(icon)
+                    .addComponent(logo)
+                    .addComponent(jLabel1))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 45));
-
         botaoReprovarHora.setBackground(new java.awt.Color(255, 51, 51));
+        botaoReprovarHora.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         botaoReprovarHora.setForeground(new java.awt.Color(255, 255, 255));
         botaoReprovarHora.setText("Reprovar Hora");
         botaoReprovarHora.addActionListener(new java.awt.event.ActionListener() {
@@ -163,15 +167,60 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
                 botaoReprovarHoraActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoReprovarHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 620, 216, 40));
 
+        botaoAprovarHora.setBackground(new java.awt.Color(49, 117, 185));
+        botaoAprovarHora.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoAprovarHora.setForeground(new java.awt.Color(255, 255, 255));
         botaoAprovarHora.setText("Aprovar Hora");
         botaoAprovarHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoAprovarHoraActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoAprovarHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 216, 40));
+
+        labelnomeuser.setText("func");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel2.setText("FUNCIONARIO:");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(botaoAprovarHora, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(botaoReprovarHora, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelnomeuser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(labelnomeuser, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoAprovarHora, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoReprovarHora, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -211,10 +260,13 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
     private javax.swing.JButton botaoAprovarHora;
     private javax.swing.JButton botaoReprovarHora;
     private javax.swing.JButton botaoVoltar;
+    private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelnomeuser;
+    private javax.swing.JLabel logo;
     private javax.swing.JTable tabelaApontamentos;
     // End of variables declaration//GEN-END:variables
 }
