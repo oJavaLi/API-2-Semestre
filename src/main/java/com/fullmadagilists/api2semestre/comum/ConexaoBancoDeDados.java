@@ -15,6 +15,10 @@ public class ConexaoBancoDeDados {
     private static Connection conexao = null;
 
     public static Connection conector(){
+        if (conexao != null) {
+            return conexao;
+        }
+        
         // Credenciais de acesso banco de dados
         String databaseName = "";
         String databaseUser = "";

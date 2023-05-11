@@ -23,11 +23,11 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
     public TelaApontarSobreAviso(TelaApontamentos apontamentos, Usuario usuario) {
         this.apontamentos = apontamentos;
         this.usuario = usuario;
+        initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
         carregarClientes();
-        initComponents();
         tabelaHoraExtra.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         buttonGroup1.add(jRadioButtonNao);
         buttonGroup1.add(jRadioButtonSim);
@@ -51,6 +51,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         }
     } catch(Exception e) {
         e.printStackTrace();
+    }
     }
 
 
