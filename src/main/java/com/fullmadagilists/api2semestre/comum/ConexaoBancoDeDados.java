@@ -15,6 +15,10 @@ public class ConexaoBancoDeDados {
     private static Connection conexao = null;
 
     public static Connection conector(){
+        if (conexao != null) {
+            return conexao;
+        }
+        
         // Credenciais de acesso banco de dados
         String databaseName = "";
         String databaseUser = "";
@@ -246,9 +250,9 @@ public class ConexaoBancoDeDados {
     public static void cadastrarClientes(Cliente cliente){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "insert into database_api.cliente(razao_social, cnpj)" +
+            String cadClientesquery = "insert into database_api.cliente(razao_social, cnpj)" +
                                             "values(?,?) ";
-            PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
+            PreparedStatement stmt1 = conexao.prepareStatement(cadClientesquery);
 
             stmt1.setString(1,cliente.getRazaoSocial());
             stmt1.setString(2,cliente.getCnpj());

@@ -24,6 +24,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         this.usuario = usuario;
         initComponents();
         carregarClientes();
+        carregarCR();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
@@ -47,8 +48,23 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
     } catch(Exception e) {
         e.printStackTrace();
     }
-}
+    }
+    
+    private void carregarCR() {
+    try {
+        Connection conexao = ConexaoBancoDeDados.conector();
+        String crquery = "select nomeCR from centroresultado";
+        Statement stmt = conexao.createStatement();
+        ResultSet resultado = stmt.executeQuery(crquery);
 
+        while (resultado.next()) {
+            crHoraExtraTextField.addItem(resultado.getString("nomeCR"));
+        }
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -59,7 +75,6 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         projetoHoraExtraTextField = new javax.swing.JTextField();
         solicitanteHoraExtraTextField = new javax.swing.JTextField();
-        crHoraExtraTextField = new javax.swing.JTextField();
         justificativaHoraExtraTextField = new javax.swing.JTextField();
         botaoSubmeterHoraExtra = new javax.swing.JButton();
         botaoCancelarHoraExtra = new javax.swing.JButton();
@@ -73,6 +88,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         clienteHoraExtraTextField = new javax.swing.JComboBox<>();
         dataEntrada = new com.toedter.calendar.JSpinnerDateEditor();
         dataSaida = new com.toedter.calendar.JSpinnerDateEditor();
+        crHoraExtraTextField = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 800));
@@ -108,13 +124,6 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         solicitanteHoraExtraTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 solicitanteHoraExtraTextFieldActionPerformed(evt);
-            }
-        });
-
-        crHoraExtraTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        crHoraExtraTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crHoraExtraTextFieldActionPerformed(evt);
             }
         });
 
@@ -161,7 +170,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(160, 160, 160)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,14 +207,18 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
 
         dataSaida.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        crHoraExtraTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        crHoraExtraTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crHoraExtraTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel9))
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel8))
@@ -221,19 +234,22 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(172, 172, 172)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(solicitanteHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(projetoHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(clienteHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(crHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(173, 173, 173)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(solicitanteHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(projetoHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(clienteHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel9)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,9 +261,9 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE))
+                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addGap(6, 6, 6)
                         .addComponent(clienteHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,16 +278,17 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(crHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(6, 6, 6)
-                        .addComponent(projetoHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
+                        .addComponent(projetoHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(crHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)))
                 .addComponent(jLabel8)
                 .addGap(12, 12, 12)
                 .addComponent(justificativaHoraExtraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -299,15 +316,8 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
-    private void crHoraExtraTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crHoraExtraTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_crHoraExtraTextFieldActionPerformed
-
     private void botaoSubmeterHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterHoraExtraActionPerformed
-        
-        Object ok = clienteHoraExtraTextField.getSelectedItem();
-        String legal = ok.toString();
-
+     
         //Pega a data escolhida pelo usuario no formulário
         Date dataE = dataEntrada.getDate();
         Date dataS = dataSaida.getDate();
@@ -323,10 +333,10 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 dataFormatadaE,
                 dataFormatadaS,
                 this.justificativaHoraExtraTextField.getText(),
-                legal,
+                this.clienteHoraExtraTextField.getSelectedItem().toString(),
                 this.projetoHoraExtraTextField.getText(),
                 this.solicitanteHoraExtraTextField.getText(),
-                this.crHoraExtraTextField.getText());
+                this.crHoraExtraTextField.getSelectedItem().toString());
 
             cadastrarApontamentos(apontamento, this.usuario);
             JOptionPane.showMessageDialog(null, "Hora Extra cadastrada com Sucesso! ");
@@ -345,12 +355,16 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
 
     }//GEN-LAST:event_clienteHoraExtraTextFieldActionPerformed
 
+    private void crHoraExtraTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crHoraExtraTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crHoraExtraTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelarHoraExtra;
     private javax.swing.JButton botaoSubmeterHoraExtra;
     private javax.swing.JComboBox<String> clienteHoraExtraTextField;
-    private javax.swing.JTextField crHoraExtraTextField;
+    private javax.swing.JComboBox<String> crHoraExtraTextField;
     private com.toedter.calendar.JSpinnerDateEditor dataEntrada;
     private com.toedter.calendar.JSpinnerDateEditor dataSaida;
     private javax.swing.JLabel icon;
