@@ -52,9 +52,10 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
         for (Apontamentos a: listaApontamentos){
             Object[] novoApontamento = new Object[]{
                 a.getData_hora_inicio(),
+                a.getData_hora_fim(),
                 a.getCategoria(),
                 a.getProjeto(),
-                a.getData_hora_fim(),
+                a.getTotalHoras(),
                 a.getAvaliacaoStatus(),
                 a.getAvaliacaoJustificativa(),
                 a.getAvaliadorMatricula()
@@ -88,11 +89,11 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
 
             },
             new String [] {
-                "DATA", "TIPO", "PROJETO", "HORAS APONTADAS", "STATUS", "JUSTIFICATIVA", "AVALIADOR"
+                "ENTRADA", "SAIDA", "TIPO", "PROJETO", "HORAS APONTADAS", "STATUS", "JUSTIFICATIVA", "AVALIADOR"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -180,7 +181,7 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
 
         labelnomeuser.setText("func");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("FUNCIONARIO:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,8 +202,7 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelnomeuser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(labelnomeuser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

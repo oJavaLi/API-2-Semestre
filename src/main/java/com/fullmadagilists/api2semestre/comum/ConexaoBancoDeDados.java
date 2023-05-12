@@ -281,6 +281,18 @@ public class ConexaoBancoDeDados {
             e.printStackTrace();
         }
     }
+        public static void deletarCR(String codigoCR){  
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadApontamentosquery = "delete from database_api.centroresultado where codigoCR="+codigoCR;
+            PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
+            
+            stmt1.execute();
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     
     public static void atualizarAvaliacaoApontamento(Apontamentos apontamento) {
         try {

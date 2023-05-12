@@ -303,14 +303,6 @@ public class TelaAdmin extends javax.swing.JFrame {
         novoRelatorio.setVisible(true);
     }//GEN-LAST:event_botaoNovoRelatorioActionPerformed
 
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaAdmin(null).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoListarClientes;

@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class TelaListarCr extends javax.swing.JFrame {
     Usuario usuario;
+    List<CentroResultado> listaCR;
 
     public TelaListarCr(Usuario usuario) {
         this.usuario = usuario;
@@ -25,10 +26,10 @@ public class TelaListarCr extends javax.swing.JFrame {
     public void carregarCentroResultado(){
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaCR.getModel();
         tabelaModel.setRowCount(0);
-
-        List<CentroResultado> listaCentroResultado = ConexaoBancoDeDados.centroresultado();
-
-        for (CentroResultado u: listaCentroResultado){
+        
+        listaCR = ConexaoBancoDeDados.centroresultado();
+        
+        for (CentroResultado u: listaCR){
             String codigoCR = u.getCodigocr();
             String nomeCR = u.getNomecr();
             String siglaCR = u.getSiglacr();
@@ -86,8 +87,8 @@ public class TelaListarCr extends javax.swing.JFrame {
         botaoApontarCR = new javax.swing.JButton();
         textoPesquisar = new javax.swing.JTextField();
         botaoPesquisar = new javax.swing.JButton();
-        botaoSair = new javax.swing.JButton();
         botaoVoltar = new javax.swing.JButton();
+        botaoDeletar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -179,16 +180,6 @@ public class TelaListarCr extends javax.swing.JFrame {
             }
         });
 
-        botaoSair.setBackground(new java.awt.Color(47, 45, 46));
-        botaoSair.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        botaoSair.setForeground(new java.awt.Color(255, 255, 255));
-        botaoSair.setText("SAIR");
-        botaoSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoSairActionPerformed(evt);
-            }
-        });
-
         botaoVoltar.setBackground(new java.awt.Color(47, 45, 46));
         botaoVoltar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         botaoVoltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,6 +187,15 @@ public class TelaListarCr extends javax.swing.JFrame {
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoVoltarActionPerformed(evt);
+            }
+        });
+
+        botaoDeletar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deletar.png"))); // NOI18N
+        botaoDeletar.setText("Deletar");
+        botaoDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDeletarActionPerformed(evt);
             }
         });
 
@@ -218,10 +218,10 @@ public class TelaListarCr extends javax.swing.JFrame {
                             .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(botaoApontarCR, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69)
-                                .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(65, 65, 65)
-                                .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66)
+                                .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(38, 38, 38))))
         );
         layout.setVerticalGroup(
@@ -237,8 +237,8 @@ public class TelaListarCr extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoApontarCR, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -260,11 +260,6 @@ public class TelaListarCr extends javax.swing.JFrame {
         buscarCR(textoPesquisar.getText());
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
-    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        TelaAdmin telaAdmin = new TelaAdmin(usuario);
-        this.setVisible(false);
-    }//GEN-LAST:event_botaoSairActionPerformed
-
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
 
         TelaAdmin telaAdmin = new TelaAdmin(usuario);
@@ -272,12 +267,19 @@ public class TelaListarCr extends javax.swing.JFrame {
         telaAdmin.setVisible(true);
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
+    private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
+        // TODO add your handling code here:
+        CentroResultado crSelecionado = listaCR.get(tabelaCR.getSelectedRow());
+        ConexaoBancoDeDados.deletarCR(crSelecionado.getCodigocr());
+        carregarCentroResultado();
+    }//GEN-LAST:event_botaoDeletarActionPerformed
+
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoApontarCR;
+    private javax.swing.JButton botaoDeletar;
     private javax.swing.JButton botaoPesquisar;
-    private javax.swing.JButton botaoSair;
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;

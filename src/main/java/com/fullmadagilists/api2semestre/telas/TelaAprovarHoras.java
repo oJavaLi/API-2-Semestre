@@ -248,14 +248,6 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
 
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoListarApontamentos;
     private javax.swing.JButton botaoPesquisar;
