@@ -20,10 +20,10 @@ public class ConexaoBancoDeDados {
         }
         
         // Credenciais de acesso banco de dados
-        String databaseName = "";
-        String databaseUser = "";
-        String databasepassword = "";
-        String url = "";
+        String databaseName = "fmanaocommitaa";
+        String databaseUser = "admin";
+        String databasepassword = "adegadoneguinfds";
+        String url = "jdbc:mysql://fmanaocommitaa.cx8qvm3ytmi7.us-east-2.rds.amazonaws.com:3306/database_api";
 
 
 
@@ -263,6 +263,20 @@ public class ConexaoBancoDeDados {
             e.printStackTrace();
         }
     }
+    
+        public static void deletarCliente(String razaoSocial){  
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadApontamentosquery = "delete from database_api.cliente where razao_social="+razaoSocial;
+            PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
+            
+            stmt1.execute();
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
     
         public static void cadastrarCentroResultado(CentroResultado centroresultado){  
         try{

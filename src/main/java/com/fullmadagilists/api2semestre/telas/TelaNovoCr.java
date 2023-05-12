@@ -12,7 +12,6 @@ public class TelaNovoCr extends javax.swing.JFrame {
     private TelaListarCr centroresultado;
 
     public TelaNovoCr(Usuario usuario) {
-        this.centroresultado = centroresultado;
         this.usuario = usuario;
         initComponents();
         String user = usuario.getNome();
@@ -209,8 +208,8 @@ public class TelaNovoCr extends javax.swing.JFrame {
             cadastrarCentroResultado(centroderesultado);
             JOptionPane.showMessageDialog(null, "CR cadastrado com Sucesso! ");
             centroresultado.carregarCentroResultado();
-            centroresultado.setVisible(true);
             this.setVisible(false);
+            new TelaListarCr(usuario).setVisible(true);
             this.dispose();
 
         }catch(Exception e){
