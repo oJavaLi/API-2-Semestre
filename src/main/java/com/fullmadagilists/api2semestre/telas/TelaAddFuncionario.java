@@ -221,10 +221,13 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
 
             ConexaoBancoDeDados.cadastrarUsuario(usuario);
             JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
-            usuarios.carregarUsuarios();
+            
+            TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios(usuario);
+            listarFuncionarios.setVisible(true);
             this.setVisible(false);
-            new TelaListarFuncionarios(usuario).setVisible(true);
             this.dispose();
+            
+            
 
         }catch(Exception e){
         System.out.print(e);}

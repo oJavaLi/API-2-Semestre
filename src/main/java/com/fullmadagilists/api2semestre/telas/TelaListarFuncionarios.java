@@ -20,6 +20,16 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
         jLabel2.setForeground(Color.WHITE);
         tabelaUsuario.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         carregarUsuarios();
+        
+        //botao deletar fica inativo e só ativa quando seleciona 1 ou mais linhas
+        botaoDeletar.setEnabled(false);
+        tabelaUsuario.getSelectionModel().addListSelectionListener((e) -> {
+            if (tabelaUsuario.getSelectedRowCount() >= 1) {
+                botaoDeletar.setEnabled(true);
+            } else {
+                botaoDeletar.setEnabled(false);
+            }
+        });
     }
     public void carregarUsuarios(){
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();

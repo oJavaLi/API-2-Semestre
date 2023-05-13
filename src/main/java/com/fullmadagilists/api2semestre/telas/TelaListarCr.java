@@ -2,6 +2,7 @@ package com.fullmadagilists.api2semestre.telas;
 
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.CentroResultado;
+import com.fullmadagilists.api2semestre.entidades.Cliente;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.awt.Color;
 import java.util.List;
@@ -20,6 +21,16 @@ public class TelaListarCr extends javax.swing.JFrame {
         jLabel2.setForeground(Color.WHITE);
         tabelaCR.setFillsViewportHeight(true);
         carregarCentroResultado();
+        
+        botaoDeletar.setEnabled(false);
+        tabelaCR.getSelectionModel().addListSelectionListener((e) -> {
+            if (tabelaCR.getSelectedRowCount() >= 1){
+                botaoDeletar.setEnabled(true);
+            }
+            else {
+                botaoDeletar.setEnabled(false);
+            }
+        });
 
     }
 
@@ -268,9 +279,10 @@ public class TelaListarCr extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
-        // TODO add your handling code here:
-        CentroResultado crSelecionado = listaCR.get(tabelaCR.getSelectedRow());
-        ConexaoBancoDeDados.deletarCR(crSelecionado.getCodigocr());
+        for (int i: tabelaCR.getSelectedRows()) {
+            CentroResultado crSelecionado = listaCR.get(i);
+            ConexaoBancoDeDados.deletarCliente(crSelecionado.getCodigocr());
+        }
         carregarCentroResultado();
     }//GEN-LAST:event_botaoDeletarActionPerformed
 
