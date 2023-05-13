@@ -264,11 +264,12 @@ public class ConexaoBancoDeDados {
         }
     }
     
-        public static void deletarCliente(String razaoSocial){  
+        public static void deletarCliente(String cnpj){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "delete from database_api.cliente where razao_social="+razaoSocial;
-            PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
+            String query = "delete from database_api.cliente where cnpj=?";
+            PreparedStatement stmt1 = conexao.prepareStatement(query);
+            stmt1.setString(1, cnpj);
             
             stmt1.execute();
             

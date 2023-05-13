@@ -21,10 +21,19 @@ public class TelaListarClientes extends javax.swing.JFrame {
         jLabel2.setForeground(Color.WHITE);
         tabelaCliente.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         carregarClientes();
-    
+        
+        botaoDeletar.setEnabled(false);
+        tabelaCliente.getSelectionModel().addListSelectionListener((e) -> {
+            if (tabelaCliente.getSelectedRowCount() >= 1) {
+                botaoDeletar.setEnabled(true);
+            } else {
+                botaoDeletar.setEnabled(false);
+            }
+        });
     }
     
-        public void carregarClientes(){
+    
+    public void carregarClientes(){
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaCliente.getModel();
         tabelaModel.setRowCount(0);
         
@@ -248,9 +257,10 @@ public class TelaListarClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
-
-        Cliente clienteSelecionado = listaClientes.get(tabelaCliente.getSelectedRow());
-        ConexaoBancoDeDados.deletarCliente(clienteSelecionado.getRazaoSocial());
+        for (int i: tabelaCliente.getSelectedRows()) {
+            Cliente clienteSelecionado = listaClientes.get(i);
+            ConexaoBancoDeDados.deletarCliente(clienteSelecionado.getCnpj());
+        }
         carregarClientes();
     }//GEN-LAST:event_botaoDeletarActionPerformed
 

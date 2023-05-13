@@ -201,6 +201,8 @@ public class TelaNovoCliente extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Cliente Cadastrado com Sucesso! ");
 
+            TelaListarClientes telaListarClientes = new TelaListarClientes(usuario);
+            telaListarClientes.setVisible(true);
             this.setVisible(false);
             this.dispose();
 
@@ -208,17 +210,12 @@ public class TelaNovoCliente extends javax.swing.JFrame {
             System.out.print(e);
         }
 
-
-
         //JOptionPane.showMessageDialog(null, "o CNPJ é: "+campoCnpj.getText(), "aviso", JOptionPane.INFORMATION_MESSAGE);
-
     }//GEN-LAST:event_submeterActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         this.setVisible(false);
         new TelaAdmin(usuario).setVisible(true);
-
-
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
 
