@@ -10,8 +10,6 @@
 • <a href ="#b"> Datas </a> 
 • <a href ="#c"> Tecnologias Utilizadas </a>
 • <a href ="#y"> Sprint Backlog </a>
-• <a href ="#e"> Aplicação </a>
-• <a href ="#h"> Gráfico Burndown </a>
 • <a href ="#g"> Equipe </a>
 </p>
 <h3 align="center"> Projeto Integrador FATEC 2023.1</h3>
@@ -117,6 +115,21 @@ https://user-images.githubusercontent.com/77700346/234703451-75bfc86f-ebc0-4039-
 <summary><h2> Gráfico Burndown </h2> <br id=h></summary>
 
 <img src="https://user-images.githubusercontent.com/77700346/233811650-34536350-a363-46ee-b151-af87a74ec6e0.jpeg" alt="Texto alternativo da imagem" style="width: 650px;"/>
+ 
+</details>
+
+<details>
+<summary><h2> Sprint 3 </h2> <br id=h></summary>
+<br>
+
+<summary><h2>Demonstração da Aplicação</h2></summary>
+
+https://user-images.githubusercontent.com/77700346/234703451-75bfc86f-ebc0-4039-a6bd-bd54473aeaa8.mp4
+
+
+<summary><h2> Gráfico Burndown </h2> <br id=h></summary>
+
+<img src="https://github.com/FullMadAgilists/API-2-Semestre/assets/77700346/13eee8d5-92bb-4054-b102-1d7ade7fbdbb" alt="Texto alternativo da imagem" style="width: 650px;"/>
 </details>
 
 
