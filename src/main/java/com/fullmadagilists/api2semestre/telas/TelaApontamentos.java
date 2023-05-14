@@ -20,9 +20,18 @@ public class TelaApontamentos extends javax.swing.JFrame {
         String user = usuario.getNome();
         labelnomeuser.setText(user);
         labelnomeuser.setForeground(Color.WHITE);
-
         tabelaApontamentos.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         carregarApontamentos();
+        
+        //botao deletar fica inativo e só ativa quando seleciona 1 ou mais linhas
+        botaoDeletar.setEnabled(false);
+        tabelaApontamentos.getSelectionModel().addListSelectionListener((e) -> {
+            if (tabelaApontamentos.getSelectedRowCount() >= 1) {
+                botaoDeletar.setEnabled(true);
+            } else {
+                botaoDeletar.setEnabled(false);
+            }
+        });
     }
 
     public void carregarApontamentos(){

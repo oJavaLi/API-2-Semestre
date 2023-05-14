@@ -13,7 +13,7 @@ import java.util.List;
 import com.opencsv.CSVWriter;
 
 public class TelaNovoRelatorio extends javax.swing.JFrame {
-List<Apontamentos> listaApontamentos;
+    List<Apontamentos> listaApontamentos;
 
     public TelaNovoRelatorio() {
         this.listaApontamentos = listaApontamentos;
