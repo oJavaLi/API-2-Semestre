@@ -1,7 +1,9 @@
-
 package com.fullmadagilists.api2semestre.entidades;
 
-import java.util.Date;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class Apontamentos {
     private int id;
@@ -13,6 +15,9 @@ public class Apontamentos {
     private String projeto;
     private String solicitante;
     private String cr;
+    private int avaliadorMatricula;
+    private String avaliacaoStatus;
+    private String avaliacaoJustificativa;
 
     public Apontamentos(){
     }
@@ -68,6 +73,7 @@ public class Apontamentos {
         this.justificativa = justificativa;
     }
 
+
     public String getCliente() {
         return cliente;
     }
@@ -75,7 +81,7 @@ public class Apontamentos {
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }
-
+    
     public String getProjeto() {
         return projeto;
     }
@@ -99,5 +105,46 @@ public class Apontamentos {
     public void setCr(String cr) {
         this.cr = cr;
     }
+
+    public int getAvaliadorMatricula() {
+        return avaliadorMatricula;
+    }
+
+    public void setAvaliadorMatricula(int avaliadorMatricula) {
+        this.avaliadorMatricula = avaliadorMatricula;
+    }
+
+    public String getAvaliacaoStatus() {
+        return avaliacaoStatus;
+    }
+
+    public void setAvaliacaoStatus(String avaliacaoStatus) {
+        this.avaliacaoStatus = avaliacaoStatus;
+    }
+
+    public String getAvaliacaoJustificativa() {
+        return avaliacaoJustificativa;
+    }
+
+    public void setAvaliacaoJustificativa(String avaliacaoJustificativa) {
+        this.avaliacaoJustificativa = avaliacaoJustificativa;
+    }
     
+    public String getTotalHoras() {
+        try {
+            DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+            LocalDateTime inicio = LocalDateTime.parse(this.getData_hora_inicio(), formatador);
+            LocalDateTime fim = LocalDateTime.parse(this.getData_hora_fim(), formatador);
+
+            Duration duracao = Duration.between(inicio, fim);
+
+            long horas = duracao.toHours();
+            long minutos = duracao.toMinutes() - (horas * 60);
+
+            return String.format("%d:%02d", horas, minutos);
+        } catch(DateTimeParseException e) {
+            return "ERRO";
+        }
+    }
 }
