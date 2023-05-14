@@ -10,6 +10,7 @@
 • <a href ="#b"> Datas </a> 
 • <a href ="#c"> Tecnologias Utilizadas </a>
 • <a href ="#y"> Sprint Backlog </a>
+• <a href ="#d"> Aplicação </a>
 • <a href ="#g"> Equipe </a>
 </p>
 <h3 align="center"> Projeto Integrador FATEC 2023.1</h3>
@@ -74,7 +75,7 @@ Tecnologias Utilizadas<br id=c>
 ![Site de Portfólio Fotografia Experimental Claro Preto Cinza](https://user-images.githubusercontent.com/107864553/234710466-b3bcbcff-bf55-40b8-a76f-85f3c5ac5a95.png)
 
 <h2>
-Aplicação<br id=e>
+Aplicação<br id=d>
 </h2>
 
 <details>
