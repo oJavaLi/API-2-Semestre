@@ -7,7 +7,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-
     public Login() {
         initComponents();
     }
@@ -130,18 +129,24 @@ public class Login extends javax.swing.JFrame {
 
         for(Usuario u: listaUsuarios){
             if (u.getMatricula() == matriculanumero && u.getSenha().equals(senha)){
-                new TelaApontamentos().setVisible(true);
+                if(u.getCategoria().equals("gestor") || u.getCategoria().equals("colaborador")){
+                new TelaApontamentos(u).setVisible(true);
                 this.dispose();
                 JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
                 logado = true;
                 usuarioLogado = u;
-
+            }else if(u.getCategoria().equals("administrador")){
+                this.dispose();
+                JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
+                logado = true;
+                usuarioLogado = u;
+                new TelaAdmin(u).setVisible(true);
+                }
             }
         }
 
         if(!logado){
             JOptionPane.showMessageDialog(null, "Credenciais inválidas");
-
         }
 
     }//GEN-LAST:event_botaoAcessarActionPerformed

@@ -2,28 +2,35 @@ package com.fullmadagilists.api2semestre.telas;
 
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
+import com.fullmadagilists.api2semestre.entidades.Usuario;
+import java.awt.Color;
 import java.util.List;
-import javax.swing.JTable;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 
 
 
 
 public class TelaApontamentos extends javax.swing.JFrame {
+    Usuario usuario;
+    List<Apontamentos> listaApontamentos;
 
-
-    public TelaApontamentos() {
+    public TelaApontamentos(Usuario usuario) {
+        this.usuario = usuario;
         initComponents();
+        String user = usuario.getNome();
+        labelnomeuser.setText(user);
+        labelnomeuser.setForeground(Color.WHITE);
+
         tabelaApontamentos.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         carregarApontamentos();
     }
-    
+
     public void carregarApontamentos(){
+        this.usuario = usuario;
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaApontamentos.getModel();
         tabelaModel.setRowCount(0);
 
-        List<Apontamentos> listaApontamentos = ConexaoBancoDeDados.apontamentos();
+        listaApontamentos = ConexaoBancoDeDados.apontamentos(this.usuario);
 
         for (Apontamentos u: listaApontamentos){
             String categoria = u.getCategoria();
@@ -37,14 +44,16 @@ public class TelaApontamentos extends javax.swing.JFrame {
 
             Object[] novoApontamento = new Object[]{
                 u.getData_hora_inicio(),
+                u.getData_hora_fim(),
                 u.getCategoria(),
                 u.getProjeto(),
-                u.getData_hora_fim(),
+                u.getTotalHoras(),
+                u.getAvaliacaoStatus(),
                 ""
             };
             tabelaModel.addRow(novoApontamento);
         }
-        
+
         tabelaApontamentos.setModel(tabelaModel);
     }
 
@@ -52,7 +61,6 @@ public class TelaApontamentos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botaoDeletar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaApontamentos = new javax.swing.JTable();
         botaoApontarHoraExtra = new javax.swing.JButton();
@@ -60,26 +68,24 @@ public class TelaApontamentos extends javax.swing.JFrame {
         botaoSair = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        labelnomeuser = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
+        botaoDeletar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 750));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        botaoDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deletar.png"))); // NOI18N
-        getContentPane().add(botaoDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, -1, -1));
 
         tabelaApontamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "DATA", "TIPO", "PROJETO", "HORAS APONTADAS", "AÇÕES"
+                "ENTRADA", "SAÍDA", "TIPO", "PROJETO", "HORAS APONTADAS", "STATUS "
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -88,21 +94,26 @@ public class TelaApontamentos extends javax.swing.JFrame {
         });
         tabelaApontamentos.setPreferredSize(new java.awt.Dimension(500, 80));
         tabelaApontamentos.setShowGrid(true);
+        tabelaApontamentos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaApontamentos);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 81, 756, 510));
+        if (tabelaApontamentos.getColumnModel().getColumnCount() > 0) {
+            tabelaApontamentos.getColumnModel().getColumn(0).setResizable(false);
+            tabelaApontamentos.getColumnModel().getColumn(1).setResizable(false);
+            tabelaApontamentos.getColumnModel().getColumn(2).setResizable(false);
+            tabelaApontamentos.getColumnModel().getColumn(3).setResizable(false);
+            tabelaApontamentos.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         botaoApontarHoraExtra.setBackground(new java.awt.Color(49, 117, 185));
         botaoApontarHoraExtra.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         botaoApontarHoraExtra.setForeground(new java.awt.Color(242, 242, 242));
         botaoApontarHoraExtra.setText("+ APONTAR HORA EXTRA");
-        botaoApontarHoraExtra.setPreferredSize(new java.awt.Dimension(200, 40));
+        botaoApontarHoraExtra.setPreferredSize(new java.awt.Dimension(180, 40));
         botaoApontarHoraExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoApontarHoraExtraActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoApontarHoraExtra, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 216, -1));
 
         botaoApontarSobreaviso.setBackground(new java.awt.Color(49, 117, 185));
         botaoApontarSobreaviso.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -114,7 +125,6 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 botaoApontarSobreavisoActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoApontarSobreaviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, 216, -1));
 
         botaoSair.setBackground(new java.awt.Color(46, 44, 45));
         botaoSair.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -126,7 +136,6 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 botaoSairActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 620, 216, -1));
 
         jPanel1.setBackground(new java.awt.Color(1, 30, 59));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 40));
@@ -135,6 +144,8 @@ public class TelaApontamentos extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("APONTAMENTOS");
+
+        labelnomeuser.setText("localiza");
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
 
@@ -145,48 +156,101 @@ public class TelaApontamentos extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(logo)
-                .addGap(185, 185, 185)
+                .addGap(202, 202, 202)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                 .addComponent(icon)
-                .addGap(126, 126, 126))
+                .addGap(18, 18, 18)
+                .addComponent(labelnomeuser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(icon)
                     .addComponent(logo)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(icon)
-                        .addComponent(jLabel1)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelnomeuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 45));
+        botaoDeletar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deletar.png"))); // NOI18N
+        botaoDeletar.setText("Deletar");
+        botaoDeletar.setPreferredSize(new java.awt.Dimension(200, 40));
+        botaoDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDeletarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(botaoApontarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(botaoApontarSobreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoApontarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoApontarSobreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoApontarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarHoraExtraActionPerformed
-        TelaApontarHoraExtra horaExtra = new TelaApontarHoraExtra(this);
+        TelaApontarHoraExtra horaExtra = new TelaApontarHoraExtra(this, usuario);
         this.setVisible(false);
         horaExtra.setVisible(true);
     }//GEN-LAST:event_botaoApontarHoraExtraActionPerformed
 
     private void botaoApontarSobreavisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarSobreavisoActionPerformed
-        TelaApontarSobreaviso sobreAviso = new TelaApontarSobreaviso(this);
+        TelaApontarSobreAviso sobreAviso = new TelaApontarSobreAviso(this, usuario);
         this.setVisible(false);
         sobreAviso.setVisible(true);
     }//GEN-LAST:event_botaoApontarSobreavisoActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        this.setVisible(false);
+        Login login = new Login();
+        login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
+
+    private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
+        // TODO add your handling code here:
+        Apontamentos apontamentoSelecionado = listaApontamentos.get(tabelaApontamentos.getSelectedRow());
+        ConexaoBancoDeDados.deletarApontamentos(apontamentoSelecionado.getId());
+        carregarApontamentos();
+    }//GEN-LAST:event_botaoDeletarActionPerformed
 
 
 
@@ -199,6 +263,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelnomeuser;
     private javax.swing.JLabel logo;
     private javax.swing.JTable tabelaApontamentos;
     // End of variables declaration//GEN-END:variables

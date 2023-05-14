@@ -1,20 +1,23 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.entidades.Usuario;
+import java.awt.Color;
+
 
 public class TelaAdmin extends javax.swing.JFrame {
-
-    public TelaAdmin() {
+    Usuario usuario;
+    public TelaAdmin(Usuario usuario) {
+        this.usuario = usuario;
         initComponents();
+        String user = usuario.getNome();
+        jLabel2.setText(user);
+        jLabel2.setForeground(Color.WHITE);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        logo = new javax.swing.JLabel();
-        icon = new javax.swing.JLabel();
         botaoNovoFuncionario = new javax.swing.JButton();
         botaoListarFuncionarios = new javax.swing.JButton();
         iconPerson = new javax.swing.JLabel();
@@ -40,49 +43,16 @@ public class TelaAdmin extends javax.swing.JFrame {
         iconRelatorios = new javax.swing.JLabel();
         resultados3 = new javax.swing.JLabel();
         retangulo5 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        logo1 = new javax.swing.JLabel();
+        icon = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
         setPreferredSize(new java.awt.Dimension(800, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(1, 30, 59));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 40));
-        jPanel1.setRequestFocusEnabled(false);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ADMINISTRAÇÃO");
-
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
-
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/person.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(logo)
-                .addGap(185, 185, 185)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
-                .addComponent(icon)
-                .addGap(126, 126, 126))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logo)
-                    .addComponent(icon)
-                    .addComponent(jLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
 
         botaoNovoFuncionario.setText("+ Novo");
         botaoNovoFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -223,56 +193,100 @@ public class TelaAdmin extends javax.swing.JFrame {
         retangulo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/retangulo.png"))); // NOI18N
         getContentPane().add(retangulo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, -1));
 
+        jPanel2.setBackground(new java.awt.Color(1, 30, 59));
+        jPanel2.setPreferredSize(new java.awt.Dimension(800, 40));
+        jPanel2.setRequestFocusEnabled(false);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("ADMINISTRAÇÃO");
+
+        logo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
+
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/person.png"))); // NOI18N
+
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(logo1)
+                .addGap(195, 195, 195)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                .addComponent(icon)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(logo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        this.setVisible(false);
-        this.setVisible(false);
+        Login login = new Login();
+        login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoListarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarFuncionariosActionPerformed
-        TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios();
+        TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios(this.usuario);
         this.setVisible(false);
         listarFuncionarios.setVisible(true);
     }//GEN-LAST:event_botaoListarFuncionariosActionPerformed
 
     private void botaoNovoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoFuncionarioActionPerformed
-        TelaNovoFuncionario novoFuncionario = new TelaNovoFuncionario();
+        TelaAddFuncionario funcionario = new TelaAddFuncionario(this.usuario);
         this.setVisible(false);
-        novoFuncionario.setVisible(true);
+        funcionario.setVisible(true);
     }//GEN-LAST:event_botaoNovoFuncionarioActionPerformed
 
     private void botaoListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarClientesActionPerformed
-        TelaListarClientes listarClientes = new TelaListarClientes();
+        TelaListarClientes listarClientes = new TelaListarClientes(this.usuario);
         this.setVisible(false);
         listarClientes.setVisible(true);
-                
+
     }//GEN-LAST:event_botaoListarClientesActionPerformed
 
     private void botaoNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoClienteActionPerformed
-        TelaNovoCliente novoCliente = new TelaNovoCliente();
+        TelaNovoCliente novoCliente = new TelaNovoCliente(this.usuario);
         this.setVisible(false);
         novoCliente.setVisible(true);
     }//GEN-LAST:event_botaoNovoClienteActionPerformed
 
     private void botaoListarCrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarCrActionPerformed
-        TelaListarCr listarCr = new TelaListarCr();
+        TelaListarCr listarCr = new TelaListarCr(this.usuario);
         this.setVisible(false);
         listarCr.setVisible(true);
 
     }//GEN-LAST:event_botaoListarCrActionPerformed
 
     private void botaoNovoCrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoCrActionPerformed
-        TelaNovoCr novoCr = new TelaNovoCr();
+        TelaNovoCr novoCr = new TelaNovoCr(this.usuario);
         this.setVisible(false);
         novoCr.setVisible(true);
     }//GEN-LAST:event_botaoNovoCrActionPerformed
 
     private void botaoVerFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVerFuncionariosActionPerformed
-        TelaAprovarHoras aprovarHoras = new TelaAprovarHoras();
+        TelaAprovarHoras aprovarHoras = new TelaAprovarHoras(this, this.usuario);
         this.setVisible(false);
         aprovarHoras.setVisible(true);
     }//GEN-LAST:event_botaoVerFuncionariosActionPerformed
@@ -289,14 +303,6 @@ public class TelaAdmin extends javax.swing.JFrame {
         novoRelatorio.setVisible(true);
     }//GEN-LAST:event_botaoNovoRelatorioActionPerformed
 
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaAdmin().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoListarClientes;
@@ -317,9 +323,10 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel iconPerson;
     private javax.swing.JLabel iconRelatorios;
     private javax.swing.JLabel iconResultados;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel logo;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel logo1;
     private javax.swing.JLabel resultados;
     private javax.swing.JLabel resultados2;
     private javax.swing.JLabel resultados3;

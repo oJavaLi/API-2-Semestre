@@ -1,36 +1,79 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
-import javax.swing.JButton;
+import com.fullmadagilists.api2semestre.entidades.Usuario;
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
-public class TelaApontarSobreaviso extends javax.swing.JFrame {
+public class TelaApontarSobreAviso extends javax.swing.JFrame {
     TelaApontamentos apontamentos;
+    Usuario usuario;
 
-    public TelaApontarSobreaviso(TelaApontamentos apontamentos) {
+    public TelaApontarSobreAviso(TelaApontamentos apontamentos, Usuario usuario) {
         this.apontamentos = apontamentos;
+        this.usuario = usuario;
         initComponents();
+        String user = usuario.getNome();
+        jLabel2.setText(user);
+        jLabel2.setForeground(Color.WHITE);
+        carregarClientes();
+        carregarCR();
         tabelaHoraExtra.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
         buttonGroup1.add(jRadioButtonNao);
         buttonGroup1.add(jRadioButtonSim);
         jScrollPane1.setVisible(false);
+
+        // Arredonda Hora
+        Calendar hora = Calendar.getInstance();
+        dataEntrada.setDate(hora.getTime());
+        hora.add(Calendar.HOUR, 1);
+        dataSaida.setDate(hora.getTime());
     }
 
- 
+    private void carregarClientes() {
+        try {
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String clientesquery = "select razao_social from cliente";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(clientesquery);
+
+            while (resultado.next()) {
+                clienteTextField.addItem(resultado.getString("razao_social"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void carregarCR() {
+    try {
+        Connection conexao = ConexaoBancoDeDados.conector();
+        String crquery = "select nomeCR from centroresultado";
+        Statement stmt = conexao.createStatement();
+        ResultSet resultado = stmt.executeQuery(crquery);
+
+        while (resultado.next()) {
+            crTextField.addItem(resultado.getString("nomeCR"));
+        }
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        entradaSobreavisoTextField = new javax.swing.JTextField();
-        saidaSobreavisoTextField = new javax.swing.JTextField();
-        clienteSobreavisoTextField = new javax.swing.JTextField();
-        projetoSobreavisoTextField = new javax.swing.JTextField();
-        solicitanteSobreavisoTextField = new javax.swing.JTextField();
-        crSobreavisoTextField = new javax.swing.JTextField();
         justificativaSobreavisoTextField = new javax.swing.JTextField();
         botaoSubmeterSobreaviso = new javax.swing.JButton();
         botaoCancelarHoraExtra = new javax.swing.JButton();
@@ -40,30 +83,25 @@ public class TelaApontarSobreaviso extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaHoraExtra = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        projetoTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        solicitanteTextField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        clienteTextField = new javax.swing.JComboBox<>();
+        dataEntrada = new com.toedter.calendar.JSpinnerDateEditor();
+        dataSaida = new com.toedter.calendar.JSpinnerDateEditor();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        crTextField = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        projetoSobreavisoTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                projetoSobreavisoTextFieldActionPerformed(evt);
-            }
-        });
-
-        solicitanteSobreavisoTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                solicitanteSobreavisoTextFieldActionPerformed(evt);
-            }
-        });
 
         botaoSubmeterSobreaviso.setBackground(new java.awt.Color(49, 117, 185));
         botaoSubmeterSobreaviso.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -131,13 +169,15 @@ public class TelaApontarSobreaviso extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 40));
         jPanel1.setRequestFocusEnabled(false);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("APONTAR SOBREAVISO");
-
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
 
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/person.png"))); // NOI18N
+
+        jLabel2.setText("jLabel2");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("APONTAR SOBREAVISO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -146,30 +186,71 @@ public class TelaApontarSobreaviso extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(logo)
-                .addGap(160, 160, 160)
+                .addGap(157, 157, 157)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                 .addComponent(icon)
-                .addGap(126, 126, 126))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGap(77, 77, 77))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logo)
-                    .addComponent(icon)
-                    .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(logo)
+                                .addComponent(icon)))))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mensagem.png"))); // NOI18N
+        jLabel8.setText("Justificativa:");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr.png"))); // NOI18N
+        jLabel9.setText("CR:");
+
+        projetoTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        projetoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projetoTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/horario.png"))); // NOI18N
+        jLabel3.setText("Saida:");
+
+        solicitanteTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        solicitanteTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                solicitanteTextFieldActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/horario.png"))); // NOI18N
         jLabel4.setText("Entrada:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/horario.png"))); // NOI18N
-        jLabel3.setText("Saida:");
+        clienteTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clienteTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteTextFieldActionPerformed(evt);
+            }
+        });
+
+        dataEntrada.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        dataSaida.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cliente.png"))); // NOI18N
@@ -183,51 +264,18 @@ public class TelaApontarSobreaviso extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solicitante.png"))); // NOI18N
         jLabel7.setText("Solicitante:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr.png"))); // NOI18N
-        jLabel9.setText("CR:");
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mensagem.png"))); // NOI18N
-        jLabel8.setText("Justificativa:");
+        crTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        crTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crTextFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(303, 303, 303)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(saidaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(entradaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel5)
-                .addGap(183, 183, 183)
-                .addComponent(jLabel6)
-                .addGap(177, 177, 177)
-                .addComponent(jLabel7))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(clienteSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(projetoSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(solicitanteSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(justificativaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(crSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createSequentialGroup()
                 .addGap(236, 236, 236)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,37 +291,66 @@ public class TelaApontarSobreaviso extends javax.swing.JFrame {
                     .addComponent(botaoSubmeterSobreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoCancelarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(300, 300, 300))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(crTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(173, 173, 173)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(solicitanteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(projetoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(clienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(justificativaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel5)
                         .addGap(6, 6, 6)
-                        .addComponent(saidaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(clienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(entradaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25)
+                        .addComponent(jLabel7)
+                        .addGap(6, 6, 6)
+                        .addComponent(solicitanteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(clienteSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(projetoSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(solicitanteSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(crSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(projetoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(crTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(17, 17, 17)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(justificativaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,26 +373,33 @@ public class TelaApontarSobreaviso extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void projetoSobreavisoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projetoSobreavisoTextFieldActionPerformed
+    private void crTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_projetoSobreavisoTextFieldActionPerformed
+    }//GEN-LAST:event_crTextFieldActionPerformed
 
-    private void solicitanteSobreavisoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solicitanteSobreavisoTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_solicitanteSobreavisoTextFieldActionPerformed
+    private void botaoSubmeterSobreavisoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoSubmeterSobreavisoActionPerformed
 
-    private void botaoSubmeterSobreavisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterSobreavisoActionPerformed
-        try{
-            Apontamentos apontamento = new Apontamentos("Sobreaviso", 
-                this.entradaSobreavisoTextField.getText(),
-                this.saidaSobreavisoTextField.getText(),
-                this.justificativaSobreavisoTextField.getText(), 
-                this.clienteSobreavisoTextField.getText(),
-                this.projetoSobreavisoTextField.getText(),
-                this.solicitanteSobreavisoTextField.getText(),
-                this.clienteSobreavisoTextField.getText());
-            cadastrarApontamentos(apontamento);
-            
+        // Pega a data escolhida pelo usuario no formulário
+        Date dataE = dataEntrada.getDate();
+        Date dataS = dataSaida.getDate();
+
+        // Formata a Data
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String dataFormatadaE = formatador.format(dataE);
+        String dataFormatadaS = formatador.format(dataS);
+
+        try {
+            Apontamentos apontamento = new Apontamentos("Sobreaviso",
+                    dataFormatadaE,
+                    dataFormatadaS,
+                    this.justificativaSobreavisoTextField.getText(),
+                    this.clienteTextField.getSelectedItem().toString(),
+                    this.projetoTextField.getText(),
+                    this.solicitanteTextField.getText(),
+                    this.crTextField.getSelectedItem().toString());
+
+            cadastrarApontamentos(apontamento, this.usuario);
+
             if (jRadioButtonSim.isSelected()) {
                 // Cadastra horas extras dentro do sobreaviso
                 DefaultTableModel tabelaModel = (DefaultTableModel) tabelaHoraExtra.getModel();
@@ -328,63 +412,81 @@ public class TelaApontarSobreaviso extends javax.swing.JFrame {
                     System.out.println(dataHoraFim);
                     System.out.println(justificativa);
 
-                    if (dataHoraInicio == null || dataHoraFim == null || justificativa == null) continue;
-                    if (dataHoraInicio.isBlank() || dataHoraFim.isBlank() || justificativa.isBlank()) continue; // Se não preencher tudo passa pro próximo
+                    if (dataHoraInicio == null || dataHoraFim == null || justificativa == null)
+                        continue;
+                    if (dataHoraInicio.isBlank() || dataHoraFim.isBlank() || justificativa.isBlank())
+                        continue; // Se não preencher tudo passa pro próximo
 
-                    Apontamentos apontamentoHoraExtra = new Apontamentos("Hora Extra", 
-                    dataHoraInicio,
-                    dataHoraFim,
-                    justificativa, 
-                    this.clienteSobreavisoTextField.getText(),
-                    this.projetoSobreavisoTextField.getText(),
-                    this.solicitanteSobreavisoTextField.getText(),
-                    this.clienteSobreavisoTextField.getText());
-                    cadastrarApontamentos(apontamentoHoraExtra);
+                    Apontamentos apontamentoHoraExtra = new Apontamentos("Hora Extra",
+                            dataHoraInicio,
+                            dataHoraFim,
+                            justificativa,
+                            this.clienteTextField.getSelectedItem().toString(),
+                            this.projetoTextField.getText(),
+                            this.solicitanteTextField.getText(),
+                            this.crTextField.getSelectedItem().toString());
+                    cadastrarApontamentos(apontamentoHoraExtra, usuario);
                 }
             }
-            
+
             JOptionPane.showMessageDialog(null, "Sobre aviso e horas extras cadastradas com Sucesso! ");
             apontamentos.carregarApontamentos();
             apontamentos.setVisible(true);
             this.setVisible(false);
             this.dispose();
 
-        }catch(Exception e){
-        System.out.print(e);}
-    }//GEN-LAST:event_botaoSubmeterSobreavisoActionPerformed
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+    }// GEN-LAST:event_botaoSubmeterSobreavisoActionPerformed
 
-    private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
+    private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
         this.setVisible(false);
         apontamentos.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
+    }// GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
-    private void jRadioButtonSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimActionPerformed
+    private void jRadioButtonSimActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonSimActionPerformed
         jScrollPane1.setVisible(true);
         tabelaHoraExtra.setVisible(true);
         this.pack(); // acorda o swing falando que ele tem que atualizar a tela de novo
-    }//GEN-LAST:event_jRadioButtonSimActionPerformed
+    }// GEN-LAST:event_jRadioButtonSimActionPerformed
 
-    private void jRadioButtonNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoActionPerformed
+    private void jRadioButtonNaoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonNaoActionPerformed
         jScrollPane1.setVisible(false);
         tabelaHoraExtra.setVisible(true);
         this.pack(); // acorda o swing falando que ele tem que atualizar a tela de novo
-    }//GEN-LAST:event_jRadioButtonNaoActionPerformed
+    }// GEN-LAST:event_jRadioButtonNaoActionPerformed
 
-    private void jRadioButtonSimStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButtonSimStateChanged
+    private void jRadioButtonSimStateChanged(javax.swing.event.ChangeEvent evt) {// GEN-FIRST:event_jRadioButtonSimStateChanged
 
-    }//GEN-LAST:event_jRadioButtonSimStateChanged
-    
+    }// GEN-LAST:event_jRadioButtonSimStateChanged
+
+    private void projetoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_projetoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_projetoTextFieldActionPerformed
+
+    private void solicitanteTextFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_solicitanteTextFieldActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_solicitanteTextFieldActionPerformed
+
+
+    private void clienteTextFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clienteTextFieldActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_clienteTextFieldActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelarHoraExtra;
     private javax.swing.JButton botaoSubmeterSobreaviso;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField clienteSobreavisoTextField;
-    private javax.swing.JTextField crSobreavisoTextField;
-    private javax.swing.JTextField entradaSobreavisoTextField;
+    private javax.swing.JComboBox<String> clienteTextField;
+    private javax.swing.JComboBox<String> crTextField;
+    private com.toedter.calendar.JSpinnerDateEditor dataEntrada;
+    private com.toedter.calendar.JSpinnerDateEditor dataSaida;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -398,9 +500,8 @@ public class TelaApontarSobreaviso extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField justificativaSobreavisoTextField;
     private javax.swing.JLabel logo;
-    private javax.swing.JTextField projetoSobreavisoTextField;
-    private javax.swing.JTextField saidaSobreavisoTextField;
-    private javax.swing.JTextField solicitanteSobreavisoTextField;
+    private javax.swing.JTextField projetoTextField;
+    private javax.swing.JTextField solicitanteTextField;
     private javax.swing.JTable tabelaHoraExtra;
     // End of variables declaration//GEN-END:variables
 }
