@@ -135,11 +135,11 @@ https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/6338414f-7d6e
  
 https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/a8d20af4-c3c2-4370-8175-943a17fffe7e
 
-[b]Aprovar Horas:[/b]
+ <b>Aprovar Horas:</b>
 
 https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/d8f5f21b-cf21-4e1d-94fe-9f842c9d9adb
  
-[b]Relatórios:[/b]
+ <b>Relatórios:</b>
 
 https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/2514d808-2caf-4443-963c-432027696d3e
  
