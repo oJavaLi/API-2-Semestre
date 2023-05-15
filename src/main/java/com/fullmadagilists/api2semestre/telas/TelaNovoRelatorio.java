@@ -6,23 +6,17 @@ import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.io.File;
 import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import com.opencsv.CSVWriter;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class TelaNovoRelatorio extends javax.swing.JFrame {
-    
     List<Usuario> usuarios;
 
     public TelaNovoRelatorio() {
         initComponents();
         carregarUsuarios();
+        
     }
 
     private void carregarUsuarios() {
@@ -43,7 +37,7 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
             CSVWriter csvWriter = new CSVWriter(escritor);
 
             // Escrever o cabeçalho do arquivo
-            String[] cabecalho = {"Solicitante", "Categoria", "Data Hora Início", "Data Hora Fim", "Justificativa"};
+            String[] cabecalho = {"Solicitante", "Categoria", "Data Hora Inicio", "Data Hora Fim", "Justificativa"};
             csvWriter.writeNext(cabecalho);
 
             // Escrever os dados da lista no arquivo
@@ -60,6 +54,8 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
             
             csvWriter.flush();
             csvWriter.close();
+            JOptionPane.showMessageDialog(null, "Relatório do funcionário " 
+                    + usuarioSelecionado.getNome() + " gerado com sucesso!");
         } catch(Exception e){
             e.printStackTrace();
         }
@@ -106,14 +102,14 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logo)
-                    .addComponent(icon)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        jLabel2.setText("Selecionar funcionário");
+        jLabel2.setText("Selecionar funcionário:");
 
         jButton1.setText("Gerar relatório");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
