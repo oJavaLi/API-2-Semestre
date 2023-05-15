@@ -125,19 +125,19 @@ https://user-images.githubusercontent.com/77700346/234703451-75bfc86f-ebc0-4039-
 
 <summary><h2>Demonstração da Aplicação</h2></summary>
 
-Apontamento de Hora Extra:
+ <b>Apontamento de Hora Extra:</b>
 
 https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/6338414f-7d6e-4bab-9b2d-1b44294667d9
 
-Tela Admin:
- -Funcionários, Clientes, CR
+<b>Tela Admin:
+ 
+ -Funcionários, Clientes, CR </b>
  
 https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/a8d20af4-c3c2-4370-8175-943a17fffe7e
 
 Aprovar Horas:
- 
- 
 
+https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/d8f5f21b-cf21-4e1d-94fe-9f842c9d9adb
 
 <summary><h2> Gráfico Burndown </h2> <br id=h></summary>
 
