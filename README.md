@@ -138,6 +138,11 @@ https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/a8d20af4-c3c2
 Aprovar Horas:
 
 https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/d8f5f21b-cf21-4e1d-94fe-9f842c9d9adb
+ 
+Relatórios:
+
+https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/2514d808-2caf-4443-963c-432027696d3e
+ 
 
 <summary><h2> Gráfico Burndown </h2> <br id=h></summary>
 
