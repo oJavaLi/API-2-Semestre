@@ -19,3 +19,7 @@ nbdist/
 .project
 .settings/
 target/
+
+
+# Relatórios
+relatorio*.csv

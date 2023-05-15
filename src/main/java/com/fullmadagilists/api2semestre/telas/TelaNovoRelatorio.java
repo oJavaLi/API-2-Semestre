@@ -3,6 +3,7 @@ package com.fullmadagilists.api2semestre.telas;
 
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
+import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.io.File;
 import java.io.FileWriter;
 import java.sql.Connection;
@@ -11,74 +12,58 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import com.opencsv.CSVWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TelaNovoRelatorio extends javax.swing.JFrame {
-    List<Apontamentos> listaApontamentos;
+    
+    List<Usuario> usuarios;
 
     public TelaNovoRelatorio() {
-        this.listaApontamentos = listaApontamentos;
         initComponents();
-        carregarCR();
+        carregarUsuarios();
     }
 
-    private void carregarCR() {
-    try {
-        Connection conexao = ConexaoBancoDeDados.conector();
-        String userquery = "select nome from login_usuarios";
-        Statement stmt = conexao.createStatement();
-        ResultSet resultado = stmt.executeQuery(userquery);
-
-        while (resultado.next()) {
-            selecaofunc.addItem(resultado.getString("nome"));
+    private void carregarUsuarios() {
+        usuarios = ConexaoBancoDeDados.usuarios();
+        for (Usuario u: usuarios) {
+            selecaofunc.addItem(u.getMatricula() + " - " + u.getNome());
         }
-    } catch(Exception e) {
-        e.printStackTrace();
     }
-    }
+    
     private void gerarRelatorio() {
-    String nomeFuncionario = selecaofunc.getSelectedItem().toString();
-    try {
-        Connection conexao = ConexaoBancoDeDados.conector();
-        String apontamentosQuery = "SELECT * FROM apontamentos WHERE solicitante = '" + nomeFuncionario + "'";
-        Statement stmt = conexao.createStatement();
-        ResultSet resultado = stmt.executeQuery(apontamentosQuery);
-        List<Apontamentos> listaApontamentos = new ArrayList<>();
-        while (resultado.next()) {
-            Apontamentos apontamento = new Apontamentos();
-            apontamento.setSolicitante(resultado.getString("solicitante"));
-            apontamento.setCategoria(resultado.getString("categoria"));
-            apontamento.setData_hora_inicio(resultado.getString("data_hora_inicio"));
-            apontamento.setData_hora_fim(resultado.getString("data_hora_fim"));
-            apontamento.setJustificativa(resultado.getString("justificativa"));
-            listaApontamentos.add(apontamento);
-        }
+        Usuario usuarioSelecionado = usuarios.get(selecaofunc.getSelectedIndex());
+        List<Apontamentos> apontamentos = ConexaoBancoDeDados.apontamentos(usuarioSelecionado);
         
         // Transformar a lista em um arquivo CSV usando OpenCSV
-        File arquivo = new File("relatorio.csv");
-        FileWriter escritor = new FileWriter(arquivo);
-        CSVWriter csvWriter = new CSVWriter(escritor);
-        
-        // Escrever o cabeçalho do arquivo
-        String[] cabecalho = {"Solicitante", "Categoria", "Data Hora Início", "Data Hora Fim", "Justificativa"};
-        csvWriter.writeNext(cabecalho);
-        
-        // Escrever os dados da lista no arquivo
-        for (Apontamentos apontamento : listaApontamentos) {
-            String[] linha = {
-                apontamento.getSolicitante(),
-                apontamento.getCategoria(),
-                apontamento.getData_hora_inicio(),
-                apontamento.getData_hora_fim(),
-                apontamento.getJustificativa()
-            };
-            csvWriter.writeNext(linha);
+        try {
+            File arquivo = new File("relatorio_" + usuarioSelecionado.getMatricula() + ".csv");
+            FileWriter escritor = new FileWriter(arquivo);
+            CSVWriter csvWriter = new CSVWriter(escritor);
+
+            // Escrever o cabeçalho do arquivo
+            String[] cabecalho = {"Solicitante", "Categoria", "Data Hora Início", "Data Hora Fim", "Justificativa"};
+            csvWriter.writeNext(cabecalho);
+
+            // Escrever os dados da lista no arquivo
+            for (Apontamentos apontamento : apontamentos) {
+                String[] linha = {
+                    apontamento.getSolicitante(),
+                    apontamento.getCategoria(),
+                    apontamento.getData_hora_inicio(),
+                    apontamento.getData_hora_fim(),
+                    apontamento.getJustificativa()
+                };
+                csvWriter.writeNext(linha);
+            }
+            
+            csvWriter.flush();
+            csvWriter.close();
+        } catch(Exception e){
+            e.printStackTrace();
         }
-        
-        csvWriter.close();
-    } catch(Exception e) {
-        e.printStackTrace();
     }
-}
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
