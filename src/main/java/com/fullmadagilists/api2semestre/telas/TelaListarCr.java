@@ -281,7 +281,7 @@ public class TelaListarCr extends javax.swing.JFrame {
     private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
         for (int i: tabelaCR.getSelectedRows()) {
             CentroResultado crSelecionado = listaCR.get(i);
-            ConexaoBancoDeDados.deletarCliente(crSelecionado.getCodigocr());
+            ConexaoBancoDeDados.deletarCR(crSelecionado.getCodigocr());
         }
         carregarCentroResultado();
     }//GEN-LAST:event_botaoDeletarActionPerformed

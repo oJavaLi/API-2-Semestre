@@ -20,10 +20,10 @@ public class ConexaoBancoDeDados {
         }
         
         // Credenciais de acesso banco de dados
-        String databaseName = "";
-        String databaseUser = "";
-        String databasepassword = "";
-        String url = "";
+        String databaseName = "fmanaocommitaa";
+        String databaseUser = "admin";
+        String databasepassword = "adegadoneguinfds";
+        String url = "jdbc:mysql://fmanaocommitaa.cx8qvm3ytmi7.us-east-2.rds.amazonaws.com:3306/database_api";
 
 
 
@@ -299,9 +299,9 @@ public class ConexaoBancoDeDados {
         public static void deletarCR(String codigoCR){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "delete from database_api.centroresultado where codigoCR="+codigoCR;
-            PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
-            
+            String crquery = "delete from database_api.centroresultado where codigoCR=?";
+            PreparedStatement stmt1 = conexao.prepareStatement(crquery);
+            stmt1.setString(1, codigoCR);
             stmt1.execute();
             
         } catch(Exception e){
