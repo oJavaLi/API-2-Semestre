@@ -27,6 +27,8 @@ public class ConexaoBancoDeDados {
 
 
 
+
+
         // caminho do driver
         String driver = "com.mysql.cj.jdbc.Driver";
 
@@ -102,6 +104,25 @@ public class ConexaoBancoDeDados {
             stmt2.setString(2,usuario.getNome());
             stmt2.setString(3,usuario.getSenha());
             stmt2.setString(4,usuario.getCategoria());
+
+
+            stmt2.execute();
+
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public static void editarUsuario(Usuario usuario){
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadApontamentosquery = "update database_api.login_usuarios set nome=?,senha=?,categoria=? where matricula=897 ;";
+            PreparedStatement stmt2 = conexao.prepareStatement(cadApontamentosquery);
+            stmt2.setString(1,usuario.getNome());
+            stmt2.setString(2,usuario.getSenha());
+            stmt2.setString(3,usuario.getCategoria());
+
+                     
 
 
             stmt2.execute();

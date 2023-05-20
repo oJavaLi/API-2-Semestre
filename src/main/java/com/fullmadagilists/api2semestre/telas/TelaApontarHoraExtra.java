@@ -28,6 +28,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
+        solicitanteHoraExtraTextField.setText(user);
 
         // Arredonda Hora
         Calendar hora = Calendar.getInstance();

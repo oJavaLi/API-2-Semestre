@@ -10,13 +10,20 @@ import javax.swing.JOptionPane;
 public class TelaAddFuncionario extends javax.swing.JFrame {
     private TelaListarFuncionarios usuarios;
     Usuario usuario;
-
-    public TelaAddFuncionario(Usuario usuario) {
+    Usuario config;
+    public TelaAddFuncionario(Usuario usuario,Usuario config) {
         this.usuario = usuario;
+        this.config = config;
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
+        if(config!=null){
+            
+            textNome.setText(config.getNome());
+            textSenha.setText(config.getSenha());
+            textMatricula.setEditable(false);
+        }
     }
 
 
@@ -211,6 +218,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
 
     private void buttonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvarActionPerformed
         // TODO add your handling code here:
+        if(config==null){
         String matricula = textMatricula.getText();
         int matriculanumero;
         try{ matriculanumero = Integer.parseInt(matricula);}
@@ -231,6 +239,29 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
 
         }catch(Exception e){
         System.out.print(e);}
+        }else{
+           
+           String matricula = textMatricula.getText();
+        int matriculanumero;
+        try{ matriculanumero = Integer.parseInt(matricula);}
+        catch(NumberFormatException e){matriculanumero = 0;}
+        try{
+            Usuario usuario = new Usuario(matriculanumero,this.textNome.getText(),
+                    this.textSenha.getText(),this.comboBoxCategoria.getSelectedItem().toString());
+
+            ConexaoBancoDeDados.editarUsuario(usuario);
+            JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
+            
+            TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios(usuario);
+            listarFuncionarios.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
+            
+            
+
+        }catch(Exception e){
+        System.out.print(e);}
+        }
     }//GEN-LAST:event_buttonSalvarActionPerformed
 
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
