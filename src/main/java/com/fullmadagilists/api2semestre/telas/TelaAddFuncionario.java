@@ -22,6 +22,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
             
             textNome.setText(config.getNome());
             textSenha.setText(config.getSenha());
+            textMatricula.setText(Integer.toString(config.getMatricula()));
             textMatricula.setEditable(false);
         }
     }
@@ -250,7 +251,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
                     this.textSenha.getText(),this.comboBoxCategoria.getSelectedItem().toString());
 
             ConexaoBancoDeDados.editarUsuario(usuario);
-            JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
+            JOptionPane.showMessageDialog(null, "Usuario editado com sucesso");
             
             TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios(usuario);
             listarFuncionarios.setVisible(true);

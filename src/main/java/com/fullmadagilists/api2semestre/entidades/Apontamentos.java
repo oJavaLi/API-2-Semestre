@@ -15,7 +15,7 @@ public class Apontamentos {
     private String projeto;
     private String solicitante;
     private String cr;
-    private int avaliadorMatricula;
+        private int avaliadorMatricula;
     private String avaliacaoStatus;
     private String avaliacaoJustificativa;
 

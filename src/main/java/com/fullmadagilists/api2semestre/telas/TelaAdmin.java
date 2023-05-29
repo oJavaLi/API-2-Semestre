@@ -254,7 +254,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoListarFuncionariosActionPerformed
 
     private void botaoNovoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoFuncionarioActionPerformed
-        TelaAddFuncionario funcionario = new TelaAddFuncionario(this.usuario);
+        TelaAddFuncionario funcionario = new TelaAddFuncionario(this.usuario,null);
         this.setVisible(false);
         funcionario.setVisible(true);
     }//GEN-LAST:event_botaoNovoFuncionarioActionPerformed

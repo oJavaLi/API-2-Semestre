@@ -116,11 +116,12 @@ public class ConexaoBancoDeDados {
     public static void editarUsuario(Usuario usuario){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "update database_api.login_usuarios set nome=?,senha=?,categoria=? where matricula=897 ;";
-            PreparedStatement stmt2 = conexao.prepareStatement(cadApontamentosquery);
+            String cadUsuarioquery = "update database_api.login_usuarios set nome=?,senha=?,categoria=? where matricula=? ;";
+            PreparedStatement stmt2 = conexao.prepareStatement(cadUsuarioquery);
             stmt2.setString(1,usuario.getNome());
             stmt2.setString(2,usuario.getSenha());
             stmt2.setString(3,usuario.getCategoria());
+            stmt2.setInt(4, usuario.getMatricula());
 
                      
 
@@ -232,6 +233,30 @@ public class ConexaoBancoDeDados {
         }
     }
     
+    public static void editarApontamentos(Apontamentos apontamento,Usuario usuario,int id){
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadApontamentosquery = "update database_api.apontamentos set data_hora_inicio=?, \n"
+                    + "data_hora_fim=?,justificativa=?,cliente=?,projeto=?,solicitante=?,cr=? where idapontamentos=? ;";
+            PreparedStatement stmt2 = conexao.prepareStatement(cadApontamentosquery);
+            stmt2.setString(1,apontamento.getData_hora_inicio());
+            stmt2.setString(2,apontamento.getData_hora_fim());
+            stmt2.setString(3,apontamento.getJustificativa());
+            stmt2.setString(4,apontamento.getCliente());
+            stmt2.setString(5,apontamento.getProjeto());
+            stmt2.setString(6,apontamento.getSolicitante());
+            stmt2.setString(7,apontamento.getCr());
+            stmt2.setInt(8, id);
+
+            stmt2.execute();
+
+            stmt2.execute();
+
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
     public static void deletarApontamentos(int id){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
@@ -284,7 +309,20 @@ public class ConexaoBancoDeDados {
             e.printStackTrace();
         }
     }
-    
+    public static void editarCliente(Cliente cliente){
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadUsuarioquery = "update database_api.cliente set razao_social=?  where cnpj=? ;";
+            PreparedStatement stmt2 = conexao.prepareStatement(cadUsuarioquery);
+            stmt2.setString(1,cliente.getRazaoSocial());
+            stmt2.setString(2,cliente.getCnpj());
+   
+            stmt2.execute();
+
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
         public static void deletarCliente(String cnpj){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
