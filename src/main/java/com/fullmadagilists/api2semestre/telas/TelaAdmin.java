@@ -267,7 +267,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoListarClientesActionPerformed
 
     private void botaoNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoClienteActionPerformed
-        TelaNovoCliente novoCliente = new TelaNovoCliente(this.usuario);
+        TelaNovoCliente novoCliente = new TelaNovoCliente(this.usuario,null);
         this.setVisible(false);
         novoCliente.setVisible(true);
     }//GEN-LAST:event_botaoNovoClienteActionPerformed
@@ -280,7 +280,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoListarCrActionPerformed
 
     private void botaoNovoCrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoCrActionPerformed
-        TelaNovoCr novoCr = new TelaNovoCr(this.usuario);
+        TelaNovoCr novoCr = new TelaNovoCr(this.usuario,null);
         this.setVisible(false);
         novoCr.setVisible(true);
     }//GEN-LAST:event_botaoNovoCrActionPerformed

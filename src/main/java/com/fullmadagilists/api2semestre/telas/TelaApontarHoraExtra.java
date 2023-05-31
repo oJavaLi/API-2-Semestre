@@ -54,7 +54,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
             clienteHoraExtraTextField.setSelectedItem(config.getCliente());
             crHoraExtraTextField.setSelectedItem(config.getCr());
             justificativaHoraHextraJTextArea.setText(config.getJustificativa());
-                    }
+         }
         
     }
     private void carregarClientes() {

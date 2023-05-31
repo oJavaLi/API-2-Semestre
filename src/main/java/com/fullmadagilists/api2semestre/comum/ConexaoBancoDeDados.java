@@ -20,10 +20,12 @@ public class ConexaoBancoDeDados {
         }
         
         // Credenciais de acesso banco de dados
-        String databaseName = "";
-        String databaseUser = "";
-        String databasepassword = "";
-        String url = "";
+        String dbName = "api2Semestre";
+        String dbUser = "root";
+        String dbPassword = "1234";
+        String url = "jdbc:mysql://localhost:3306/api2semestre";
+
+
 
 
 
@@ -35,7 +37,7 @@ public class ConexaoBancoDeDados {
         // estabelecendo a conexão com o BD
         try {
             Class.forName(driver);
-            conexao = DriverManager.getConnection(url, databaseUser, databasepassword);
+            conexao = DriverManager.getConnection(url, dbUser, dbPassword);
             System.out.println(conexao);
         } catch (Exception e) {
             System.out.println(e);
@@ -50,7 +52,7 @@ public class ConexaoBancoDeDados {
 
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String usuariosquery = "select * from database_api.login_usuarios";
+            String usuariosquery = "select * from login_usuarios";
             Statement stmt = conexao.createStatement();
             ResultSet resultado = stmt.executeQuery(usuariosquery);
 
@@ -96,7 +98,7 @@ public class ConexaoBancoDeDados {
     public static void cadastrarUsuario(Usuario usuario){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "insert into database_api.login_usuarios(matricula, nome, \n" +
+            String cadApontamentosquery = "insert into login_usuarios(matricula, nome, \n" +
                                             "senha, categoria) values(?,?,?,?) ";
             PreparedStatement stmt2 = conexao.prepareStatement(cadApontamentosquery);
 
@@ -116,7 +118,7 @@ public class ConexaoBancoDeDados {
     public static void editarUsuario(Usuario usuario){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadUsuarioquery = "update database_api.login_usuarios set nome=?,senha=?,categoria=? where matricula=? ;";
+            String cadUsuarioquery = "update login_usuarios set nome=?,senha=?,categoria=? where matricula=? ;";
             PreparedStatement stmt2 = conexao.prepareStatement(cadUsuarioquery);
             stmt2.setString(1,usuario.getNome());
             stmt2.setString(2,usuario.getSenha());
@@ -136,7 +138,7 @@ public class ConexaoBancoDeDados {
     public static void deletarUsuario(int matricula){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "delete from database_api.login_usuarios where matricula="+matricula;
+            String cadApontamentosquery = "delete from login_usuarios where matricula="+matricula;
             PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
             
             stmt1.execute();
@@ -211,7 +213,7 @@ public class ConexaoBancoDeDados {
     public static void cadastrarApontamentos(Apontamentos apontamento, Usuario usuario){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "insert into database_api.apontamentos(categoria, data_hora_inicio, \n" +
+            String cadApontamentosquery = "insert into apontamentos(categoria, data_hora_inicio, \n" +
                                             "data_hora_fim, justificativa, cliente, projeto, solicitante, cr, id_usuario) values(?,?,?,?,?,?,?,?,?) ";
             PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
 
@@ -236,7 +238,7 @@ public class ConexaoBancoDeDados {
     public static void editarApontamentos(Apontamentos apontamento,Usuario usuario,int id){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "update database_api.apontamentos set data_hora_inicio=?, \n"
+            String cadApontamentosquery = "update apontamentos set data_hora_inicio=?, \n"
                     + "data_hora_fim=?,justificativa=?,cliente=?,projeto=?,solicitante=?,cr=? where idapontamentos=? ;";
             PreparedStatement stmt2 = conexao.prepareStatement(cadApontamentosquery);
             stmt2.setString(1,apontamento.getData_hora_inicio());
@@ -260,7 +262,7 @@ public class ConexaoBancoDeDados {
     public static void deletarApontamentos(int id){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "delete from database_api.apontamentos where idapontamentos="+id;
+            String cadApontamentosquery = "delete from apontamentos where idapontamentos="+id;
             PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
             
             stmt1.execute();
@@ -296,7 +298,7 @@ public class ConexaoBancoDeDados {
     public static void cadastrarClientes(Cliente cliente){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadClientesquery = "insert into database_api.cliente(razao_social, cnpj)" +
+            String cadClientesquery = "insert into cliente(razao_social, cnpj)" +
                                             "values(?,?) ";
             PreparedStatement stmt1 = conexao.prepareStatement(cadClientesquery);
 
@@ -312,7 +314,7 @@ public class ConexaoBancoDeDados {
     public static void editarCliente(Cliente cliente){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadUsuarioquery = "update database_api.cliente set razao_social=?  where cnpj=? ;";
+            String cadUsuarioquery = "update cliente set razao_social=?  where cnpj=?;";
             PreparedStatement stmt2 = conexao.prepareStatement(cadUsuarioquery);
             stmt2.setString(1,cliente.getRazaoSocial());
             stmt2.setString(2,cliente.getCnpj());
@@ -326,7 +328,7 @@ public class ConexaoBancoDeDados {
         public static void deletarCliente(String cnpj){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String query = "delete from database_api.cliente where cnpj=?";
+            String query = "delete from cliente where cnpj=?";
             PreparedStatement stmt1 = conexao.prepareStatement(query);
             stmt1.setString(1, cnpj);
             
@@ -341,7 +343,7 @@ public class ConexaoBancoDeDados {
         public static void cadastrarCentroResultado(CentroResultado centroresultado){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadCentroResultadoquery = "insert into database_api.centroresultado(codigoCR, nomeCR, siglaCR) values(?,?,?) ";
+            String cadCentroResultadoquery = "insert into centroresultado(codigoCR, nomeCR, siglaCR) values(?,?,?) ";
             PreparedStatement stmt1 = conexao.prepareStatement(cadCentroResultadoquery);
             
             stmt1.setString(1,centroresultado.getCodigocr());
@@ -354,11 +356,32 @@ public class ConexaoBancoDeDados {
         } catch(Exception e){
             e.printStackTrace();
         }
+    }   
+        
+        public static void editarCR(CentroResultado centroresultado){  
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadCentroResultadoquery = "update centroresultado set nomeCR=?,siglaCR=? where codigoCR=?; ";
+            PreparedStatement stmt1 = conexao.prepareStatement(cadCentroResultadoquery);
+            
+            stmt1.setString(1,centroresultado.getNomecr());
+            stmt1.setString(2,centroresultado.getSiglacr());
+            stmt1.setString(3,centroresultado.getCodigocr());
+            
+            
+           
+            
+            stmt1.execute();
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
     }
+        
         public static void deletarCR(String codigoCR){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadApontamentosquery = "delete from database_api.centroresultado where codigoCR="+codigoCR;
+            String cadApontamentosquery = "delete from centroresultado where codigoCR="+codigoCR;
             PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
             
             stmt1.execute();
@@ -371,7 +394,7 @@ public class ConexaoBancoDeDados {
     public static void atualizarAvaliacaoApontamento(Apontamentos apontamento) {
         try {
             Connection conexao = ConexaoBancoDeDados.conector();
-            String query = "UPDATE database_api.apontamentos SET avaliador_matricula = ?, avaliacao_status = ?, avaliacao_justificativa = ? where idapontamentos = ?";
+            String query = "UPDATE apontamentos SET avaliador_matricula = ?, avaliacao_status = ?, avaliacao_justificativa = ? where idapontamentos = ?";
             PreparedStatement stmt = conexao.prepareStatement(query);
             
             stmt.setInt(1, apontamento.getAvaliadorMatricula());

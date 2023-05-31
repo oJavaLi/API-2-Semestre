@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarClientes;
 import com.fullmadagilists.api2semestre.entidades.Cliente;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
@@ -11,16 +12,23 @@ import javax.swing.text.MaskFormatter;
 
 public class TelaNovoCliente extends javax.swing.JFrame {
     Usuario usuario;
+    Cliente config;
     private TelaListarClientes cliente;
 
 
-    public TelaNovoCliente(Usuario usuario){
+    public TelaNovoCliente(Usuario usuario, Cliente config ){
         this.usuario = usuario;
+        this.config = config;
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
         formatarCampo();
+        if(config!=null){
+            campoRazaoSocial.setText(config.getRazaoSocial());
+            campoCnpj.setText(config.getCnpj());
+            campoCnpj.setEditable(false);
+        }
     }
 
     private void formatarCampo(){
@@ -190,15 +198,15 @@ public class TelaNovoCliente extends javax.swing.JFrame {
 
     private void submeterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submeterActionPerformed
         try {
-
-            Cliente cliente = new Cliente (
+            Cliente a = new Cliente (
                     this.campoRazaoSocial.getText(),
                     this.campoCnpj.getText()
-
              );
-
-            cadastrarClientes(cliente);
-
+            if(config==null){
+                cadastrarClientes(a);
+            }else{
+                ConexaoBancoDeDados.editarCliente(a);
+            }
             JOptionPane.showMessageDialog(null, "Cliente Cadastrado com Sucesso! ");
 
             TelaListarClientes telaListarClientes = new TelaListarClientes(usuario);

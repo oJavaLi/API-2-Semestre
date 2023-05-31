@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarCentroResultado;
 import com.fullmadagilists.api2semestre.entidades.CentroResultado;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
@@ -9,14 +10,22 @@ import javax.swing.JOptionPane;
 
 public class TelaNovoCr extends javax.swing.JFrame {
     Usuario usuario;
+    CentroResultado cr;
     private TelaListarCr centroresultado;
 
-    public TelaNovoCr(Usuario usuario) {
+    public TelaNovoCr(Usuario usuario,CentroResultado cr) {
         this.usuario = usuario;
+        this.cr = cr;
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
+        if(cr!=null){
+            codigoCRTextField.setText(cr.getCodigocr());
+            codigoCRTextField.setEditable(false);
+            nomeCRTextField.setText(cr.getNomecr());
+            siglaCRTextField.setText(cr.getSiglacr());
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -204,8 +213,11 @@ public class TelaNovoCr extends javax.swing.JFrame {
                 this.codigoCRTextField.getText(),
                 this.nomeCRTextField.getText(),
                 this.siglaCRTextField.getText());
-
-            cadastrarCentroResultado(centroderesultado);
+            if(cr==null){
+                cadastrarCentroResultado(centroderesultado);
+            }else{
+                 ConexaoBancoDeDados.editarCR(centroderesultado);
+            }
             JOptionPane.showMessageDialog(null, "CR cadastrado com Sucesso! ");
             
             TelaListarCr telaListarCr = new TelaListarCr(usuario);

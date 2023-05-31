@@ -256,7 +256,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
 
     private void botaoAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddClienteActionPerformed
 
-        TelaNovoCliente cliente = new TelaNovoCliente(this.usuario);
+        TelaNovoCliente cliente = new TelaNovoCliente(this.usuario,null);
         this.setVisible(false);
         cliente.setVisible(true);
     }//GEN-LAST:event_botaoAddClienteActionPerformed
@@ -269,15 +269,16 @@ public class TelaListarClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
-        for (int i: tabelaCliente.getSelectedRows()) {
-            Cliente clienteSelecionado = listaClientes.get(i);
+            Cliente clienteSelecionado = listaClientes.get(tabelaCliente.getSelectedRow());
             ConexaoBancoDeDados.deletarCliente(clienteSelecionado.getCnpj());
-        }
-        carregarClientes();
+            carregarClientes();
     }//GEN-LAST:event_botaoDeletarActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
-        
+            Cliente clienteSelecionado = listaClientes.get(tabelaCliente.getSelectedRow());
+            TelaNovoCliente editarFuncionario = new TelaNovoCliente(this.usuario, clienteSelecionado);
+            this.setVisible(false);
+            editarFuncionario.setVisible(true);
         
     }//GEN-LAST:event_botaoEditarActionPerformed
 
