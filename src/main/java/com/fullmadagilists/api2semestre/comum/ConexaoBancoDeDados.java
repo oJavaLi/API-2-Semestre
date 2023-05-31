@@ -18,14 +18,18 @@ public class ConexaoBancoDeDados {
         if (conexao != null) {
             return conexao;
         }
-
+        
         // Credenciais de acesso banco de dados
-        String dbHost = "localhost";
-        int dbPort = 3306;
-        String dbName = "api2semestre";
-        String dbUser = "api2semestre";
-        String dbPassword = "api2semestre";
-        String url = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
+        String dbName = "api2Semestre";
+        String dbUser = "root";
+        String dbPassword = "1234";
+        String url = "jdbc:mysql://localhost:3306/api2semestre";
+
+
+
+
+
+
 
         // caminho do driver
         String driver = "com.mysql.cj.jdbc.Driver";
@@ -110,7 +114,7 @@ public class ConexaoBancoDeDados {
             e.printStackTrace();
         }
     }
-
+    
     public static void editarUsuario(Usuario usuario){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
@@ -121,7 +125,7 @@ public class ConexaoBancoDeDados {
             stmt2.setString(3,usuario.getCategoria());
             stmt2.setInt(4, usuario.getMatricula());
 
-
+                     
 
 
             stmt2.execute();
@@ -130,20 +134,20 @@ public class ConexaoBancoDeDados {
             e.printStackTrace();
         }
     }
-
-    public static void deletarUsuario(int matricula){
+    
+    public static void deletarUsuario(int matricula){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String cadApontamentosquery = "delete from login_usuarios where matricula="+matricula;
             PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
-
+            
             stmt1.execute();
-
+            
         } catch(Exception e){
             e.printStackTrace();
         }
     }
-
+    
     public static List<Apontamentos> apontamentos(Usuario usuario){
         List<Apontamentos> listaApontamentos = new ArrayList<Apontamentos>();
 
@@ -180,31 +184,31 @@ public class ConexaoBancoDeDados {
 
         return listaApontamentos;
     }
-
+    
     public static List<CentroResultado> centroresultado(){
         List<CentroResultado> listaCentroResultado = new ArrayList<CentroResultado>();
-
+        
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String centroresultadoquery = "select * from centroresultado";
             Statement stmt = conexao.createStatement();
             ResultSet resultado = stmt.executeQuery(centroresultadoquery);
-
+            
             while (resultado.next()){
                 CentroResultado centroresultado = new CentroResultado();
                 centroresultado.setCodigocr(resultado.getString("codigoCR"));
                 centroresultado.setNomecr(resultado.getString("nomeCR"));
                 centroresultado.setSiglacr(resultado.getString("siglaCR"));
-
+                                
                 listaCentroResultado.add(centroresultado);
             }
         } catch(Exception e){
             e.printStackTrace();
-        }
-
+        } 
+        
         return listaCentroResultado;
     }
-
+    
 
     public static void cadastrarApontamentos(Apontamentos apontamento, Usuario usuario){
         try{
@@ -230,7 +234,7 @@ public class ConexaoBancoDeDados {
             e.printStackTrace();
         }
     }
-
+    
     public static void editarApontamentos(Apontamentos apontamento,Usuario usuario,int id){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
@@ -254,15 +258,15 @@ public class ConexaoBancoDeDados {
             e.printStackTrace();
         }
     }
-
-    public static void deletarApontamentos(int id){
+    
+    public static void deletarApontamentos(int id){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String cadApontamentosquery = "delete from apontamentos where idapontamentos="+id;
             PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
-
+            
             stmt1.execute();
-
+            
         } catch(Exception e){
             e.printStackTrace();
         }
@@ -310,77 +314,98 @@ public class ConexaoBancoDeDados {
     public static void editarCliente(Cliente cliente){
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String cadUsuarioquery = "update cliente set razao_social=?  where cnpj=? ;";
+            String cadUsuarioquery = "update cliente set razao_social=?  where cnpj=?;";
             PreparedStatement stmt2 = conexao.prepareStatement(cadUsuarioquery);
             stmt2.setString(1,cliente.getRazaoSocial());
             stmt2.setString(2,cliente.getCnpj());
-
+   
             stmt2.execute();
 
         } catch(Exception e){
             e.printStackTrace();
         }
     }
-        public static void deletarCliente(String cnpj){
+        public static void deletarCliente(String cnpj){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String query = "delete from cliente where cnpj=?";
             PreparedStatement stmt1 = conexao.prepareStatement(query);
             stmt1.setString(1, cnpj);
-
+            
             stmt1.execute();
-
+            
         } catch(Exception e){
             e.printStackTrace();
         }
     }
-
-
-        public static void cadastrarCentroResultado(CentroResultado centroresultado){
+    
+    
+        public static void cadastrarCentroResultado(CentroResultado centroresultado){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String cadCentroResultadoquery = "insert into centroresultado(codigoCR, nomeCR, siglaCR) values(?,?,?) ";
             PreparedStatement stmt1 = conexao.prepareStatement(cadCentroResultadoquery);
-
+            
             stmt1.setString(1,centroresultado.getCodigocr());
             stmt1.setString(2,centroresultado.getNomecr());
             stmt1.setString(3,centroresultado.getSiglacr());
-
-
+           
+            
             stmt1.execute();
-
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }   
+        
+        public static void editarCR(CentroResultado centroresultado){  
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String cadCentroResultadoquery = "update centroresultado set nomeCR=?,siglaCR=? where codigoCR=?; ";
+            PreparedStatement stmt1 = conexao.prepareStatement(cadCentroResultadoquery);
+            
+            stmt1.setString(1,centroresultado.getNomecr());
+            stmt1.setString(2,centroresultado.getSiglacr());
+            stmt1.setString(3,centroresultado.getCodigocr());
+            
+            
+           
+            
+            stmt1.execute();
+            
         } catch(Exception e){
             e.printStackTrace();
         }
     }
-        public static void deletarCR(String codigoCR){
+        
+        public static void deletarCR(String codigoCR){  
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String cadApontamentosquery = "delete from centroresultado where codigoCR="+codigoCR;
             PreparedStatement stmt1 = conexao.prepareStatement(cadApontamentosquery);
-
+            
             stmt1.execute();
-
+            
         } catch(Exception e){
             e.printStackTrace();
         }
     }
-
+    
     public static void atualizarAvaliacaoApontamento(Apontamentos apontamento) {
         try {
             Connection conexao = ConexaoBancoDeDados.conector();
             String query = "UPDATE apontamentos SET avaliador_matricula = ?, avaliacao_status = ?, avaliacao_justificativa = ? where idapontamentos = ?";
             PreparedStatement stmt = conexao.prepareStatement(query);
-
+            
             stmt.setInt(1, apontamento.getAvaliadorMatricula());
             stmt.setString(2, apontamento.getAvaliacaoStatus());
             stmt.setString(3, apontamento.getAvaliacaoJustificativa());
             stmt.setInt(4, apontamento.getId());
-
+            
             stmt.execute();
         } catch(Exception e){
             e.printStackTrace();
         }
     }
-
+    
 }

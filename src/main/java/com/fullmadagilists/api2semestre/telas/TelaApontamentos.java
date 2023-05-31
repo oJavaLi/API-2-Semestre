@@ -274,7 +274,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoDeletarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Apontamentos apontamentoSelecionado = listaApontamentos.get(tabelaApontamentos.getSelectedRow());
+       Apontamentos apontamentoSelecionado = listaApontamentos.get(tabelaApontamentos.getSelectedRow());
        TelaApontarHoraExtra apontamento = new TelaApontarHoraExtra(this,usuario,apontamentoSelecionado);
        this.setVisible(false);
        apontamento.setVisible(true);
