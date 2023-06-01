@@ -1,0 +1,509 @@
+[33mcommit b12c00f408f8083ac468408db527dd8a36271e37[m[33m ([m[1;36mHEAD -> [m[1;32msprint4[m[33m, [m[1;31morigin/sprint4[m[33m)[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.sp.gov.br>
+Date:   Thu May 18 09:49:30 2023 -0300
+
+    sprint4
+
+[33mcommit bb9e4f1d118c3e35c01278c68c5051380d15fe62[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.sp.gov.br>
+Date:   Sun May 14 23:08:32 2023 -0300
+
+    tela novoRelatorio
+
+[33mcommit 794175a7bb5ec07aad1c01f13cc19448c2fd2c06[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Sun May 14 22:50:24 2023 -0300
+
+    aviso cadastro
+
+[33mcommit 5d14f7a760a76f8f7fe0cc9e7fc13e3277b9b506[m
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Sun May 14 22:21:35 2023 -0300
+
+    Relatórios arrumado
+
+[33mcommit be6eda7f790189f18e9b17c88404807442950248[m
+Author: Cauana Dias <77700346+Cauana@users.noreply.github.com>
+Date:   Sun May 14 19:24:37 2023 -0300
+
+    Update README.md
+
+[33mcommit 6af73654a1497407cf14a8a0391c70958a5553e7[m
+Author: Cauana Dias <77700346+Cauana@users.noreply.github.com>
+Date:   Sun May 14 19:23:11 2023 -0300
+
+    Update README.md
+
+[33mcommit 6410878dd4318bc6012880c675d7366f69f4bd9a[m
+Merge: fd7c9af 418f887
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Sun May 14 18:07:45 2023 -0300
+
+    Merge pull request #44 from FullMadAgilists/sprint3
+    
+    Sprint3
+
+[33mcommit 418f8872c91dd2569a62721efa06d91b3cbd09a6[m[33m ([m[1;31morigin/sprint3[m[33m, [m[1;32msprint3[m[33m)[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.sp.gov.br>
+Date:   Sun May 14 18:05:51 2023 -0300
+
+    correção
+
+[33mcommit 2845b163675e9141b0bd1f1711dd55c47494923e[m
+Merge: 1923763 0522518
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Sun May 14 17:47:48 2023 -0300
+
+    Merge pull request #43 from FullMadAgilists/aprovar_horas_ATUALIZADA
+    
+    sprint3 finalizada
+
+[33mcommit fd7c9af51e31472740437b164660cbeabe3caa49[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.sp.gov.br>
+Date:   Sun May 14 17:45:35 2023 -0300
+
+    Update README.md
+
+[33mcommit 052251829551ccbaae55cfe05f5fb4db2e405ec6[m[33m ([m[1;31morigin/aprovar_horas_ATUALIZADA[m[33m)[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Sat May 13 14:20:38 2023 -0300
+
+    relatorio
+
+[33mcommit 8af2dd37282dcf9d5ea708a0912eef3cf46501e1[m[33m ([m[1;32maprovar_horas_ATUALIZADA[m[33m)[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.sp.gov.br>
+Date:   Sat May 13 12:50:12 2023 -0300
+
+    arrumando botão excluir e chamando telas listar
+
+[33mcommit 159db9156f6361f7ad300eced18c23decc3fe4fb[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Fri May 12 22:37:31 2023 -0300
+
+    ok
+
+[33mcommit 57cb401ec08f8b933ba92ae867629e33b3747b99[m
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Fri May 12 21:52:35 2023 -0300
+
+    Arrumando deletar clientes
+
+[33mcommit c91260cf9e7172e38c2e186e4baea3dac6d1b002[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.sp.gov.br>
+Date:   Fri May 12 16:38:14 2023 -0300
+
+    botao excluir
+
+[33mcommit ec161303e5c0ce893546edb062f7c4cbb03c5375[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.sp.gov.br>
+Date:   Fri May 12 10:43:37 2023 -0300
+
+    botão deletar
+
+[33mcommit 019a7ffe9b4c01f01cb5b8872a74253773c213ca[m
+Merge: 6c47ab8 a78133b
+Author: Ryan Lanziloti De Faria Teixeira <pitagoraslanz@gmail.com>
+Date:   Thu May 11 13:05:44 2023 -0300
+
+    botao deletar
+
+[33mcommit a78133bffbbdf2784583dc3675af7b059aebc7c9[m
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Thu May 11 10:26:14 2023 -0300
+
+    combobox CR na tela aprovar sobreaviso
+
+[33mcommit 84cce948a460b8e143815ba278831ba4fbe8931d[m
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Thu May 11 10:14:43 2023 -0300
+
+    combobox CR e Tabela Apontamentos
+
+[33mcommit df755eb78ca75f054a3b3f595476110366edd4d9[m
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Thu May 11 09:45:53 2023 -0300
+
+    espaços
+
+[33mcommit 444d384ea28b72ef874bbcd1daf364feaf45fdcf[m
+Merge: 42474b6 4efe0af
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Thu May 11 09:37:20 2023 -0300
+
+    arrumando conflito
+
+[33mcommit 4efe0af981694d10ee7d008152bfb27f550b289e[m
+Author: Ana <anaflaviadamascenos1@gmail.com>
+Date:   Wed May 10 23:31:12 2023 -0300
+
+    tela Listar Pronta
+
+[33mcommit 42474b679732b61320dee82fe28a2f91c1226ccf[m
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Wed May 10 22:06:31 2023 -0300
+
+    ajustes
+
+[33mcommit 0ed493ee1bf0cb2c543768027421aaf17708ca9e[m
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Wed May 10 21:30:25 2023 -0300
+
+    Total horas e correções
+
+[33mcommit 6c47ab8a516ebd9c0cbcc0196263ed8f2326f266[m
+Author: Ryan Lanziloti De Faria Teixeira <pitagoraslanz@gmail.com>
+Date:   Wed May 10 21:27:14 2023 -0300
+
+    Botao deletar
+
+[33mcommit f8e38c67a3eba67b47910c877c4970c607415a58[m
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Wed May 10 20:27:27 2023 -0300
+
+    Aprovar e reprovar horas
+
+[33mcommit 18379d898a85c11fb8b2ba515809631e7805d82a[m[33m ([m[1;31morigin/aprovar_horas[m[33m, [m[1;32maprovar_horas[m[33m)[m
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Wed May 10 17:54:58 2023 -0300
+
+    arrumando detalhes
+
+[33mcommit 29ddeaac9f466b0bc62ded19291327409ce360be[m
+Merge: ff2ae65 7219087
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Tue May 9 22:47:18 2023 -0300
+
+    merge sprint3CadastroCR
+
+[33mcommit ff2ae652c6d548aa9cacf56fa21e4378a8b1cc1d[m
+Merge: 44f5285 ef87dae
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Tue May 9 22:29:32 2023 -0300
+
+    merge listarClientes
+
+[33mcommit 721908703199c62ffcbeeca163eb39065bc76489[m[33m ([m[1;31morigin/sprint3CadastroCR[m[33m)[m
+Author: Marcelo Felipe <66282907+Marcelofbd@users.noreply.github.com>
+Date:   Tue May 9 22:23:50 2023 -0300
+
+    Tela cadastro CR
+    
+    Feito tela cadastro e consulta de CR com conexão com o BD.
+
+[33mcommit 44f5285f004c93754d6aaf96b11c2071355b1b44[m
+Merge: 3adfeb3 370bd5d
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Tue May 9 22:22:50 2023 -0300
+
+    merge nomes_usuarios
+
+[33mcommit 3adfeb3a912076fba25a78fbde74010a6c073ecc[m[33m ([m[1;31morigin/sprint3-TelaAddFuncionario[m[33m, [m[1;32msprint3-TelaAddFuncionario[m[33m)[m
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Tue May 9 22:10:50 2023 -0300
+
+    data e hora
+
+[33mcommit 370bd5d6d0fa0a9810f3a2de8b042f7bacf92626[m[33m ([m[1;31morigin/nomes_usuarios[m[33m)[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Tue May 9 21:59:46 2023 -0300
+
+    logout
+
+[33mcommit c2b28753cd26a540b4c4296a69f2d99c95c4cf41[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Tue May 9 20:47:26 2023 -0300
+
+    nomes_usuarios
+
+[33mcommit ef87daea5cfd35a29cb2fe68bd9c85e0e4acbf06[m[33m ([m[1;31morigin/listarClientes[m[33m)[m
+Author: Ana <anaflaviadamascenos1@gmail.com>
+Date:   Tue May 9 20:25:03 2023 -0300
+
+    tela lista de clientes
+
+[33mcommit 0b26d2b47a97ad04b9f8c41557cde5b0905e9abc[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Tue May 9 20:24:00 2023 -0300
+
+    name_user
+
+[33mcommit a28e35364af663813f83815a58b15cc6f76acf0f[m
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Tue May 9 16:05:36 2023 -0300
+
+    alteraçoes
+
+[33mcommit 51b1e806d7d7581cac3386313572ecb1c610aeda[m
+Merge: 34e30d7 9a90749
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Tue May 9 15:30:51 2023 -0300
+
+    pegando as alteraçoes da branch sprint3-telaAddFunc
+
+[33mcommit 34e30d782dc2244aa8ef44c7c0560444cba444bb[m
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Tue May 9 15:19:50 2023 -0300
+
+    Data e hora
+
+[33mcommit f964e169411c3024a40a69d7f35c8e49fc5de721[m
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Mon May 8 19:36:00 2023 -0300
+
+    Fix merge
+
+[33mcommit 8958b376359f9331c48942ac44fc89fe60c80034[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Sun May 7 21:11:07 2023 -0300
+
+    selecao_cliente
+
+[33mcommit a26990eceded71f0537012b11c50afed7be1f464[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Sun May 7 17:00:58 2023 -0300
+
+    color
+
+[33mcommit 3c964328da61e023fbaeeba7e4d5ae718410a906[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Sun May 7 16:57:08 2023 -0300
+
+    apontamento_usuarioespecifico
+
+[33mcommit 4615e1ed0e2438eb59b37570d94920a559772725[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Sat May 6 13:33:43 2023 -0300
+
+    nomeusuario
+
+[33mcommit d7905826080e7ccbffa25f38b519610317eaa233[m
+Author: Ana <anaflaviadamascenos1@gmail.com>
+Date:   Fri May 5 21:29:46 2023 -0300
+
+    Tela com cnpj arrumado
+
+[33mcommit 9a90749ccd28cf86dc9413f6d60ac8b7fa5dd35e[m
+Author: Ryan Lanziloti De Faria Teixeira <pitagoraslanz@gmail.com>
+Date:   Fri May 5 20:22:39 2023 -0300
+
+    Botao Pesquisar
+
+[33mcommit 357d0971ef13d2ceace891dfe9e9b7bf6867419e[m
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Fri May 5 15:23:07 2023 -0300
+
+    arrumando detalhes
+
+[33mcommit e8f422722052c7fb6195e91fde86ca87bf918d69[m
+Author: Marcelo Felipe <66282907+Marcelofbd@users.noreply.github.com>
+Date:   Thu May 4 17:44:49 2023 -0300
+
+    Criação da tela de Cadastro de CR
+    
+    Feito a criação de tela para cadastro do CR.
+    Feito a tela principal de cadastro, a tela de lista de CR a entidade e a conexão com o banco de dados
+
+[33mcommit 9343f6f57cceb6331c8975e671e3e574a8f2d820[m
+Author: Marcelo Felipe <66282907+Marcelofbd@users.noreply.github.com>
+Date:   Thu May 4 12:19:51 2023 -0300
+
+    Tela Criação de novo CR
+    
+    Feito a tela de criação de CR, ainda com erros que estão sendo corrigidos.
+
+[33mcommit d6a996159445d3d50a7d63cd9febb72f2ebc7867[m
+Author: Ana <anaflaviadamascenos1@gmail.com>
+Date:   Wed May 3 22:28:29 2023 -0300
+
+    conexao com banco
+
+[33mcommit b1027e7caed94ee619ec6168722ac197283ce867[m
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Wed May 3 22:07:02 2023 -0300
+
+    Listando usuários e condicionando botão pra habilitar apenas quando selecionado
+
+[33mcommit 8c93aea459e7e9145c89ed9eb1c72f131056bee0[m
+Merge: ebbbeba 1264562
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Wed May 3 21:15:28 2023 -0300
+
+    Mergeando com as coisas do ryan
+
+[33mcommit ebbbeba90a118831ad03e4c8e465bb3927b8a045[m
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Mon May 1 21:27:04 2023 -0300
+
+    Incluindo a pasta reources no build do maven e corrigindo nome do arquivo
+
+[33mcommit 0ffb628708fb84efa2501a8c9e12862a57d07f10[m
+Author: Ana <anaflaviadamascenos1@gmail.com>
+Date:   Sun Apr 30 19:34:45 2023 -0300
+
+    tela listar cliente e classe
+    
+    tela listar cliente e classe
+
+[33mcommit 1264562f06f68afd8b0b487b0fec0937cef9128b[m
+Author: Ryan Lanziloti De Faria Teixeira <pitagoraslanz@gmail.com>
+Date:   Sun Apr 30 11:37:19 2023 -0300
+
+    Fix lista de usuarios
+
+[33mcommit 2ef55f284258c0f342c7d706a3b384394698f62f[m
+Author: Ryan Lanziloti De Faria Teixeira <pitagoraslanz@gmail.com>
+Date:   Sat Apr 29 14:57:48 2023 -0300
+
+    Tela Add funcionarios e tabela funcionarios
+
+[33mcommit 97fbdcdd5f7579887f8e93acb47d51f46455d47e[m
+Merge: 1c68fb8 3d8f6f9
+Author: Ryan Lanziloti De Faria Teixeira <pitagoraslanz@gmail.com>
+Date:   Fri Apr 28 10:42:14 2023 -0300
+
+    Merge remote-tracking branch 'origin/aprovar_horas' into sprint3-TelaAddFuncionario
+
+[33mcommit 3d8f6f91a4298ae4295d295391697a4ddf3dc4f2[m[33m ([m[1;32msprint2[m[33m)[m
+Author: Alessandra Moreira <alessandra.cmoreira@hotmail.com>
+Date:   Thu Apr 27 13:59:17 2023 -0300
+
+    iniciando
+
+[33mcommit 1c68fb89e0c3554c6721f25e11e7a96d6c7e73c9[m
+Author: Ryan Lanziloti De Faria Teixeira <pitagoraslanz@gmail.com>
+Date:   Wed Apr 26 21:59:19 2023 -0300
+
+    Tela Add Funcionario
+
+[33mcommit 1923763f96177188d819e288b66c19e856094d4f[m
+Merge: 0087e0b fe2976c
+Author: Cauana Dias <77700346+Cauana@users.noreply.github.com>
+Date:   Wed Apr 26 21:29:54 2023 -0300
+
+    Merge pull request #32 from FullMadAgilists/telas_admin
+    
+    Telas Admin
+
+[33mcommit e7b3e4f0962671639fd25dea902ebdc114802aa3[m
+Author: Ana Damasceno <107864553+anadamascenos@users.noreply.github.com>
+Date:   Wed Apr 26 21:27:44 2023 -0300
+
+    Update README.md
+
+[33mcommit fe2976c71f24ad93271b02837c33a61b63c3f553[m[33m ([m[1;31morigin/telas_admin[m[33m, [m[1;32mtelas_admin[m[33m)[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.gov.sp.br>
+Date:   Wed Apr 26 20:37:32 2023 -0300
+
+    Telas Admin
+
+[33mcommit 0087e0b94697c7524997a51977c798e824929c92[m
+Author: Alessandra Moreira <107525483+Alemoreira-00@users.noreply.github.com>
+Date:   Sun Apr 23 22:01:48 2023 -0300
+
+    update readme
+
+[33mcommit 7a6ddb71a5886873e11dbb03384c09e8d7123059[m
+Author: Alessandra Moreira <107525483+Alemoreira-00@users.noreply.github.com>
+Date:   Sun Apr 23 21:50:30 2023 -0300
+
+    update Readme
+
+[33mcommit 6f94937324f517272214b5bd11184e2ad38db378[m
+Merge: bbb08ed a2687a8
+Author: Alessandra Moreira <107525483+Alemoreira-00@users.noreply.github.com>
+Date:   Sun Apr 23 21:04:14 2023 -0300
+
+    Merge pull request #31 from FullMadAgilists/sprint2
+    
+    Sprint2
+
+[33mcommit bbb08ed2c180d6f852cd3522476e2a7341880362[m
+Author: Felipe Cesar <111532905+flpcsr@users.noreply.github.com>
+Date:   Sun Apr 23 20:55:24 2023 -0300
+
+    Update README.md
+    
+    Adicionado video da aplicacao
+
+[33mcommit a2687a83414145a8cc0317ced54e7e1d37833c43[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.gov.sp.br>
+Date:   Sun Apr 23 19:14:11 2023 -0300
+
+    detalhes
+
+[33mcommit 6606c11cc3b6ca4ae18d35b9d687b0f0cf69a849[m
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Sun Apr 23 17:25:17 2023 -0300
+
+    Sobreaviso tudo junto
+
+[33mcommit 230e57ff863f71846861d0688321dfa033a4fda2[m
+Author: Jhonny Freitas Dutra <dutrajy@gmail.com>
+Date:   Sun Apr 23 15:21:15 2023 -0300
+
+    Tabela arrumada, apontamento recarregando após criação de nova hora extra
+
+[33mcommit e761af5b924035a8da846ab5a18cb23f1d5144a4[m
+Author: Cauana Dias <77700346+Cauana@users.noreply.github.com>
+Date:   Sat Apr 22 20:29:57 2023 -0300
+
+    Update README.md
+
+[33mcommit c476f4960edddbd085993a3dd2bc098d03c12975[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.gov.sp.br>
+Date:   Sat Apr 22 17:38:11 2023 -0300
+
+    teste
+
+[33mcommit f3173b01947405d12d88fbd074c7bb6ed1c700ac[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.gov.sp.br>
+Date:   Sat Apr 22 17:26:10 2023 -0300
+
+    tentando arrumar as imagens
+
+[33mcommit 22d5e8cb27b1ea607da9a3ab9a50275d61504297[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.gov.sp.br>
+Date:   Sat Apr 22 17:14:55 2023 -0300
+
+    arrumando objeto e botoes cancelar
+
+[33mcommit ac244b3d0a09a29c00828a8e18a6fe679851bc8e[m
+Merge: e6fcf1f c00b3fd
+Author: Alessandra Moreira <107525483+Alemoreira-00@users.noreply.github.com>
+Date:   Sat Apr 22 15:06:10 2023 -0300
+
+    Merge pull request #30 from FullMadAgilists/sprint2-apontamentos
+    
+    Update TelaApontamentos.java
+
+[33mcommit c00b3fdb51723a182c30868be3fa9ae14bae58d0[m[33m ([m[1;31morigin/sprint2-apontamentos[m[33m)[m
+Author: Cauana Dias <cauana.dias@hotmail.com>
+Date:   Sat Apr 22 15:00:47 2023 -0300
+
+    Update TelaApontamentos.java
+
+[33mcommit 1f0fb778d04897ba8948e5466cf2dc5b2f1823dc[m
+Author: Cauana Dias <77700346+Cauana@users.noreply.github.com>
+Date:   Sat Apr 22 13:08:27 2023 -0300
+
+    Update README.md
+
+[33mcommit e6fcf1f8bfe77a13c16c10ee438802b9a37f64d8[m
+Merge: 54ed9f4 6754dcc
+Author: Alessandra Moreira <107525483+Alemoreira-00@users.noreply.github.com>
+Date:   Fri Apr 21 21:51:54 2023 -0300
+
+    Merge pull request #29 from FullMadAgilists/sprint2-apontamentos
+    
+    Sprint2 apontamentos
+
+[33mcommit 6754dcc4ef09a6e9bdaffd7211925ccc482001a9[m
+Author: Alessandra Moreira <alessandra.moreira01@fatec.gov.sp.br>
+Date:   Fri Apr 21 21:47:49 2023 -0300
+
+    arrumando conflitos
+
+[33mcommit 4dde3e0aeefda27e361c706ee949a577a7dcb03d[m
+Merge: f499bde 6bab873
+Author: Alessandra Moreira <alessandra.moreira01@fatec.gov.sp.br>
+Date:   Fri Apr 21 21:38:12 2023 -0300
