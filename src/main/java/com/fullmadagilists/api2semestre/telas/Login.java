@@ -129,19 +129,27 @@ public class Login extends javax.swing.JFrame {
 
         for(Usuario u: listaUsuarios){
             if (u.getMatricula() == matriculanumero && u.getSenha().equals(senha)){
-                if(u.getCategoria().equals("gestor") || u.getCategoria().equals("colaborador")){
+                if (u.getCategoria().equals("colaborador")){
                 new TelaApontamentos(u).setVisible(true);
                 this.dispose();
                 JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
                 logado = true;
                 usuarioLogado = u;
+
             }else if(u.getCategoria().equals("administrador")){
                 this.dispose();
                 JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
                 logado = true;
                 usuarioLogado = u;
                 new TelaAdmin(u).setVisible(true);
-                }
+                } else{
+                this.dispose();
+                usuarioLogado = u;
+                logado = true;
+                new TelaGestor(u).setVisible(true);
+
+                JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
+            }
             }
         }
 

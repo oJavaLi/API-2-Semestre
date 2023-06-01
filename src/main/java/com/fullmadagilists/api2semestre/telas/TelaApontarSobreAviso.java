@@ -442,8 +442,14 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
         this.setVisible(false);
-        apontamentos.setVisible(true);
+      if (usuario.getCategoria().equals("colaborador")) {
+        new TelaApontamentos(this.usuario).setVisible(true);
+    } else {
+        new TelaGestor(this.usuario).setVisible(true);
+    }
         this.dispose();
+                                                         
+
     }// GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
     private void jRadioButtonSimActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonSimActionPerformed

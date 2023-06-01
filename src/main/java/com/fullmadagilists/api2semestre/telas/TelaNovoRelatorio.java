@@ -101,7 +101,7 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
             e.printStackTrace();
         }
         
-       
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

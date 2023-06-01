@@ -9,10 +9,8 @@ public class TelaGestor extends javax.swing.JFrame {
         TelaAdmin admin;
         TelaApontamentos apontamentos;
     
-public TelaGestor(TelaAdmin admin, Usuario usuario, TelaApontamentos apontamentos) {
+public TelaGestor(Usuario usuario) {
         this.usuario = usuario;
-        this.admin = admin;
-        this.apontamentos = apontamentos;
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -109,8 +107,6 @@ public TelaGestor(TelaAdmin admin, Usuario usuario, TelaApontamentos apontamento
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("FUNCIONÁRIOS");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 358, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\aless\\Documents\\API-2-Semestre\\src\\main\\resources\\RELOGIO.png")); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 250, -1, -1));
 
         botaoVerFuncionarios.setText("Ver Funcionários");
@@ -178,6 +174,7 @@ public TelaGestor(TelaAdmin admin, Usuario usuario, TelaApontamentos apontamento
         getContentPane().add(funcionarios3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
@@ -193,13 +190,13 @@ public TelaGestor(TelaAdmin admin, Usuario usuario, TelaApontamentos apontamento
     }//GEN-LAST:event_botaoVerFuncionariosActionPerformed
 
     private void botaoApontarsobreavisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarsobreavisoActionPerformed
-        TelaApontarSobreaviso apontarSobreaviso = new TelaApontarSobreaviso(this.apontamentos,this.usuario);
+        TelaApontarSobreAviso apontarSobreaviso = new TelaApontarSobreAviso(this.apontamentos, this.usuario);
         this.setVisible(false);
         apontarSobreaviso.setVisible(true);
     }//GEN-LAST:event_botaoApontarsobreavisoActionPerformed
 
     private void botaoApontarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarHoraExtraActionPerformed
-        TelaApontarHoraExtra apontarHoraExtra = new TelaApontarHoraExtra(this.apontamentos,this.usuario);
+        TelaApontarHoraExtra apontarHoraExtra = new TelaApontarHoraExtra(this.apontamentos,this.usuario,null);
         this.setVisible(false);
         apontarHoraExtra.setVisible(true);
     }//GEN-LAST:event_botaoApontarHoraExtraActionPerformed

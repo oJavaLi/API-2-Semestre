@@ -229,8 +229,9 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
         this.setVisible(false);
-        telaAdmin.setVisible(true);
-        this.dispose();
+        new TelaGestor(this.usuario).setVisible(true);
+        this.dispose();                                                    
+
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoListarApontamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarApontamentosActionPerformed
