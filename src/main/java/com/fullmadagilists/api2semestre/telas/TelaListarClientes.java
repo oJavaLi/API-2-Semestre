@@ -56,22 +56,22 @@ public class TelaListarClientes extends javax.swing.JFrame {
         tabelaCliente.setModel(tabelaModel);
     }
         
-     public void buscarCliente(String busca){
+     public void buscarClientes(String busca){
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaCliente.getModel();
         tabelaModel.setRowCount(0);
         
         
-        List<Usuario> buscarCliente = ConexaoBancoDeDados.buscarUsuarioLista(busca);
+        List<Cliente> buscarCliente = ConexaoBancoDeDados.buscarCliente(busca);
    
-        for (Usuario u: buscarCliente){
-            String nome = u.getNome();
-            String categoria = u.getCategoria();
+        for (Cliente u: buscarCliente){
+            String razao_social = u.getRazaoSocial();
+            String cnpj = u.getCnpj();
 
-            Object[] novoApontamento = new Object[]{
-                nome,
-                categoria
+            Object[] novoCliente = new Object[]{
+                razao_social,
+                cnpj
             };
-            tabelaModel.addRow(novoApontamento);
+            tabelaModel.addRow(novoCliente);
         }
 
         tabelaCliente.setModel(tabelaModel);
@@ -251,7 +251,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_textoPesquisarActionPerformed
 
     private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
-          buscarCliente(textoPesquisar.getText());
+          buscarClientes(textoPesquisar.getText());
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddClienteActionPerformed

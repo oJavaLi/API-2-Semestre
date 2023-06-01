@@ -45,13 +45,10 @@ public class TelaListarCr extends javax.swing.JFrame {
             String nomeCR = u.getNomecr();
             String siglaCR = u.getSiglacr();
 
-
-
-
             Object[] novoCentroResultado = new Object[]{
-                u.getCodigocr(),
-                u.getNomecr(),
-                u.getSiglacr()
+                codigoCR,
+                nomeCR,
+                siglaCR
             };
             tabelaModel.addRow(novoCentroResultado);
 
@@ -62,22 +59,24 @@ public class TelaListarCr extends javax.swing.JFrame {
 
     }
     
-        public void buscarCR(String busca){
+        public void buscarCR_(String busca){
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaCR.getModel();
         tabelaModel.setRowCount(0);
 
 // arrumar a busca
-        List<Usuario> buscarCR = ConexaoBancoDeDados.buscarUsuarioLista(busca);
+        List<CentroResultado> buscarCR = ConexaoBancoDeDados.buscarCR(busca);
 
-        for (Usuario u: buscarCR){
-            String nome = u.getNome();
-            String categoria = u.getCategoria();
+        for (CentroResultado u: buscarCR){
+            String codigo = u.getCodigocr();
+            String nome = u.getNomecr();
+            String categoria = u.getSiglacr();
 
-            Object[] novoApontamento = new Object[]{
+            Object[] novoCR = new Object[]{
+                codigo,
                 nome,
                 categoria
             };
-            tabelaModel.addRow(novoApontamento);
+            tabelaModel.addRow(novoCR);
         }
 
         tabelaCR.setModel(tabelaModel);
@@ -280,11 +279,10 @@ public class TelaListarCr extends javax.swing.JFrame {
     }//GEN-LAST:event_textoPesquisarActionPerformed
 
     private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
-        buscarCR(textoPesquisar.getText());
+        buscarCR_(textoPesquisar.getText());
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-
         TelaAdmin telaAdmin = new TelaAdmin(usuario);
         this.setVisible(false);
         telaAdmin.setVisible(true);

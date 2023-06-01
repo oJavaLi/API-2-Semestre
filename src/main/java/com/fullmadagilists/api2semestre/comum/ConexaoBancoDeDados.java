@@ -72,7 +72,7 @@ public class ConexaoBancoDeDados {
         return listaUsuarios;
     }
     public static List<Usuario> buscarUsuarioLista(String busca){
-        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        List<Usuario> listaUsuarios = new ArrayList<>();
 
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
@@ -338,7 +338,30 @@ public class ConexaoBancoDeDados {
             e.printStackTrace();
         }
     }
-    
+ 
+    public static List<Cliente> buscarCliente(String busca){
+        List<Cliente> listaCliente = new ArrayList<>();
+
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String clienteQuery = "select * from cliente where cnpj like "+"'"+busca+"%'";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(clienteQuery);
+
+            while (resultado.next()){
+                Cliente cliente = new Cliente();
+                cliente.setRazaoSocial(resultado.getString("razao_social"));
+                cliente.setCnpj(resultado.getString("cnpj"));
+
+                listaCliente.add(cliente);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return listaCliente;
+    }
+            
     
         public static void cadastrarCentroResultado(CentroResultado centroresultado){  
         try{
@@ -391,6 +414,30 @@ public class ConexaoBancoDeDados {
         }
     }
     
+        public static List<CentroResultado> buscarCR(String busca){
+        List<CentroResultado> listaCR = new ArrayList<>();
+
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String crQuery = "select * from centroresultado where codigoCR like "+"'"+busca+"%'";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(crQuery);
+
+            while (resultado.next()){
+                CentroResultado cr = new CentroResultado();
+                cr.setNomecr(resultado.getString("nomeCR"));
+                cr.setSiglacr(resultado.getString("siglaCR"));
+                cr.setCodigocr(resultado.getString("codigoCR"));
+
+                listaCR.add(cr);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return listaCR;
+    }
+        
     public static void atualizarAvaliacaoApontamento(Apontamentos apontamento) {
         try {
             Connection conexao = ConexaoBancoDeDados.conector();
