@@ -430,7 +430,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
             }
 
             JOptionPane.showMessageDialog(null, "Sobre aviso e horas extras cadastradas com Sucesso! ");
-            apontamentos.carregarApontamentos();
+            apontamentos.carregarApontamentos(usuario);
             apontamentos.setVisible(true);
             this.setVisible(false);
             this.dispose();

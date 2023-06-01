@@ -193,7 +193,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(160, 160, 160)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -370,7 +370,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 
             }
             JOptionPane.showMessageDialog(null, "Hora Extra cadastrada com Sucesso! ");
-            apontamentos.carregarApontamentos();
+            apontamentos.carregarApontamentos(usuario);
             apontamentos.setVisible(true);
             this.setVisible(false);
             this.dispose();

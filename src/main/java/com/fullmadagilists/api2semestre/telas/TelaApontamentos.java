@@ -22,7 +22,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
         labelnomeuser.setText(user);
         labelnomeuser.setForeground(Color.WHITE);
         tabelaApontamentos.setFillsViewportHeight(true); // hackzinho pra tabela ficar do tamanho do componente
-        carregarApontamentos();
+        carregarApontamentos(usuario);
         
         //botao deletar fica inativo e só ativa quando seleciona 1 ou mais linhas
         botaoDeletar.setEnabled(false);
@@ -35,8 +35,11 @@ public class TelaApontamentos extends javax.swing.JFrame {
         });
     }
 
-    public void carregarApontamentos(){
+    public void carregarApontamentos(Usuario usuario){
         this.usuario = usuario;
+        String user = usuario.getNome();
+        labelnomeuser.setText(user);
+        labelnomeuser.setForeground(Color.WHITE);
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaApontamentos.getModel();
         tabelaModel.setRowCount(0);
 
@@ -270,7 +273,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
         // TODO add your handling code here:
         Apontamentos apontamentoSelecionado = listaApontamentos.get(tabelaApontamentos.getSelectedRow());
         ConexaoBancoDeDados.deletarApontamentos(apontamentoSelecionado.getId());
-        carregarApontamentos();
+        carregarApontamentos(usuario);
     }//GEN-LAST:event_botaoDeletarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
