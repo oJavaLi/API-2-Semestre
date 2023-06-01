@@ -21,8 +21,8 @@ public class ConexaoBancoDeDados {
         
         // Credenciais de acesso banco de dados
         String dbName = "api2Semestre";
-        String dbUser = "root";
-        String dbPassword = "1234";
+        String dbUser = "api2semestre";
+        String dbPassword = "api2semestre";
         String url = "jdbc:mysql://localhost:3306/api2semestre";
 
 
