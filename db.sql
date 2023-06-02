@@ -48,4 +48,8 @@ CREATE TABLE cliente(
     PRIMARY KEY (cnpj)
 );
 
-insert into login_usuarios values (123, 'Super Administrador', '123', 'administrador');
+insert into login_usuarios values (123, 'Super Administrador', '123', 'administrador')
+
+ALTER TABLE api2semestre.apontamentos ADD avaliador_gestor int(11) FIRST
+ALTER TABLE api2semestre.apontamentos ADD avaliador_administrador int(11) FIRST
+ALTER TABLE api2semestre.apontamentos DROP COLUMN avaliador_matricula;
