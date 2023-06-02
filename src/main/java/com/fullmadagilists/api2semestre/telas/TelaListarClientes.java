@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Cliente;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
@@ -13,8 +14,8 @@ public class TelaListarClientes extends javax.swing.JFrame {
     Usuario usuario;
     List<Cliente> listaClientes;
 
-    public TelaListarClientes(Usuario usuario) {
-        this.usuario = usuario;
+    public TelaListarClientes() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -256,14 +257,13 @@ public class TelaListarClientes extends javax.swing.JFrame {
 
     private void botaoAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddClienteActionPerformed
 
-        TelaNovoCliente cliente = new TelaNovoCliente(this.usuario,null);
+        TelaNovoCliente cliente = new TelaNovoCliente();
         this.setVisible(false);
         cliente.setVisible(true);
     }//GEN-LAST:event_botaoAddClienteActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-
-        TelaAdmin telaAdmin = new TelaAdmin(usuario);
+        TelaAdmin telaAdmin = new TelaAdmin();
         this.setVisible(false);
         telaAdmin.setVisible(true);
     }//GEN-LAST:event_botaoVoltarActionPerformed
@@ -276,7 +276,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
             Cliente clienteSelecionado = listaClientes.get(tabelaCliente.getSelectedRow());
-            TelaNovoCliente editarFuncionario = new TelaNovoCliente(this.usuario, clienteSelecionado);
+            TelaNovoCliente editarFuncionario = new TelaNovoCliente(clienteSelecionado);
             this.setVisible(false);
             editarFuncionario.setVisible(true);
         

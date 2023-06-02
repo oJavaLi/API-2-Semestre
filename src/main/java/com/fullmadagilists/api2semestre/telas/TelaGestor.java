@@ -1,23 +1,21 @@
-
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.awt.Color;
 
 public class TelaGestor extends javax.swing.JFrame {
-        Usuario usuario;
-        TelaAdmin admin;
-        TelaApontamentos apontamentos;
-    
-public TelaGestor(Usuario usuario) {
-        this.usuario = usuario;
+    Usuario usuario;
+
+    public TelaGestor() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
     }
 
-    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -179,26 +177,28 @@ public TelaGestor(Usuario usuario) {
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
         Login login = new Login();
+        this.setVisible(false);
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoVerFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVerFuncionariosActionPerformed
-        TelaAprovarHoras aprovarHoras = new TelaAprovarHoras(this.admin, this.usuario);
+        TelaAprovarHoras aprovarHoras = new TelaAprovarHoras();
         this.setVisible(false);
         aprovarHoras.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoVerFuncionariosActionPerformed
 
     private void botaoApontarsobreavisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarsobreavisoActionPerformed
-        TelaApontarSobreAviso apontarSobreaviso = new TelaApontarSobreAviso(this.apontamentos, this.usuario);
+        TelaApontarSobreAviso apontarSobreaviso = new TelaApontarSobreAviso();
         this.setVisible(false);
         apontarSobreaviso.setVisible(true);
     }//GEN-LAST:event_botaoApontarsobreavisoActionPerformed
 
     private void botaoApontarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarHoraExtraActionPerformed
-        TelaApontarHoraExtra apontarHoraExtra = new TelaApontarHoraExtra(this.apontamentos,this.usuario,null);
         this.setVisible(false);
-        apontarHoraExtra.setVisible(true);
+        new TelaApontarHoraExtra().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoApontarHoraExtraActionPerformed
 
 

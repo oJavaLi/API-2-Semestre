@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
@@ -16,14 +17,11 @@ import javax.swing.JOptionPane;
 
 
 public class TelaApontarHoraExtra extends javax.swing.JFrame {
-    private TelaApontamentos apontamentos;
     private Usuario usuario;
-    private Apontamentos config;
+    private Apontamentos apontamentoAEditar;
 
-    public TelaApontarHoraExtra(TelaApontamentos apontamentos, Usuario usuario,Apontamentos config) {
-        this.apontamentos = apontamentos;
-        this.usuario = usuario;
-        this.config = config;
+    public TelaApontarHoraExtra() {
+        usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         carregarClientes();
         carregarCR();
@@ -37,56 +35,58 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         dataEntrada.setDate(hora.getTime());
         hora.add(Calendar.HOUR, 1);
         dataSaida.setDate(hora.getTime());
-        if(config!=null){
-            Date dataE = dataEntrada.getDate();
-            Date dataS = dataSaida.getDate();
-
-        //Formata a Data
-            SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-            String dataFormatadaE = formatador.format(dataE);
-            String dataFormatadaS = formatador.format(dataS);
-
-            int id = config.getId();
-            dataEntrada.setDate(dataE);
-            dataSaida.setDate(dataS);
-            solicitanteHoraExtraTextField.setText(config.getSolicitante());
-            projetoHoraExtraTextField.setText(config.getProjeto());
-            clienteHoraExtraTextField.setSelectedItem(config.getCliente());
-            crHoraExtraTextField.setSelectedItem(config.getCr());
-            justificativaHoraHextraJTextArea.setText(config.getJustificativa());
-         }
-        
     }
+
+    public TelaApontarHoraExtra(Apontamentos apontamentoAEditar) {
+        this.apontamentoAEditar = apontamentoAEditar;
+        Date dataE = dataEntrada.getDate();
+        Date dataS = dataSaida.getDate();
+
+    //Formata a Data
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String dataFormatadaE = formatador.format(dataE);
+        String dataFormatadaS = formatador.format(dataS);
+
+        int id = apontamentoAEditar.getId();
+        dataEntrada.setDate(dataE);
+        dataSaida.setDate(dataS);
+        solicitanteHoraExtraTextField.setText(apontamentoAEditar.getSolicitante());
+        projetoHoraExtraTextField.setText(apontamentoAEditar.getProjeto());
+        clienteHoraExtraTextField.setSelectedItem(apontamentoAEditar.getCliente());
+        crHoraExtraTextField.setSelectedItem(apontamentoAEditar.getCr());
+        justificativaHoraHextraJTextArea.setText(apontamentoAEditar.getJustificativa());
+    }
+
     private void carregarClientes() {
-    try {
-        Connection conexao = ConexaoBancoDeDados.conector();
-        String clientesquery = "select razao_social from cliente";
-        Statement stmt = conexao.createStatement();
-        ResultSet resultado = stmt.executeQuery(clientesquery);
+        try {
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String clientesquery = "select razao_social from cliente";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(clientesquery);
 
-        while (resultado.next()) {
-            clienteHoraExtraTextField.addItem(resultado.getString("razao_social"));
+            while (resultado.next()) {
+                clienteHoraExtraTextField.addItem(resultado.getString("razao_social"));
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
         }
-    } catch(Exception e) {
-        e.printStackTrace();
     }
-    }
-    
+
     private void carregarCR() {
-    try {
-        Connection conexao = ConexaoBancoDeDados.conector();
-        String crquery = "select nomeCR from centroresultado";
-        Statement stmt = conexao.createStatement();
-        ResultSet resultado = stmt.executeQuery(crquery);
+        try {
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String crquery = "select nomeCR from centroresultado";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(crquery);
 
-        while (resultado.next()) {
-            crHoraExtraTextField.addItem(resultado.getString("nomeCR"));
+            while (resultado.next()) {
+                crHoraExtraTextField.addItem(resultado.getString("nomeCR"));
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
         }
-    } catch(Exception e) {
-        e.printStackTrace();
     }
 
-    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -193,7 +193,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(160, 160, 160)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -337,18 +337,16 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
     }//GEN-LAST:event_solicitanteHoraExtraTextFieldActionPerformed
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
-        
-      this.setVisible(false);
-      if (usuario.getCategoria().equals("colaborador")) {
-        new TelaApontamentos(this.usuario).setVisible(true);
-    } else {
-        new TelaGestor(this.usuario).setVisible(true);
-    }
+        this.setVisible(false);
+        if (usuario.getCategoria().equals("colaborador")) {
+            new TelaApontamentos().setVisible(true);
+        } else {
+            new TelaGestor().setVisible(true);
+        }
         this.dispose();
     }//GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
     private void botaoSubmeterHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterHoraExtraActionPerformed
-     
         //Pega a data escolhida pelo usuario no formulário
         Date dataE = dataEntrada.getDate();
         Date dataS = dataSaida.getDate();
@@ -358,28 +356,28 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         String dataFormatadaE = formatador.format(dataE);
         String dataFormatadaS = formatador.format(dataS);
 
-
         try{
-            Apontamentos apontamento = new Apontamentos("Hora Extra",
+            Apontamentos apontamento = new Apontamentos(
+                "Hora Extra",
                 dataFormatadaE,
                 dataFormatadaS,
                 this.justificativaHoraHextraJTextArea.getText(),
                 this.clienteHoraExtraTextField.getSelectedItem().toString(),
                 this.projetoHoraExtraTextField.getText(),
                 this.solicitanteHoraExtraTextField.getText(),
-                this.crHoraExtraTextField.getSelectedItem().toString());
-            if(config==null){
-            cadastrarApontamentos(apontamento, this.usuario);
+                this.crHoraExtraTextField.getSelectedItem().toString()
+            );
+            if(apontamentoAEditar==null){
+                cadastrarApontamentos(apontamento, this.usuario);
             }else{
-                ConexaoBancoDeDados.editarApontamentos(apontamento, this.usuario,config.getId());
-                
+                ConexaoBancoDeDados.editarApontamentos(apontamento, this.usuario,apontamentoAEditar.getId());
             }
-            JOptionPane.showMessageDialog(null, "Hora Extra cadastrada com Sucesso! ");
-            apontamentos.carregarApontamentos(usuario);
-            apontamentos.setVisible(true);
-            this.setVisible(false);
-            this.dispose();
 
+            JOptionPane.showMessageDialog(null, "Hora Extra cadastrada com Sucesso! ");
+
+            this.setVisible(false);
+            new TelaApontamentos().setVisible(true);
+            this.dispose();
         }catch(Exception e){
             System.out.print(e);}
     }//GEN-LAST:event_botaoSubmeterHoraExtraActionPerformed

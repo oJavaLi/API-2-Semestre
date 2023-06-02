@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarClientes;
 import com.fullmadagilists.api2semestre.entidades.Cliente;
@@ -12,23 +13,25 @@ import javax.swing.text.MaskFormatter;
 
 public class TelaNovoCliente extends javax.swing.JFrame {
     Usuario usuario;
-    Cliente config;
-    private TelaListarClientes cliente;
+    Cliente clienteAEditar;
 
 
-    public TelaNovoCliente(Usuario usuario, Cliente config ){
-        this.usuario = usuario;
-        this.config = config;
+    public TelaNovoCliente(){
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
         formatarCampo();
-        if(config!=null){
-            campoRazaoSocial.setText(config.getRazaoSocial());
-            campoCnpj.setText(config.getCnpj());
-            campoCnpj.setEditable(false);
-        }
+    }
+    
+    public TelaNovoCliente(Cliente clienteAEditar) {
+        this();
+        this.clienteAEditar = clienteAEditar;
+        campoRazaoSocial.setText(clienteAEditar.getRazaoSocial());
+        campoCnpj.setText(clienteAEditar.getCnpj());
+        campoCnpj.setEditable(false);
+    
     }
 
     private void formatarCampo(){
@@ -202,14 +205,14 @@ public class TelaNovoCliente extends javax.swing.JFrame {
                     this.campoRazaoSocial.getText(),
                     this.campoCnpj.getText()
              );
-            if(config==null){
+            if(clienteAEditar==null){
                 cadastrarClientes(a);
             }else{
                 ConexaoBancoDeDados.editarCliente(a);
             }
             JOptionPane.showMessageDialog(null, "Cliente Cadastrado com Sucesso! ");
 
-            TelaListarClientes telaListarClientes = new TelaListarClientes(usuario);
+            TelaListarClientes telaListarClientes = new TelaListarClientes();
             telaListarClientes.setVisible(true);
             this.setVisible(false);
             this.dispose();
@@ -223,10 +226,9 @@ public class TelaNovoCliente extends javax.swing.JFrame {
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         this.setVisible(false);
-        new TelaAdmin(usuario).setVisible(true);
+        new TelaAdmin().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoCancelarActionPerformed
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelar;

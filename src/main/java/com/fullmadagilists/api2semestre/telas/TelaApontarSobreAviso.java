@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
@@ -16,12 +17,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class TelaApontarSobreAviso extends javax.swing.JFrame {
-    TelaApontamentos apontamentos;
     Usuario usuario;
 
-    public TelaApontarSobreAviso(TelaApontamentos apontamentos, Usuario usuario) {
-        this.apontamentos = apontamentos;
-        this.usuario = usuario;
+    public TelaApontarSobreAviso() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -54,7 +53,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
+
     private void carregarCR() {
     try {
         Connection conexao = ConexaoBancoDeDados.conector();
@@ -430,8 +429,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
             }
 
             JOptionPane.showMessageDialog(null, "Sobre aviso e horas extras cadastradas com Sucesso! ");
-            apontamentos.carregarApontamentos(usuario);
-            apontamentos.setVisible(true);
+            new TelaApontamentos().setVisible(true);
             this.setVisible(false);
             this.dispose();
 
@@ -442,14 +440,12 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
         this.setVisible(false);
-      if (usuario.getCategoria().equals("colaborador")) {
-        new TelaApontamentos(this.usuario).setVisible(true);
-    } else {
-        new TelaGestor(this.usuario).setVisible(true);
-    }
+        if (usuario.getCategoria().equals("colaborador")) {
+            new TelaApontamentos().setVisible(true);
+        } else {
+            new TelaGestor().setVisible(true);
+        }
         this.dispose();
-                                                         
-
     }// GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
     private void jRadioButtonSimActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButtonSimActionPerformed

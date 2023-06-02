@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.awt.Color;
@@ -12,8 +13,8 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
     Usuario usuario;
     List<Usuario> listaUsuarios;
     
-    public TelaListarFuncionarios(Usuario usuario) {
-        this.usuario = usuario;
+    public TelaListarFuncionarios() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -263,20 +264,19 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFuncionarioActionPerformed
-        TelaAddFuncionario funcionario = new TelaAddFuncionario(this.usuario,null);
+        TelaAddFuncionario funcionario = new TelaAddFuncionario();
         this.setVisible(false);
         funcionario.setVisible(true);
     }//GEN-LAST:event_botaoAddFuncionarioActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-
-        TelaAdmin telaAdmin = new TelaAdmin(usuario);
+        TelaAdmin telaAdmin = new TelaAdmin();
         this.setVisible(false);
         telaAdmin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
-
         Usuario usuarioSelecionado = listaUsuarios.get(tabelaUsuario.getSelectedRow());
         ConexaoBancoDeDados.deletarUsuario(usuarioSelecionado.getMatricula());
         carregarUsuarios();
@@ -284,9 +284,10 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
         Usuario usuarioSelecionado = listaUsuarios.get(tabelaUsuario.getSelectedRow());
-        TelaAddFuncionario funcionario = new TelaAddFuncionario(this.usuario,usuarioSelecionado);
+        TelaAddFuncionario funcionario = new TelaAddFuncionario(usuarioSelecionado);
         this.setVisible(false);
         funcionario.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoEditarActionPerformed
 
     

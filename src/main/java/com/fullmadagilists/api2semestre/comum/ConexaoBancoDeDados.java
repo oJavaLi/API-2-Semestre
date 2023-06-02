@@ -24,13 +24,7 @@ public class ConexaoBancoDeDados {
         String dbUser = "api2semestre";
         String dbPassword = "api2semestre";
         String url = "jdbc:mysql://localhost:3306/api2semestre";
-
-
-
-
-
-
-
+        
         // caminho do driver
         String driver = "com.mysql.cj.jdbc.Driver";
 

@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarCentroResultado;
 import com.fullmadagilists.api2semestre.entidades.CentroResultado;
@@ -10,22 +11,23 @@ import javax.swing.JOptionPane;
 
 public class TelaNovoCr extends javax.swing.JFrame {
     Usuario usuario;
-    CentroResultado cr;
-    private TelaListarCr centroresultado;
+    CentroResultado crAEditar;
 
-    public TelaNovoCr(Usuario usuario,CentroResultado cr) {
-        this.usuario = usuario;
-        this.cr = cr;
+    public TelaNovoCr() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
-        if(cr!=null){
-            codigoCRTextField.setText(cr.getCodigocr());
-            codigoCRTextField.setEditable(false);
-            nomeCRTextField.setText(cr.getNomecr());
-            siglaCRTextField.setText(cr.getSiglacr());
-        }
+    }
+    
+    public TelaNovoCr(CentroResultado crAEditar){
+        this();
+        this.crAEditar = crAEditar;
+        codigoCRTextField.setText(crAEditar.getCodigocr());
+        codigoCRTextField.setEditable(false);
+        nomeCRTextField.setText(crAEditar.getNomecr());
+        siglaCRTextField.setText(crAEditar.getSiglacr());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -213,14 +215,14 @@ public class TelaNovoCr extends javax.swing.JFrame {
                 this.codigoCRTextField.getText(),
                 this.nomeCRTextField.getText(),
                 this.siglaCRTextField.getText());
-            if(cr==null){
+            if(crAEditar==null){
                 cadastrarCentroResultado(centroderesultado);
             }else{
                  ConexaoBancoDeDados.editarCR(centroderesultado);
             }
             JOptionPane.showMessageDialog(null, "CR cadastrado com Sucesso! ");
             
-            TelaListarCr telaListarCr = new TelaListarCr(usuario);
+            TelaListarCr telaListarCr = new TelaListarCr();
             telaListarCr.setVisible(true);
             this.setVisible(false);
             this.dispose();
@@ -230,9 +232,9 @@ public class TelaNovoCr extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSubmeterCRActionPerformed
 
     private void botaoCancelarCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarCRActionPerformed
-        TelaAdmin telaAdmin = new TelaAdmin(usuario);
         this.setVisible(false);
-        telaAdmin.setVisible(true);
+        new TelaAdmin().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoCancelarCRActionPerformed
 
 

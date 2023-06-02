@@ -1,5 +1,6 @@
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
@@ -15,8 +16,8 @@ public class TelaApontamentos extends javax.swing.JFrame {
     Usuario usuario;
     List<Apontamentos> listaApontamentos;
 
-    public TelaApontamentos(Usuario usuario) {
-        this.usuario = usuario;
+    public TelaApontamentos() {
+        usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         labelnomeuser.setText(user);
@@ -252,15 +253,15 @@ public class TelaApontamentos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoApontarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarHoraExtraActionPerformed
-        TelaApontarHoraExtra horaExtra = new TelaApontarHoraExtra(this, usuario,null);
         this.setVisible(false);
-        horaExtra.setVisible(true);
+        new TelaApontarHoraExtra().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoApontarHoraExtraActionPerformed
 
     private void botaoApontarSobreavisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarSobreavisoActionPerformed
-        TelaApontarSobreAviso sobreAviso = new TelaApontarSobreAviso(this, usuario);
         this.setVisible(false);
-        sobreAviso.setVisible(true);
+        new TelaApontarSobreAviso().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoApontarSobreavisoActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
@@ -278,7 +279,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        Apontamentos apontamentoSelecionado = listaApontamentos.get(tabelaApontamentos.getSelectedRow());
-       TelaApontarHoraExtra apontamento = new TelaApontarHoraExtra(this,usuario,apontamentoSelecionado);
+       TelaApontarHoraExtra apontamento = new TelaApontarHoraExtra(apontamentoSelecionado);
        this.setVisible(false);
        apontamento.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

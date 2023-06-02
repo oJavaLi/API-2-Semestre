@@ -1,6 +1,6 @@
-
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
@@ -8,69 +8,57 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.List;
 import com.opencsv.CSVWriter;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class TelaNovoRelatorio extends javax.swing.JFrame {
-    Usuario usuario;
+    Usuario usuarioLogado;
+    Usuario usuarioSelecionado;
     List<Usuario> usuarios;
 
-    
-    
-    public TelaNovoRelatorio(Usuario usuario) {
-        this.usuario = usuario;
+    public TelaNovoRelatorio() {
+        this.usuarioLogado = Autenticacao.getUsuarioLogado();
         initComponents();
-        String user = usuario.getNome();
-        //jLabel2.setText(user);
-        //jLabel2.setForeground(Color.WHITE);
+        jLabel3.setText(usuarioLogado.getNome());
+        jLabel3.setForeground(Color.WHITE);
         tabelaUsuario.setFillsViewportHeight(true);
         carregarUsuarios();
-            
     }
-
 
     private void carregarUsuarios() {
-    usuarios = ConexaoBancoDeDados.usuarios();
-
-    DefaultTableModel model = new DefaultTableModel();
-    model.setColumnIdentifiers(new Object[]{"Matrícula", "Nome"});
-
-    for (Usuario u : usuarios) {
-        model.addRow(new Object[]{u.getMatricula(), u.getNome()});
-    }
-
-    tabelaUsuario.setModel(model);
-    }
-    
-     public void buscarUsuario(String busca){
+        usuarios = ConexaoBancoDeDados.usuarios();
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
         tabelaModel.setRowCount(0);
-
-        List<Usuario> buscarUsuario = ConexaoBancoDeDados.buscarUsuarioLista(busca);
-
-        for (Usuario u: buscarUsuario){
-            String nome = u.getNome();
-            String categoria = u.getCategoria();
-
-            Object[] novoApontamento = new Object[]{
-                nome,
-                categoria
-            };
-            tabelaModel.addRow(novoApontamento);
+        for (Usuario u : usuarios) {
+            tabelaModel.addRow(new Object[]{u.getNome(), u.getMatricula()});
         }
-
         tabelaUsuario.setModel(tabelaModel);
+    }
+
+     public void buscarUsuario(String busca){
+        usuarios = ConexaoBancoDeDados.buscarUsuarioLista(busca);
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
+        tabelaModel.setRowCount(0);
+        for (Usuario u : usuarios) {
+            tabelaModel.addRow(new Object[]{u.getNome(), u.getMatricula()});
+        }
+        tabelaUsuario.setModel(tabelaModel);
+    }
+
+
+    private void gerarRelatorio(String text) {
+        List<Apontamentos> apontamentos;
+        int selectedRow = tabelaUsuario.getSelectedRow();
+
+        if (selectedRow != -1) {
+            usuarioSelecionado = usuarios.get(selectedRow);
+            apontamentos = ConexaoBancoDeDados.apontamentos(usuarioSelecionado);
+        } else {
+            JOptionPane.showMessageDialog(this, "Nenhum Colaborador Selecionado!");
+            return;
         }
 
-    
-    private void gerarRelatorio(String text) {
-        int selectedRow = tabelaUsuario.getSelectedRow();
-        
-        if (selectedRow != -1) {
-        Usuario usuarioSelecionado = usuarios.get(selectedRow);
-        List<Apontamentos> apontamentos = ConexaoBancoDeDados.apontamentos(usuarioSelecionado);
-
-        
         // Transformar a lista em um arquivo CSV usando OpenCSV
         try {
             File arquivo = new File("relatorio_" + usuarioSelecionado.getMatricula() + ".csv");
@@ -92,15 +80,13 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
                 };
                 csvWriter.writeNext(linha);
             }
-            
+
             csvWriter.flush();
             csvWriter.close();
-            JOptionPane.showMessageDialog(null, "Relatório do funcionário " 
+            JOptionPane.showMessageDialog(null, "Relatório do funcionário "
                     + usuarioSelecionado.getNome() + " gerado com sucesso!");
         } catch(Exception e){
             e.printStackTrace();
-        }
-        
         }
     }
 
@@ -266,7 +252,7 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         this.setVisible(false);
-        new TelaAdmin(usuario).setVisible(true);
+        new TelaAdmin().setVisible(true);
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void textoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPesquisarActionPerformed

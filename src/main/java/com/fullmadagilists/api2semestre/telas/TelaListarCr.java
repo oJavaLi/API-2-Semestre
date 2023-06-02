@@ -1,5 +1,6 @@
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.CentroResultado;
 import com.fullmadagilists.api2semestre.entidades.Cliente;
@@ -13,8 +14,8 @@ public class TelaListarCr extends javax.swing.JFrame {
     Usuario usuario;
     List<CentroResultado> listaCR;
 
-    public TelaListarCr(Usuario usuario) {
-        this.usuario = usuario;
+    public TelaListarCr() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -269,7 +270,7 @@ public class TelaListarCr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoApontarCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarCRActionPerformed
-        TelaNovoCr novoCR = new TelaNovoCr(usuario,null);
+        TelaNovoCr novoCR = new TelaNovoCr();
         this.setVisible(false);
         novoCR.setVisible(true);
     }//GEN-LAST:event_botaoApontarCRActionPerformed
@@ -283,7 +284,7 @@ public class TelaListarCr extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-        TelaAdmin telaAdmin = new TelaAdmin(usuario);
+        TelaAdmin telaAdmin = new TelaAdmin();
         this.setVisible(false);
         telaAdmin.setVisible(true);
     }//GEN-LAST:event_botaoVoltarActionPerformed
@@ -298,7 +299,7 @@ public class TelaListarCr extends javax.swing.JFrame {
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
         CentroResultado cr = listaCR.get(tabelaCR.getSelectedRow()) ;
-        TelaNovoCr novoCR = new TelaNovoCr(usuario,cr);
+        TelaNovoCr novoCR = new TelaNovoCr(cr);
         this.setVisible(false);
         novoCR.setVisible(true);
     }//GEN-LAST:event_botaoEditarActionPerformed

@@ -1,6 +1,6 @@
-
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.awt.Color;
@@ -8,23 +8,24 @@ import javax.swing.JOptionPane;
 
 
 public class TelaAddFuncionario extends javax.swing.JFrame {
-    private TelaListarFuncionarios usuarios;
     Usuario usuario;
-    Usuario config;
-    public TelaAddFuncionario(Usuario usuario,Usuario config) {
-        this.usuario = usuario;
-        this.config = config;
+    Usuario usuarioAEditar = null;
+    
+    public TelaAddFuncionario() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
         jLabel2.setForeground(Color.WHITE);
-        if(config!=null){
-            
-            textNome.setText(config.getNome());
-            textSenha.setText(config.getSenha());
-            textMatricula.setText(Integer.toString(config.getMatricula()));
-            textMatricula.setEditable(false);
-        }
+    }
+    
+    public TelaAddFuncionario(Usuario usuarioAEditar) {
+        this();
+        this.usuarioAEditar = usuarioAEditar;
+        textNome.setText(usuarioAEditar.getNome());
+        textSenha.setText(usuarioAEditar.getSenha());
+        textMatricula.setText(Integer.toString(usuarioAEditar.getMatricula()));
+        textMatricula.setEditable(false);
     }
 
 
@@ -219,7 +220,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
 
     private void buttonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvarActionPerformed
         // TODO add your handling code here:
-        if(config==null){
+        if(usuarioAEditar==null){
         String matricula = textMatricula.getText();
         int matriculanumero;
         try{ matriculanumero = Integer.parseInt(matricula);}
@@ -231,7 +232,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
             ConexaoBancoDeDados.cadastrarUsuario(usuario);
             JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
             
-            TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios(usuario);
+            TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios();
             listarFuncionarios.setVisible(true);
             this.setVisible(false);
             this.dispose();
@@ -253,7 +254,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
             ConexaoBancoDeDados.editarUsuario(usuario);
             JOptionPane.showMessageDialog(null, "Usuario editado com sucesso");
             
-            TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios(usuario);
+            TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios();
             listarFuncionarios.setVisible(true);
             this.setVisible(false);
             this.dispose();
@@ -268,7 +269,8 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new TelaAdmin(usuario).setVisible(true);
+        new TelaAdmin().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_buttonCancelarActionPerformed
 
     private void textNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeActionPerformed
