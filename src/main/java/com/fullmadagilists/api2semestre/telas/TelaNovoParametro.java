@@ -2,9 +2,11 @@
 package com.fullmadagilists.api2semestre.telas;
 
 import com.fullmadagilists.api2semestre.comum.Autenticacao;
+import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Parametro;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class TelaNovoParametro extends javax.swing.JFrame {
     Usuario usuario;
@@ -26,6 +28,7 @@ public class TelaNovoParametro extends javax.swing.JFrame {
         verbaTextField.setEditable(false);
         horasTextField.setText(parametroEditar.getHoras());
         porcentagemTextField.setText(parametroEditar.getPorcentagem());
+        descricaoTextField.setText(parametroEditar.getDescricao());
         
     }
 
@@ -194,12 +197,23 @@ public class TelaNovoParametro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoSubmeterParametroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSubmeterParametroActionPerformed
-        // TODO add your handling code here:
-
+        parametroEditar.setVerba(verbaTextField.getText());
+        parametroEditar.setHoras(horasTextField.getText());
+        parametroEditar.setPorcentagem(porcentagemTextField.getText());
+        parametroEditar.setDescricao(descricaoTextField.getText());
+        ConexaoBancoDeDados.atualizarParametro(parametroEditar);
+        
+        JOptionPane.showMessageDialog(this, "Parâmetro atualizado com sucesso!");
+        
+        this.setVisible(false);
+        new TelaListarParametrizacao().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoSubmeterParametroActionPerformed
 
     private void botaoCancelarParametroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarParametroActionPerformed
-
+        this.setVisible(false);
+        new TelaListarParametrizacao().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoCancelarParametroActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
