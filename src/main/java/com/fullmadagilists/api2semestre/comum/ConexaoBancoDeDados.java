@@ -432,12 +432,38 @@ public class ConexaoBancoDeDados {
         return listaCR;
     }
 
-    public static List<Parametro> buscarparametro(String busca){
+    public static List<Parametro> buscarParametro(String busca){
         List<Parametro> listaParametro = new ArrayList<>();
 
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
             String parametrizacaoQuery = "select * from parametro where verba like "+"'"+busca+"%'";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(parametrizacaoQuery);
+
+            while (resultado.next()){
+                Parametro parametro = new Parametro();
+                parametro.setDescricao(resultado.getString("descricao"));
+                parametro.setHoras(resultado.getString("horas"));
+                parametro.setPorcentagem(resultado.getString("porcentagem"));
+                parametro.setVerba(resultado.getString("verba"));
+
+
+                listaParametro.add(parametro);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return listaParametro;
+    }
+    
+        public static List<Parametro> parametro(){
+        List<Parametro> listaParametro = new ArrayList<>();
+
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String parametrizacaoQuery = "select * from parametro";
             Statement stmt = conexao.createStatement();
             ResultSet resultado = stmt.executeQuery(parametrizacaoQuery);
 
