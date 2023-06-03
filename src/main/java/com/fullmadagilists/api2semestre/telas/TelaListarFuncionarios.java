@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.awt.Color;
@@ -12,8 +13,8 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
     Usuario usuario;
     List<Usuario> listaUsuarios;
     
-    public TelaListarFuncionarios(Usuario usuario) {
-        this.usuario = usuario;
+    public TelaListarFuncionarios() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -73,6 +74,7 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        botaoEditar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaUsuario = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -90,6 +92,14 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 800));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 800));
+
+        botaoEditar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoEditar.setText("Editar");
+        botaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEditarActionPerformed(evt);
+            }
+        });
 
         tabelaUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -210,32 +220,35 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
                         .addComponent(botaoPesquisar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(botaoAddFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(65, 65, 65)
-                                .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(65, 65, 65)
-                                .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botaoPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoAddFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(botaoAddFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6))
         );
 
         pack();
@@ -251,31 +264,38 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFuncionarioActionPerformed
-
-        TelaAddFuncionario funcionario = new TelaAddFuncionario(this.usuario);
+        TelaAddFuncionario funcionario = new TelaAddFuncionario();
         this.setVisible(false);
         funcionario.setVisible(true);
     }//GEN-LAST:event_botaoAddFuncionarioActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-
-        TelaAdmin telaAdmin = new TelaAdmin(usuario);
+        TelaAdmin telaAdmin = new TelaAdmin();
         this.setVisible(false);
         telaAdmin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
-
         Usuario usuarioSelecionado = listaUsuarios.get(tabelaUsuario.getSelectedRow());
         ConexaoBancoDeDados.deletarUsuario(usuarioSelecionado.getMatricula());
         carregarUsuarios();
     }//GEN-LAST:event_botaoDeletarActionPerformed
+
+    private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+        Usuario usuarioSelecionado = listaUsuarios.get(tabelaUsuario.getSelectedRow());
+        TelaAddFuncionario funcionario = new TelaAddFuncionario(usuarioSelecionado);
+        this.setVisible(false);
+        funcionario.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botaoEditarActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAddFuncionario;
     private javax.swing.JButton botaoDeletar;
+    private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoPesquisar;
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JLabel icon;

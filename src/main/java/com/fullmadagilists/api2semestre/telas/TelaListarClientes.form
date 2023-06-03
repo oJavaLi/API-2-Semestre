@@ -35,9 +35,11 @@
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="botaoAddCliente" min="-2" pref="200" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                      <Component id="botaoDeletar" min="-2" pref="200" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="botaoDeletar" min="-2" pref="146" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="botaoEditar" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="botaoVoltar" min="-2" pref="200" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="730" max="-2" attributes="0"/>
@@ -58,11 +60,12 @@
               <Component id="jScrollPane1" min="-2" pref="480" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botaoAddCliente" min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="botaoVoltar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="botaoAddCliente" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="botaoDeletar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="botaoEditar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="botaoVoltar" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -235,6 +238,17 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoVoltarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoEditar">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="16" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Editar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoEditarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

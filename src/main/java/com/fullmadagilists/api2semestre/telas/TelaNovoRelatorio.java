@@ -1,6 +1,6 @@
-
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
@@ -8,48 +8,58 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.List;
 import com.opencsv.CSVWriter;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class TelaNovoRelatorio extends javax.swing.JFrame {
-    Usuario usuario;
+    Usuario usuarioLogado;
+    Usuario usuarioSelecionado;
     List<Usuario> usuarios;
 
-    
-    
-    public TelaNovoRelatorio(Usuario usuario) {
-        this.usuario = usuario;
+    public TelaNovoRelatorio() {
+        this.usuarioLogado = Autenticacao.getUsuarioLogado();
         initComponents();
-        String user = usuario.getNome();
-        //jLabel2.setText(user);
-        //jLabel2.setForeground(Color.WHITE);
+        jLabel3.setText(usuarioLogado.getNome());
+        jLabel3.setForeground(Color.WHITE);
         tabelaUsuario.setFillsViewportHeight(true);
         carregarUsuarios();
-            
     }
 
 
     private void carregarUsuarios() {
-    usuarios = ConexaoBancoDeDados.usuarios();
-
-    DefaultTableModel model = new DefaultTableModel();
-    model.setColumnIdentifiers(new Object[]{"Matrícula", "Nome"});
-
-    for (Usuario u : usuarios) {
-        model.addRow(new Object[]{u.getMatricula(), u.getNome()});
+        usuarios = ConexaoBancoDeDados.usuarios();
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
+        tabelaModel.setRowCount(0);
+        for (Usuario u : usuarios) {
+            tabelaModel.addRow(new Object[]{u.getNome(), u.getMatricula()});
+        }
+        tabelaUsuario.setModel(tabelaModel);
     }
 
-    tabelaUsuario.setModel(model);
-}
-    
-    private void gerarRelatorio(String text) {
-        int selectedRow = tabelaUsuario.getSelectedRow();
-        
-        if (selectedRow != -1) {
-        Usuario usuarioSelecionado = usuarios.get(selectedRow);
-        List<Apontamentos> apontamentos = ConexaoBancoDeDados.apontamentos(usuarioSelecionado);
+     public void buscarUsuario(String busca){
+        usuarios = ConexaoBancoDeDados.buscarUsuarioLista(busca);
+        DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
+        tabelaModel.setRowCount(0);
+        for (Usuario u : usuarios) {
+            tabelaModel.addRow(new Object[]{u.getNome(), u.getMatricula()});
+        }
+        tabelaUsuario.setModel(tabelaModel);
+    }
 
-        
+
+    private void gerarRelatorio(String text) {
+        List<Apontamentos> apontamentos;
+        int selectedRow = tabelaUsuario.getSelectedRow();
+
+        if (selectedRow != -1) {
+            usuarioSelecionado = usuarios.get(selectedRow);
+            apontamentos = ConexaoBancoDeDados.apontamentos(usuarioSelecionado);
+        } else {
+            JOptionPane.showMessageDialog(this, "Nenhum Colaborador Selecionado!");
+            return;
+        }
+
         // Transformar a lista em um arquivo CSV usando OpenCSV
         try {
             File arquivo = new File("relatorio_" + usuarioSelecionado.getMatricula() + ".csv");
@@ -71,15 +81,16 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
                 };
                 csvWriter.writeNext(linha);
             }
-            
+
             csvWriter.flush();
             csvWriter.close();
-            JOptionPane.showMessageDialog(null, "Relatório do funcionário " 
+            JOptionPane.showMessageDialog(null, "Relatório do funcionário "
                     + usuarioSelecionado.getNome() + " gerado com sucesso!");
         } catch(Exception e){
             e.printStackTrace();
         }
-   
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -93,7 +104,7 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaUsuario = new javax.swing.JTable();
         textoPesquisar = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        botaoPesquisar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -170,30 +181,23 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Nome", "Matrícula"
+                "Funcionário", "Matrícula"
             }
         ));
-        tabelaUsuario.getTableHeader().setReorderingAllowed(false);
-        tabelaUsuario.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                tabelaUsuarioAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         jScrollPane1.setViewportView(tabelaUsuario);
 
+        textoPesquisar.setMinimumSize(new java.awt.Dimension(636, 40));
+        textoPesquisar.setPreferredSize(new java.awt.Dimension(636, 40));
         textoPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textoPesquisarActionPerformed(evt);
             }
         });
 
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pesquisar.png"))); // NOI18N
+        botaoPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botaoPesquisarActionPerformed(evt);
             }
         });
 
@@ -203,39 +207,39 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 230, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(256, 256, 256)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(botaoPesquisar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(58, 58, 58)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                    .addComponent(botaoPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botaoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -249,8 +253,9 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         this.setVisible(false);
-        new TelaAdmin(usuario).setVisible(true);
+        new TelaAdmin().setVisible(true);
     }//GEN-LAST:event_botaoCancelarActionPerformed
+
 
     private void tabelaUsuarioAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tabelaUsuarioAncestorAdded
         // TODO add your handling code here:
@@ -260,14 +265,15 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textoPesquisarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
+        buscarUsuario(textoPesquisar.getText());
+    }//GEN-LAST:event_botaoPesquisarActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoPesquisar;
     private javax.swing.JLabel icon;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

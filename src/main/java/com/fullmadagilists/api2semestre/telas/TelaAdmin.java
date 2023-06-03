@@ -1,14 +1,16 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.awt.Color;
 
 
 public class TelaAdmin extends javax.swing.JFrame {
     Usuario usuario;
-    public TelaAdmin(Usuario usuario) {
-        this.usuario = usuario;
+
+    public TelaAdmin() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -242,67 +244,64 @@ public class TelaAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        Login login = new Login();
-        login.setVisible(true);
+        this.setVisible(false);
+        new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoListarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarFuncionariosActionPerformed
-        TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios(this.usuario);
         this.setVisible(false);
-        listarFuncionarios.setVisible(true);
+        new TelaListarFuncionarios().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoListarFuncionariosActionPerformed
 
     private void botaoNovoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoFuncionarioActionPerformed
-        TelaAddFuncionario funcionario = new TelaAddFuncionario(this.usuario);
         this.setVisible(false);
-        funcionario.setVisible(true);
+        new TelaAddFuncionario().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoNovoFuncionarioActionPerformed
 
     private void botaoListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarClientesActionPerformed
-        TelaListarClientes listarClientes = new TelaListarClientes(this.usuario);
         this.setVisible(false);
-        listarClientes.setVisible(true);
-
+        new TelaListarClientes().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoListarClientesActionPerformed
 
     private void botaoNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoClienteActionPerformed
-        TelaNovoCliente novoCliente = new TelaNovoCliente(this.usuario);
         this.setVisible(false);
-        novoCliente.setVisible(true);
+        new TelaNovoCliente().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoNovoClienteActionPerformed
 
     private void botaoListarCrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarCrActionPerformed
-        TelaListarCr listarCr = new TelaListarCr(this.usuario);
         this.setVisible(false);
-        listarCr.setVisible(true);
-
+        new TelaListarCr().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoListarCrActionPerformed
 
     private void botaoNovoCrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoCrActionPerformed
-        TelaNovoCr novoCr = new TelaNovoCr(this.usuario);
         this.setVisible(false);
-        novoCr.setVisible(true);
+        new TelaNovoCr().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoNovoCrActionPerformed
 
     private void botaoVerFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVerFuncionariosActionPerformed
-        TelaAprovarHoras aprovarHoras = new TelaAprovarHoras(this, this.usuario);
         this.setVisible(false);
-        aprovarHoras.setVisible(true);
+        new TelaAprovarHoras().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoVerFuncionariosActionPerformed
 
     private void botaoListarRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarRelatoriosActionPerformed
-        TelaListarRelatorios listarRelatorios = new TelaListarRelatorios();
         this.setVisible(false);
-        listarRelatorios.setVisible(true);
+        new TelaListarRelatorios().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoListarRelatoriosActionPerformed
 
     private void botaoNovoRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoRelatorioActionPerformed
-        TelaNovoRelatorio novoRelatorio = new TelaNovoRelatorio(usuario);
         this.setVisible(false);
-        novoRelatorio.setVisible(true);
+        new TelaNovoRelatorio().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoNovoRelatorioActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoListarClientes;

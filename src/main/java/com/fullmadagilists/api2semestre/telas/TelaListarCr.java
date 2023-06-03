@@ -1,5 +1,6 @@
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.CentroResultado;
 import com.fullmadagilists.api2semestre.entidades.Cliente;
@@ -13,8 +14,8 @@ public class TelaListarCr extends javax.swing.JFrame {
     Usuario usuario;
     List<CentroResultado> listaCR;
 
-    public TelaListarCr(Usuario usuario) {
-        this.usuario = usuario;
+    public TelaListarCr() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -45,13 +46,10 @@ public class TelaListarCr extends javax.swing.JFrame {
             String nomeCR = u.getNomecr();
             String siglaCR = u.getSiglacr();
 
-
-
-
             Object[] novoCentroResultado = new Object[]{
-                u.getCodigocr(),
-                u.getNomecr(),
-                u.getSiglacr()
+                codigoCR,
+                nomeCR,
+                siglaCR
             };
             tabelaModel.addRow(novoCentroResultado);
 
@@ -62,22 +60,24 @@ public class TelaListarCr extends javax.swing.JFrame {
 
     }
     
-        public void buscarCR(String busca){
+        public void buscarCR_(String busca){
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaCR.getModel();
         tabelaModel.setRowCount(0);
 
 // arrumar a busca
-        List<Usuario> buscarCR = ConexaoBancoDeDados.buscarUsuarioLista(busca);
+        List<CentroResultado> buscarCR = ConexaoBancoDeDados.buscarCR(busca);
 
-        for (Usuario u: buscarCR){
-            String nome = u.getNome();
-            String categoria = u.getCategoria();
+        for (CentroResultado u: buscarCR){
+            String codigo = u.getCodigocr();
+            String nome = u.getNomecr();
+            String categoria = u.getSiglacr();
 
-            Object[] novoApontamento = new Object[]{
+            Object[] novoCR = new Object[]{
+                codigo,
                 nome,
                 categoria
             };
-            tabelaModel.addRow(novoApontamento);
+            tabelaModel.addRow(novoCR);
         }
 
         tabelaCR.setModel(tabelaModel);
@@ -100,6 +100,7 @@ public class TelaListarCr extends javax.swing.JFrame {
         botaoPesquisar = new javax.swing.JButton();
         botaoVoltar = new javax.swing.JButton();
         botaoDeletar = new javax.swing.JButton();
+        botaoEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -124,7 +125,7 @@ public class TelaListarCr extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(logo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(150, 150, 150)
                 .addComponent(icon)
@@ -210,6 +211,14 @@ public class TelaListarCr extends javax.swing.JFrame {
             }
         });
 
+        botaoEditar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoEditar.setText("Editar");
+        botaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -229,9 +238,11 @@ public class TelaListarCr extends javax.swing.JFrame {
                             .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(botaoApontarCR, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(65, 65, 65)
-                                .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(38, 38, 38))))
         );
@@ -249,8 +260,9 @@ public class TelaListarCr extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoApontarCR, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -258,7 +270,7 @@ public class TelaListarCr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoApontarCRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApontarCRActionPerformed
-        TelaNovoCr novoCR = new TelaNovoCr(usuario);
+        TelaNovoCr novoCR = new TelaNovoCr();
         this.setVisible(false);
         novoCR.setVisible(true);
     }//GEN-LAST:event_botaoApontarCRActionPerformed
@@ -268,12 +280,11 @@ public class TelaListarCr extends javax.swing.JFrame {
     }//GEN-LAST:event_textoPesquisarActionPerformed
 
     private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
-        buscarCR(textoPesquisar.getText());
+        buscarCR_(textoPesquisar.getText());
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-
-        TelaAdmin telaAdmin = new TelaAdmin(usuario);
+        TelaAdmin telaAdmin = new TelaAdmin();
         this.setVisible(false);
         telaAdmin.setVisible(true);
     }//GEN-LAST:event_botaoVoltarActionPerformed
@@ -286,11 +297,19 @@ public class TelaListarCr extends javax.swing.JFrame {
         carregarCentroResultado();
     }//GEN-LAST:event_botaoDeletarActionPerformed
 
+    private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+        CentroResultado cr = listaCR.get(tabelaCR.getSelectedRow()) ;
+        TelaNovoCr novoCR = new TelaNovoCr(cr);
+        this.setVisible(false);
+        novoCR.setVisible(true);
+    }//GEN-LAST:event_botaoEditarActionPerformed
+
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoApontarCR;
     private javax.swing.JButton botaoDeletar;
+    private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoPesquisar;
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JLabel icon;

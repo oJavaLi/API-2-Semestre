@@ -15,14 +15,15 @@ public class Apontamentos {
     private String projeto;
     private String solicitante;
     private String cr;
-    private int avaliadorMatricula;
+    private int gestorMatricula;
+    private int administradorMatricula;
     private String avaliacaoStatus;
     private String avaliacaoJustificativa;
 
     public Apontamentos(){
     }
 
-    public Apontamentos( String categoria, String data_hora_inicio, String data_hora_fim, String justificativa, String cliente, String projeto, String solicitante, String cr) {
+    public Apontamentos(String categoria, String data_hora_inicio, String data_hora_fim, String justificativa, String cliente, String projeto, String solicitante, String cr, int gestorMatricula, int administradorMatricula, String avaliacaoStatus, String avaliacaoJustificativa) {
         this.categoria = categoria;
         this.data_hora_inicio = data_hora_inicio;
         this.data_hora_fim = data_hora_fim;
@@ -31,6 +32,10 @@ public class Apontamentos {
         this.projeto = projeto;
         this.solicitante = solicitante;
         this.cr = cr;
+        this.gestorMatricula = gestorMatricula;
+        this.administradorMatricula = administradorMatricula;
+        this.avaliacaoStatus = avaliacaoStatus;
+        this.avaliacaoJustificativa = avaliacaoJustificativa;
     }
     
     public int getId() {
@@ -106,14 +111,22 @@ public class Apontamentos {
         this.cr = cr;
     }
 
-    public int getAvaliadorMatricula() {
-        return avaliadorMatricula;
+    public int getGestorMatricula() {
+        return gestorMatricula;
     }
 
-    public void setAvaliadorMatricula(int avaliadorMatricula) {
-        this.avaliadorMatricula = avaliadorMatricula;
+    public void setGestorMatricula(int gestorMatricula) {
+        this.gestorMatricula = gestorMatricula;
     }
 
+    public int getAdministradorMatricula() {
+        return administradorMatricula;
+    }
+
+    public void setAdministradorMatricula(int administradorMatricula) {
+        this.administradorMatricula = administradorMatricula;
+    }
+    
     public String getAvaliacaoStatus() {
         return avaliacaoStatus;
     }

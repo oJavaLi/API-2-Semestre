@@ -1,5 +1,6 @@
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
@@ -13,19 +14,16 @@ import javax.swing.table.DefaultTableModel;
 
 public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
     Usuario avaliador;
-    Usuario usuario;
+    Usuario avaliado;
     List<Apontamentos> listaApontamentos;
     Apontamentos apontamentoSelecionado;
-    TelaAprovarHoras telaAprovarHoras;
 
-
-    public TelaListarApontamentosParaAprovacao(Usuario avaliador, Usuario usuario, TelaAprovarHoras telaAprovarHoras) {
-        this.avaliador = avaliador;
-        this.usuario = usuario;
-        this.telaAprovarHoras = telaAprovarHoras;
+    public TelaListarApontamentosParaAprovacao(Usuario avaliado) {
+        this.avaliador = Autenticacao.getUsuarioLogado();
+        this.avaliado = avaliado;
         initComponents();
         
-        String user = usuario.getNome();
+        String user = avaliado.getNome();
         labelnomeuser.setText(user);
         labelnomeuser.setForeground(Color.BLACK);
 
@@ -47,7 +45,7 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaApontamentos.getModel();
         tabelaModel.setRowCount(0);
 
-        listaApontamentos = ConexaoBancoDeDados.apontamentos(this.usuario);
+        listaApontamentos = ConexaoBancoDeDados.apontamentos(this.avaliado);
 
         for (Apontamentos a: listaApontamentos){
             Object[] novoApontamento = new Object[]{
@@ -58,7 +56,8 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
                 a.getTotalHoras(),
                 a.getAvaliacaoStatus(),
                 a.getAvaliacaoJustificativa(),
-                a.getAvaliadorMatricula()
+                a.getAdministradorMatricula(),
+                a.getGestorMatricula()
             };
             tabelaModel.addRow(novoApontamento);
         }
@@ -89,11 +88,11 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ENTRADA", "SAIDA", "TIPO", "PROJETO", "HORAS APONTADAS", "STATUS", "JUSTIFICATIVA", "AVALIADOR"
+                "ENTRADA", "SAIDA", "TIPO", "PROJETO", "HORAS APONTADAS", "STATUS", "JUSTIFICATIVA", "ADMIN", "GESTOR"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -144,7 +143,7 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(202, 202, 202)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addGap(122, 122, 122))
         );
@@ -228,14 +227,19 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
         this.setVisible(false);
-        this.telaAprovarHoras.setVisible(true);
+        new TelaAprovarHoras().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoReprovarHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoReprovarHoraActionPerformed
-        String justificativa = JOptionPane.showInputDialog("Justificativa:", null);
-        apontamentoSelecionado.setAvaliadorMatricula(avaliador.getMatricula());
-        apontamentoSelecionado.setAvaliacaoStatus("REPROVADO");
+        String justificativa = JOptionPane.showInputDialog("Justificativa:", apontamentoSelecionado.getAvaliacaoJustificativa());
+        if(this.avaliador.getCategoria().equals("administrador")) {
+            apontamentoSelecionado.setAdministradorMatricula(avaliador.getMatricula());
+            apontamentoSelecionado.setAvaliacaoStatus("REPROVADO PELO ADMINISTRADOR");
+        } else if (this.avaliador.getCategoria().equals("gestor")) {
+            apontamentoSelecionado.setGestorMatricula(avaliador.getMatricula());
+            apontamentoSelecionado.setAvaliacaoStatus("REPROVADO PELO GESTOR");
+        }
         apontamentoSelecionado.setAvaliacaoJustificativa(justificativa);
         
         ConexaoBancoDeDados.atualizarAvaliacaoApontamento(apontamentoSelecionado);
@@ -244,17 +248,33 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoReprovarHoraActionPerformed
 
     private void botaoAprovarHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAprovarHoraActionPerformed
-        String justificativa = JOptionPane.showInputDialog("Justificativa:", null);
-        apontamentoSelecionado.setAvaliadorMatricula(avaliador.getMatricula());
-        apontamentoSelecionado.setAvaliacaoStatus("APROVADO");
+        if(apontamentoSelecionado.getAvaliacaoStatus().equals("APROVADO")) {
+            JOptionPane.showMessageDialog(this, "Apontamento já Aprovado!");
+            return;
+        }
+        
+        String justificativa = JOptionPane.showInputDialog("Justificativa:", apontamentoSelecionado.getAvaliacaoJustificativa());
+        if(this.avaliador.getCategoria().equals("administrador")) {
+            apontamentoSelecionado.setAdministradorMatricula(avaliador.getMatricula());
+            if (apontamentoSelecionado.getGestorMatricula() != 0 && apontamentoSelecionado.getAvaliacaoStatus().equals("APROVADO PARCIALMENTE")) {
+                apontamentoSelecionado.setAvaliacaoStatus("APROVADO");
+            } else {
+                apontamentoSelecionado.setAvaliacaoStatus("APROVADO PARCIALMENTE");
+            }
+        } else if (this.avaliador.getCategoria().equals("gestor")) {
+            apontamentoSelecionado.setGestorMatricula(avaliador.getMatricula());
+            if (apontamentoSelecionado.getAdministradorMatricula() != 0 && apontamentoSelecionado.getAvaliacaoStatus().equals("APROVADO PARCIALMENTE")) {
+                apontamentoSelecionado.setAvaliacaoStatus("APROVADO");
+            } else {
+                apontamentoSelecionado.setAvaliacaoStatus("APROVADO PARCIALMENTE");
+            }
+        }
         apontamentoSelecionado.setAvaliacaoJustificativa(justificativa);
         
         ConexaoBancoDeDados.atualizarAvaliacaoApontamento(apontamentoSelecionado);
         this.carregarApontamentos();
         this.apontamentoSelecionado = null;
     }//GEN-LAST:event_botaoAprovarHoraActionPerformed
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAprovarHora;

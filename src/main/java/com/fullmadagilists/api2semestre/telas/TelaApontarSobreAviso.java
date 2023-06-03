@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import static com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados.cadastrarApontamentos;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
@@ -16,12 +17,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class TelaApontarSobreAviso extends javax.swing.JFrame {
-    TelaApontamentos apontamentos;
     Usuario usuario;
 
-    public TelaApontarSobreAviso(TelaApontamentos apontamentos, Usuario usuario) {
-        this.apontamentos = apontamentos;
-        this.usuario = usuario;
+    public TelaApontarSobreAviso() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -54,7 +53,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
+
     private void carregarCR() {
     try {
         Connection conexao = ConexaoBancoDeDados.conector();
@@ -389,14 +388,20 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         String dataFormatadaS = formatador.format(dataS);
 
         try {
-            Apontamentos apontamento = new Apontamentos("Sobreaviso",
+            Apontamentos apontamento = new Apontamentos(
+                    "Sobreaviso",
                     dataFormatadaE,
                     dataFormatadaS,
                     this.justificativaSobreavisoTextField.getText(),
                     this.clienteTextField.getSelectedItem().toString(),
                     this.projetoTextField.getText(),
                     this.solicitanteTextField.getText(),
-                    this.crTextField.getSelectedItem().toString());
+                    this.crTextField.getSelectedItem().toString(),
+                    0,
+                    0,
+                    "PENDENTE",
+                    ""
+            );
 
             cadastrarApontamentos(apontamento, this.usuario);
 
@@ -417,21 +422,26 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                     if (dataHoraInicio.isBlank() || dataHoraFim.isBlank() || justificativa.isBlank())
                         continue; // Se não preencher tudo passa pro próximo
 
-                    Apontamentos apontamentoHoraExtra = new Apontamentos("Hora Extra",
+                    Apontamentos apontamentoHoraExtra = new Apontamentos(
+                            "Hora Extra",
                             dataHoraInicio,
                             dataHoraFim,
                             justificativa,
                             this.clienteTextField.getSelectedItem().toString(),
                             this.projetoTextField.getText(),
                             this.solicitanteTextField.getText(),
-                            this.crTextField.getSelectedItem().toString());
+                            this.crTextField.getSelectedItem().toString(),
+                            0,
+                            0,
+                            "PENDENTE",
+                            ""
+                    );
                     cadastrarApontamentos(apontamentoHoraExtra, usuario);
                 }
             }
 
             JOptionPane.showMessageDialog(null, "Sobre aviso e horas extras cadastradas com Sucesso! ");
-            apontamentos.carregarApontamentos();
-            apontamentos.setVisible(true);
+            new TelaApontamentos().setVisible(true);
             this.setVisible(false);
             this.dispose();
 
@@ -442,7 +452,11 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
 
     private void botaoCancelarHoraExtraActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoCancelarHoraExtraActionPerformed
         this.setVisible(false);
-        apontamentos.setVisible(true);
+        if (usuario.getCategoria().equals("colaborador")) {
+            new TelaApontamentos().setVisible(true);
+        } else {
+            new TelaGestor().setVisible(true);
+        }
         this.dispose();
     }// GEN-LAST:event_botaoCancelarHoraExtraActionPerformed
 
