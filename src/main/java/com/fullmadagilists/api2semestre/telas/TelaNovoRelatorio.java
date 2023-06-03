@@ -26,6 +26,7 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
         carregarUsuarios();
     }
 
+
     private void carregarUsuarios() {
         usuarios = ConexaoBancoDeDados.usuarios();
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaUsuario.getModel();
@@ -130,7 +131,7 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(181, 181, 181)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
@@ -255,6 +256,11 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
         new TelaAdmin().setVisible(true);
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
+
+    private void tabelaUsuarioAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tabelaUsuarioAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelaUsuarioAncestorAdded
+
     private void textoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPesquisarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoPesquisarActionPerformed
@@ -264,11 +270,13 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoPesquisar;
     private javax.swing.JLabel icon;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
