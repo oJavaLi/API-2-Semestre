@@ -432,12 +432,12 @@ public class ConexaoBancoDeDados {
         return listaCR;
     }
 
-    public static List<Parametro> buscarparametro(String busca){
+    public static List<Parametro> buscarParametro(String busca){
         List<Parametro> listaParametro = new ArrayList<>();
 
         try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String parametrizacaoQuery = "select * from parametro where verba like "+"'"+busca+"%'";
+            String parametrizacaoQuery = "select * from parametrizacao where verba like "+"'"+busca+"%'";
             Statement stmt = conexao.createStatement();
             ResultSet resultado = stmt.executeQuery(parametrizacaoQuery);
 
@@ -456,6 +456,48 @@ public class ConexaoBancoDeDados {
         }
 
         return listaParametro;
+    }
+    
+        public static List<Parametro> parametro(){
+        List<Parametro> listaParametro = new ArrayList<>();
+
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String parametrizacaoQuery = "select * from parametrizacao";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(parametrizacaoQuery);
+
+            while (resultado.next()){
+                Parametro parametro = new Parametro();
+                parametro.setDescricao(resultado.getString("descricao"));
+                parametro.setHoras(resultado.getString("horas"));
+                parametro.setPorcentagem(resultado.getString("porcentagem"));
+                parametro.setVerba(resultado.getString("verba"));
+
+
+                listaParametro.add(parametro);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return listaParametro;
+    }
+    
+    public static void atualizarParametro(Parametro parametro) {
+        try {
+            String query = "UPDATE parametrizacao SET horas = ?, porcentagem = ?, descricao = ? where verba = ?";
+            PreparedStatement stmt = conexao.prepareStatement(query);
+
+            stmt.setString(1, parametro.getHoras());
+            stmt.setString(2, parametro.getPorcentagem());
+            stmt.setString(3, parametro.getDescricao());
+            stmt.setString(4, parametro.getVerba());
+
+            stmt.execute();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void atualizarAvaliacaoApontamento(Apontamentos apontamento) {

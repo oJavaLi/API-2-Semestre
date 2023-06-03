@@ -50,6 +50,10 @@ public class TelaAdmin extends javax.swing.JFrame {
         logo1 = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        botaoVerParametros = new javax.swing.JButton();
+        iconAprovarHoras1 = new javax.swing.JLabel();
+        resultados4 = new javax.swing.JLabel();
+        retangulo6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -143,7 +147,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 botaoVerFuncionariosActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoVerFuncionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 110, 50));
+        getContentPane().add(botaoVerFuncionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 110, 50));
 
         botaoNovoRelatorio.setText("+ Novo");
         botaoNovoRelatorio.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +155,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 botaoNovoRelatorioActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoNovoRelatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 540, 110, -1));
+        getContentPane().add(botaoNovoRelatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 540, 110, -1));
 
         botaoListarRelatorios.setText("Listar");
         botaoListarRelatorios.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +163,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 botaoListarRelatoriosActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoListarRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, 110, -1));
+        getContentPane().add(botaoListarRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 510, 110, -1));
 
         botaoSair.setBackground(new java.awt.Color(46, 44, 45));
         botaoSair.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -174,26 +178,26 @@ public class TelaAdmin extends javax.swing.JFrame {
         getContentPane().add(botaoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 650, 216, -1));
 
         iconAprovarHoras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aprovar.png"))); // NOI18N
-        getContentPane().add(iconAprovarHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 100, 90));
+        getContentPane().add(iconAprovarHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 100, 90));
 
         resultados2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         resultados2.setForeground(new java.awt.Color(255, 255, 255));
         resultados2.setText("APROVAR HORAS");
-        getContentPane().add(resultados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, -1, -1));
+        getContentPane().add(resultados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, -1, -1));
 
         retangulo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/retangulo.png"))); // NOI18N
-        getContentPane().add(retangulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, -1, -1));
+        getContentPane().add(retangulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, -1, -1));
 
         iconRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/relatorios.png"))); // NOI18N
-        getContentPane().add(iconRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 80, 90));
+        getContentPane().add(iconRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 80, 90));
 
         resultados3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         resultados3.setForeground(new java.awt.Color(255, 255, 255));
         resultados3.setText("RELATÓRIOS");
-        getContentPane().add(resultados3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, -1, -1));
+        getContentPane().add(resultados3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, -1, -1));
 
         retangulo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/retangulo.png"))); // NOI18N
-        getContentPane().add(retangulo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, -1));
+        getContentPane().add(retangulo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(1, 30, 59));
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 40));
@@ -238,6 +242,23 @@ public class TelaAdmin extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        botaoVerParametros.setText("Listar");
+        botaoVerParametros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVerParametrosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botaoVerParametros, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 510, 110, 50));
+        getContentPane().add(iconAprovarHoras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 100, 90));
+
+        resultados4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        resultados4.setForeground(new java.awt.Color(255, 255, 255));
+        resultados4.setText("PARAMETRIZAÇÃO");
+        getContentPane().add(resultados4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, -1, -1));
+
+        retangulo6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/retangulo.png"))); // NOI18N
+        getContentPane().add(retangulo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -303,6 +324,12 @@ public class TelaAdmin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botaoNovoRelatorioActionPerformed
 
+    private void botaoVerParametrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVerParametrosActionPerformed
+        this.setVisible(false);
+        new TelaListarParametrizacao().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botaoVerParametrosActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoListarClientes;
     private javax.swing.JButton botaoListarCr;
@@ -314,10 +341,12 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JButton botaoNovoRelatorio;
     private javax.swing.JButton botaoSair;
     private javax.swing.JButton botaoVerFuncionarios;
+    private javax.swing.JButton botaoVerParametros;
     private javax.swing.JLabel clientes;
     private javax.swing.JLabel funcionarios;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel iconAprovarHoras;
+    private javax.swing.JLabel iconAprovarHoras1;
     private javax.swing.JLabel iconClientes;
     private javax.swing.JLabel iconPerson;
     private javax.swing.JLabel iconRelatorios;
@@ -329,10 +358,12 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel resultados;
     private javax.swing.JLabel resultados2;
     private javax.swing.JLabel resultados3;
+    private javax.swing.JLabel resultados4;
     private javax.swing.JLabel retangulo;
     private javax.swing.JLabel retangulo1;
     private javax.swing.JLabel retangulo2;
     private javax.swing.JLabel retangulo4;
     private javax.swing.JLabel retangulo5;
+    private javax.swing.JLabel retangulo6;
     // End of variables declaration//GEN-END:variables
 }

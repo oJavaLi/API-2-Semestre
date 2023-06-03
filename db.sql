@@ -54,3 +54,13 @@ ALTER TABLE api2semestre.apontamentos ADD COLUMN avaliador_gestor int;
 ALTER TABLE api2semestre.apontamentos ADD COLUMN avaliador_administrador int;
 ALTER TABLE api2semestre.apontamentos DROP FOREIGN KEY apontamentos_ibfk_2;
 ALTER TABLE api2semestre.apontamentos DROP COLUMN avaliador_matricula;
+
+CREATE TABLE parametrizacao(
+    verba INT,
+    horas DECIMAL(5,4),
+    porcentagem INT,
+    descricao VARCHAR (191),
+    PRIMARY KEY (verba)
+);
+
+insert into parametrizacao values (3016, 1, 30, 'Sobreaviso');
