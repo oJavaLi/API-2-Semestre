@@ -26,7 +26,7 @@ A 2RP Net disponibiliza soluções para análise de informações em tempo real 
 Sobre o Projeto
 <br id=f></h2>
 
-![About (7)](https://user-images.githubusercontent.com/77700346/227825218-9093bff6-c929-46df-9240-821861bd76da.png)
+![image](https://github.com/FullMadAgilists/API-2-Semestre/assets/77700346/29daf29b-6794-46e8-9d36-e005f7a07077)
 
 <h2>Backlog do Produto<br id=a>
  
