@@ -298,7 +298,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoListarRelatoriosActionPerformed
 
     private void botaoNovoRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoRelatorioActionPerformed
-        TelaNovoRelatorio novoRelatorio = new TelaNovoRelatorio();
+        TelaNovoRelatorio novoRelatorio = new TelaNovoRelatorio(usuario);
         this.setVisible(false);
         novoRelatorio.setVisible(true);
     }//GEN-LAST:event_botaoNovoRelatorioActionPerformed

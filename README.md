@@ -10,8 +10,7 @@
 • <a href ="#b"> Datas </a> 
 • <a href ="#c"> Tecnologias Utilizadas </a>
 • <a href ="#y"> Sprint Backlog </a>
-• <a href ="#e"> Aplicação </a>
-• <a href ="#h"> Gráfico Burndown </a>
+• <a href ="#x"> Aplicação </a>
 • <a href ="#g"> Equipe </a>
 </p>
 <h3 align="center"> Projeto Integrador FATEC 2023.1</h3>
@@ -54,7 +53,7 @@ Datas de Entregas<br id=b>
 - [x]  Kick-off - 08/03/2023
 - [x]  Sprint 01 - 02/04/2023
 - [X]  Sprint 02 - 23/04/2023
-- [ ]  Sprint 03 - 14/05/2023
+- [X]  Sprint 03 - 14/05/2023
 - [ ]  Sprint 04 - 04/06/2023
 - [ ]  Feira de Soluções  - 13/06
 
@@ -76,7 +75,7 @@ Tecnologias Utilizadas<br id=c>
 ![Site de Portfólio Fotografia Experimental Claro Preto Cinza](https://user-images.githubusercontent.com/107864553/234710466-b3bcbcff-bf55-40b8-a76f-85f3c5ac5a95.png)
 
 <h2>
-Aplicação<br id=e>
+Aplicação<br id=x>
 </h2>
 
 <details>
@@ -117,6 +116,37 @@ https://user-images.githubusercontent.com/77700346/234703451-75bfc86f-ebc0-4039-
 <summary><h2> Gráfico Burndown </h2> <br id=h></summary>
 
 <img src="https://user-images.githubusercontent.com/77700346/233811650-34536350-a363-46ee-b151-af87a74ec6e0.jpeg" alt="Texto alternativo da imagem" style="width: 650px;"/>
+ 
+</details>
+
+<details>
+<summary><h2> Sprint 3 </h2> <br id=h></summary>
+<br>
+
+<summary><h2>Demonstração da Aplicação</h2></summary>
+
+ <b>Apontamento de Hora Extra:</b>
+
+https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/6338414f-7d6e-4bab-9b2d-1b44294667d9
+
+<b>Tela Admin:
+ 
+ -Funcionários, Clientes, CR </b>
+ 
+https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/a8d20af4-c3c2-4370-8175-943a17fffe7e
+
+ <b>Aprovar Horas:</b>
+
+https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/d8f5f21b-cf21-4e1d-94fe-9f842c9d9adb
+ 
+ <b>Relatórios:</b>
+
+https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/2514d808-2caf-4443-963c-432027696d3e
+ 
+
+<summary><h2> Gráfico Burndown </h2> <br id=h></summary>
+
+<img src="https://github.com/FullMadAgilists/API-2-Semestre/assets/77700346/13eee8d5-92bb-4054-b102-1d7ade7fbdbb" alt="Texto alternativo da imagem" style="width: 650px;"/>
 </details>
 
 
