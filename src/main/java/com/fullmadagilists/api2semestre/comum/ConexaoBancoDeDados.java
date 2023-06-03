@@ -2,6 +2,7 @@ package com.fullmadagilists.api2semestre.comum;
 import com.fullmadagilists.api2semestre.entidades.CentroResultado;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Cliente;
+import com.fullmadagilists.api2semestre.entidades.Parametro;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -432,21 +433,31 @@ public class ConexaoBancoDeDados {
         return listaCR;
     }
         
-    public static void atualizarAvaliacaoApontamento(Apontamentos apontamento) {
-        try {
+    
+    public static List<Parametro> buscarparametro(String busca){
+        List<Parametro> listaParametro = new ArrayList<>();
+
+        try{
             Connection conexao = ConexaoBancoDeDados.conector();
-            String query = "UPDATE apontamentos SET avaliador_matricula = ?, avaliacao_status = ?, avaliacao_justificativa = ? where idapontamentos = ?";
-            PreparedStatement stmt = conexao.prepareStatement(query);
-            
-            stmt.setInt(1, apontamento.getAvaliadorMatricula());
-            stmt.setString(2, apontamento.getAvaliacaoStatus());
-            stmt.setString(3, apontamento.getAvaliacaoJustificativa());
-            stmt.setInt(4, apontamento.getId());
-            
-            stmt.execute();
+            String parametrizacaoQuery = "select * from parametro where verba like "+"'"+busca+"%'";
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(parametrizacaoQuery);
+
+            while (resultado.next()){
+                Parametro parametro = new Parametro();
+                parametro.setDescricao(resultado.getString("descricao"));
+                parametro.setHoras(resultado.getString("horas"));
+                parametro.setPorcentagem(resultado.getString("porcentagem"));
+                parametro.setVerba(resultado.getString("verba"));
+                
+
+                listaParametro.add(parametro);
+            }
         } catch(Exception e){
             e.printStackTrace();
         }
+
+        return listaParametro;
     }
     
 }
