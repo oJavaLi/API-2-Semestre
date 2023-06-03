@@ -388,14 +388,20 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         String dataFormatadaS = formatador.format(dataS);
 
         try {
-            Apontamentos apontamento = new Apontamentos("Sobreaviso",
+            Apontamentos apontamento = new Apontamentos(
+                    "Sobreaviso",
                     dataFormatadaE,
                     dataFormatadaS,
                     this.justificativaSobreavisoTextField.getText(),
                     this.clienteTextField.getSelectedItem().toString(),
                     this.projetoTextField.getText(),
                     this.solicitanteTextField.getText(),
-                    this.crTextField.getSelectedItem().toString());
+                    this.crTextField.getSelectedItem().toString(),
+                    0,
+                    0,
+                    "PENDENTE",
+                    ""
+            );
 
             cadastrarApontamentos(apontamento, this.usuario);
 
@@ -416,14 +422,20 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                     if (dataHoraInicio.isBlank() || dataHoraFim.isBlank() || justificativa.isBlank())
                         continue; // Se não preencher tudo passa pro próximo
 
-                    Apontamentos apontamentoHoraExtra = new Apontamentos("Hora Extra",
+                    Apontamentos apontamentoHoraExtra = new Apontamentos(
+                            "Hora Extra",
                             dataHoraInicio,
                             dataHoraFim,
                             justificativa,
                             this.clienteTextField.getSelectedItem().toString(),
                             this.projetoTextField.getText(),
                             this.solicitanteTextField.getText(),
-                            this.crTextField.getSelectedItem().toString());
+                            this.crTextField.getSelectedItem().toString(),
+                            0,
+                            0,
+                            "PENDENTE",
+                            ""
+                    );
                     cadastrarApontamentos(apontamentoHoraExtra, usuario);
                 }
             }

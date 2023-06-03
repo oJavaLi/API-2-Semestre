@@ -50,6 +50,7 @@ CREATE TABLE cliente(
 
 insert into login_usuarios values (123, 'Super Administrador', '123', 'administrador')
 
-ALTER TABLE api2semestre.apontamentos ADD avaliador_gestor int(11) FIRST
-ALTER TABLE api2semestre.apontamentos ADD avaliador_administrador int(11) FIRST
+ALTER TABLE api2semestre.apontamentos ADD COLUMN avaliador_gestor int;
+ALTER TABLE api2semestre.apontamentos ADD COLUMN avaliador_administrador int;
+ALTER TABLE api2semestre.apontamentos DROP FOREIGN KEY apontamentos_ibfk_2;
 ALTER TABLE api2semestre.apontamentos DROP COLUMN avaliador_matricula;

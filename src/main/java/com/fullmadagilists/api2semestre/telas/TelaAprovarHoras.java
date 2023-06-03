@@ -237,9 +237,9 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoListarApontamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarApontamentosActionPerformed
-        TelaListarApontamentosParaAprovacao tela = new TelaListarApontamentosParaAprovacao(usuario, usuarioSelecionado, this);
         this.setVisible(false);
-        tela.setVisible(true);
+        new TelaListarApontamentosParaAprovacao(usuarioSelecionado).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoListarApontamentosActionPerformed
 
     private void textoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPesquisarActionPerformed

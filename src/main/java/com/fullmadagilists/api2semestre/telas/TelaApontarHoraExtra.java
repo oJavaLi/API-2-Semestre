@@ -365,7 +365,11 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 this.clienteHoraExtraTextField.getSelectedItem().toString(),
                 this.projetoHoraExtraTextField.getText(),
                 this.solicitanteHoraExtraTextField.getText(),
-                this.crHoraExtraTextField.getSelectedItem().toString()
+                this.crHoraExtraTextField.getSelectedItem().toString(),
+                0,
+                0,
+                "PENDENTE",
+                ""
             );
             if(apontamentoAEditar==null){
                 cadastrarApontamentos(apontamento, this.usuario);
