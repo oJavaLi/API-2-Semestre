@@ -152,9 +152,7 @@ https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/2514d808-2caf
 <details>
 <summary><h2> Sprint 4 </h2> <br id=h></summary>
 <br>
-<summary><h2> Fluxo de telas Gestor </h2></summary>
-
-<summary><h2> Parametrização </h2></summary>
+<summary><h2>Demonstração da Aplicação</h2></summary>
 
 
 <summary><h2> Gráfico Burndown </h2></summary>
