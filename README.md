@@ -158,7 +158,7 @@ https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/2514d808-2caf
 
 
 <summary><h2> Gráfico Burndown </h2></summary>
-![burndown](https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/72052f74-4383-4b59-99b8-d671be04875d)
+![burndown](https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/66dbda28-a664-428e-b309-c48df2c0c24a)
 
 
 </details>
