@@ -54,7 +54,7 @@ Datas de Entregas<br id=b>
 - [x]  Sprint 01 - 02/04/2023
 - [X]  Sprint 02 - 23/04/2023
 - [X]  Sprint 03 - 14/05/2023
-- [ ]  Sprint 04 - 04/06/2023
+- [X]  Sprint 04 - 04/06/2023
 - [ ]  Feira de Soluções  - 13/06
 
 <h2>
@@ -147,6 +147,20 @@ https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/2514d808-2caf
 <summary><h2> Gráfico Burndown </h2> <br id=h></summary>
 
 <img src="https://github.com/FullMadAgilists/API-2-Semestre/assets/77700346/13eee8d5-92bb-4054-b102-1d7ade7fbdbb" alt="Texto alternativo da imagem" style="width: 650px;"/>
+</details>
+
+<details>
+<summary><h2> Sprint 4 </h2> <br id=h></summary>
+<br>
+<summary><h2> Fluxo de telas Gestor </h2></summary>
+
+<summary><h2> Parametrização </h2></summary>
+
+
+<summary><h2> Gráfico Burndown </h2></summary>
+![burndown](https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/72052f74-4383-4b59-99b8-d671be04875d)
+
+
 </details>
 
 
