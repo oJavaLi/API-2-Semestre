@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 public class TelaAddFuncionario extends javax.swing.JFrame {
     Usuario usuario;
     Usuario usuarioAEditar = null;
+    boolean editarSenha = false;
     
     public TelaAddFuncionario() {
         this.usuario = Autenticacao.getUsuarioLogado();
@@ -19,13 +20,18 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         jLabel2.setForeground(Color.WHITE);
     }
     
-    public TelaAddFuncionario(Usuario usuarioAEditar) {
+    public TelaAddFuncionario(Usuario usuarioAEditar, boolean editarSenha) {
         this();
         this.usuarioAEditar = usuarioAEditar;
         textNome.setText(usuarioAEditar.getNome());
         textSenha.setText(usuarioAEditar.getSenha());
         textMatricula.setText(Integer.toString(usuarioAEditar.getMatricula()));
         textMatricula.setEditable(false);
+        if(editarSenha==true){
+            this.editarSenha = editarSenha;
+            textNome.setEditable(false);
+            comboBoxCategoria.setEditable(false);
+        }
     }
 
 
@@ -248,16 +254,44 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         try{ matriculanumero = Integer.parseInt(matricula);}
         catch(NumberFormatException e){matriculanumero = 0;}
         try{
-            Usuario usuario = new Usuario(matriculanumero,this.textNome.getText(),
+            
+            if(editarSenha==false){
+                Usuario usario = new Usuario(matriculanumero,this.textNome.getText(),
                     this.textSenha.getText(),this.comboBoxCategoria.getSelectedItem().toString());
 
             ConexaoBancoDeDados.editarUsuario(usuario);
             JOptionPane.showMessageDialog(null, "Usuario editado com sucesso");
             
-            TelaListarFuncionarios listarFuncionarios = new TelaListarFuncionarios();
-            listarFuncionarios.setVisible(true);
-            this.setVisible(false);
-            this.dispose();
+                TelaListarFuncionarios telaFuncionarios = new TelaListarFuncionarios();
+                telaFuncionarios.setVisible(true);
+                this.setVisible(false);
+                this.dispose();
+            }else{
+                System.out.print(comboBoxCategoria.getItemAt(1));
+                if(usuarioAEditar.getCategoria().equals(comboBoxCategoria.getItemAt(2))){
+                    Usuario a = new Usuario(matriculanumero,this.textNome.getText(),
+                        this.textSenha.getText(),usuarioAEditar.getCategoria());
+                    ConexaoBancoDeDados.editarUsuario(a);
+                    JOptionPane.showMessageDialog(null, "Usuario editado com sucesso");
+
+                    TelaApontamentos telaApontamentos = new TelaApontamentos();
+                    telaApontamentos.setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();
+                }else if(usuarioAEditar.getCategoria().equals(comboBoxCategoria.getItemAt(1))){
+                    Usuario b = new Usuario(matriculanumero,this.textNome.getText(),
+                        this.textSenha.getText(),usuarioAEditar.getCategoria());
+                    ConexaoBancoDeDados.editarUsuario(b);
+                    JOptionPane.showMessageDialog(null, "Usuario editado com sucesso");
+
+                    TelaGestor telaGestor = new TelaGestor();
+                    telaGestor.setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();
+                }
+            }
+            
+            
             
             
 

@@ -71,7 +71,7 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
         tabelaUsuario.setModel(tabelaModel);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         botaoEditar = new javax.swing.JButton();
@@ -253,46 +253,46 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void textoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPesquisarActionPerformed
+    private void textoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
-    }//GEN-LAST:event_textoPesquisarActionPerformed
+    }                                              
 
-    private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
+    private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {                                               
         buscarUsuario(textoPesquisar.getText());
-    }//GEN-LAST:event_botaoPesquisarActionPerformed
+    }                                              
 
-    private void botaoAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFuncionarioActionPerformed
+    private void botaoAddFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         TelaAddFuncionario funcionario = new TelaAddFuncionario();
         this.setVisible(false);
         funcionario.setVisible(true);
-    }//GEN-LAST:event_botaoAddFuncionarioActionPerformed
+    }                                                   
 
-    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {                                            
         TelaAdmin telaAdmin = new TelaAdmin();
         this.setVisible(false);
         telaAdmin.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_botaoVoltarActionPerformed
+    }                                           
 
-    private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
+    private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {                                             
         Usuario usuarioSelecionado = listaUsuarios.get(tabelaUsuario.getSelectedRow());
         ConexaoBancoDeDados.deletarUsuario(usuarioSelecionado.getMatricula());
         carregarUsuarios();
-    }//GEN-LAST:event_botaoDeletarActionPerformed
+    }                                            
 
-    private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+    private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {                                            
         Usuario usuarioSelecionado = listaUsuarios.get(tabelaUsuario.getSelectedRow());
-        TelaAddFuncionario funcionario = new TelaAddFuncionario(usuarioSelecionado);
+        TelaAddFuncionario funcionario = new TelaAddFuncionario(usuarioSelecionado,false);
         this.setVisible(false);
         funcionario.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_botaoEditarActionPerformed
+    }                                           
 
     
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton botaoAddFuncionario;
     private javax.swing.JButton botaoDeletar;
     private javax.swing.JButton botaoEditar;
@@ -306,5 +306,5 @@ public class TelaListarFuncionarios extends javax.swing.JFrame {
     private javax.swing.JLabel logo;
     private javax.swing.JTable tabelaUsuario;
     private javax.swing.JTextField textoPesquisar;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }

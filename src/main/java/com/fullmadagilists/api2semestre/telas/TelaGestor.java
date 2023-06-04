@@ -40,6 +40,7 @@ public class TelaGestor extends javax.swing.JFrame {
         funcionarios1 = new javax.swing.JLabel();
         funcionarios2 = new javax.swing.JLabel();
         funcionarios3 = new javax.swing.JLabel();
+        editarSenhaButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 730));
@@ -171,6 +172,14 @@ public class TelaGestor extends javax.swing.JFrame {
         funcionarios3.setText("HORAS EXTRAS");
         getContentPane().add(funcionarios3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
 
+        editarSenhaButton.setText("Editar Senha");
+        editarSenhaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarSenhaButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(editarSenhaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -201,12 +210,20 @@ public class TelaGestor extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botaoApontarHoraExtraActionPerformed
 
+    private void editarSenhaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarSenhaButtonActionPerformed
+        // TODO add your handling code here:
+        TelaAddFuncionario mudarSenha = new TelaAddFuncionario(this.usuario,true);
+        this.setVisible(false);
+        mudarSenha.setVisible(true);
+    }//GEN-LAST:event_editarSenhaButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoApontarHoraExtra;
     private javax.swing.JButton botaoApontarsobreaviso;
     private javax.swing.JButton botaoSair;
     private javax.swing.JButton botaoVerFuncionarios;
+    private javax.swing.JButton editarSenhaButton;
     private javax.swing.JLabel funcionarios;
     private javax.swing.JLabel funcionarios1;
     private javax.swing.JLabel funcionarios2;

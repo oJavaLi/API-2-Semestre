@@ -87,6 +87,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
         icon = new javax.swing.JLabel();
         botaoDeletar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        mudarSenhaButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -211,6 +212,13 @@ public class TelaApontamentos extends javax.swing.JFrame {
             }
         });
 
+        mudarSenhaButton.setText("Mudar senha");
+        mudarSenhaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mudarSenhaButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -231,12 +239,18 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(21, 21, 21)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mudarSenhaButton)
+                .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(7, 7, 7)
+                .addComponent(mudarSenhaButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,6 +298,13 @@ public class TelaApontamentos extends javax.swing.JFrame {
        apontamento.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void mudarSenhaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mudarSenhaButtonActionPerformed
+        // TODO add your handling code here:
+        TelaAddFuncionario mudarSenha = new TelaAddFuncionario(this.usuario,true);
+        this.setVisible(false);
+        mudarSenha.setVisible(true);
+    }//GEN-LAST:event_mudarSenhaButtonActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -298,6 +319,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelnomeuser;
     private javax.swing.JLabel logo;
+    private javax.swing.JButton mudarSenhaButton;
     private javax.swing.JTable tabelaApontamentos;
     // End of variables declaration//GEN-END:variables
 }
