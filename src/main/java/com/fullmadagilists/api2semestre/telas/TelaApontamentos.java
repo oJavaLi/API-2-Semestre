@@ -55,6 +55,11 @@ public class TelaApontamentos extends javax.swing.JFrame {
             String projeto = u.getProjeto();
             String solicitante = u.getSolicitante();
             String cr = u.getCr();
+            Integer gestorMatricula = u.getGestorMatricula();
+            Integer administradorMatricula = u.getAdministradorMatricula();
+
+            String gestorMatriculaStr = (gestorMatricula != null && gestorMatricula == 0) ? "Pendente" : (gestorMatricula != null ? gestorMatricula.toString() : "");
+            String administradorMatriculaStr = (administradorMatricula != null && administradorMatricula == 0) ? "Pendente" : (administradorMatricula != null ? administradorMatricula.toString() : "");
 
             Object[] novoApontamento = new Object[]{
                 u.getData_hora_inicio(),
@@ -63,6 +68,9 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 u.getProjeto(),
                 u.getTotalHoras(),
                 u.getAvaliacaoStatus(),
+                gestorMatriculaStr,
+                administradorMatriculaStr,
+                u.getAvaliacaoJustificativa(),
                 ""
             };
             tabelaModel.addRow(novoApontamento);
@@ -95,11 +103,11 @@ public class TelaApontamentos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ENTRADA", "SAÍDA", "TIPO", "PROJETO", "HORAS APONTADAS", "STATUS "
+                "ENTRADA", "SAÍDA", "TIPO", "PROJETO", "HORAS APONTADAS", "STATUS ", "GESTOR", "ADMIN", "JUSTIFICATIVA"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -116,6 +124,9 @@ public class TelaApontamentos extends javax.swing.JFrame {
             tabelaApontamentos.getColumnModel().getColumn(2).setResizable(false);
             tabelaApontamentos.getColumnModel().getColumn(3).setResizable(false);
             tabelaApontamentos.getColumnModel().getColumn(4).setResizable(false);
+            tabelaApontamentos.getColumnModel().getColumn(6).setResizable(false);
+            tabelaApontamentos.getColumnModel().getColumn(7).setResizable(false);
+            tabelaApontamentos.getColumnModel().getColumn(8).setResizable(false);
         }
 
         botaoApontarHoraExtra.setBackground(new java.awt.Color(49, 117, 185));
