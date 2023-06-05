@@ -27,10 +27,14 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         textSenha.setText(usuarioAEditar.getSenha());
         textMatricula.setText(Integer.toString(usuarioAEditar.getMatricula()));
         textMatricula.setEditable(false);
+        textMatricula.setEnabled(false);
         if(editarSenha==true){
             this.editarSenha = editarSenha;
             textNome.setEditable(false);
+            textNome.setEnabled(false);
             comboBoxCategoria.setEditable(false);
+            comboBoxCategoria.setVisible(false);
+            jLabel6.setVisible(false);
         }
     }
 
