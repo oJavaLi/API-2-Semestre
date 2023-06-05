@@ -250,6 +250,12 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botaoVerParametros, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 510, 110, 50));
+
+        iconAprovarHoras1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconAprovarHoras1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/configuracao.png"))); // NOI18N
+        iconAprovarHoras1.setMaximumSize(new java.awt.Dimension(90, 80));
+        iconAprovarHoras1.setMinimumSize(new java.awt.Dimension(90, 80));
+        iconAprovarHoras1.setPreferredSize(new java.awt.Dimension(90, 80));
         getContentPane().add(iconAprovarHoras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 100, 90));
 
         resultados4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N

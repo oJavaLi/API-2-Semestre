@@ -43,6 +43,29 @@ public class ConexaoBancoDeDados {
         return conexao;
     }
 
+    public static Usuario getUsuarioPorMatricula(int matricula){
+        try{
+            Connection conexao = ConexaoBancoDeDados.conector();
+            String usuariosquery = "select * from login_usuarios where matricula = " + matricula;
+            Statement stmt = conexao.createStatement();
+            ResultSet resultado = stmt.executeQuery(usuariosquery);
+            if (resultado.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setMatricula(resultado.getInt("matricula"));
+                usuario.setNome(resultado.getString("nome"));
+                usuario.setSenha(resultado.getString("senha"));
+                usuario.setCategoria(resultado.getString("categoria"));
+
+                return usuario;
+            } else {
+                return null;
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
     public static List<Usuario> usuarios(){
         List<Usuario> listaUsuarios = new ArrayList<Usuario>();
 
@@ -67,6 +90,7 @@ public class ConexaoBancoDeDados {
 
         return listaUsuarios;
     }
+    
     public static List<Usuario> buscarUsuarioLista(String busca){
         List<Usuario> listaUsuarios = new ArrayList<>();
 

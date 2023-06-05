@@ -63,4 +63,9 @@ CREATE TABLE parametrizacao(
     PRIMARY KEY (verba)
 );
 
-insert into parametrizacao values (3016, 1, 30, 'Sobreaviso');
+insert into parametrizacao values (3016, 1, 30, 'SOBREAVISO - Horas apontadas em SobreAviso');
+insert into parametrizacao values (1601, 1, 75, 'HORA EXTRA DIURNO - As duas primeiras extras trabalhadas são calculadas com 75% (06:00 - 22:00)');
+insert into parametrizacao values (1602, 1, 100, 'HORA EXTRA DIURNO - As demais horas trabalhadas são calculadas com 100% (06:00 - 22:00)');
+insert into parametrizacao values (3000, 1.1429, 75, 'HORA EXTRA NOTURNO - As duas primeiras extras em horario noturno trabalhadas são calculadas com 75% (22:00 - 06:00)');
+insert into parametrizacao values (3001, 1.1429, 100, 'HORA EXTRA NOTURNO - As demais horas extras em horario noturno são calculadas com 100% (22:00 - 06:00)');
+insert into parametrizacao values (1809, 1.1429, 30, 'ADICIONAL NOTURNO - Horas apontadas em Adicional noturno (22:00 - 06:00)');
