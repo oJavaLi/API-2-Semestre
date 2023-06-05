@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.util.List;
@@ -9,6 +10,7 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
+        Autenticacao.inicializar(ConexaoBancoDeDados.usuarios());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -118,39 +120,37 @@ public class Login extends javax.swing.JFrame {
 
         List<Usuario> listaUsuarios = ConexaoBancoDeDados.usuarios();
         String matricula = txtNomeUsuario.getText();
-        int matriculanumero;
-        try{ matriculanumero = Integer.parseInt(matricula);}
-        catch(NumberFormatException e){matriculanumero = 0;}
-
+        int matriculaNumero;
+        try{ matriculaNumero = Integer.parseInt(matricula);}
+        catch(NumberFormatException e){matriculaNumero = 0;}
         String senha = txtSenhaUsuario.getText();
 
-        boolean logado = false;
-        Usuario usuarioLogado = null;
-
-        for(Usuario u: listaUsuarios){
-            if (u.getMatricula() == matriculanumero && u.getSenha().equals(senha)){
-                if(u.getCategoria().equals("gestor") || u.getCategoria().equals("colaborador")){
-                new TelaApontamentos(u).setVisible(true);
-                this.dispose();
-                JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
-                logado = true;
-                usuarioLogado = u;
-            }else if(u.getCategoria().equals("administrador")){
-                this.dispose();
-                JOptionPane.showMessageDialog(null, "Bem vindo(a) " + u.getNome());
-                logado = true;
-                usuarioLogado = u;
-                new TelaAdmin(u).setVisible(true);
-                }
-            }
-        }
-
+        boolean logado = Autenticacao.autenticar(matriculaNumero, senha);
         if(!logado){
             JOptionPane.showMessageDialog(null, "Credenciais inválidas");
         }
 
+        Usuario usuarioLogado = Autenticacao.getUsuarioLogado();
+
+
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, "Bem vindo(a) " + usuarioLogado.getNome());
+        switch (usuarioLogado.getCategoria()) {
+            case "colaborador":
+                new TelaApontamentos().setVisible(true);
+                break;
+            case "gestor":
+                new TelaGestor().setVisible(true);
+                break;
+            case "administrador":
+                new TelaAdmin().setVisible(true);
+                break;
+            default:
+                break;
+        }
+        this.dispose();
     }//GEN-LAST:event_botaoAcessarActionPerformed
-   
+
     private void txtSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaUsuarioActionPerformed

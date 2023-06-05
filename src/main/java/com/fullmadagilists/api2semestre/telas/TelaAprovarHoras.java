@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.awt.Color;
@@ -8,14 +9,12 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class TelaAprovarHoras extends javax.swing.JFrame {
-    private TelaAdmin telaAdmin;
     List<Usuario> listaUsuarios;
     Usuario usuarioSelecionado;
     Usuario usuario;
 
-    public TelaAprovarHoras(TelaAdmin admin, Usuario usuario) {
-        this.usuario = usuario;
-        this.telaAdmin = admin;
+    public TelaAprovarHoras() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -229,14 +228,18 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
         this.setVisible(false);
-        telaAdmin.setVisible(true);
+        if(usuario.getCategoria().equals("gestor")) {
+            new TelaGestor().setVisible(true);
+        } else if (usuario.getCategoria().equals("administrador")) {
+            new TelaAdmin().setVisible(true);
+        }
         this.dispose();
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoListarApontamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListarApontamentosActionPerformed
-        TelaListarApontamentosParaAprovacao tela = new TelaListarApontamentosParaAprovacao(usuario, usuarioSelecionado, this);
         this.setVisible(false);
-        tela.setVisible(true);
+        new TelaListarApontamentosParaAprovacao(usuarioSelecionado).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoListarApontamentosActionPerformed
 
     private void textoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPesquisarActionPerformed

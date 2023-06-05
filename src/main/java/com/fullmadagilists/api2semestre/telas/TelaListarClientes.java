@@ -1,6 +1,7 @@
 
 package com.fullmadagilists.api2semestre.telas;
 
+import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
 import com.fullmadagilists.api2semestre.entidades.Cliente;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
@@ -13,8 +14,8 @@ public class TelaListarClientes extends javax.swing.JFrame {
     Usuario usuario;
     List<Cliente> listaClientes;
 
-    public TelaListarClientes(Usuario usuario) {
-        this.usuario = usuario;
+    public TelaListarClientes() {
+        this.usuario = Autenticacao.getUsuarioLogado();
         initComponents();
         String user = usuario.getNome();
         jLabel2.setText(user);
@@ -56,22 +57,22 @@ public class TelaListarClientes extends javax.swing.JFrame {
         tabelaCliente.setModel(tabelaModel);
     }
         
-     public void buscarCliente(String busca){
+     public void buscarClientes(String busca){
         DefaultTableModel tabelaModel = (DefaultTableModel) tabelaCliente.getModel();
         tabelaModel.setRowCount(0);
         
         
-        List<Usuario> buscarCliente = ConexaoBancoDeDados.buscarUsuarioLista(busca);
+        List<Cliente> buscarCliente = ConexaoBancoDeDados.buscarCliente(busca);
    
-        for (Usuario u: buscarCliente){
-            String nome = u.getNome();
-            String categoria = u.getCategoria();
+        for (Cliente u: buscarCliente){
+            String razao_social = u.getRazaoSocial();
+            String cnpj = u.getCnpj();
 
-            Object[] novoApontamento = new Object[]{
-                nome,
-                categoria
+            Object[] novoCliente = new Object[]{
+                razao_social,
+                cnpj
             };
-            tabelaModel.addRow(novoApontamento);
+            tabelaModel.addRow(novoCliente);
         }
 
         tabelaCliente.setModel(tabelaModel);
@@ -92,6 +93,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaCliente = new javax.swing.JTable();
         botaoVoltar = new javax.swing.JButton();
+        botaoEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -191,6 +193,14 @@ public class TelaListarClientes extends javax.swing.JFrame {
             }
         });
 
+        botaoEditar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoEditar.setText("Editar");
+        botaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -206,9 +216,11 @@ public class TelaListarClientes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botaoAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -224,10 +236,11 @@ public class TelaListarClientes extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(botaoAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -239,36 +252,42 @@ public class TelaListarClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_textoPesquisarActionPerformed
 
     private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
-          buscarCliente(textoPesquisar.getText());
+          buscarClientes(textoPesquisar.getText());
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddClienteActionPerformed
 
-        TelaNovoCliente cliente = new TelaNovoCliente(this.usuario);
+        TelaNovoCliente cliente = new TelaNovoCliente();
         this.setVisible(false);
         cliente.setVisible(true);
     }//GEN-LAST:event_botaoAddClienteActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-
-        TelaAdmin telaAdmin = new TelaAdmin(usuario);
+        TelaAdmin telaAdmin = new TelaAdmin();
         this.setVisible(false);
         telaAdmin.setVisible(true);
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void botaoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletarActionPerformed
-        for (int i: tabelaCliente.getSelectedRows()) {
-            Cliente clienteSelecionado = listaClientes.get(i);
+            Cliente clienteSelecionado = listaClientes.get(tabelaCliente.getSelectedRow());
             ConexaoBancoDeDados.deletarCliente(clienteSelecionado.getCnpj());
-        }
-        carregarClientes();
+            carregarClientes();
     }//GEN-LAST:event_botaoDeletarActionPerformed
+
+    private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+            Cliente clienteSelecionado = listaClientes.get(tabelaCliente.getSelectedRow());
+            TelaNovoCliente editarFuncionario = new TelaNovoCliente(clienteSelecionado);
+            this.setVisible(false);
+            editarFuncionario.setVisible(true);
+        
+    }//GEN-LAST:event_botaoEditarActionPerformed
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAddCliente;
     private javax.swing.JButton botaoDeletar;
+    private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoPesquisar;
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JLabel icon;
