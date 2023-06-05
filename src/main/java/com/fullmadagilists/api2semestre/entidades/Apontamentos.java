@@ -160,4 +160,14 @@ public class Apontamentos {
             return "ERRO";
         }
     }
+    
+    public LocalDateTime getInicio() {
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return LocalDateTime.parse(this.getData_hora_inicio(), formatador);
+    }
+    
+    public LocalDateTime getFim() {
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return LocalDateTime.parse(this.getData_hora_fim(), formatador);
+    }
 }

@@ -38,6 +38,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
     }
 
     public TelaApontarHoraExtra(Apontamentos apontamentoAEditar) {
+        this();
         this.apontamentoAEditar = apontamentoAEditar;
         Date dataE = dataEntrada.getDate();
         Date dataS = dataSaida.getDate();

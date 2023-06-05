@@ -2,6 +2,7 @@ package com.fullmadagilists.api2semestre.telas;
 
 import com.fullmadagilists.api2semestre.comum.Autenticacao;
 import com.fullmadagilists.api2semestre.comum.ConexaoBancoDeDados;
+import com.fullmadagilists.api2semestre.comum.Relatorio;
 import com.fullmadagilists.api2semestre.entidades.Apontamentos;
 import com.fullmadagilists.api2semestre.entidades.Usuario;
 import java.io.File;
@@ -64,20 +65,9 @@ public class TelaNovoRelatorio extends javax.swing.JFrame {
             File arquivo = new File("relatorio_" + usuarioSelecionado.getMatricula() + ".csv");
             FileWriter escritor = new FileWriter(arquivo);
             CSVWriter csvWriter = new CSVWriter(escritor);
-
-            // Escrever o cabeçalho do arquivo
-            String[] cabecalho = {"Solicitante", "Categoria", "Data Hora Inicio", "Data Hora Fim", "Justificativa"};
-            csvWriter.writeNext(cabecalho);
-
-            // Escrever os dados da lista no arquivo
-            for (Apontamentos apontamento : apontamentos) {
-                String[] linha = {
-                    apontamento.getSolicitante(),
-                    apontamento.getCategoria(),
-                    apontamento.getData_hora_inicio(),
-                    apontamento.getData_hora_fim(),
-                    apontamento.getJustificativa()
-                };
+            List<String[]> linhas = Relatorio.gerarRelatorio(apontamentos);
+            
+            for(String[] linha: linhas) {
                 csvWriter.writeNext(linha);
             }
 
