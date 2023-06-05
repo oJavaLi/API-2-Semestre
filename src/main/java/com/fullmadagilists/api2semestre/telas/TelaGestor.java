@@ -42,7 +42,7 @@ public class TelaGestor extends javax.swing.JFrame {
         funcionarios3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 730));
+        setPreferredSize(new java.awt.Dimension(800, 498));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(1, 30, 59));
@@ -99,77 +99,88 @@ public class TelaGestor extends javax.swing.JFrame {
                 botaoSairActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 216, -1));
+        getContentPane().add(botaoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 216, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("FUNCIONÁRIOS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 358, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 250, -1, -1));
 
+        botaoVerFuncionarios.setBackground(new java.awt.Color(153, 204, 255));
+        botaoVerFuncionarios.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         botaoVerFuncionarios.setText("Ver Funcionários");
         botaoVerFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoVerFuncionariosActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoVerFuncionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 130, 50));
+        getContentPane().add(botaoVerFuncionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 130, 50));
 
-        botaoApontarsobreaviso.setText("Apontar Sobreaviso");
+        botaoApontarsobreaviso.setBackground(new java.awt.Color(153, 204, 255));
+        botaoApontarsobreaviso.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        botaoApontarsobreaviso.setText("+ Sobre Aviso");
         botaoApontarsobreaviso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoApontarsobreavisoActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoApontarsobreaviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 420, 140, -1));
+        getContentPane().add(botaoApontarsobreaviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 130, -1));
 
-        botaoApontarHoraExtra.setText("Apontar Hora Extra");
+        botaoApontarHoraExtra.setBackground(new java.awt.Color(153, 204, 255));
+        botaoApontarHoraExtra.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        botaoApontarHoraExtra.setText("+ Hora Extra");
         botaoApontarHoraExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoApontarHoraExtraActionPerformed(evt);
             }
         });
-        getContentPane().add(botaoApontarHoraExtra, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 390, 140, -1));
+        getContentPane().add(botaoApontarHoraExtra, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 130, -1));
 
+        iconAprovarHoras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconAprovarHoras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/apontar.png"))); // NOI18N
-        getContentPane().add(iconAprovarHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 100, 90));
+        getContentPane().add(iconAprovarHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 150, 90));
 
+        resultados2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         resultados2.setForeground(new java.awt.Color(255, 255, 255));
         resultados2.setText("APONTAR HORAS");
-        getContentPane().add(resultados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 360, -1, -1));
+        getContentPane().add(resultados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, -1, -1));
 
         retangulo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/retangulo.png"))); // NOI18N
-        getContentPane().add(retangulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, -1, -1));
+        getContentPane().add(retangulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, -1, -1));
 
+        iconPerson.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconPerson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/users-solid 1.png"))); // NOI18N
-        getContentPane().add(iconPerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
+        getContentPane().add(iconPerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 130, 150, -1));
 
+        funcionarios.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         funcionarios.setForeground(new java.awt.Color(255, 255, 255));
         funcionarios.setText("HORAS EXTRAS");
-        getContentPane().add(funcionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, -1));
+        getContentPane().add(funcionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
 
         retangulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/retangulo.png"))); // NOI18N
-        getContentPane().add(retangulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, -1, -1));
+        getContentPane().add(retangulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
 
         resultados3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         resultados3.setForeground(new java.awt.Color(255, 255, 255));
         resultados3.setText("HORAS EXTRAS");
-        getContentPane().add(resultados3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
+        getContentPane().add(resultados3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, -1, -1));
 
         funcionarios1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         funcionarios1.setForeground(new java.awt.Color(255, 255, 255));
         funcionarios1.setText("HORAS EXTRAS");
-        getContentPane().add(funcionarios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
+        getContentPane().add(funcionarios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
 
         funcionarios2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         funcionarios2.setForeground(new java.awt.Color(255, 255, 255));
         funcionarios2.setText("HORAS EXTRAS");
-        getContentPane().add(funcionarios2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
+        getContentPane().add(funcionarios2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
 
         funcionarios3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         funcionarios3.setForeground(new java.awt.Color(255, 255, 255));
         funcionarios3.setText("HORAS EXTRAS");
-        getContentPane().add(funcionarios3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
+        getContentPane().add(funcionarios3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
 
         pack();
         setLocationRelativeTo(null);

@@ -81,7 +81,7 @@ public class TelaNovoParametro extends javax.swing.JFrame {
                 .addComponent(icon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,23 +100,31 @@ public class TelaNovoParametro extends javax.swing.JFrame {
         );
 
         verbaTextField.setEditable(false);
+        verbaTextField.setBackground(new java.awt.Color(255, 255, 255));
+        verbaTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel12.setText("Verba:");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel13.setText("Horas:");
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        horasTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel14.setText("Porcentagem:");
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        porcentagemTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel15.setText("Descrição:");
 
+        descricaoTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
         botaoSubmeterParametro.setBackground(new java.awt.Color(49, 117, 185));
-        botaoSubmeterParametro.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoSubmeterParametro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoSubmeterParametro.setForeground(new java.awt.Color(255, 255, 255));
-        botaoSubmeterParametro.setText("Submeter Parametros");
+        botaoSubmeterParametro.setText("Submeter Parâmetros");
         botaoSubmeterParametro.setActionCommand("Submeter Parâmetros");
         botaoSubmeterParametro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +133,7 @@ public class TelaNovoParametro extends javax.swing.JFrame {
         });
 
         botaoCancelarParametro.setBackground(new java.awt.Color(46, 44, 45));
-        botaoCancelarParametro.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoCancelarParametro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoCancelarParametro.setForeground(new java.awt.Color(255, 255, 255));
         botaoCancelarParametro.setText("Cancelar");
         botaoCancelarParametro.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +175,7 @@ public class TelaNovoParametro extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -186,11 +194,11 @@ public class TelaNovoParametro extends javax.swing.JFrame {
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(descricaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(botaoSubmeterParametro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botaoCancelarParametro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();

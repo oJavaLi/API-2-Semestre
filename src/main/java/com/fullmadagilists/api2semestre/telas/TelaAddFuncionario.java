@@ -54,7 +54,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(800, 800));
 
         buttonSalvar.setBackground(new java.awt.Color(49, 118, 187));
-        buttonSalvar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        buttonSalvar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         buttonSalvar.setForeground(new java.awt.Color(255, 255, 255));
         buttonSalvar.setText("Salvar");
         buttonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +64,7 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
         });
 
         buttonCancelar.setBackground(new java.awt.Color(46, 44, 45));
-        buttonCancelar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        buttonCancelar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         buttonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         buttonCancelar.setText("Cancelar");
         buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,14 +73,14 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
             }
         });
 
-        textNome.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        textNome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         textNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textNomeActionPerformed(evt);
             }
         });
 
-        comboBoxCategoria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        comboBoxCategoria.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         comboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "gestor", "colaborador" }));
         comboBoxCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,25 +88,25 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
             }
         });
 
-        textMatricula.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        textMatricula.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         textMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textMatriculaActionPerformed(evt);
             }
         });
 
-        textSenha.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        textSenha.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setText("Categoria:");
 
-        jLabel8.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setText("Nome Completo:");
 
-        jLabel9.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setText("Matrícula:");
 
-        jLabel10.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel10.setText("Senha:");
 
         jPanel1.setBackground(new java.awt.Color(1, 30, 59));
@@ -195,15 +195,15 @@ public class TelaAddFuncionario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(textMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(196, 196, 196)
+                .addGap(36, 36, 36)
                 .addComponent(buttonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(buttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95))
+                .addGap(36, 36, 36))
         );
 
         pack();

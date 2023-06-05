@@ -26,7 +26,6 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(800, 650));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -34,34 +33,37 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 800));
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Senha:");
         jLabel1.setMinimumSize(new java.awt.Dimension(69, 20));
 
-        txtNomeUsuario.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        txtNomeUsuario.setPreferredSize(new java.awt.Dimension(480, 60));
+        txtNomeUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtNomeUsuario.setBorder(null);
+        txtNomeUsuario.setPreferredSize(new java.awt.Dimension(480, 44));
         txtNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeUsuarioActionPerformed(evt);
             }
         });
 
-        txtSenhaUsuario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtSenhaUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtSenhaUsuario.setBorder(null);
         txtSenhaUsuario.setMinimumSize(new java.awt.Dimension(480, 60));
-        txtSenhaUsuario.setPreferredSize(new java.awt.Dimension(480, 60));
+        txtSenhaUsuario.setPreferredSize(new java.awt.Dimension(480, 44));
         txtSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSenhaUsuarioActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Usuário:");
         jLabel4.setMinimumSize(new java.awt.Dimension(69, 20));
 
         botaoAcessar.setBackground(new java.awt.Color(153, 204, 255));
+        botaoAcessar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoAcessar.setText("Acessar");
         botaoAcessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,9 +89,9 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(275, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(275, 275, 275))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -97,7 +99,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addComponent(jLabel2)
-                .addGap(49, 49, 49)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(txtNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,12 +107,12 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(botaoAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(70, 70, 70)
+                .addComponent(botaoAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 800));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 610));
 
         pack();
         setLocationRelativeTo(null);
@@ -132,21 +134,20 @@ public class Login extends javax.swing.JFrame {
 
         Usuario usuarioLogado = Autenticacao.getUsuarioLogado();
 
-
         this.setVisible(false);
         JOptionPane.showMessageDialog(null, "Bem vindo(a) " + usuarioLogado.getNome());
         switch (usuarioLogado.getCategoria()) {
             case "colaborador":
-                new TelaApontamentos().setVisible(true);
-                break;
+            new TelaApontamentos().setVisible(true);
+            break;
             case "gestor":
-                new TelaGestor().setVisible(true);
-                break;
+            new TelaGestor().setVisible(true);
+            break;
             case "administrador":
-                new TelaAdmin().setVisible(true);
-                break;
+            new TelaAdmin().setVisible(true);
+            break;
             default:
-                break;
+            break;
         }
         this.dispose();
     }//GEN-LAST:event_botaoAcessarActionPerformed

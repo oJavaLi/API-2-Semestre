@@ -94,30 +94,30 @@ public class TelaNovoCr extends javax.swing.JFrame {
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel12.setText("Código CR:");
 
-        codigoCRTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        codigoCRTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         codigoCRTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codigoCRTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setText("Nome CR:");
 
-        nomeCRTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nomeCRTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         nomeCRTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeCRTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setText("Sigla CR:");
 
-        siglaCRTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        siglaCRTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         siglaCRTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 siglaCRTextFieldActionPerformed(evt);
@@ -125,7 +125,7 @@ public class TelaNovoCr extends javax.swing.JFrame {
         });
 
         botaoSubmeterCR.setBackground(new java.awt.Color(49, 117, 185));
-        botaoSubmeterCR.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoSubmeterCR.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoSubmeterCR.setForeground(new java.awt.Color(255, 255, 255));
         botaoSubmeterCR.setText("Submeter CR");
         botaoSubmeterCR.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +135,7 @@ public class TelaNovoCr extends javax.swing.JFrame {
         });
 
         botaoCancelarCR.setBackground(new java.awt.Color(46, 44, 45));
-        botaoCancelarCR.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoCancelarCR.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoCancelarCR.setForeground(new java.awt.Color(255, 255, 255));
         botaoCancelarCR.setText("Cancelar");
         botaoCancelarCR.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +159,7 @@ public class TelaNovoCr extends javax.swing.JFrame {
                             .addComponent(botaoCancelarCR, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botaoSubmeterCR, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(215, 215, 215)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(siglaCRTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,7 +173,7 @@ public class TelaNovoCr extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel12)
                 .addGap(6, 6, 6)
                 .addComponent(codigoCRTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,11 +185,11 @@ public class TelaNovoCr extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGap(6, 6, 6)
                 .addComponent(siglaCRTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154)
+                .addGap(36, 36, 36)
                 .addComponent(botaoSubmeterCR, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botaoCancelarCR, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();

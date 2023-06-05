@@ -97,7 +97,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        botaoDeletar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoDeletar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deletar.png"))); // NOI18N
         botaoDeletar.setText("Deletar");
         botaoDeletar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +163,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
         });
 
         botaoAddCliente.setBackground(new java.awt.Color(49, 118, 187));
-        botaoAddCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoAddCliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoAddCliente.setForeground(new java.awt.Color(255, 255, 255));
         botaoAddCliente.setText("+ Adicionar Cliente");
         botaoAddCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +184,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaCliente);
 
         botaoVoltar.setBackground(new java.awt.Color(47, 45, 46));
-        botaoVoltar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoVoltar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoVoltar.setForeground(new java.awt.Color(255, 255, 255));
         botaoVoltar.setText("Voltar");
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +193,7 @@ public class TelaListarClientes extends javax.swing.JFrame {
             }
         });
 
-        botaoEditar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoEditar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoEditar.setText("Editar");
         botaoEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,11 +228,11 @@ public class TelaListarClientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +240,8 @@ public class TelaListarClientes extends javax.swing.JFrame {
                         .addComponent(botaoAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();

@@ -126,7 +126,7 @@ public class TelaListarParametrizacao extends javax.swing.JFrame {
                 .addComponent(icon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +165,7 @@ public class TelaListarParametrizacao extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaParametro);
 
         botaoVoltar.setBackground(new java.awt.Color(47, 45, 46));
-        botaoVoltar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoVoltar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoVoltar.setForeground(new java.awt.Color(255, 255, 255));
         botaoVoltar.setText("Voltar");
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +189,9 @@ public class TelaListarParametrizacao extends javax.swing.JFrame {
             }
         });
 
-        botaoEditar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoEditar.setBackground(new java.awt.Color(49, 118, 187));
+        botaoEditar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        botaoEditar.setForeground(new java.awt.Color(242, 242, 242));
         botaoEditar.setText("Editar");
         botaoEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,17 +227,17 @@ public class TelaListarParametrizacao extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botaoPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27))
+                .addGap(18, 18, 18))
         );
 
         pack();

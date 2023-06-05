@@ -125,7 +125,7 @@ public class TelaListarCr extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(logo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(150, 150, 150)
                 .addComponent(icon)
@@ -168,7 +168,7 @@ public class TelaListarCr extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaCR);
 
         botaoApontarCR.setBackground(new java.awt.Color(49, 117, 185));
-        botaoApontarCR.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        botaoApontarCR.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoApontarCR.setForeground(new java.awt.Color(242, 242, 242));
         botaoApontarCR.setText("+ APONTAR CR");
         botaoApontarCR.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +193,7 @@ public class TelaListarCr extends javax.swing.JFrame {
         });
 
         botaoVoltar.setBackground(new java.awt.Color(47, 45, 46));
-        botaoVoltar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoVoltar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoVoltar.setForeground(new java.awt.Color(255, 255, 255));
         botaoVoltar.setText("Voltar");
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -202,7 +202,7 @@ public class TelaListarCr extends javax.swing.JFrame {
             }
         });
 
-        botaoDeletar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoDeletar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deletar.png"))); // NOI18N
         botaoDeletar.setText("Deletar");
         botaoDeletar.addActionListener(new java.awt.event.ActionListener() {
@@ -211,7 +211,7 @@ public class TelaListarCr extends javax.swing.JFrame {
             }
         });
 
-        botaoEditar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoEditar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoEditar.setText("Editar");
         botaoEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,11 +250,11 @@ public class TelaListarCr extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botaoPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -262,7 +262,7 @@ public class TelaListarCr extends javax.swing.JFrame {
                     .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();

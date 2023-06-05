@@ -139,7 +139,7 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
         });
 
         botaoVoltar.setBackground(new java.awt.Color(46, 44, 45));
-        botaoVoltar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoVoltar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoVoltar.setForeground(new java.awt.Color(255, 255, 255));
         botaoVoltar.setText("Voltar");
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +163,7 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaUsuario);
 
         botaoListarApontamentos.setBackground(new java.awt.Color(49, 118, 187));
-        botaoListarApontamentos.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoListarApontamentos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoListarApontamentos.setForeground(new java.awt.Color(255, 255, 255));
         botaoListarApontamentos.setText("Listar Apontamentos");
         botaoListarApontamentos.addActionListener(new java.awt.event.ActionListener() {
@@ -201,7 +201,7 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addComponent(botaoListarApontamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
+                .addGap(80, 80, 80)
                 .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(155, 155, 155))
         );
@@ -209,17 +209,17 @@ public class TelaAprovarHoras extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(textoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisar))
-                .addGap(26, 26, 26)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoListarApontamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();

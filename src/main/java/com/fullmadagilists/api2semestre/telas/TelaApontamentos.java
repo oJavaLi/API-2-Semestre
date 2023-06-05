@@ -89,6 +89,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         tabelaApontamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -119,9 +120,10 @@ public class TelaApontamentos extends javax.swing.JFrame {
         }
 
         botaoApontarHoraExtra.setBackground(new java.awt.Color(49, 117, 185));
-        botaoApontarHoraExtra.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        botaoApontarHoraExtra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoApontarHoraExtra.setForeground(new java.awt.Color(242, 242, 242));
         botaoApontarHoraExtra.setText("+ APONTAR HORA EXTRA");
+        botaoApontarHoraExtra.setBorder(null);
         botaoApontarHoraExtra.setPreferredSize(new java.awt.Dimension(180, 40));
         botaoApontarHoraExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,9 +132,10 @@ public class TelaApontamentos extends javax.swing.JFrame {
         });
 
         botaoApontarSobreaviso.setBackground(new java.awt.Color(49, 117, 185));
-        botaoApontarSobreaviso.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        botaoApontarSobreaviso.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoApontarSobreaviso.setForeground(new java.awt.Color(242, 242, 242));
         botaoApontarSobreaviso.setText("+ APONTAR SOBREAVISO");
+        botaoApontarSobreaviso.setBorder(null);
         botaoApontarSobreaviso.setPreferredSize(new java.awt.Dimension(200, 40));
         botaoApontarSobreaviso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,9 +144,10 @@ public class TelaApontamentos extends javax.swing.JFrame {
         });
 
         botaoSair.setBackground(new java.awt.Color(46, 44, 45));
-        botaoSair.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoSair.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoSair.setForeground(new java.awt.Color(242, 242, 242));
         botaoSair.setText("SAIR");
+        botaoSair.setBorder(null);
         botaoSair.setPreferredSize(new java.awt.Dimension(200, 40));
         botaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +178,7 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(202, 202, 202)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addGap(18, 18, 18)
                 .addComponent(labelnomeuser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,9 +197,10 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        botaoDeletar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoDeletar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deletar.png"))); // NOI18N
         botaoDeletar.setText("Deletar");
+        botaoDeletar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         botaoDeletar.setPreferredSize(new java.awt.Dimension(200, 40));
         botaoDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,8 +208,9 @@ public class TelaApontamentos extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton1.setText("Editar");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -220,14 +226,14 @@ public class TelaApontamentos extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(20, 20, 20)
                     .addComponent(botaoApontarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
+                    .addGap(10, 10, 10)
                     .addComponent(botaoApontarSobreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(10, 10, 10)
                     .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGap(10, 10, 10)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                    .addGap(10, 10, 10)
+                    .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
                     .addGap(21, 21, 21)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -236,16 +242,17 @@ public class TelaApontamentos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoApontarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoApontarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(botaoApontarSobreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();

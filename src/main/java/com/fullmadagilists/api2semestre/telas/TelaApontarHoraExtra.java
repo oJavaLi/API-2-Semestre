@@ -114,36 +114,35 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         justificativaHoraHextraJTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 800));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cliente.png"))); // NOI18N
         jLabel5.setText("Cliente:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto.png"))); // NOI18N
         jLabel6.setText("Projeto:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solicitante.png"))); // NOI18N
         jLabel7.setText("Solicitante:");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mensagem.png"))); // NOI18N
         jLabel8.setText("Justificativa:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr.png"))); // NOI18N
         jLabel9.setText("CR:");
 
-        projetoHoraExtraTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        projetoHoraExtraTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         projetoHoraExtraTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projetoHoraExtraTextFieldActionPerformed(evt);
             }
         });
 
-        solicitanteHoraExtraTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        solicitanteHoraExtraTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         solicitanteHoraExtraTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 solicitanteHoraExtraTextFieldActionPerformed(evt);
@@ -151,7 +150,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         });
 
         botaoSubmeterHoraExtra.setBackground(new java.awt.Color(49, 117, 185));
-        botaoSubmeterHoraExtra.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoSubmeterHoraExtra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoSubmeterHoraExtra.setForeground(new java.awt.Color(255, 255, 255));
         botaoSubmeterHoraExtra.setText("Submeter Hora Extra");
         botaoSubmeterHoraExtra.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +160,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         });
 
         botaoCancelarHoraExtra.setBackground(new java.awt.Color(46, 44, 45));
-        botaoCancelarHoraExtra.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoCancelarHoraExtra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoCancelarHoraExtra.setForeground(new java.awt.Color(255, 255, 255));
         botaoCancelarHoraExtra.setText("Cancelar");
         botaoCancelarHoraExtra.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +192,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(160, 160, 160)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,15 +210,15 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/horario.png"))); // NOI18N
         jLabel3.setText("Saida:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/horario.png"))); // NOI18N
         jLabel4.setText("Entrada:");
 
-        clienteHoraExtraTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clienteHoraExtraTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         clienteHoraExtraTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clienteHoraExtraTextFieldActionPerformed(evt);
@@ -230,7 +229,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
 
         dataSaida.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        crHoraExtraTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        crHoraExtraTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         crHoraExtraTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 crHoraExtraTextFieldActionPerformed(evt);
@@ -238,7 +237,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
         });
 
         justificativaHoraHextraJTextArea.setColumns(20);
-        justificativaHoraHextraJTextArea.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        justificativaHoraHextraJTextArea.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         justificativaHoraHextraJTextArea.setRows(5);
         jScrollPane1.setViewportView(justificativaHoraHextraJTextArea);
 
@@ -284,7 +283,7 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(32, 32, 32)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -318,10 +317,11 @@ public class TelaApontarHoraExtra extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(32, 32, 32)
                 .addComponent(botaoSubmeterHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botaoCancelarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addComponent(botaoCancelarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();

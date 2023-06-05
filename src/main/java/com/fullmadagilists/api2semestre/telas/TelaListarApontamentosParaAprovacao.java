@@ -82,6 +82,7 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         tabelaApontamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,7 +144,7 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(202, 202, 202)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                 .addComponent(icon)
                 .addGap(122, 122, 122))
         );
@@ -158,7 +159,7 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        botaoReprovarHora.setBackground(new java.awt.Color(255, 51, 51));
+        botaoReprovarHora.setBackground(new java.awt.Color(153, 0, 0));
         botaoReprovarHora.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         botaoReprovarHora.setForeground(new java.awt.Color(255, 255, 255));
         botaoReprovarHora.setText("Reprovar Hora");
@@ -169,7 +170,7 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
         });
 
         botaoAprovarHora.setBackground(new java.awt.Color(49, 117, 185));
-        botaoAprovarHora.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoAprovarHora.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoAprovarHora.setForeground(new java.awt.Color(255, 255, 255));
         botaoAprovarHora.setText("Aprovar Hora");
         botaoAprovarHora.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +219,7 @@ public class TelaListarApontamentosParaAprovacao extends javax.swing.JFrame {
                     .addComponent(botaoAprovarHora, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoReprovarHora, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
 
         pack();

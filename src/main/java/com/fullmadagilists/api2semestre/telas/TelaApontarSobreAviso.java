@@ -101,9 +101,12 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         crTextField = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+
+        justificativaSobreavisoTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         botaoSubmeterSobreaviso.setBackground(new java.awt.Color(49, 117, 185));
-        botaoSubmeterSobreaviso.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoSubmeterSobreaviso.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoSubmeterSobreaviso.setForeground(new java.awt.Color(255, 255, 255));
         botaoSubmeterSobreaviso.setText("Submeter Sobreaviso");
         botaoSubmeterSobreaviso.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +116,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
         });
 
         botaoCancelarHoraExtra.setBackground(new java.awt.Color(46, 44, 45));
-        botaoCancelarHoraExtra.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        botaoCancelarHoraExtra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botaoCancelarHoraExtra.setForeground(new java.awt.Color(255, 255, 255));
         botaoCancelarHoraExtra.setText("Cancelar");
         botaoCancelarHoraExtra.addActionListener(new java.awt.event.ActionListener() {
@@ -122,9 +125,10 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setText("Você fez hora extra durante o período de sobreaviso?");
 
+        jRadioButtonSim.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jRadioButtonSim.setText("Sim");
         jRadioButtonSim.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -137,6 +141,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
             }
         });
 
+        jRadioButtonNao.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jRadioButtonNao.setSelected(true);
         jRadioButtonNao.setText("Não");
         jRadioButtonNao.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +150,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
             }
         });
 
+        tabelaHoraExtra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tabelaHoraExtra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -210,37 +216,37 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mensagem.png"))); // NOI18N
         jLabel8.setText("Justificativa:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cr.png"))); // NOI18N
         jLabel9.setText("CR:");
 
-        projetoTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        projetoTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         projetoTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projetoTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/horario.png"))); // NOI18N
         jLabel3.setText("Saida:");
 
-        solicitanteTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        solicitanteTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         solicitanteTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 solicitanteTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/horario.png"))); // NOI18N
         jLabel4.setText("Entrada:");
 
-        clienteTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clienteTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         clienteTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clienteTextFieldActionPerformed(evt);
@@ -251,19 +257,19 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
 
         dataSaida.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cliente.png"))); // NOI18N
         jLabel5.setText("Cliente:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto.png"))); // NOI18N
         jLabel6.setText("Projeto:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solicitante.png"))); // NOI18N
         jLabel7.setText("Solicitante:");
 
-        crTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        crTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         crTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 crTextFieldActionPerformed(evt);
@@ -317,7 +323,7 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -349,11 +355,11 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(projetoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(crTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(17, 17, 17)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(justificativaSobreavisoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel11)
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,11 +367,11 @@ public class TelaApontarSobreAviso extends javax.swing.JFrame {
                     .addComponent(jRadioButtonSim))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(32, 32, 32)
                 .addComponent(botaoSubmeterSobreaviso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(botaoCancelarHoraExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(32, 32, 32))
         );
 
         pack();
