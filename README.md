@@ -152,7 +152,13 @@ https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/2514d808-2caf
 <details>
 <summary><h2> Sprint 4 </h2> <br id=h></summary>
 <br>
-<summary><h2>Demonstração da Aplicação</h2></summary>
+<summary><h2>Desenvolvimento da Sprint</h2></summary>
+ 
+ - Parametrização
+ - Fluxo de Gestor
+ - Geração de Relatórios Discriminando as Verbas
+ - Funcionalidade de alteração de Senha pelo Usuário
+ - Aprovação pelo Gestor e Administrador
 
 
 <summary><h2> Gráfico Burndown </h2></summary>
