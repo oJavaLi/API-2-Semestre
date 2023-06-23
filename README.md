@@ -55,7 +55,7 @@ Datas de Entregas<br id=b>
 - [X]  Sprint 02 - 23/04/2023
 - [X]  Sprint 03 - 14/05/2023
 - [X]  Sprint 04 - 04/06/2023
-- [ ]  Feira de Soluções  - 13/06
+- [X]  Feira de Soluções  - 13/06
 
 <h2>
 Tecnologias Utilizadas<br id=c>
