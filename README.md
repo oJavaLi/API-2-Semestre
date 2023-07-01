@@ -161,6 +161,16 @@ https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/2514d808-2caf
  - Aprovação pelo Gestor e Administrador
 
 
+
+https://github.com/FullMadAgilists/API-2-Semestre/assets/77700346/a4f90164-c63e-4070-b890-502cfbfc98e8
+
+
+
+
+https://github.com/FullMadAgilists/API-2-Semestre/assets/77700346/86798820-f421-4c00-9d0a-216fc3f235f6
+
+
+
 <summary><h2> Gráfico Burndown </h2></summary>
 <img src="https://github.com/FullMadAgilists/API-2-Semestre/assets/107525483/88c35f0a-7b1d-494b-9314-ebd5b2472dc5" alt="Texto alternativo da imagem" style="width: 650px;"/>
 
